@@ -3,12 +3,15 @@ require.config({
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
     jqScrollto:                '../../lib/jquery/jquery.scrollTo',
     jquery:                    '../../lib/jquery/jquery',
-    leaflet:                   '../../lib/leaflet/leaflet-1.2.0/leaflet',
+
+    leaflet:                       'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet',
+    leaflet_style_override_folder: '../../lib/leaflet',
+
     leaflet_edgebuffer:        '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_minimap:           '../../eu/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
     leaflet_zoom_slider:       '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
     leaflet_fullscreen:        '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
-    leaflet_iiif:              '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
+    leaflet_iiif:              '../../lib/leaflet/leaflet-iiif/leaflet-iiif-1.2.1',
     media_iiif_text_processor: '../../eu/media/search-iiif-text-processor',
     leaflet_iiif_eu:           '../../eu/leaflet/eu-leaflet-iiif',
     media_options:             '../../eu/media/media-options/media-options',

@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, Mustache) {
+define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, EuMustacheLoader) {
 
   var channelData = null;
 
@@ -8,17 +8,14 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   function loadAnnotations(){
 
-    var template = $('#js-template-object-data-section');
-
-    if(template.length > 0){
-
-      require(['mustache'], function(){
-        Mustache.tags = ['[[', ']]'];
-        $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
-          if(data){
-            template.after(Mustache.render(template.text(), data));
-          }
-        });
+    if(window.annotationsLater){
+      $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
+        if(data){
+          var templateUrl = 'sections-object-data-section/sections-object-data-section';
+          EuMustacheLoader.loadMustache(templateUrl, function(template, Mustache){
+            $('#annotations').after(Mustache.render(template, data));
+          });
+        }
       });
     }
   }
@@ -40,7 +37,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     var buildHierarchy = function(initialData){
 
-      if(initialData && (initialData.error != null || ! initialData.success )){
+      if(initialData && (initialData.error !== null || ! initialData.success )){
         error(initialData.error);
         return;
       }
@@ -104,13 +101,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           zoom : 8
         });
 
-        var imagePath = require.toUrl('').split('/');
-
+        var imagePath = require.toUrl('leaflet').split('/');
         imagePath.pop();
-        imagePath.pop();
-        imagePath.pop();
-
-        L.Icon.Default.imagePath = imagePath.join('/') + '/lib/leaflet/leaflet-1.2.0/images/';
+        L.Icon.Default.imagePath = imagePath.join('/') + '/images/';
 
         map.addLayer(new L.TileLayer(osmUrl, {
           minZoom : 4,
@@ -130,8 +123,17 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         placeName = placeName ? placeName.toUpperCase() + ' ' : '';
 
         $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
-        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')           + '" type="text/css"/>');
-        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css') + '" type="text/css"/>');
+
+        $.each(
+          [
+            require.toUrl('leaflet') + '.css',
+            require.toUrl('leaflet_style_override_folder') + '/style-overrides.css',
+            require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css')
+          ], function(i, cssPath){
+            $('head').append('<link rel="stylesheet" href="' + cssPath + '" type="text/css"/>');
+          }
+        );
+
       });
     };
 
@@ -179,7 +181,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
       var fnAfterLoad = function(data, totalAvailable){
         if(el.hasClass('more-like-this')){
-          if(data.length == 0 && el.find('ul li').length == 0){
+          if(data.length === 0 && el.find('ul li').length === 0){
             el.closest('.lc').remove();
             return;
           }
@@ -241,7 +243,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       carousel.resolve(mltCarousel);
 
-      if(!ops.total_available || (ops.total_available > 0 && el.find('ul li').length == 0)){
+      if(!ops.total_available || (ops.total_available > 0 && el.find('ul li').length === 0)){
         mltCarousel.loadMore();
       }
     });
@@ -252,6 +254,15 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   // tech-data download handling
 
   var updateTechData = function(e){
+
+    var url = 'licenses-js/licenses-js';
+
+    EuMustacheLoader.loadMustache(url, function(template, Mustache){
+      updateTechDataWithTemplate(e, template, Mustache);
+    });
+  };
+
+  var updateTechDataWithTemplate = function(e, rightsTemplate, Mustache){
     var tgt          = $(e.target);
     var fileInfoData = {'href': '', 'meta': [], 'fmt': ''};
 
@@ -270,7 +281,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     var setFileInfoData = function(href, meta, fmt){
       $('.file-info .file-title').attr('href', href);
       $('.file-info .file-meta li').remove();
-      $('.file-detail .file-type').html(fmt == null ? '' : fmt.indexOf('/')>-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
+      $('.file-detail .file-type').html(!fmt ? '' : fmt.indexOf('/') >-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
       $.each(meta, function(i, ob){
         $('.file-info .file-meta').append('<li>' + ob + '</li>');
       });
@@ -282,7 +293,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     // individual tech-data fields
     var setVal = function(data, writeEl){
       writeEl = $(writeEl);
-      if(writeEl.length==0){
+      if(writeEl.length === 0){
         return false;
       }
       var allFound  = true;
@@ -291,10 +302,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       for(var i=0; i<data.length; i++){
         var val = tgt.data(data[i]['attr']) || data[i]['def'];
         if(val){
-          if(typeof val == 'string' || typeof val == 'number'){
+          if(typeof val === 'string' || typeof val === 'number'){
             allConcat += val + ' ';
           }
-          if(typeof val == 'object'){
+          if(typeof val === 'object'){
             allConcat = val.model;
           }
           if(!data[i]['label']){
@@ -306,19 +317,18 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         }
       }
       if(allFound){
-        if(data[0].toDataAttr != null){
+        if(data[0].toDataAttr){
           writeEl.data(data[0].toDataAttr, allConcat);
         }
         else{
-          var templateId = writeEl.data('mustache');
+          writeEl.next('.val').empty();
+          var useTemplate = writeEl.hasClass('tech-meta-edm-rights');
           writeEl.next('.val').empty();
 
-          if(templateId){
-            var template = $(templateId).text();
+          if(useTemplate){
             var model    = allConcat;
 
-            Mustache.tags = ['[[', ']]'];
-            var rendered = Mustache.render(template, model);
+            var rendered = Mustache.render(rightsTemplate, model);
             writeEl.next('.val').html(rendered);
           }
           else{
@@ -328,7 +338,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         }
       }
       else{
-        if(data[0].toDataAttr == null){
+        if(data[0].toDataAttr === null){
           writeEl.next('.val').empty();
           writeEl.closest('li').addClass('is-disabled');
         }
@@ -339,7 +349,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     var somethingGotSet = setVal(
       [{attr: 'file-size'},
-       {attr: 'file-unit', label: true}],  '.tech-meta-filesize')
+        {attr: 'file-unit', label: true}],  '.tech-meta-filesize')
        | setVal(
          [ {attr: 'runtime'},
            {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
@@ -367,7 +377,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
        | setVal(
          [ {attr: 'edm-rights'}], '.tech-meta-edm-rights');
 
-    if($('.object-techdata-list li:not(.is-disabled)').length == 0){
+    if($('.object-techdata-list li:not(.is-disabled)').length === 0){
       techData.removeClass('is-expanded');
       techData.hide();
     }
@@ -486,7 +496,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   };
 
   var channelCheck = function(){
-    if(typeof(Storage) == 'undefined') {
+    if(typeof(Storage) === 'undefined') {
       log('no storage');
     }
     else {
@@ -496,7 +506,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       var name  = sessionStorage.eu_portal_channel_name;
       var url   = sessionStorage.eu_portal_channel_url;
 
-      if(typeof url != 'undefined' && url != 'undefined' ){
+      if(typeof url !== 'undefined' && url !== 'undefined' ){
         var crumb = $('.breadcrumbs li.js-channel');
         var link  = crumb.find('a');
         link.text(label);
@@ -506,7 +516,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       // menu styling
 
-      if(name && name != 'undefined'){
+      if(name && name !== 'undefined'){
         $('#main-menu ul a').each(function(i, ob){
           var $ob  = $(ob);
           var href = $ob.attr('href');
@@ -523,7 +533,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         dimension: 'dimension1'
       };
 
-      if(typeof ugcEnabledCollections != 'undefined' && ugcEnabledCollections.indexOf(name) > -1){
+      if(typeof ugcEnabledCollections !== 'undefined' && ugcEnabledCollections.indexOf(name) > -1){
         require(['e7a_1418'], function(e7a1418){
           e7a1418.initPageInvisible();
         });
@@ -604,10 +614,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       if(!allDimensionData[dimensionName]){
         gaDimensions.each(function(j, ob){
-          if( $(ob).data('ga-metric') == dimensionName ){
+          if( $(ob).data('ga-metric') === dimensionName ){
             var value = $(ob).text();
-            if(dimensionName == 'dimension5'){
-              if(value.indexOf('http') == 0 ){
+            if(dimensionName === 'dimension5'){
+              if(value.indexOf('http') === 0 ){
                 dimensionData.push( value );
               }
             }
@@ -777,11 +787,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     updateTechData({target:$('.single-item-thumb a')[0]});
 
-    if(channelData == null){
+    if(channelData === null){
       channelCheck();
     }
     // set preferred search
-    var preferredResultCount = (typeof(Storage) == 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
+    var preferredResultCount = (typeof(Storage) === 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
     if(preferredResultCount){
       $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
     }

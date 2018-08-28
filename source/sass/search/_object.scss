@@ -1,5 +1,5 @@
-@import 'mlt';
-@import 'eu-foldable';
+@import "mlt";
+@import "eu-foldable";
 
 .search-object{
   margin-bottom: 0;
@@ -171,7 +171,7 @@
   &.loading::after{
     background-color: rgba(0, 0, 0, 0.5);
     color:      #fff;
-    content:    ' ';
+    content:    " ";
     height:     100%;
     left:       0;
     position:   absolute;
@@ -559,7 +559,7 @@
   .label{
     font-weight: bold;
     &::after{
-      content: ':';
+      content: ":";
     }
   }
 }
@@ -601,7 +601,7 @@
   .file-meta .label{
     font-weight: bold;
     &::after{
-      content: ': ';
+      content: ": ";
     }
   }
 }
@@ -618,11 +618,6 @@
 .object-downloads.is-expanded + .object-techdata.is-expanded{
   border-top: 1px solid $gray87;
   margin-top: $space;
-}
-
-#molecules-components-search-search-listitem-js,
-#molecules-icons-licenses-js{
-  display: none;
 }
 
 .original_context{
@@ -982,12 +977,12 @@
 
         &::before {
           bottom:   1px;
-          content: '...';
+          content: "...";
         }
 
         &::after {
           background: #ffffff;
-          content:    ' ';
+          content:    " ";
           height:     1.6em;
           width:      1em;
         }

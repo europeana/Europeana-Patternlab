@@ -7,6 +7,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
   var basePath     = 'base/js/unit-tests/fixtures/util';
   var basePathJSON = '/base/js/unit-tests/fixture-data/util/';
   var conf;
+  var templateMarkup;
 
   describe('Eu Promo Loader', function(){
 
@@ -51,17 +52,18 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
           'firstIfMissing': 'next'
         }
       ];
+      templateMarkup = $($('#template-markup')[0].outerHTML);
     });
 
     it('builds html from ajax-loaded card data', function(done){
-      PromoLoader.load(conf, function(markup){
+      PromoLoader.load(conf, templateMarkup, function(markup){
         expect(markup.find('h2').length).not.toBeLessThan(conf.length);
         done();
       });
     });
 
     it('renders the card multiple times when supplied with an array', function(done){
-      PromoLoader.load(conf, function(markup){
+      PromoLoader.load(conf, templateMarkup, function(markup){
         expect(markup.find('h2.promo-generic').length).toBe(2);
         done();
       });
@@ -72,7 +74,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
       var testText      = 'ENTITIY-PRELOADED';
       conf[0].preloaded = { 'title': testText };
 
-      PromoLoader.load(conf, function(markup){
+      PromoLoader.load(conf, templateMarkup, function(markup){
         expect(markup.find('h2:first').text()).toEqual(testText);
         done();
       });
@@ -91,7 +93,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
         });
       };
 
-      PromoLoader.load(conf, function(markup){
+      PromoLoader.load(conf, templateMarkup, function(markup){
 
         var origTextFirstItem = $('h2:first').text();
         var origTextLastItem  = $('h2:last').text();
@@ -101,7 +103,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
         // backwards
         conf.reverse();
 
-        PromoLoader.load(conf, function(markup){
+        PromoLoader.load(conf, templateMarkup, function(markup){
 
           var textFirstItem = $('h2:first').text();
           var textLastItem  = $('h2:last').text();
@@ -113,7 +115,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
           // with items missing
           conf = conf.splice(2, 2);
 
-          PromoLoader.load(conf, function(markup){
+          PromoLoader.load(conf, templateMarkup, function(markup){
             confirmInSync(markup, conf);
             done();
           });
@@ -125,7 +127,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
 
       conf.shift();
 
-      PromoLoader.load(conf, function(markup){
+      PromoLoader.load(conf, templateMarkup, function(markup){
         expect(markup.find('h2:first').text()).toEqual('previous');
         done();
       });
@@ -139,7 +141,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
         conf[0].url       = false;
         conf[0].preloaded = false;
 
-        PromoLoader.load(conf, function(markup){
+        PromoLoader.load(conf, templateMarkup, function(markup){
           expect(markup.find('h2').length).toEqual(0);
           done();
         });
@@ -151,8 +153,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
         conf         = [conf[1]];
         conf[0].url  = errorUrl;
 
-        PromoLoader.load(conf, function(markup){
-          console.log('markup = ' + markup.contents());
+        PromoLoader.load(conf, templateMarkup, function(markup){
           expect(markup.is(':empty')).toBe(true);
           done();
         });

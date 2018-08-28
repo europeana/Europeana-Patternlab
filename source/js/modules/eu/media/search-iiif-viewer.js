@@ -616,6 +616,10 @@ define(['jquery', 'util_resize'], function($){
     // @searchData (optional) = [searchMatches, searchTermLength]
     $.getJSON(annotationsUrl).done(function(data){
 
+      if(!data || !data.resources){
+        return;
+      }
+
       require(['media_iiif_text_processor'], function(textProcessor){
 
         textProcessor.init(pnlTranscriptions, iiif.minMaxRatio, config.searchTerm);
@@ -670,8 +674,15 @@ define(['jquery', 'util_resize'], function($){
   return {
     init: function(manifestUrl, conf) {
 
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')   + '" type="text/css"/>');
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css') + '" type="text/css"/>');
+      $.each(
+        [
+          require.toUrl('leaflet') + '.css',
+          require.toUrl('leaflet_style_override_folder') + '/style-overrides.css',
+          require.toUrl('../../lib/leaflet/leaflet-iiif/iiif.css')
+        ], function(i, cssPath){
+          $('head').append('<link rel="stylesheet" href="' + cssPath + '" type="text/css"/>');
+        }
+      );
 
       config = $.extend({
         transcriptions: false,

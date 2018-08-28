@@ -93,11 +93,7 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     }
 
     $.getJSON(this.ops.loadUrl + paramString).done(function(data){
-
       require(['mustache'], function(Mustache){
-
-        Mustache.tags = ['[[', ']]'];
-
         $.each(data, function(i, datum){
           var html = Mustache.render(template, datum);
           itemContainer.children().eq(loadOffset + i).replaceWith(html);

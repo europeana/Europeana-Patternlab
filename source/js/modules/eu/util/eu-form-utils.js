@@ -42,10 +42,10 @@ define(['jquery'], function($){
         var $ref = $('#' + ref);
 
         if($ref.length > 0){
-          if($ref.attr('type').toUpperCase()=='CHECKBOX'){
+          if($ref.attr('type').toUpperCase() === 'CHECKBOX'){
             return $ref.is(':checked') ? 1 : -1;
           }
-          else if($ref.attr('type').toUpperCase()=='RADIO'){
+          else if($ref.attr('type').toUpperCase() === 'RADIO'){
             return $('[name="' + $ref.attr('name') + '"]:checked').val();
           }
           return $ref.val() ? 1 : -1;
@@ -63,7 +63,7 @@ define(['jquery'], function($){
         var $this     = $(this);
         var ovverride = evalOverride($this);
 
-        if(ovverride == 1){
+        if(ovverride === 1){
           $this.removeClass('enabled');
           $this.find(':input').prop('disabled', true);
         }
@@ -159,13 +159,13 @@ define(['jquery'], function($){
 
     var type  = $el.attr('type') || '';
 
-    if(type.toUpperCase()=='CHECKBOX'){
+    if(type.toUpperCase() === 'CHECKBOX'){
       return $el.is(':checked');
     }
-    else if(type.toUpperCase()=='RADIO'){
+    else if(type.toUpperCase() === 'RADIO'){
 
       var checked = $('[name="' + $el.attr('name') + '"]:checked');
-      return checked.length == 0 ? false : checked.val();
+      return checked.length === 0 ? false : checked.val();
     }
     else{
       return $el.val() && $el.val().length > 0;
@@ -221,7 +221,8 @@ define(['jquery'], function($){
       var classBelowMinItems = 'array-fields-below-min-items';
 
       var decodeHtml = function(input){
-        return $('<textarea/>').html(input).text();
+        var res = $('<textarea/>').html(input).text();
+        return res.replace(/\[\[\[/g, '{{{').replace(/\[\[/g, '{{').replace(/\]\]\]/g, '}}}').replace(/\]\]/g, '}}');
       };
 
       var getInsertIndex = function($list){
@@ -230,7 +231,7 @@ define(['jquery'], function($){
         var $items = $list.find('li');
 
         $items.each(function(i, item){
-          if($(item).data('index') != i){
+          if($(item).data('index') !== i){
             result = i;
             return false;
           }
@@ -249,8 +250,6 @@ define(['jquery'], function($){
       };
 
       require(['mustache'], function(Mustache){
-
-        Mustache.tags = ['[[', ']]'];
 
         templates.each(function(){
 

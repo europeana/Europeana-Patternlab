@@ -1,5 +1,5 @@
 <div class="helpbar">
-  <p class="helpbar-tip">{{{i18n.site.object.helpbar-tip}}}</p>
+  <p class="helpbar-tip">{{#content.helpbar_tip}}{{{.}}}{{/content.helpbar_tip}}{{^content.helpbar_tip}}{{{i18n.site.helpbar-tip.item-page}}}{{/content.helpbar_tip}}</p>
   {{#tutorial}}
     <a class="helpbar-video" href="{{url}}">{{text}}</a>
   {{/tutorial}}

@@ -11,27 +11,23 @@ require.config({
 });
 
 
-require(['jquery'], function($){
+require(['jquery'], function(){
   require(['eu_autocomplete', 'util_resize', 'eu_mock_ajax'], function(Autocomplete){
-
-    function log(msg){
-      console.log('Test autocomplete: ' + msg);
-    }
 
     // example 1
 
     Autocomplete.init({
       selInput         : '#example-1',
       url              : 'demo_autocomplete',
-      itemTemplateText : '<li data-term="[[text]]"><span>[[text]]</span></li>'
+      itemTemplateText : '<li data-term="{{text}}"><span>{{text}}</span></li>'
     });
 
     // example 2
 
     Autocomplete.init({
-      fnPreProcess     : function(term, data, ops){
+      fnPreProcess     : function(term, data){
         var escapeRegExp = function(str){
-          return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+          return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
         };
         var re = new RegExp('\\b' + escapeRegExp(term), 'i');
         for(var i=0; i<data.length; i++){
@@ -43,7 +39,7 @@ require(['jquery'], function($){
         }
         return data;
       },
-      itemTemplateText : '<li data-term="[[text]]"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
+      itemTemplateText : '<li data-term="{{text}}"><span>{{textPreMatch}}<span class="match"><b>{{textMatch}}</b></span>{{textPostMatch}}</span></li>',
       selInput         : '#example-2',
       url              : 'demo_autocomplete',
     });
@@ -53,10 +49,9 @@ require(['jquery'], function($){
     Autocomplete.init({
       selInput         : '#example-3',
       url              : 'demo_autocomplete',
-      scrollPolicyFixed: true, 
-      itemTemplateText : '<li data-term="[[text]]"><span>[[text]]</span></li>'
+      scrollPolicyFixed: true,
+      itemTemplateText : '<li data-term="{{text}}"><span>{{text}}</span></li>'
     });
-
 
   });
 

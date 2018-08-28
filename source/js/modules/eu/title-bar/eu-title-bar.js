@@ -13,26 +13,30 @@ define(['jquery', 'util_scroll'], function($){
 
   function EuTitleBar(conf){
 
-    $(conf.markup).appendTo(conf.$container);
-    var detectionEl = conf.$detectionElement.get(0);
+    var self  = this;
+    self.conf = conf;
 
-    var test = function(){
-      if(elementIsInViewport(detectionEl, conf.$container.height())){
-        $('.title-bar').removeClass('show');
-      }
-      else{
-        $('.title-bar').addClass('show');
-      }
-    };
+    $(conf.markup).appendTo(conf.$container);
+    self.detectionEl = conf.$detectionElement.get(0);
+
     $(window).europeanaScroll(function(){
-      test();
+      self.test();
     });
-    test();
+    self.test();
   }
+
+  EuTitleBar.prototype.test = function(){
+    if(elementIsInViewport(this.detectionEl, this.conf.$container.height())){
+      $('.title-bar').removeClass('show');
+    }
+    else{
+      $('.title-bar').addClass('show');
+    }
+  };
 
   return {
     init : function(conf){
-      new EuTitleBar(conf);
+      return new EuTitleBar(conf);
     },
     elementIsInViewport: elementIsInViewport
   };

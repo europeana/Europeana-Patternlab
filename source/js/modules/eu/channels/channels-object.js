@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, EuMediaOptions, Mustache) {
+define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'util_foldable', 'blacklight'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader) {
 
   var channelData     = null;
   var suggestions     = null;
@@ -51,7 +51,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
       $.each(Object.keys(edmRights.model), function(){
         attrs[this] = edmRights.model[this];
-        console.log(this + ' = ' + edmRights.model[this]);
       });
     }
 
@@ -60,30 +59,75 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       attrs['data-mime-type-brief'] = split.length > 0 ? split[1] : split[0];
     }
 
-    require(['mustache'], function(Mustache){
+    var loadModals = function(){
 
-      Mustache.tags = ['[[', ']]'];
+      var stateRemember = ['.modal-header', '.channel-object-media-actions', '.modal-rights', '.modal-download', '.modal-share'];
+      var stateRestore  = null;
 
-      var templateH = $('#template-modal-header-js');
-      var htmlH     = Mustache.render(templateH.text(), attrs);
+      if($('.action-modal:visible').length > 0){
 
-      var templateD = $('#template-modal-download-js');
-      var htmlD     = Mustache.render(templateD.text(), attrs);
+        stateRestore = [];
 
-      var templateR = $('#template-modal-rights-js');
-      var htmlR     = Mustache.render(templateR.text(), attrs);
+        $.each(stateRemember, function(i, ob){
+          if($(ob + ':visible').length > 0){
+            stateRestore.push(ob);
+          }
+        });
+      }
 
-      $('.modal-download').remove();
-      $('.modal-rights').remove();
-      $('.modal-header').remove();
+      EuMustacheLoader.loadMustacheAndRender('modal-download/modal-download', attrs, function(htmlD){
 
-      $('.channel-object-media-actions').before(htmlH);
-      templateD.after(htmlD);
-      templateR.after(htmlR);
+        $('.modal-download').remove();
 
-      $('#page-url-input').val(window.location.href);
-      $('.channel-object-media-actions').removeClass('js-hidden');
-    });
+        $('.channel-object-media-actions').after(htmlD);
+
+        $('.modal-rights:not(.inheritable-rights)').remove();
+        $('.modal-rights.inheritable-license').addClass('js-hidden');
+
+        var loadingDone = function(){
+
+          $('#page-url-input').val(window.location.href);
+
+          if(stateRestore){
+            $.each(stateRestore, function(i, ob){
+              $(ob).removeClass('js-hidden');
+            });
+          }
+        };
+
+        $('.object-license:not(.inheritable-license)').remove();
+
+        if(edmRights && edmRights.model){
+
+          EuMustacheLoader.loadMustacheAndRender('modal-rights/modal-rights', attrs, function(htmlR){
+
+            $('.channel-object-media-actions').after(htmlR);
+
+            EuMustacheLoader.loadMustacheAndRender('modal-rights-inheritable/modal-rights-inheritable', edmRights.model, function(htmlRights){
+              $('.object-license').after(htmlRights).addClass('js-hidden');
+            });
+            loadingDone();
+            $('.modal-rights.inheritable-rights').addClass('js-hidden');
+          });
+        }
+        else{
+          $('.object-license.inheritable-license').removeClass('js-hidden');
+          $('.modal-rights.inheritable-license').removeClass('js-hidden');
+          loadingDone();
+        }
+      });
+    };
+
+    if($('.modal-header').length === 0){
+      EuMustacheLoader.loadMustacheAndRender('modal-header/modal-header', attrs, function(htmlH){
+        $('.channel-object-media-actions').before(htmlH);
+        $('.modal-header').append($('.object-origin').clone());
+        loadModals();
+      });
+    }
+    else{
+      loadModals();
+    }
   }
 
   function initTitleBar(cb){
@@ -100,9 +144,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   function actionCtrlClick(modal){
     if(modal){
-      $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
-      $(modal).removeClass('js-hidden');
-      $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
+      if(modal === '.modal-rights'){
+        $('.action-ctrl.object-rights').click();
+      }
+      else{
+        $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
+        $(modal).removeClass('js-hidden');
+        $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
+      }
     }
   }
 
@@ -401,7 +450,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       $('.action-modal').addClass('js-hidden');
       $('.channel-object-media-actions').addClass('js-hidden');
 
-      $('.modal-rights').removeClass('js-hidden');
+      var nonDefaultRights = $('.modal-rights:not(.inheritable-rights)');
+      if(nonDefaultRights.length > 0){
+        nonDefaultRights.removeClass('js-hidden');
+      }
+      else{
+        $('.modal-rights').removeClass('js-hidden');
+      }
+
       $('.modal-header').attr('class', 'modal-header rights');
     });
 
@@ -413,10 +469,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     $(document).on('click', '.media-modal-close', function(e){
       $(e.target).closest('.action-modal').addClass('js-hidden');
-      $('.modal-header').attr('class', 'modal-header none');
+      $('.modal-header').addClass('js-hidden');
       $('.channel-object-media-actions').removeClass('js-hidden');
     });
-
   }
 
   function initMedia(index){
@@ -548,7 +603,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       $('.object-details').removeClass('locked');
 
       // if(!isStacked(omv, '.media-poster, .channel-object-media-nav')){
-      //  $('.zoomable').css('width', '400px');
+      //  $('.zoomable').css('width', minWidthMedia + 'px');
       // }
 
       if(item.data('natural-width')){
@@ -655,31 +710,31 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       removeOldMedia();
       setZoom();
 
-      require(['media_viewer_videojs', 'mustache'], function(player, Mustache) {
+      require(['media_viewer_videojs'], function(player) {
 
         audioPlayer = player;
 
-        var template  = $('#template-audio');
-        var html      = Mustache.render(template.text(), {});
+        EuMustacheLoader.loadMustache('media-audio/media-audio', function(html){
 
-        $('.object-media-audio').remove();
-        $('.zoomable').append(html);
+          $('.object-media-audio').remove();
+          $('.zoomable').append(html);
 
-        var media = {
-          url:       uri,
-          data_type: type,
-          mime_type: mimeType,
-          thumbnail: thumbnail,
-          height:    ((typeof thumbnail === 'undefined' || !thumbnail) ? '70' : minWidthMedia) + 'px'
-        };
+          var media = {
+            url:       uri,
+            data_type: type,
+            mime_type: mimeType,
+            thumbnail: thumbnail,
+            height:    ((typeof thumbnail === 'undefined' || !thumbnail) ? '70' : minWidthMedia) + 'px'
+          };
 
-        if(media.url && media.mime_type){
-          player.init(media);
-        }
-        else{
-          console.log('invalid audio:\n\t' + JSON.stringify(media, null));
-        }
-        resetZoomable();
+          if(media.url && media.mime_type){
+            player.init(media);
+          }
+          else{
+            console.log('invalid audio:\n\t' + JSON.stringify(media, null));
+          }
+          resetZoomable();
+        });
       });
     }
     else if(type === 'video'){
@@ -688,41 +743,48 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       setZoomedLock();
       resetZoomable();
 
-      $('.zoomable').append($('.object-media-video'));
-      $('.object-media-video').removeClass('is-hidden');
+      EuMustacheLoader.loadMustacheAndRender('media-video/media-video', {'video': true}, function(html){
 
-      require(['media_viewer_videojs'], function(player){
+        $('.zoomable').append(html);
+        $('.object-media-video').removeClass('is-hidden');
 
-        videoPlayer = player;
-        var media = {
-          url:       uri,
-          data_type: type,
-          mime_type: mimeType,
-          thumbnail: thumbnail,
-          height:    minWidthMedia + 'px'
-        };
+        require(['media_viewer_videojs'], function(player){
 
-        if(media.url && media.mime_type){
-          videoPlayer.init(media);
-        }
+          videoPlayer = player;
+          var media = {
+            url:       uri,
+            data_type: type,
+            mime_type: mimeType,
+            thumbnail: thumbnail,
+            height:    minWidthMedia + 'px'
+          };
 
+          if(media.url && media.mime_type){
+            videoPlayer.init(media);
+          }
+
+        });
       });
     }
     else if(type === 'oembed'){
 
       removeOldMedia();
-      $('.zoomable').append($('.object-media-oembed')[0].outerHTML);
 
-      var container = $('.zoomable .object-media-oembed').removeClass('is-hidden');
-      var html      = unescape(item.data('html'));
+      EuMustacheLoader.loadMustacheAndRender('media-oembed/media-oembed', {}, function(html){
 
-      setZoomedLock();
-      updateCtrls();
-      resetZoomable();
+        $('.zoomable').append(html);
+        var container = $('.zoomable .object-media-oembed').removeClass('is-hidden');
 
-      require(['media_player_oembed'], function(viewer){
-        viewer.init(container, html);
+        setZoomedLock();
+        updateCtrls();
+        resetZoomable();
+
+        require(['media_player_oembed'], function(viewer){
+          viewer.init(container, unescape(item.data('html')));
+        });
+
       });
+
     }
     else if(type === 'pdf'){
 
@@ -734,15 +796,33 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       require(['pdfjs'], function(){
         require(['pdf_lang'], function(){
           require(['media_viewer_pdf'], function(viewer){
-            $('.zoomable').append($('.object-media-pdf'));
-            $('.object-media-pdf').removeClass('is-hidden');
-            if(!viewerPDF){
-              viewerPDF = viewer;
+
+            var elPDF = $('.object-media-pdf');
+
+            var doWhenMarkupLoaded = function(){
+
+              elPDF.removeClass('is-hidden');
+
+              if(!viewerPDF){
+                viewerPDF = viewer;
+              }
+              else{
+                viewerPDF.show();
+              }
+              viewerPDF.init(uri);
+            };
+
+            if(elPDF.length > 0){
+              $('.zoomable').append(elPDF);
+              doWhenMarkupLoaded();
             }
             else{
-              viewerPDF.show();
+              EuMustacheLoader.loadMustache('media-pdf/media-pdf', function(html){
+                $('.zoomable').append(html);
+                elPDF = $('.object-media-pdf');
+                doWhenMarkupLoaded();
+              });
             }
-            viewerPDF.init(uri);
           });
         });
       });
@@ -760,7 +840,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       $('.media-download').removeAttr('href');
       $('.media-download').addClass('disabled');
     }
-
   }
 
   function initActionBar(){
@@ -776,45 +855,26 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     });
   }
 
-  /** initEntity
-  /* init entities, which means:
-  /* - sorting the list
-  /* - display list
-  /* - and add images from json
-  */
   function initEntity() {
-    var nonEu = '';
-    $('.channel-object-creators .channel-object-viewmore').each(function() {
-      if ($(this).find('[data-deref]').length === 0) {
-        nonEu += $(this).text().trim() + ', ';
-        $(this).remove();
-      }
-    });
-    $('<div>' + nonEu.slice(0, -2) + '</div>').appendTo($('.channel-object-creators'));
 
-    $('.channel-object-creators').show();
-    getEntityDepiction();
-  }
-
-  /** getEntityDepiction
-  /* get depicition for entities that have one
-  */
-  function getEntityDepiction () {
     $('.channel-object-viewmore [data-deref]').each(function() {
+
       var dRef = $(this);
       var url  = dRef.data('deref');
-      var req = new XMLHttpRequest();
+      var req  = new XMLHttpRequest();
 
       req.onreadystatechange = function() {
         if(req.readyState === 4){
-          log('redirect from\n\t' + url + '\nto:\n\t' + req.responseURL);
-          $.getJSON(req.responseURL).done(function(data) {
+          $.getJSON(req.responseURL.indexOf('.json') > -1 ? req.responseURL : url).done(function(data) {
+
             var depiction = data.api_response.depiction ? data.api_response.depiction.id ? data.api_response.depiction.id : false : false;
+            var imageEl   = dRef.find('.viewmore-image');
+
             if(depiction){
-              dRef.find('.viewmore-image').css('background-image', 'url("' + depiction + '")');
+              imageEl.css('background-image', 'url("' + depiction + '")');
             }
             else{
-              dRef.find('.viewmore-image').remove();
+              imageEl.remove();
             }
           });
         }
@@ -899,21 +959,21 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   function loadAnnotations(){
 
-    var template = $('#js-template-object-data-section');
-
-    if(template.length > 0){
-      require(['mustache'], function(){
-        Mustache.tags = ['[[', ']]'];
-        $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
-          if(data){
-            data.extended_information = true;
-            data.id = 'annotations';
-            template.after(Mustache.render(template.text(), data));
-          }
+    if(window.annotationsLater){
+      $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
+        if(data){
+          data.extended_information = true;
+          data.id                   = 'annotations';
+          EuMustacheLoader.loadMustacheAndRender('sections-object-data-section/sections-object-data-section', data, function(html){
+            $('#annotations').after(html);
+            initExtendedInformation(true);
+          });
+        }
+        else{
           initExtendedInformation(true);
-        }).error(function(){
-          initExtendedInformation(true);
-        });
+        }
+      }).error(function(){
+        initExtendedInformation(true);
       });
     }
     else{
@@ -983,7 +1043,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   function showMap(data){
 
     var initLeaflet = function(longitudes, latitudes, labels){
+
       log('initLeaflet:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes));
+
       var mapInfoId = 'map-info';
       var placeName = $('#js-map-place-name').text();
 
@@ -1002,12 +1064,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
           zoom : 8
         });
 
-        var imagePath = require.toUrl('').split('/');
-
+        var imagePath = require.toUrl('leaflet').split('/');
         imagePath.pop();
-        imagePath.pop();
-        imagePath.pop();
-        L.Icon.Default.imagePath = imagePath.join('/') + '/lib/leaflet/leaflet-1.2.0/images/';
+        L.Icon.Default.imagePath = imagePath.join('/') + '/images/';
 
         map.addLayer(new L.TileLayer(osmUrl, {
           minZoom : 4,
@@ -1027,8 +1086,16 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
         placeName = placeName ? placeName.toUpperCase() + ' ' : '';
 
         $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
-        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')           + '" type="text/css"/>');
-        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css') + '" type="text/css"/>');
+
+        $.each(
+          [
+            require.toUrl('leaflet') + '.css',
+            require.toUrl('leaflet_style_override_folder') + '/style-overrides.css',
+            require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css')
+          ], function(i, cssPath){
+            $('head').append('<link rel="stylesheet" href="' + cssPath + '" type="text/css"/>');
+          }
+        );
 
       });
     };
@@ -1341,40 +1408,53 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
         });
       }
 
-      PromoLoader.load(promoConf, function(markup){
-
+      if(promoConf.length === 0){
         $('.collections-promo-item-preload').remove();
+        console.log('no promos to load');
+        return;
+      }
 
-        if(markup && markup.length > 0){
+      EuMustacheLoader.loadMustache('cho-promotions/cho-promotions', function(templateMarkup){
 
-          markup.addClass('collections-promos js-swipe-not-stacked');
+        templateMarkup = $('<template>' + templateMarkup + '</template>' );
+        templateMarkup = $(templateMarkup.prop('content'));
 
-          $('.channel-object-actions .slide-rail').empty().append(markup);
+        PromoLoader.load(promoConf, templateMarkup, function(markup){
 
-          promotions = $('.collections-promos');
-          $(window).trigger('promotionsAppended');
+          if(markup && markup.length > 0){
 
-          require(['util_slide'], function(EuSlide){
-            initPromos(EuSlide);
-            $(window).trigger('carouselResize');
-          });
+            markup.addClass('collections-promos js-swipe-not-stacked');
 
-          var foyerCards = $('.ve-foyer-card');
-          if(foyerCards.length > 0){
-            require(['ve_state_card'], function(Card){
-              foyerCards.each(function(){
-                new Card($(this), {slideshow: false});
-              });
+            $('.channel-object-actions .slide-rail').empty().append(markup);
+
+            promotions = $('.collections-promos');
+            $(window).trigger('promotionsAppended');
+
+            require(['util_slide'], function(EuSlide){
+              initPromos(EuSlide);
+              $(window).trigger('carouselResize');
             });
+
+            var foyerCards = $('.ve-foyer-card');
+            if(foyerCards.length > 0){
+              require(['ve_state_card'], function(Card){
+                foyerCards.each(function(){
+                  new Card($(this), {slideshow: false});
+                });
+              });
+            }
+            resetZoomable();
           }
-          resetZoomable();
-        }
-        else{
-          // $('.channel-object-actions .slide-rail').empty();
-          // $('.object-details').removeClass('has-right-column').addClass('no-right-column');
-          // $(window).resize();
-        }
+          else{
+            console.log('no promo markup returned');
+            // $('.channel-object-actions .slide-rail').empty();
+            // $('.object-details').removeClass('has-right-column').addClass('no-right-column');
+            // $(window).resize();
+          }
+        });
+
       });
+
     });
   }
 
@@ -1420,9 +1500,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       if(!data){
         log('no data');
       }
-
-      // log('data\n\t' + JSON.stringify(data, null, 4));
-      // log('searchUrl + $.param(params) ' + searchUrl + $.param(params));
 
       s.eu_portal_last_results_total = data.total.value;
 
@@ -1522,103 +1599,101 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     suggestions.css('width', '5000px');
 
-    var initUI = function(Mustache){
+    var initUI = function(){
 
-      var template = $('#template-preview-tab-content').text();
+      EuMustacheLoader.loadMustache('cho-suggestions-item/cho-suggestions-item', function(template, Mustache){
 
-      require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(EUAccordionTabs, Ellipsis){
+        require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(EUAccordionTabs, Ellipsis){
 
-        var back = $('.suggestions-section .eu-slide-nav-left');
-        var fwd  = $('.suggestions-section .eu-slide-nav-right');
+          var back = $('.suggestions-section .eu-slide-nav-left');
+          var fwd  = $('.suggestions-section .eu-slide-nav-right');
 
-        var updateActiveSwipeableNav = function(){
-          var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
-          if(activeSwipeable.length > 0){
-            updateSlideNav(EuSlide, activeSwipeable, fwd, back);
-          }
-        };
-
-        back.data('dir', -1);
-        fwd.data('dir', 1);
-
-        EUAccordionTabs.init(suggestions, {
-          active: 0,
-          fnOpenTab: function(){
-            $(window).trigger('ellipsis-update');
-            updateActiveSwipeableNav();
-          },
-          lockTabs: true
-        });
-
-        EUAccordionTabs.loadTabs(
-          suggestions,
-          function(data, tab){
-
-            tab = $(tab);
-            tab.find('.tab-subtitle').html(data.tab_subtitle);
-
-            var slideContent = tab.next('.tab-content').find('.slide-content');
-
-            $.each(data.items, function(i, itemData){
-              slideContent.append(Mustache.render(template, itemData));
-            });
-
-            slideContent.updateSwipe = function(){
-              var totalW = 0;
-              slideContent.children().each(function(i, ob){
-                totalW += $(ob).outerWidth();
-              });
-              slideContent.css('width', totalW + 'px');
-              return totalW;
-            };
-            EuSlide.makeSwipeable(slideContent, {'transition-on-simulate': true});
-            slideContent.on('eu-swiped', updateActiveSwipeableNav);
-            return data;
-          },
-          function(data, tab, index, completed){
-
-            var ellipsisConf = {textSelectors:['a .link-text']};
-            var tabContent   = $(tab).next('.tab-content');
-            var texts        = tabContent.find('.suggestion-item .item-info h2');
-
-            texts.each(function(i, ob){
-              Ellipsis.create($(ob), ellipsisConf);
-            });
-
-            if(completed){
-
-              suggestions.closest('.slide-rail').css('left', '0px');
-
-              suggestions.updateSwipe = function(){
-
-                EUAccordionTabs.setOptimalSize(suggestions);
-
-                setTimeout(function(){
-                  updateActiveSwipeableNav();
-                }, 1);
-              };
-
-              var navClick = function(){
-                var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
-                if(activeSwipeable.length > 0){
-                  EuSlide.simulateSwipe(activeSwipeable, $(this).data('dir'), null, updateActiveSwipeableNav);
-                }
-              };
-
-              back.on('click', navClick);
-              fwd.on('click', navClick);
-              EuSlide.makeSwipeable(suggestions);
+          var updateActiveSwipeableNav = function(){
+            var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
+            if(activeSwipeable.length > 0){
+              updateSlideNav(EuSlide, activeSwipeable, fwd, back);
             }
-          }
-        );
-        suggestions.addClass('loaded');
+          };
+
+          back.data('dir', -1);
+          fwd.data('dir', 1);
+
+          EUAccordionTabs.init(suggestions, {
+            active: 0,
+            fnOpenTab: function(){
+              $(window).trigger('ellipsis-update');
+              updateActiveSwipeableNav();
+            },
+            lockTabs: true
+          });
+
+          EUAccordionTabs.loadTabs(
+            suggestions,
+            function(data, tab){
+
+              tab = $(tab);
+              tab.find('.tab-subtitle').html(data.tab_subtitle);
+
+              var slideContent = tab.next('.tab-content').find('.slide-content');
+
+              $.each(data.items, function(i, itemData){
+                slideContent.append(Mustache.render(template, itemData));
+              });
+
+              slideContent.updateSwipe = function(){
+                var totalW = 0;
+                slideContent.children().each(function(i, ob){
+                  totalW += $(ob).outerWidth();
+                });
+                slideContent.css('width', totalW + 'px');
+                return totalW;
+              };
+              EuSlide.makeSwipeable(slideContent, {'transition-on-simulate': true});
+              slideContent.on('eu-swiped', updateActiveSwipeableNav);
+              return data;
+            },
+            function(data, tab, index, completed){
+
+              var ellipsisConf = {textSelectors:['a .link-text']};
+              var tabContent   = $(tab).next('.tab-content');
+              var texts        = tabContent.find('.suggestion-item .item-info h2');
+
+              texts.each(function(i, ob){
+                Ellipsis.create($(ob), ellipsisConf);
+              });
+
+              if(completed){
+
+                suggestions.closest('.slide-rail').css('left', '0px');
+
+                suggestions.updateSwipe = function(){
+
+                  EUAccordionTabs.setOptimalSize(suggestions);
+
+                  setTimeout(function(){
+                    updateActiveSwipeableNav();
+                  }, 1);
+                };
+
+                var navClick = function(){
+                  var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
+                  if(activeSwipeable.length > 0){
+                    EuSlide.simulateSwipe(activeSwipeable, $(this).data('dir'), null, updateActiveSwipeableNav);
+                  }
+                };
+
+                back.on('click', navClick);
+                fwd.on('click', navClick);
+                EuSlide.makeSwipeable(suggestions);
+              }
+            }
+          );
+          suggestions.addClass('loaded');
+        });
       });
     };
 
-    require(['mustache'], function(Mustache){
-      Mustache.tags = ['[[', ']]'];
-      initUI(Mustache);
-    });
+    initUI();
   }
 
   var showMediaThumbs = function(data){
@@ -1631,34 +1706,35 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
         var $el = $('.light-carousel.media-thumbs');
 
-        new EuLC.EuLightCarousel({
-          '$el': $el,
-          'loadUrl': data.loadUrl,
-          'load_per_page': 8, // has to be in sync with number preloaded
-          'itemsAvailable': data.total_available,
-          'templateText': $('#template-media-item').text()
-        }).init();
+        EuMustacheLoader.loadMustache('media-carousel-item/media-carousel-item', function(html){
 
-        if(typeof ResizeObserver === 'undefined'){
+          new EuLC.EuLightCarousel({
+            '$el': $el,
+            'loadUrl': data.loadUrl,
+            'load_per_page': 8, // has to be in sync with number preloaded
+            'itemsAvailable': data.total_available,
+            'templateText': html
+          }).init();
+
+          if(typeof ResizeObserver === 'undefined'){
+            setTimeout(function(){
+              $el.find('.lc-scrollable').trigger('carousel-scrolled');
+            }, 2500);
+          }
+
+          $('.cho-media-nav').on('click', 'a', function(e){
+            e.preventDefault();
+            var el = $(this);
+            initMedia(el.closest('.lc-item').index());
+          });
+
+          fixZoomableWidth();
+
           setTimeout(function(){
-            $el.find('.lc-scrollable').trigger('carousel-scrolled');
-          }, 2500);
-        }
-
-        $('.cho-media-nav').on('click', 'a', function(e){
-          e.preventDefault();
-          var el = $(this);
-          initMedia(el.closest('.lc-item').index());
+            $('.channel-object-media-nav').removeClass('js-hidden');
+          }, 400);
         });
-
-        fixZoomableWidth();
-
-        setTimeout(function(){
-          $('.channel-object-media-nav').removeClass('js-hidden');
-        }, 400);
-
       });
-
     }
     else{
       $('.channel-object-media-nav').css({
@@ -1831,12 +1907,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
             });
 
             if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
-
-              /*log('current here - no calculation needed '
-                + ' curr: ' + s.eu_portal_last_results_current
-                + ' lrt: '  + s.eu_portal_last_results_total
-                + ' offs: ' + s.eu_portal_last_results_offset + '  ' + (typeof s.eu_portal_last_results_offset) + ' isNan = ' + isNaN(s.eu_portal_last_results_offset)
-              );*/
 
               if(parseInt(s.eu_portal_last_results_current) < 0){
                 log('correction needed A (set to ' + (per_page - 1) + ')');

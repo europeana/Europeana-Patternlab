@@ -4,9 +4,12 @@
 @import "channels-object-metadata";
 @import "channels-object-variables";
 
-.channel-object-creators {
-  display: none;
+.non-eu-entities{
   text-align: right;
+
+  .non-eu-entity:not(:last-of-type)::after{
+    content: ", ";
+  }
 }
 
 .channel-object-viewmore {

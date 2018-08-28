@@ -359,7 +359,7 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       var conf;
       var maxClicks = 5;
-      var waitZoom  = 500;
+      var waitZoom  = 400;
 
       var repeatClick = function(el, fn, recurse){
         recurse = recurse ? recurse : 0;

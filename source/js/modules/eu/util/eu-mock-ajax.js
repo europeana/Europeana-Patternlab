@@ -5,7 +5,7 @@ define(['jquery'], function($) {
     var origPath     = '';
     var mockAjaxConf = {omissions:[], delays:{}, mappings:[]};
 
-    if(parseInt(window.mock_ajax) + '' != window.mock_ajax){
+    if(parseInt(window.mock_ajax) + '' !== window.mock_ajax){
       mockAjaxConf = $.extend(mockAjaxConf, JSON.parse(window.mock_ajax.replace(/'/g, '"')));
     }
 
@@ -34,7 +34,7 @@ define(['jquery'], function($) {
     var mockAjax = function(options) {
 
       var delay = options.delay ? options.delay : timeout;
-      if(delay == 'random'){
+      if(delay === 'random'){
         delay = Math.random() * 5 * 1000;
       }
 
@@ -51,7 +51,7 @@ define(['jquery'], function($) {
 
             require([path], function(dataSource){
 
-              if(typeof dataSource.processParams != 'undefined'){
+              if(typeof dataSource.processParams !== 'undefined'){
                 options.params = dataSource.processParams(origPath, options.params);
               }
 
@@ -82,15 +82,14 @@ define(['jquery'], function($) {
     };
 
     $.origAjax = $.ajax;
-
-    $.ajax = function(){
+    $.getJSON = function(){
 
       var url           = arguments[0].url ? arguments[0].url : arguments[0];
       var pathAndParams = resolvePathAndParams(url);
       var path          = pathAndParams.path;
       var params        = pathAndParams.params;
 
-      if(path == 'self'){
+      if(path === 'self'){
 
         // console.log('Mock Ajax: cannot map:\n\t"' + url + '"\n\t (fetching directly)');
 
@@ -109,7 +108,9 @@ define(['jquery'], function($) {
         });
       }
     };
-    $.getJSON = $.ajax; // only works if call uses .done() - calls with anonymous function parameters will hang!
+
+    // $.getJSON = $.ajax; // only works if call uses .done() - calls with anonymous function parameters will hang!
+    // $.get = $.ajax; // only works if call uses .done() - calls with anonymous function parameters will hang!
 
   });
 

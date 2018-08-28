@@ -29,9 +29,10 @@
   width: 100%;
 }
 
-.width-main{
+.width-main {
   grid-template-columns: repeat(12, 1fr);
 }
+
 .width-fluid {
   grid-template-columns: repeat(auto-fill, minmax($card-min-width, 1fr));
 }

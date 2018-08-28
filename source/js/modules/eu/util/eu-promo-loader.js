@@ -1,6 +1,6 @@
 define(['jquery'], function($){
 
-  function load(conf, callback){
+  function load(conf, $templateMarkup, callback){
 
     var expected   = conf ? conf.length : 0;
 
@@ -17,10 +17,11 @@ define(['jquery'], function($){
 
     var processCallback = function(Mustache, data, templateId, id){
 
-      var template = $('#' + templateId).text();
+      var template = $templateMarkup.find('#' + templateId).html();
 
       $(data).each(function(i, ob){
         var html = Mustache.render(template, ob);
+
         if(elements[id]){
           elements[id].push(html);
         }
@@ -67,19 +68,19 @@ define(['jquery'], function($){
 
     require(['mustache'], function(Mustache){
 
-      Mustache.tags = ['[[', ']]'];
-
       $.each(conf, function(i, confItem){
 
         if(confItem.preloaded){
-          returned ++;
           processCallback(Mustache, confItem.preloaded, confItem.templateId, confItem.id, confItem.multi);
+          returned ++;
           checkDone();
         }
         else if(confItem.url){
           $.getJSON(confItem.url).done(function(data){
             processCallback(Mustache, data, confItem.templateId, confItem.id, confItem.multi);
-          }).always(function(){
+            returned ++;
+            checkDone();
+          }).error(function(){
             returned ++;
             checkDone();
           });
