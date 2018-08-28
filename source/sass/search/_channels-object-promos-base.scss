@@ -544,8 +544,10 @@
       position: static;
     }
 
-    .info{
-      bottom: 6.75em;
+    .info {
+      font-size: $card-font-size-heading;
+      height: 15rem;
+      top: 0;
     }
 
     .image-set-data{
