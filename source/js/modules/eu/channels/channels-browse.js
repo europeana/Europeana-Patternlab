@@ -33,7 +33,6 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
       });
 
     });
-    loadImagesInView();
   }
 
   function initScrollToAnchor() {
@@ -128,9 +127,11 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
         loadImagesInView();
       });
     });
+    loadImagesInView();
   }
-  
+
   function initPage(){
+    initEllipsis();
     initTitleBar();
     initLazyLoad();
   }
