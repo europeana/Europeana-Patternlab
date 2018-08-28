@@ -1,3 +1,8 @@
 <div class="object-media-video is-hidden">
-  {{> molecules/components/videojs/videojs }}
+  <video class="video-js vjs-default-skin" width="auto" height="auto" preload="none" controls="true">
+  </video>
+  <style>
+  .video-js {padding-top: 56.25%}
+  .vjs-fullscreen {padding-top: 0px}
+  </style>
 </div>

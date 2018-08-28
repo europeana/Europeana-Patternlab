@@ -109,23 +109,21 @@ define(['jquery', 'smartmenus'], function($){
     }
 
     initFeedback();
+  };
 
-    if((typeof window.requirementsApplication).toLowerCase() !== 'undefined'){
-      if((typeof window.requirementsApplication).toLowerCase() === 'string'){
-        console.log('load extra: ' + window.requirementsApplication);
-        require([window.requirementsApplication], function(){
-          console.log('loaded application.js');
-          $(document).trigger('external_js_loaded');
+  var loadAppRequirements = function(cb){
+    if((typeof window.requirementsApplication).toLowerCase() === 'object'){
+      require([window.requirementsApplication[0]], function(){
+        require([window.requirementsApplication[1]], function(){
+          if(cb){
+            cb();
+          }
         });
-      }
-      if((typeof window.requirementsApplication).toLowerCase() === 'object'){
-        console.log('load extra:\n' + JSON.stringify(window.requirementsApplication, null, 4));
-        requireSynchronously(window.requirementsApplication, function(){
-          $(document).trigger('external_js_loaded');
-        });
-      }
+      });
     }
-
+    else if(cb){
+      cb();
+    }
   };
 
   if(typeof pageName === 'undefined' || !pageName){
@@ -309,36 +307,9 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
 
-    case 'ugc/index':
-      doForAllPages();
-      promisedPageJS.resolve();
-      break;
-
-
-    case 'stories/index':
-
-      // TODO delete this case
-
-      require(['ugc_index'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-
-      break;
-
     case 'contributions/index':
       require(['ugc_index'], function(page){
         page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-
-      break;
-
-    case 'ugc/new':
-
-      require(['ugc'], function(){
         promisedPageJS.resolve();
         doForAllPages();
       });
@@ -358,19 +329,25 @@ define(['jquery', 'smartmenus'], function($){
         doForAllPages();
       });
       break;
+
     case 'portal/show-new':
-      require(['channels_object', 'search_form'], function(page, euSearchForm){
-        page.initPage(euSearchForm);
-        promisedPageJS.resolve(page);
-        doForAllPages();
-      });
-      break;
-    case 'portal/index':
-      var loadPageJS = function(){
-        require(['search_results', 'search_form'], function(page, euSearchForm){
-          page.initPage(euSearchForm, euSearchForm);
+      loadAppRequirements(function(){
+        require(['channels_object', 'search_form'], function(page, euSearchForm){
+          page.initPage(euSearchForm);
           promisedPageJS.resolve(page);
           doForAllPages();
+        });
+      });
+      break;
+
+    case 'portal/index':
+      var loadPageJS = function(){
+        loadAppRequirements(function(){
+          require(['search_results', 'search_form'], function(page, euSearchForm){
+            page.initPage(euSearchForm, euSearchForm);
+            promisedPageJS.resolve(page);
+            doForAllPages();
+          });
         });
       };
 

@@ -727,6 +727,16 @@
             },
             "news": "News",
             "object": {
+                "similar-result": "Result",
+                "similar-results": "Results",
+                "similar-suggestions": "Suggested content",
+                "promotions":{
+                  "card-labels":{
+                    "dcType": "The type of this object",
+                    "dcCreator": "Creator of this object",
+                    "dcContributor": "Contributor to this object"
+                  }
+                },
                 "actions": {
                     "annotate": "Annotate",
                     "collapse-extended": "collapse extended information",
@@ -754,11 +764,12 @@
                     "concepts": "Categories",
                     "creator": "Creator",
                     "creation-date": "Creation date",
-                    "provider": "Provider",
                     "data-provider": "Data Provider",
+                    "extended-information": "Extended Information",
                     "place": "Place",
                     "properties": "Properties",
                     "provenance": "Provenance",
+                    "provider": "Provider",
                     "refs-rels": "References and Relations",
                     "dates": "Dates",
                     "location": "Location",
@@ -773,7 +784,7 @@
                     "dimensions": "Dimensions",
                     "runtime": "Run time",
                     "rights": "Rights",
-                    "rights_human": "Can I use this?",
+                    "rights_human": "Can I use it?",
                     "rights-statement": "Rights statement",
                     "title": "Title",
                     "provided-by": "Provided by",
@@ -868,7 +879,7 @@
             "facet": {
               "filter": "filter",
               "header": {
-                "reusability": "Can I use this?"
+                "reusability": "Can I use it?"
               },
               "year":{
                 "from": "From",

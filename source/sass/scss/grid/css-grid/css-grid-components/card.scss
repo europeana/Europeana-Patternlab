@@ -30,6 +30,30 @@
     border-radius: $base-border-radius $base-border-radius 0 0;
     display: block;
     height: 15rem;
+
+    &.loading,
+    &.preloading{
+      animation-duration:        1.8s;
+      animation-fill-mode:       forwards;
+      animation-iteration-count: infinite;
+      animation-name:            placeHolderShimmer;
+      animation-timing-function: linear;
+      background:                #fff;
+      background:                linear-gradient(to right, #fafafa 8%, #ededed 38%, #fafafa 54%);
+      background-size:           1000px 640px;
+      position:                  relative;
+      // address high CPU usage by triggering GPU acceleration:
+      transform:                 translate3d(0, 0, 0) rotateZ(360deg);
+    }
+
+    @keyframes placeHolderShimmer{
+      0%{
+        background-position: -468px 0;
+      }
+      100%{
+        background-position: 468px 0;
+      }
+    }
   }
 
   .inner,
@@ -81,6 +105,17 @@
     display: inline-block;
   }
 
+  p:first-child {
+    font-size: $font-size-norm;
+    line-height: 1.6em;
+    margin-bottom: $spacing-1-75x;
+    max-height: 3.2em;
+
+    &.ellipsis{
+      overflow: hidden;
+    }
+  }
+
   .svg-icon {
     align-self: center;
     height: 2rem;
@@ -96,7 +131,6 @@
     right: $spacing-base;
     width: 1rem;
   }
-
 }
 
 .browse-list-anchor {

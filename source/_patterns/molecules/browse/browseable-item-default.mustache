@@ -1,10 +1,10 @@
 <div class="gridlayout-card{{#grid_width}} width-{{.}}{{/grid_width}}">
-	<a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
+	<a class="card-img" href="{{url}}" data-image="{{img_url}}"></a>
   {{#has_text}}
     <div class="inner">
       <div class="inner-text">
-        {{#link_text}}<h3>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</h3>{{/link_text}}
-        {{#texts}}<p><span>{{.}}</span></p>{{/texts}}
+	      {{#link_text}}<p class="ellipsis">{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</p>{{/link_text}}
+	      {{#texts}}<p>{{.}}</p>{{/texts}}
       </div>
     </div>
   {{/has_text}}

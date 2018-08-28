@@ -305,41 +305,19 @@
           }
         ]
       },
-
-      "places": {
-          "title": "Place",
-          "sections": [
-            {
-           "title": "Place/Time",
-           "items": [
-             {"text": "third quarter 17th century"}
-           ]
-            },
-            {
-           "title": "Location",
-           "items": [
-             {"text": "Western Europe"}, {"text": "Netherlands"}
-           ]
-            },
-            {
-           "title": "Location",
-               "items": [{"text": "Near Delft"}]
-            }
-          ]
+      "refs_rels": {
+        "title": "References and Relationships",
+        "sections": [
+          {
+            "title": "Relations",
+            "items": [{"text": "relation 1"}, {"text": "relation 2"}]
           },
-          "refs_rels": {
-            "title": "References and Relationships",
-            "sections": [
-              {
-                "title": "Relations",
-                "items": [{"text": "relation 1"}, {"text": "relation 2"}]
-              },
-              {
-                "title": "References",
-                "items": [{"text": "reference 1"}, {"text": "reference 2"}]
-              }
-            ]
-          },
+          {
+            "title": "References",
+            "items": [{"text": "reference 1"}, {"text": "reference 2"}]
+          }
+        ]
+      },
       "dates": {
         "title": "Times",
         "sections": [
@@ -385,16 +363,59 @@
 
         "add_url": "add_new_tag_url_here"
       },
-      "meta_additional":
+      "location":
       {
         "present": true,
+        "places": {
+          "title": "Location",
+          "sections": [
+            {
+              "title": "Location",
+              "items": [
+                {
+                  "text": "Sverige",
+                  "extra_info": {
+                    "latitude": 60.37888,
+                    "longitude": 10.75128
+                  }
+                },
+                {
+                  "text": "Kingdom of Sweden",
+                  "extra_info": {
+                    "latitude": 62,
+                    "longitude": 15
+                  }
+                },
+                {
+                  "text": "Sweden",
+                  "extra_info": {
+                    "latitude": 62.4,
+                    "longitude": 15
+                  }                  
+                },
+                {
+                  "text": "Kingdom of Norway",
+                  "extra_info": {
+                    "latitude": 62,
+                    "longitude": 10.3
+                  }
+                },
+                {
+                  "text": "Norway",                  
+                  "extra_info": {
+                    "latitude": 62,
+                    "longitude": 10
+                  }
+                }
+              ],
+              "is_desc": false
+            }
+          ],
+          "id": "location"
+        },
         "geo":
         {
           "long_and_lat": true,
-          "longitude": "3.1",
-
-          "latitude": "39.2",
-
           "labels":
           {
             "map": "Map",

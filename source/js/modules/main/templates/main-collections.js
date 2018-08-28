@@ -40,6 +40,7 @@ require.config({
 
     eu_form_save:                  '../../eu/util/eu-form-save',
     eu_hierarchy:                  '../../eu/channels/eu-hierarchy',
+    eu_hotspot:                    '../../eu/hotspot/eu-hotspot',
     eu_light_carousel:             '../../eu/light-carousel/eu-light-carousel',
     eu_media_options:              '../../eu/media/media-options/media-options',
     eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',
@@ -49,20 +50,21 @@ require.config({
     feedback:                      '../../eu/feedback/eu-feedback',
     flac:                          '../../lib/audiocogs/flac',
     ga:                            'https://www.google-analytics.com/analytics',
-    global:                        '../../eu/global',
+    global:                        '../../eu/global/global',
     hotjar:                        '../../lib/hotjar',
 
     // Issues found with attempted update to leaflet-1.3.1
     // - gaps between tiles a certain zoom levels
     // - tiles not rendering following after paginating
 
-    leaflet:                       'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet',
+    leaflet:                       'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet',
+    leaflet_style_override_folder: '../../lib/leaflet',
     leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_minimap:               '../../eu/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
     leaflet_zoom_slider:           '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
 
-    leaflet_iiif:                  '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
+    leaflet_iiif:                  '../../lib/leaflet/leaflet-iiif/leaflet-iiif-1.2.1',
     leaflet_iiif_eu:               '../../eu/leaflet/eu-leaflet-iiif',
 
     jquery:                        'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min',
@@ -88,7 +90,7 @@ require.config({
     media_player_midi:             '../../eu/media/search-midi-player',
     media_player_oembed:           '../../eu/media/search-oembed-viewer',
 
-    menus:                         '../../global/menus',
+    menus:                         '../../eu/global/menus',
     mustache_template_root:        '../../../js-mustache',
 
     midi_dom_load_xmlhttp:         '../../lib/midijs/DOMLoader.XMLHttp',
@@ -119,12 +121,14 @@ require.config({
     //pinterest:                     'http://assets.pinterest.com/js/pinit_main',
     pinterest:                     '../../lib/pinterest/pinit_main',
 
+    util_cho_map:                  '../../eu/util/cho-map',
     util_ellipsis:                 '../../eu/util/ellipsis',
     util_eu_ellipsis:              '../../eu/util/eu-ellipsis',
 
     util_form:                     '../../eu/util/eu-form-utils',
     util_foldable:                 '../../eu/util/foldable-list',
     util_filterable:               '../../eu/util/foldable-list-filter',
+    util_mustache_loader:          '../../eu/util/eu-mustache-loader',
     util_promo_loader:             '../../eu/util/eu-promo-loader',
     util_resize:                   '../../eu/util/resize',
     util_scroll:                   '../../eu/util/scroll',
@@ -161,8 +165,8 @@ require.config({
     // videojs:                       '../../lib/videojs/video',
     videojs_aurora:                '../../lib/videojs-aurora/videojs-aurora',
     videojs_silverlight:           '../../lib/videojs-silverlight/videojs-silverlight',
-
     videojs_wavesurfer:            '../../lib/videojs-wavesurfer/videojs-wavesurfer',
+    viewport_contains:             '../../eu/util/viewport-contains',
     wavesurfer:                    '../../lib/videojs-wavesurfer/wavesurfer'
   },
   shim: {

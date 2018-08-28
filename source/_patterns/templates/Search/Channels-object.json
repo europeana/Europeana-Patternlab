@@ -31,7 +31,16 @@
     },
     {
       "name": "enabledPromos",
-      "value": "[ {'id': 'exhibition', 'url': '/exhibition.json' }, { 'id': 'gallery', 'url': '/galleries.json' }, {'id': 'news', 'url': '/news.json' }, { 'id': 'entity', 'url': '/entity.json' }, {'id': 'generic', 'url': '/promoted.json' }]",
+      "value": "[ {'id': 'exhibition', 'url': '/exhibition.json' }, { 'id': 'gallery', 'url': '/galleries.json' }, {'id': 'news', 'url': '/news.json' }, { 'id': 'entity', 'url': '/entity.json', 'relation': 'dcCreator' }, {'id': 'generic', 'url': '/promoted.json' }]",
+      "unquoted": true
+    },
+    {
+      "name": "i18nDefaultLocale",
+      "value": "en"
+    },
+    {
+      "name": "requirementsApplication",
+      "value": "['/js/modules/lib/I18n/I18n-base.js', '/js/modules/lib/I18n/I18n.js']",
       "unquoted": true
     }
   ],
@@ -85,6 +94,12 @@
               "europeana_entity": false
             },
             {
+              "text": "Testing long names: Agency of Internal Police and Supervision of the State of Dikes",
+              "url": "javascript:alert('Raphael');",
+              "json_url": "depiction?index=1",
+              "europeana_entity": true
+            },
+            {
               "text": "Johannes Vermeer",
               "url": "javascript:alert('vermeer');",
               "json_url": "depiction?index=0",
@@ -92,6 +107,12 @@
             },
             {
               "text": "Raphael",
+              "url": "javascript:alert('Raphael');",
+              "json_url": "depiction?index=1",
+              "europeana_entity": true
+            },
+            {
+              "text": "Michael",
               "url": "javascript:alert('Raphael');",
               "json_url": "depiction?index=1",
               "europeana_entity": true
@@ -232,7 +253,7 @@
               "dc_description": "Description of the 2nd media item",
               "dc_rights": "DC rights of the 2nd media item",
               "dc_source": "Source of the 2nd media item",
-              "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_info\":\"learn why\",\"license_human\":\"Permission needed\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}"
+              "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_info\":\"with attribution\",\"license_human\":\"Free open re-use\",\"license_name\":\"CC BY-NC\", \"license_CC_BY_NC\": true }}"
             },
             "rights":
             {
@@ -278,7 +299,8 @@
             {
               "license_public": true,
               "license_human": "You can use this pdf in any way you like",
-              "license_brief": "Yes"
+              "license_brief": "Res.",
+              "license_restricted": true
             },
             "technical_metadata":
             {
@@ -329,12 +351,6 @@
             "download":{
               "url": "/images/sample/object_2_full.jpg",
               "text": "Original file"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like",
-              "license_brief": "Yes"
             },
             "technical_metadata":
             {
@@ -420,10 +436,9 @@
           }
         ]
       },
-
       "rights":
       {
-        "license_CC0": true,
+        "license_CC_BY_SA": true,
         "license_url": "http://creativecommons.org/publicdomain/mark/1.0/",
         "license_name": "CC0",
         "license_human": "You can use this image in any way you like",
@@ -581,29 +596,6 @@
           }
         ]
       },
-
-      "places": {
-        "id": "location",
-        "title": "Place",
-        "sections": [
-          {
-            "title": "Place/Time",
-            "items": [
-              {"text": "third quarter 17th century"}
-            ]
-          },
-          {
-            "title": "Location",
-            "items": [
-              {"text": "Western Europe"}, {"text": "Netherlands"}
-            ]
-          },
-          {
-            "title": "Location",
-            "items": [{"text": "Near Delft"}]
-          }
-        ]
-      },
       "refs_rels": {
         "id": "refs_rels",
         "title": "References and Relationships",
@@ -634,16 +626,59 @@
         ]
       },
 
-      "meta_additional":
+      "location":
       {
         "present": true,
-        "id": "map",
+        "places": {
+          "title": "Location",
+          "sections": [
+            {
+              "title": "Location",
+              "items": [
+                {
+                  "text": "Sverige",
+                  "extra_info": {
+                    "latitude": 60.37888,
+                    "longitude": 10.75128
+                  }
+                },
+                {
+                  "text": "Kingdom of Sweden",
+                  "extra_info": {
+                    "latitude": 62,
+                    "longitude": 15
+                  }
+                },
+                {
+                  "text": "Sweden",
+                  "extra_info": {
+                    "latitude": 62.4,
+                    "longitude": 15
+                  }
+                },
+                {
+                  "text": "Kingdom of Norway",
+                  "extra_info": {
+                    "latitude": 62,
+                    "longitude": 10.3
+                  }
+                },
+                {
+                  "text": "Norway",
+                  "extra_info": {
+                    "latitude": 62,
+                    "longitude": 10
+                  }
+                }
+              ],
+              "is_desc": false
+            }
+          ],
+          "id": "location"
+        },
         "geo":
         {
           "long_and_lat": true,
-          "longitude": "4.21",
-          "latitude": "52.0",
-
           "labels":
           {
             "map": "Map",
@@ -666,27 +701,27 @@
         "pinterest": true,
         "googleplus": true,
         "tumblr": true
-      },
-      "suggestions": {
-        "tab_items": [
-          {
-            "tab_title": "From Johannes Vermeer",
-            "url":       "portal_suggestions?from=vermeer"
-          },
-          {
-            "tab_title": "From Rijksmuseum",
-            "url":       "portal_suggestions?from=rijks"
-          },
-          {
-            "tab_title": "From the blog",
-            "url":       "portal_suggestions?from=blog"
-          },
-          {
-            "tab_title": "From elsewhere",
-            "url":       "portal_suggestions?from=elsewhere"
-          }
-        ]
       }
+    },
+    "suggestions": {
+      "tab_items": [
+        {
+          "tab_title": "From Johannes Vermeer",
+          "url":       "portal_suggestions?from=vermeer"
+        },
+        {
+          "tab_title": "From Rijksmuseum",
+          "url":       "portal_suggestions?from=rijks"
+        },
+        {
+          "tab_title": "From the blog",
+          "url":       "portal_suggestions?from=blog"
+        },
+        {
+          "tab_title": "From elsewhere",
+          "url":       "portal_suggestions?from=elsewhere"
+        }
+      ]
     },
     "named_entities": {
       "XXXfold_title": "Named Entities",

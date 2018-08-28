@@ -1,6 +1,32 @@
 define(['jquery'], function($){
 
-  function load(conf, templateMarkup, callback){
+  var mappingFunctions = {
+    fnBlogToGeneric : function(dataIn){
+      if(!dataIn.data || !dataIn.data.length){
+        return;
+      }
+      data = dataIn.data[0];
+
+      var data = {
+        'url': data.links.self.replace('/json', ''),
+        'img': {
+          'src': data.attributes.image ? data.attributes.image.thumbnail : false
+        },
+        'title': data.attributes.teaser_attribution_title,
+        'type': data.attributes.posttype.toLowerCase(),
+        'date': data.attributes.datepublish.split('T')[0],
+        'label': 'Blog',
+        'attribution': data.attributes.image_attribution_holder,
+        'excerpt': {
+          'short': data.attributes.body
+        },
+        'tags': false
+      };
+      return data;
+    }
+  };
+
+  function load(conf, $templateMarkup, callback){
 
     var expected   = conf ? conf.length : 0;
 
@@ -15,12 +41,24 @@ define(['jquery'], function($){
     var elements   = {};
     var markup     = $('<div></div>');
 
-    var processCallback = function(Mustache, data, templateId, id){
+    var processCallback = function(Mustache, data, confItem){
 
-      var template = $(templateMarkup).find('#' + templateId).html();
+      var templateId = confItem.templateId;
+      var id         = confItem.id;
+
+
+      if(confItem.relation){
+        data.relation = confItem.relation;
+      }
+      if(confItem.mapping){
+        data = confItem.mapping(data);
+      }
+
+      var template = $templateMarkup.find('#' + templateId).html();
 
       $(data).each(function(i, ob){
         var html = Mustache.render(template, ob);
+
         if(elements[id]){
           elements[id].push(html);
         }
@@ -52,7 +90,7 @@ define(['jquery'], function($){
 
           var sequence = $.map(conf, function(c){
             return c.id;
-          });
+          }).filter(function(item, i, ar){ return ar.indexOf(item) === i; });
 
           $(sequence).each(function(){
             var key = this;
@@ -67,19 +105,19 @@ define(['jquery'], function($){
 
     require(['mustache'], function(Mustache){
 
-      Mustache.tags = ['[[', ']]'];
-
       $.each(conf, function(i, confItem){
 
         if(confItem.preloaded){
+          processCallback(Mustache, confItem.preloaded, confItem);
           returned ++;
-          processCallback(Mustache, confItem.preloaded, confItem.templateId, confItem.id, confItem.multi);
           checkDone();
         }
         else if(confItem.url){
           $.getJSON(confItem.url).done(function(data){
-            processCallback(Mustache, data, confItem.templateId, confItem.id, confItem.multi);
-          }).always(function(){
+            processCallback(Mustache, data, confItem);
+            returned ++;
+            checkDone();
+          }).error(function(){
             returned ++;
             checkDone();
           });
@@ -93,6 +131,9 @@ define(['jquery'], function($){
   }
 
   return {
-    load: load
+    load: load,
+    getMappingFunctions: function(){
+      return mappingFunctions;
+    }
   };
 });

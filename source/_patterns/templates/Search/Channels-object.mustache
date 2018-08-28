@@ -185,7 +185,9 @@
 
                 {{#creators}}
                   <div class="non-eu-entities">
+                    <h5>Created by</h5>
                     {{#sections}}
+                      <div class="entity-wrapper">
                       {{#items}}
                         {{#europeana_entity}}
                           <div class="channel-object-viewmore">
@@ -193,11 +195,14 @@
                           </div>
                         {{/europeana_entity}}
                       {{/items}}
+                      </div>
+                      <div>
                       {{#items}}
                         {{^europeana_entity}}
                           <span class="non-eu-entity">{{text}}</span>
                         {{/europeana_entity}}
                       {{/items}}
+                      </div>
                     {{/sections}}
                   </div>
                 {{/creators}}
@@ -229,10 +234,41 @@
               {{#rights}}
                 <div class="action-ctrl object-rights">
                   <h4>{{ i18n.global.facet.header.reusability }}</h4>
-                  <div class="object-license child-link-black-blue">{{license_brief}} {{> molecules/icons/licenses-icon-only }}</div>
+                  <div class="object-license inheritable-license child-link-black-blue">{{license_brief}} {{> molecules/icons/licenses-icon-only }}</div>
                 </div>
               {{/rights}}
               {{> molecules/controls/channels-object-origin }}
+            </div>
+
+            <div class="action-modal modal-rights inheritable-rights js-hidden">
+              <div class="modal-content">
+                <div class="modal-action">
+                  <span class="label">
+                    <h4>{{i18n.global.facet.header.reusability}}</h4>
+                    <span class="label-large">{{license_brief}}{{^license_brief}}{{#rights}}{{license_brief}}{{/rights}}{{/license_brief}}</span>
+
+                    {{^license_restricted}}
+                      {{#rights}}
+                        {{#license_restricted}}
+                          <a class="link-black-blue" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" target="_blank"><h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}<span class="svg-icon-external"></span></h4></a>
+                        {{/license_restricted}}
+                        {{^license_restricted}}
+                          <h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}</h4>
+                        {{/license_restricted}}
+                      {{/rights}}
+                    {{/license_restricted}}
+                    {{#license_restricted}}
+                      <a class="link-black-blue" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" target="_blank"><h4>{{license_info}}{{^license_info}}{{#rights}}{{license_info}}{{/rights}}{{/license_info}}<span class="svg-icon-external"></span></h4></a>
+                    {{/license_restricted}}
+                  </span>
+                </div>
+                <div class="action-modal-section">
+                  <a target="blank" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" class="link-black-blue license-link-full"> {{#rights}}{{> molecules/icons/licenses-icon-only }}{{/rights}}{{license_name}}{{^license_name}}{{#rights}}{{license_name}}{{/rights}}{{/license_name}}<span class="svg-icon-external"></span></a>
+                </div>
+                <a class="media-modal-close rights">
+                  <span class="label"></span>
+                </a>
+              </div>
             </div>
 
             <div class="action-modal modal-share js-hidden">
@@ -277,7 +313,9 @@
 
           <div class="channel-object-extended-information">
 
-            <h2 class="channel-object-title" data-label-expand="[{{i18n.site.object.actions.expand-extended}}]" data-label-collapse="[{{i18n.site.object.actions.collapse-extended}}]">  Extended Information</h2>
+            <h2 class="channel-object-title" data-label-expand="[{{i18n.site.object.actions.expand-extended}}]" data-label-collapse="[{{i18n.site.object.actions.collapse-extended}}]">
+              {{i18n.site.object.meta-label.extended-information}}
+            </h2>
 
             {{#properties }}
               {{> organisms/sections/object-data-section }}
@@ -286,10 +324,6 @@
             {{#dates }}
               {{> organisms/sections/object-data-section }}
             {{/dates }}
-
-            {{#places }}
-              {{> organisms/sections/object-data-section }}
-            {{/places }}
 
             {{#annotations_later}}
               <script id="annotations">
@@ -313,7 +347,7 @@
               {{> organisms/sections/object-data-section }}
             {{/refs_rels}}
 
-            {{#meta_additional}}
+            {{#location}}
               {{#present}}
                 <div class="data-section cf closed" {{#id}} data-section-id="{{.}}"{{/id}}>
                   <h3 class="subsection-label">
@@ -329,7 +363,8 @@
                               <ul class="comma-list data-group">
                                 {{# items }}
                                   <li>
-                                    {{#url }}<a href="{{.}}">{{/url }}{{ text }}{{#url }}</a>{{/url }}{{#extra_info}}
+                                    {{#url }}<a href="{{.}}">{{/url }}{{text}}{{#url }}</a>{{/url }}
+                                    {{#extra_info}}
                                       {{#life}}
                                         <span class="life-dates">
                                           ({{from.short}} {{#to.short}} — {{.}}{{/to.short}})
@@ -348,32 +383,39 @@
                           </li>
                         {{/sections}}
                       </ul>
-                    {{/places}}
 
-                    {{#geo.long_and_lat}} {{! check both present }}
-                      <a class="scroll-trigger"
-                         id="scroll-trigger-map"
-                         data-enabled="true"
-                         data-fire-on-open="showMap"
-                         data-fire-on-open-params='{
-                           "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
-                         }'
-                        ></a>
-                      <span id="js-map-place-name" class="is-hidden">{{geo.placeName}}</span>
-                      <a id="map" style="bottom:4.8em; position: relative;"></a>
-                      <div class="map">
-                        <div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
-                        <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
-                      </div>
-                      <a class="scroll-trigger trigger-chain"
-                        data-enabled="true"
-                        data-disable-when-fired="showMap"
-                        data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
-                    {{/geo.long_and_lat}}
+                      {{#geo.long_and_lat}}
+                        {{#sections}}
+                         <a class="scroll-trigger"
+                           id="scroll-trigger-map"
+                           data-enabled="true"
+                           data-fire-on-open="showMap"
+                           data-fire-on-open-params="{'labels': { 'n':'{{geo.labels.points.n}}', 's': '{{geo.labels.points.s}}', 'e': '{{geo.labels.points.e}}', 'w': '{{geo.labels.points.w}}' }}"></a>
+                          <a id="map" style="bottom: 4.8em; position: relative;"></a>
+                          <div class="map">
+                            <div class="markers">
+                            {{#items}}
+                              {{#extra_info}}
+                                {{#latitude}}
+                                  {{#longitude}}
+                                    <a data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-label="{{text}}"></a>
+                                  {{/longitude}}
+                                {{/latitude}}
+                              {{/extra_info}}
+                            {{/items}}
+                            </div>
+                          </div>
+                          <a class="scroll-trigger trigger-chain"
+                              data-enabled="true"
+                              data-disable-when-fired="showMap"
+                              data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
+                        {{/sections}}
+                      {{/geo.long_and_lat}}
+                    {{/places}}
                   </div>
                 </div>
               {{/present}}
-            {{/meta_additional}}
+            {{/location}}
 
             <div class="data-section closed" data-section-id="hierarchy">
               <div class="hierarchy cf">
@@ -419,9 +461,9 @@
 
       {{! end object actions }}
 
-      {{#object.suggestions}}
+      {{#suggestions}}
         <div class="channel-object-similar">
-          <h2 class="channel-object-title">[More Suggestions]</h2>
+          <h2 class="channel-object-title">{{i18n.site.object.similar-suggestions}}</h2>
           <div class="suggestions-section">
             <div class="display-grid">
               <div class="slide-rail" style="position: relative;">
@@ -439,7 +481,7 @@
             </div>
           </div>
         </div>
-      {{/object.suggestions}}
+      {{/suggestions}}
     </section>
   {{/content}}
 </div>

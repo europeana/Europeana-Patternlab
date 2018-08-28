@@ -173,7 +173,7 @@ define(['jquery', 'jasmine_jquery'], function(){
           'loadUrl': basePathJson + '/' + jsonFile,
           'load_per_page': 5,
           'itemsAvailable': itemsAvailable,
-          'templateText': '<div class="lc-item"><div class="lc-item-text">[[title]]</div></div>'
+          'templateText': '<div class="lc-item"><div class="lc-item-text">{{title}}</div></div>'
         };
       };
 

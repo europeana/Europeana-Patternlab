@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, Mustache) {
+define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, EuMustacheLoader) {
 
   var channelData = null;
 
@@ -9,16 +9,13 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   function loadAnnotations(){
 
     if(window.annotationsLater){
-      require(['mustache'], function(){
-        Mustache.tags = ['[[', ']]'];
-        $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
-          if(data){
-            var templateUrl = require.toUrl('mustache_template_root') + '/sections-object-data-section/sections-object-data-section.html';
-            $.get(templateUrl, function(template){
-              $('#annotations').after(Mustache.render(template, data));
-            });
-          }
-        });
+      $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
+        if(data){
+          var templateUrl = 'sections-object-data-section/sections-object-data-section';
+          EuMustacheLoader.loadMustache(templateUrl, function(template, Mustache){
+            $('#annotations').after(Mustache.render(template, data));
+          });
+        }
       });
     }
   }
@@ -82,95 +79,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     $.getJSON(initUrl, null).done(buildHierarchy).fail(error);
   }
 
-  function showMap(data){
-
-    var initLeaflet = function(longitudes, latitudes, labels){
-      log('initLeaflet:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes));
-      var mapInfoId = 'map-info';
-      var placeName = $('#js-map-place-name').text();
-
-      require(['leaflet', 'leaflet_zoom_slider'], function(L){
-
-        var osmUrl = location.protocol + '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-        $('.map').after('<div id="' + mapInfoId + '"></div>');
-
-        var osmAttr = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-
-        var map = L.map($('.map')[0], {
-          center : new L.LatLng(latitudes[0], longitudes[0]),
-          zoomControl : true,
-          zoomsliderControl: false,
-          zoom : 8
-        });
-
-        var imagePath = require.toUrl('').split('/');
-
-        imagePath.pop();
-        imagePath.pop();
-        imagePath.pop();
-
-        L.Icon.Default.imagePath = imagePath.join('/') + '/lib/leaflet/leaflet-1.2.0/images/';
-
-        map.addLayer(new L.TileLayer(osmUrl, {
-          minZoom : 4,
-          maxZoom : 18,
-          attribution : osmAttr,
-          type : 'osm'
-        }));
-        map.invalidateSize();
-
-        var coordLabels = [];
-
-        for(var i = 0; i < Math.min(latitudes.length, longitudes.length); i++){
-          L.marker([latitudes[i], longitudes[i]]).addTo(map);
-          coordLabels.push(latitudes[i] + '&deg; ' + (latitudes[i] > 0 ? labels.n : labels.s) + ', ' + longitudes[i] + '&deg; ' + (longitudes[i] > 0 ? labels.e : labels.w));
-        }
-
-        placeName = placeName ? placeName.toUpperCase() + ' ' : '';
-
-        $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
-        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')           + '" type="text/css"/>');
-        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css') + '" type="text/css"/>');
-      });
-    };
-
-    // split multi-values on (whitespace or comma + whitespace)
-
-    var latitude = (data.latitude + '').split(/,*\s+/g);
-    var longitude = (data.longitude + '').split(/,*\s+/g);
-
-    if(latitude && longitude){
-      // replace any comma-delimited decimals with decimal points / make decimal format
-      var i;
-      for(i = 0; i < latitude.length; i++){
-        latitude[i] = latitude[i].replace(/,/g, '.').indexOf('.') > -1 ? latitude[i] : latitude[i] + '.00';
-      }
-      for(i = 0; i < longitude.length; i++){
-        longitude[i] + longitude[i].replace(/,/g, '.').indexOf('.') > -1 ? longitude[i] : longitude[i] + '.00';
-      }
-
-      var longitudes = [];
-      var latitudes = [];
-
-      // sanity check
-      for(i = 0; i < Math.min(latitude.length, longitude.length); i++){
-        if(latitude[i] && longitude[i] && [latitude[i] + '', longitude[i] + ''].join(',').match(/^\s*-?\d+\.\d+\,\s?-?\d+\.\d+\s*$/)){
-          longitudes.push(longitude[i]);
-          latitudes.push(latitude[i]);
-        }
-        else{
-          log('Map data error: invalid coordinate pair:\n\t' + longitudes[i] + '\n\t' + latitudes[i]);
-        }
-      }
-
-      if(longitudes.length && latitudes.length){
-        initLeaflet(longitudes, latitudes, data.labels);
-      }
-      else{
-        log('Map data missing');
-      }
-    }
+  function showMap(mapData){
+    require(['util_cho_map'], function(MapUtil){
+      MapUtil.loadMap(mapData, $('.markers a'));
+    });
   }
 
   var initCarousel = function(el, ops){
@@ -253,14 +165,14 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   var updateTechData = function(e){
 
-    var url = require.toUrl('mustache_template_root') + '/licenses-js/licenses-js.html';
+    var url = 'licenses-js/licenses-js';
 
-    $.get(url, function(template){
-      updateTechDataWithTemplate(e, template);
+    EuMustacheLoader.loadMustache(url, function(template, Mustache){
+      updateTechDataWithTemplate(e, template, Mustache);
     });
   };
 
-  var updateTechDataWithTemplate = function(e, rightsTemplate){
+  var updateTechDataWithTemplate = function(e, rightsTemplate, Mustache){
     var tgt          = $(e.target);
     var fileInfoData = {'href': '', 'meta': [], 'fmt': ''};
 
@@ -326,7 +238,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           if(useTemplate){
             var model    = allConcat;
 
-            Mustache.tags = ['[[', ']]'];
             var rendered = Mustache.render(rightsTemplate, model);
             writeEl.next('.val').html(rendered);
           }

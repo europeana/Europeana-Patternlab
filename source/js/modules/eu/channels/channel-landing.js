@@ -151,14 +151,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
       type : 'GET',
       contentType : 'application/json; charset=utf-8',
       success : function(data){
+        require(['util_mustache_loader'], function(EuMustacheLoader){
 
-        var url = require.toUrl('mustache_template_root') + '/search-search-listitem-js/search-search-listitem-js.html';
+          var url = 'search-search-listitem-js/search-search-listitem-js';
+          EuMustacheLoader.loadMustache(url, function(template, Mustache){
 
-        $.get(url, function(template){
-
-          require(['mustache'], function(Mustache){
-
-            Mustache.tags = ['[[', ']]'];
             initPreviewMasonry();
 
             $.each(data.search_results, function(i, datum){

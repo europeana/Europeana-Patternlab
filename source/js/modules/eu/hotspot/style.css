@@ -1,0 +1,201 @@
+/* line 4, style.scss */
+.hotspot-expand {
+  border: 1px solid #4d4d4d;
+  color: #4d4d4d;
+  display: block;
+  float: right;
+  font-size: 1.6rem;
+  height: 2rem;
+  position: absolute;
+  right: 2em;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translate(100%, -50%);
+  transform: translate(100%, -50%);
+  width: 2rem;
+}
+/* line 19, style.scss */
+.hotspot-expand.loading {
+  cursor: progress;
+}
+/* line 23, style.scss */
+.hotspot-expand .icon-label-collapse,
+.hotspot-expand .icon-label-expand {
+  display: block;
+  font-weight: bold;
+  height: 2rem;
+  line-height: 2rem;
+  pointer-events: none;
+  position: absolute;
+  width: 2rem;
+}
+/* line 34, style.scss */
+.hotspot-expand .icon-label-collapse {
+  left: 0.133em;
+  top: 0.1em;
+}
+/* line 39, style.scss */
+.hotspot-expand .icon-label-expand {
+  left: 0.13em;
+  top: 0.08em;
+}
+/* line 44, style.scss */
+.hotspot-expand .label-collapse,
+.hotspot-expand .label-expand {
+  display: none;
+  font-size: 0.875em;
+  font-weight: normal;
+}
+/* line 51, style.scss */
+.hotspot-expand.expanded .icon-label-expand {
+  display: none;
+}
+/* line 55, style.scss */
+.hotspot-expand:not(.expanded) .icon-label-collapse {
+  display: none;
+}
+@media all and (min-width: 50em) {
+  /* line 4, style.scss */
+  .hotspot-expand {
+    font-size: 1.2em;
+    height: 1.2em;
+    margin-right: 1em;
+    position: relative;
+    right: auto;
+    top: auto;
+    -webkit-transform: translate(0, -0.18em);
+    transform: translate(0, -0.18em);
+    width: 1.2em;
+  }
+  /* line 71, style.scss */
+  .hotspot-expand .label-collapse,
+  .hotspot-expand .label-expand {
+    display: block;
+    font-size: 0.75em;
+    position: absolute;
+    top: 0.22em;
+    -webkit-transform: translateX(-120%);
+    transform: translateX(-120%);
+    white-space: nowrap;
+  }
+  /* line 82, style.scss */
+  .hotspot-expand .icon-label-collapse,
+  .hotspot-expand .icon-label-expand {
+    height: 1.2em;
+    line-height: 1.2em;
+    width: 1.2em;
+  }
+  /* line 89, style.scss */
+  .hotspot-expand .icon-label-collapse {
+    left: -0.039em;
+    top: -0.05em;
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+  }
+  /* line 96, style.scss */
+  .hotspot-expand .icon-label-expand {
+    left: 0.11em;
+    top: 0.06em;
+  }
+  /* line 101, style.scss */
+  .hotspot-expand.expanded .label-expand {
+    display: none;
+  }
+  /* line 104, style.scss */
+  .hotspot-expand:not(.expanded) .label-collapse {
+    display: none;
+  }
+}
+@media all and (min-width: 60em) {
+  /* line 4, style.scss */
+  .hotspot-expand {
+    margin-right: 2em;
+  }
+}
+
+/* line 114, style.scss */
+.hotspot {
+  line-height: 2rem;
+  margin: 3em 3.5em 2em 0;
+  padding: 1rem 4rem 1rem 1rem;
+  position: relative;
+  width: 100%;
+}
+/* line 123, style.scss */
+.hotspot.loading .label-collapse,
+.hotspot.loading .label-expand,
+.hotspot.loading .text.collapsed,
+.hotspot.loading .text.expanded {
+  opacity: 0;
+}
+/* line 131, style.scss */
+.hotspot.collapsed {
+  background-color: #1676aa;
+  color: #fff;
+  cursor: pointer;
+}
+/* line 136, style.scss */
+.hotspot.collapsed .hotspot-expand {
+  border-color: #fff;
+  color: #fff;
+}
+/* line 140, style.scss */
+.hotspot.collapsed .hotspot-expand.expanded .svg-icon-minus-white {
+  display: block;
+}
+/* line 145, style.scss */
+.hotspot.collapsed .hotspot-expand:not(.expanded) .svg-icon-plus-white {
+  display: block;
+}
+/* line 151, style.scss */
+.hotspot.collapsed > .text.collapsed {
+  display: block;
+}
+/* line 154, style.scss */
+.hotspot.collapsed > .text.expanded {
+  display: none;
+}
+/* line 158, style.scss */
+.hotspot.collapsed .svg-icon-minus,
+.hotspot.collapsed .svg-icon-plus {
+  display: none;
+}
+/* line 163, style.scss */
+.hotspot.collapsed:hover {
+  background-color: #212121;
+}
+/* line 168, style.scss */
+.hotspot > .text.collapsed {
+  display: none;
+}
+/* line 171, style.scss */
+.hotspot > .text.expanded {
+  display: block;
+}
+@media all and (min-width: 50em) {
+  /* line 174, style.scss */
+  .hotspot > .text.expanded,
+  .hotspot > .text.collapsed {
+    padding-right: 8em;
+  }
+}
+@media all and (min-width: 60em) {
+  /* line 174, style.scss */
+  .hotspot > .text.expanded,
+  .hotspot > .text.collapsed {
+    padding-right: 9em;
+  }
+}
+@media all and (min-width: 50em) {
+  /* line 114, style.scss */
+  .hotspot {
+    line-height: 1.2;
+    margin: 3em -1em 2em 0;
+    padding: 1rem;
+  }
+}
+/* line 190, style.scss */
+.hotspot .svg-icon-minus-white,
+.hotspot .svg-icon-plus-white {
+  display: none;
+}

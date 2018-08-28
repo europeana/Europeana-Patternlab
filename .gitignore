@@ -1,9 +1,8 @@
-package-lock.json
-config
 .DS_Store
 public
 reports
 source/css
+source/js/js-mustache/
 node_modules
 *-ck.js
 *.komodoproject
@@ -17,3 +16,4 @@ node_modules
 # Ignore bower files
 source/js/dist/README.md
 source/js/dist/bower.json
+
