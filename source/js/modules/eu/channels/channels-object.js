@@ -972,7 +972,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         else{
           initExtendedInformation(true);
         }
-      }).error(function(){
+      }).fail(function(){
         initExtendedInformation(true);
       });
     }

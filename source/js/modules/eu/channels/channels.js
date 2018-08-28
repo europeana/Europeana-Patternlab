@@ -80,7 +80,7 @@ define(['jquery', 'smartmenus'], function($){
   };
 
   var initFeedback = function(){
-    if($('.feedback').size()>0){
+    if($('.feedback').length > 0){
       require(['feedback'], function(fb){
         fb.init($('.feedback'));
       });
@@ -102,7 +102,7 @@ define(['jquery', 'smartmenus'], function($){
   var doForAllPages = function(){
     initCollectionsFilter();
 
-    if($('.eu-tooltip').size()>0){
+    if($('.eu-tooltip').length > 0){
       require(['eu_tooltip'], function(euTooltip){
         euTooltip.configure();
       });

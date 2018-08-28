@@ -1,11 +1,4 @@
-require.config({
-    paths: {
-        jquery:             '../../lib/jquery',
-        util_foldable:      '../../eu/util/foldable-list'
-    }
-});
-
-
-require(['jquery', 'util_foldable'], function( $ ) {
-
+require([require.toUrl('../config/main-config.js')], function() {
+  require(['jquery', 'util_foldable'], function(){
+  });
 });

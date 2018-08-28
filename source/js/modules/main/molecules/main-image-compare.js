@@ -1,17 +1,7 @@
-require.config({
-  paths: {
-    jquery:       '../../lib/jquery/jquery',
-    imageCompare: '../../lib/image-compare/image-compare'
-  }
-});
-
-require(['jquery'], function( $ ) {
-
-  require(['imageCompare'], function( imageCompare ) {
-
-    imageCompare.init();
-
+require([require.toUrl('../config/main-config.js')], function() {
+  require(['jquery'], function(){
+    require(['imageCompare'], function(imageCompare){
+      imageCompare.init();
+    });
   });
-
-
 });

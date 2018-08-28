@@ -80,7 +80,7 @@ define(['jquery'], function($){
             processCallback(Mustache, data, confItem.templateId, confItem.id, confItem.multi);
             returned ++;
             checkDone();
-          }).error(function(){
+          }).fail(function(){
             returned ++;
             checkDone();
           });

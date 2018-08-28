@@ -11,6 +11,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min',
       'js/unit-tests/require/main.js',
       {
         pattern: 'js/unit-tests/fixtures/*.html',
