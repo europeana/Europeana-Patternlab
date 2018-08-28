@@ -99,6 +99,20 @@
       }
     }
 
+    .ve-state-buttons {
+      height: 3rem;
+      padding-top: $spacing-base;
+    }
+
+    .ve-foyer-card .ve-foyer-card-state {
+      height: calc(100% - 3rem);
+    }
+
+    .ve-foyer-card.dark .ve-state-button-on,
+    .ve-foyer-card.dark .ve-state-button-off {
+      height: 0.625rem;
+      width: 0.625rem;
+    }
   }
 
   &.entity-promo {
@@ -389,7 +403,6 @@
   }
 
   .relation{
-    border-top: 1px solid $gray87;
     font-style: italic;
     margin: -$spacing-base;
     margin-top: 0;

@@ -1,6 +1,10 @@
 <div class="content-text">
   <div class="content-text-inner{{^date}}{{^attribution}}{{^type}} no-date-and-type{{/type}}{{/attribution}}{{/date}}{{#tags}} has-tags{{/tags}}{{#title}} has-title{{/title}}{{#excerpt}}{{#short}} has-text{{/short}}{{/excerpt}}">
 
+     {{#type}}
+      <span class="type">{{.}}</span>
+     {{/type}}
+
     {{#title}}
 
       <div class="content-text-upper">
@@ -12,17 +16,6 @@
               <span class="icon icon-{{.}}"></span>
           {{/icon}}
         </div>
-
-        {{#tags}}
-          <ul class="promo-tags">
-            {{#items}}
-              <li>
-                {{#url}}<a class="promo-tag-link" href="{{.}}">{{/url}}#{{text}}{{#url}}</a>{{/url}}
-              </li>
-            {{/items}}
-          </ul>
-        {{/tags}}
-
       </div>
     {{/title}}
 
@@ -33,6 +26,17 @@
     {{/excerpt}}
 
     <div class="text-footer">
+
+      {{#tags}}
+        <ul class="promo-tags">
+          {{#items}}
+            <li>
+              {{#url}}<a class="promo-tag-link" href="{{.}}">{{/url}}#{{text}}{{#url}}</a>{{/url}}
+            </li>
+          {{/items}}
+        </ul>
+      {{/tags}}
+
       {{#overlay}}
         <div class="collections-promo-overlay">
           <div class="collections-promo-overlay-inner">
@@ -73,10 +77,7 @@
             {{#attribution}}|{{/attribution}}
           {{/date}}
           {{#attribution}}{{.}}{{/attribution}}
-        </div>
-        {{#type}}
-          <span class="type type-{{.}}">{{.}}</span>
-        {{/type}}
+        </div>       
       </div>
       {{#relation}}
         <div class="relation">{{.}}</div>
