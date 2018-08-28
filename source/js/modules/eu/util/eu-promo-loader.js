@@ -46,6 +46,10 @@ define(['jquery'], function($){
       var templateId = confItem.templateId;
       var id         = confItem.id;
 
+
+      if(confItem.relation){
+        data.relation = confItem.relation;
+      }
       if(confItem.mapping){
         data = confItem.mapping(data);
       }

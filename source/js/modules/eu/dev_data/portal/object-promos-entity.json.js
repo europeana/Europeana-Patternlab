@@ -7,7 +7,6 @@ define([], function(){
     },
     "title": false,
     "excerpt": false,
-    "relation": "Features The Milkmaid and Johannes Vermeer",
     "overlay":{
       "title": "Johannes Vermeer",
       "img": "/images/sample/vermeer.png",
