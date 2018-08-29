@@ -1,9 +1,11 @@
 <div class="gridlayout-card{{#grid_width}} width-{{.}}{{/grid_width}}">
-  	<a class="card-img" href="{{url}}" data-image="{{img_url}}"></a>
-	  {{#has_text}}
-	    <div class="inner">
+	<a class="card-img" href="{{url}}" data-image="{{img_url}}"></a>
+  {{#has_text}}
+    <div class="inner">
+      <div class="inner-text">
 	      {{#link_text}}<p class="ellipsis">{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</p>{{/link_text}}
 	      {{#texts}}<p>{{.}}</p>{{/texts}}
-	    </div>
-	  {{/has_text}}
+      </div>
+    </div>
+  {{/has_text}}
 </div>

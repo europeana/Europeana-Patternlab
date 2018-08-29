@@ -22,6 +22,34 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
     });
   }
 
+  function initEllipsis(){
+    require(['util_eu_ellipsis'], function(Ellipsis){
+      $('.gridlayout-card .inner-text h3').each(function(){
+        Ellipsis.create($(this), {textSelectors:['a']});
+      });
+
+      $('.gridlayout-card .inner-text p').each(function(){
+        Ellipsis.create($(this), {textSelectors:['span']});
+      });
+
+    });
+  }
+
+  function initScrollToAnchor() {
+    $('.anchor-list a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        scrollToAnchor($(this));
+      });
+    });
+  }
+
+  function scrollToAnchor(el) {
+    $('html, body').animate({
+      scrollTop: $(el.attr('href')).offset().top
+    }, 1000);
+  }
+
   function initLazyLoad(){
 
     var loadBatch = function($batch, cb){
@@ -102,22 +130,8 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
     loadImagesInView();
   }
 
-  function initScrollToAnchor() {
-    $('.anchor-list a').each(function() {
-      $(this).on('click', function(e) {
-        e.preventDefault();
-        scrollToAnchor($(this));
-      });
-    });
-  }
-
-  function scrollToAnchor(el) {
-    $('html, body').animate({
-      scrollTop: $(el.attr('href')).offset().top
-    }, 1000);
-  }
-
   function initPage(){
+    initEllipsis();
     initTitleBar();
     initLazyLoad();
   }

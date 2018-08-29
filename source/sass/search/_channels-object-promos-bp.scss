@@ -1,5 +1,17 @@
 @import "channels-object-variables";
 
+@media all and (max-width: $bp-med) {
+  .collections-promo-item {
+    height: auto;
+  }
+
+  .collections-promo-item:not(.entity-promo) .text-footer {
+    align-self: flex-end;
+    width: 100%;
+  }
+}
+
+
 @media all and (min-width: $bp-med) {
 
   flex-direction: column;
@@ -11,82 +23,72 @@
     width:  100%;
   }
 
-  .channel-object-next-prev{
-
-    &.separator-after{
-
+  .channel-object-next-prev {
+    &.separator-after {
       margin-bottom: 3.2em;
-      margin-right:  0;
+      margin-right: 0;
 
       &::after{
         border-bottom: 1px solid $gray87;
-        border-right:  0;
-        bottom:        -1.6em;
-        left:          0;
-        right:         0;
-        top:           0;
+        border-right: 0;
+        bottom: -1.6em;
+        left: 0;
+        right: 0;
+        top: 0;
       }
     }
 
-    &.separator-before{
-
+    &.separator-before {
       margin-left: 0;
-      margin-top:  1.6em;
+      margin-top: 1.6em;
 
       &::before{
         border-right: 0;
-        border-top:   1px solid $gray87;
-        bottom:       0;
-        left:         0;
-        right:        0;
-        top:          -4em;
+        border-top: 1px solid $gray87;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: -4em;
       }
     }
   }
 
   .previous-item-title{
     -webkit-transform: translateY(1.6em);
-    transform:         translateY(1.6em);
+    transform: translateY(1.6em);
   }
 
-  .collections-promo-item{
-    font-size:     $font-size-sm;
-    margin-bottom: $space;
-    min-width:     auto;
-    width:         98%;
+  .collections-promo-item {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-2x;
+    min-width: auto;
+    width: 98%;
 
-    &:not(.exhibition){
+    &:not(.exhibition) {
       .promo-tags{
         padding-bottom: 0;
       }
     }
 
-    .content-text-inner.has-text:not(.has-title){
-      .text-main{
+    .content-text-inner.has-text:not(.has-title) {
+      .text-main {
         -webkit-transform: translateY(0.5em);
-        transform:         translateY(0.5em);
+        transform: translateY(0.5em);
       }
     }
 
-    .promo-tags{
-      font-size:  $font-size-slightly-smaller;
-    }
-
-    .image-set-info{
+    .image-set-info {
       padding: 0.75em 1em 0.75em 1em;
     }
 
-    .date-and-type{
-      padding-top: 0.25em;
-      .date.with-type{
-        max-width: 66%;
-      }
+    .date-and-type .date.with-type {
+      max-width: 66%;
     }
   }
 
   .collections-promo-overlay{
+    bottom: 1.2rem;
     .links{
-      font-size: 0.875em;
 
       a:last-child{
         bottom:    0;
@@ -119,22 +121,15 @@
 }
 
 @media all and (min-width: $bp-large) {
-
-  .collections-promo-item{
-
-    font-size:  $font-size-slightly-smaller;
-
+  .collections-promo-item {
     .date-and-type .date.with-type{
       max-width: 70%;
     }
-
   }
 }
 
 @media all and (min-width: $bp-xl) {
-
-  .collections-promo-item{
-
+  .collections-promo-item {
     margin-left:  auto;
     margin-right: auto;
     width:        100%;
@@ -146,29 +141,20 @@
       }
     }
 
-    .date-and-type{
-      padding-top: 1em;
-      .date.with-type{
-        max-width: 75%;
-      }
+    .date-and-type .date.with-type{
+      max-width: 75%;
     }
 
     .image-set-info{
       padding: $spacing-base;
     }
-
-    .relation{
-      padding: 0.8em 1.125rem;
-    }
   }
 
-  .collections-promo-overlay{
-    .links{
-      font-size: $font-size-norm;
-
+  .collections-promo-overlay {
+    bottom: 2.3rem;
+    .links {
       a:last-child{
         bottom:    0.2em;
-        font-size: $font-size-med;
       }
     }
   }
@@ -202,16 +188,20 @@
 }
 
 @media all and (min-width: $bp-xxl) {
-
   .collections-promo-item{
-    font-size: $font-size-norm;
     width:     100%;
   }
 
+  .collections-promo-overlay {
+    bottom: 3.8rem;
+
+    .relation {
+      border-top: 1px solid $gray87;
+    }
+  }
 }
 
 @media all and (min-width: $bp-xxxl) {
-
   .collections-promo-item{
     .date-and-type .date.with-type{
       max-width: 80%;
