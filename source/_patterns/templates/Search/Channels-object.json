@@ -31,7 +31,7 @@
     },
     {
       "name": "enabledPromos",
-      "value": "[ {'id': 'exhibition', 'url': '/exhibition.json' }, { 'id': 'gallery', 'url': '/galleries.json' }, {'id': 'news', 'url': '/news.json' }, { 'id': 'entity', 'url': '/entity.json', 'relation': 'dcCreator' }, {'id': 'generic', 'url': '/promoted.json' }]",
+      "value": "[ {'id': 'exhibition', 'url': '/exhibition.json' }, { 'id': 'gallery', 'url': '/galleries.json' }, {'id': 'news', 'url': '/news.json' }, { 'id': 'entity', 'url': '/entity.json', 'relation': 'The creator of this item' }, {'id': 'generic', 'url': '/promoted.json' }]",
       "unquoted": true
     },
     {
