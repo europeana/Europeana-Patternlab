@@ -117,7 +117,7 @@ define(['jquery'], function($){
             processCallback(Mustache, data, confItem);
             returned ++;
             checkDone();
-          }).error(function(){
+          }).fail(function(){
             returned ++;
             checkDone();
           });

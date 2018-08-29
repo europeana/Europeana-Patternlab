@@ -75,15 +75,16 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
   // fake ajax to assist design
   var loadResults = function(count){
-    var items      = $('.result-items>li');
-    var itemsCount = items.size();
+    var items      = $('.result-items > li');
+    var itemsCount = items.length;
+
     if(itemsCount < count){
-      var toCopy = $('.result-items>li').slice(0, count - itemsCount);
+      var toCopy = $('.result-items > li').slice(0, count - itemsCount);
       toCopy.each(function(i, ob){
         $(ob).parent().append($(ob).clone());
       });
 
-      if($('.result-items>li').size() < count){
+      if($('.result-items > li').length < count){
         loadResults(count);
       }
     }
@@ -95,7 +96,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
   };
 
   var styleResultsMenu = function(count){
-    if($('.result-actions a.dropdown-trigger').size() > 0){
+    if($('.result-actions a.dropdown-trigger').length > 0){
       var text = $('.result-actions a.dropdown-trigger').text();
       var int  = text.match(/\d+/)[0];
 

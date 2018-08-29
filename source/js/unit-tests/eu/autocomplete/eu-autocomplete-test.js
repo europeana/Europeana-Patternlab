@@ -76,8 +76,10 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
         setTimeout(function() {
           expect($(selItems).length).toBeGreaterThan(0);
           $('h2').click();
-          expect($(selItems).length).toBe(0);
-          done();
+          setTimeout(function() {
+            expect($(selItems).length).toBe(0);
+            done();
+          }, waitClear);
         }, waitSuggestions);
       });
     });
@@ -95,8 +97,10 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
 
           $(selItems + ':eq(0)').click();
 
-          expect(cbSpy).toHaveBeenCalled();
-          done();
+          setTimeout(function(){
+            expect(cbSpy).toHaveBeenCalled();
+            done();
+          }, waitClear);
         });
       });
 
@@ -128,8 +132,10 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
 
           $('h2').click();
 
-          expect(cbSpy).toHaveBeenCalled();
-          done();
+          setTimeout(function(){
+            expect(cbSpy).toHaveBeenCalled();
+            done();
+          }, waitSuggestions);
         });
       });
 

@@ -19,7 +19,7 @@ requirejs.config({
     jasmine_jquery:            '../../../unit-tests/require/jasmine-jquery',
     jqDropdown:                '../../lib/jquery/jquery.dropdown',
     jqScrollto:                '../../lib/jquery/jquery.scrollTo',
-    jquery:                    '../../lib/jquery/jquery',
+    jquery:                    'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min',
     leaflet:                   '../../lib/leaflet/leaflet-1.3.0/leaflet',
     leaflet_edgebuffer:        '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:        '../../lib/leaflet/fullscreen/Leaflet.fullscreen',

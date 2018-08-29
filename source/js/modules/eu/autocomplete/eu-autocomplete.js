@@ -401,7 +401,7 @@ define(['jquery', 'mustache', 'viewport_contains', 'util_resize'], function($, M
         self.lastSearchTerm = term;
         self.lastSearchResult = data;
         doOnDone(data);
-      }).error(function(e, f){
+      }).fail(function(e, f){
         self.log('Error: ' + e.status + '  ' + f);
         self.hide();
       });

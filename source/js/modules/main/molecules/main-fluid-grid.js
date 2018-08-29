@@ -1,21 +1,13 @@
-require.config({
-  paths: {
-    jquery:                 '../../lib/jquery/jquery',
-    util_eu_ellipsis:       '../../eu/util/eu-ellipsis',
-    util_resize:            '../../eu/util/resize'
-  }
-});
+require([require.toUrl('../config/main-config.js')], function() {
+  require(['util_eu_ellipsis'], function(Ellipsis){
+    $('.gridlayout-card p').each(function(){
 
-require(['util_eu_ellipsis'], function(Ellipsis){
+      // move to css
+      $(this).css('line-height', '1.6em');
+      $(this).css('max-height',  '3.2em');
+      // end move to css
 
-  $('.gridlayout-card p').each(function(){
-
-    // move to css
-    $(this).css('line-height', '1.6em');
-    $(this).css('max-height',  '3.2em');
-    // end move to css
-
-    Ellipsis.create($(this), {textSelectors:['a']});
+      Ellipsis.create($(this), {textSelectors:['a']});
+    });
   });
-
 });

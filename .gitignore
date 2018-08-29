@@ -1,3 +1,4 @@
+/config
 .DS_Store
 public
 reports
@@ -16,4 +17,3 @@ node_modules
 # Ignore bower files
 source/js/dist/README.md
 source/js/dist/bower.json
-
