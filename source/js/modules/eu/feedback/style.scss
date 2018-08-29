@@ -42,6 +42,24 @@
     text-transform: uppercase;
   }
 
+  .feedback-email{
+    &::-webkit-input-placeholder {
+      text-transform: capitalize;
+    }
+    &::-moz-placeholder {
+      text-transform: capitalize;
+    }
+    &::-ms-placeholder {
+      text-transform: capitalize;
+    }
+    &::placeholder {
+      text-transform: capitalize;
+    }
+    &.error{
+      border-color: $error;
+    }
+  }
+
   .feedback-text{
     border-radius: 0.5em 0.5em 0 0;
   }
@@ -51,6 +69,8 @@
   }
 
   &.open{
+
+    max-width: 30em;
 
     a.open {
       display: none;
@@ -163,8 +183,8 @@
   }
 
   #feedback-form {
-    margin: 1em;
-    padding-bottom: 3em;
+    margin:         1em;
+    padding-bottom: 1em;
     .controls.step1{
       position: relative;
     }
@@ -242,6 +262,32 @@
       input{
         display: inline;
         white-space: nowrap;
+      }
+    }
+
+    .disclaimer{
+
+      margin-top:      3.45em;
+
+      #accept-terms{
+        margin-top:      $space;
+      }
+
+      ul{
+        list-style: circle;
+      }
+
+      [for=accept-terms]{
+        display: inline;
+        text-decoration: underline;
+        &.error{
+          color: $error;
+        }
+      }
+
+      li{
+        display:         list-item;
+        margin-left:     $space;
       }
     }
 

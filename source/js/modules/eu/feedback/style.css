@@ -47,63 +47,87 @@
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-/* line 45, style.scss */
+/* line 46, style.scss */
+.feedback .feedback-email::-webkit-input-placeholder {
+  text-transform: capitalize;
+}
+/* line 49, style.scss */
+.feedback .feedback-email::-moz-placeholder {
+  text-transform: capitalize;
+}
+/* line 52, style.scss */
+.feedback .feedback-email::-ms-placeholder {
+  text-transform: capitalize;
+}
+/* line 55, style.scss */
+.feedback .feedback-email::placeholder {
+  text-transform: capitalize;
+}
+/* line 58, style.scss */
+.feedback .feedback-email.error {
+  border-color: #f22f24;
+}
+/* line 63, style.scss */
 .feedback .feedback-text {
   border-radius: 0.5em 0.5em 0 0;
 }
-/* line 48, style.scss */
+/* line 66, style.scss */
 .feedback .feedback-cancel,
 .feedback .feedback-send {
   border-radius: 0.25em;
 }
-/* line 55, style.scss */
+/* line 71, style.scss */
+.feedback.open {
+  max-width: 30em;
+}
+/* line 75, style.scss */
 .feedback.open a.open {
   display: none;
 }
-/* line 58, style.scss */
+/* line 78, style.scss */
 .feedback.open a.close {
   display: block;
 }
 @media all and (max-width: 50em) {
-  /* line 53, style.scss */
+  /* line 71, style.scss */
   .feedback.open {
     top: auto;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 53, style.scss */
+  /* line 71, style.scss */
   .feedback.open {
     transform: translateX(0);
     -webkit-transform: translateX(0);
   }
 }
-/* line 72, style.scss */
+/* line 92, style.scss */
 .feedback .feedback-toggle {
   color: #fff;
   left: 0;
   position: absolute;
 }
 @media all and (max-width: 50em) {
-  /* line 72, style.scss */
+  /* line 92, style.scss */
   .feedback .feedback-toggle {
     top: 0;
     width: 100%;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 72, style.scss */
+  /* line 92, style.scss */
   .feedback .feedback-toggle {
     bottom: 0;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 72, style.scss */
+  /* line 92, style.scss */
   .feedback .feedback-toggle {
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
   }
 }
-/* line 91, style.scss */
+/* line 111, style.scss */
 .feedback .feedback-toggle a {
   border: 0 none;
   cursor: pointer;
@@ -113,7 +137,7 @@
   vertical-align: middle;
 }
 @media all and (min-width: 50em) {
-  /* line 91, style.scss */
+  /* line 111, style.scss */
   .feedback .feedback-toggle a {
     left: 100%;
     transform: rotate(270deg);
@@ -121,23 +145,23 @@
     transform-origin: bottom left;
     -webkit-transform-origin: bottom left;
   }
-  /* line 109, style.scss */
+  /* line 129, style.scss */
   .feedback .feedback-toggle a.open:hover, .feedback .feedback-toggle a.open:focus {
     background: #212121;
   }
-  /* line 114, style.scss */
+  /* line 134, style.scss */
   .feedback .feedback-toggle a.close {
     background-color: #293745;
   }
 }
 @media all and (max-width: 50em) {
-  /* line 91, style.scss */
+  /* line 111, style.scss */
   .feedback .feedback-toggle a {
     transform: translateY(-100%);
     -webkit-transform: translateY(-100%);
   }
 }
-/* line 126, style.scss */
+/* line 146, style.scss */
 .feedback .feedback-toggle a,
 .feedback .feedback-cancel,
 .feedback .feedback-send {
@@ -146,7 +170,7 @@
   padding: 0.5em;
 }
 @media all and (max-width: 50em) {
-  /* line 133, style.scss */
+  /* line 153, style.scss */
   .feedback .feedback-toggle a.close,
   .feedback .feedback-cancel.close,
   .feedback .feedback-send.close {
@@ -154,11 +178,11 @@
     width: 100%;
   }
 }
-/* line 141, style.scss */
+/* line 161, style.scss */
 .feedback .feedback-toggle a {
   padding: 0.75em 1em;
 }
-/* line 145, style.scss */
+/* line 165, style.scss */
 .feedback .feedback-cancel,
 .feedback .feedback-send {
   color: #fff;
@@ -166,50 +190,50 @@
   position: absolute;
   width: 2.45em;
 }
-/* line 151, style.scss */
+/* line 171, style.scss */
 .feedback .feedback-cancel svg.icon,
 .feedback .feedback-send svg.icon {
   height: 1.4em;
   width: 1.4em;
 }
-/* line 157, style.scss */
+/* line 177, style.scss */
 .feedback .feedback-cancel {
   background-color: #ccc;
 }
-/* line 161, style.scss */
+/* line 181, style.scss */
 .feedback .feedback-send {
   right: 0;
 }
-/* line 165, style.scss */
+/* line 185, style.scss */
 .feedback #feedback-form {
   margin: 1em;
-  padding-bottom: 3em;
+  padding-bottom: 1em;
 }
-/* line 168, style.scss */
+/* line 188, style.scss */
 .feedback #feedback-form .controls.step1 {
   position: relative;
 }
-/* line 172, style.scss */
+/* line 192, style.scss */
 .feedback #feedback-form .step2 {
   position: absolute;
   top: 0;
   visibility: hidden;
 }
-/* line 178, style.scss */
+/* line 198, style.scss */
 .feedback #feedback-form h2 .step2 {
   color: #1676aa;
 }
-/* line 182, style.scss */
+/* line 202, style.scss */
 .feedback #feedback-form p.step2 {
   position: absolute;
   top: 4em;
 }
-/* line 187, style.scss */
+/* line 207, style.scss */
 .feedback #feedback-form .step2,
 .feedback #feedback-form .feedback-error {
   margin-top: 1.6rem;
 }
-/* line 192, style.scss */
+/* line 212, style.scss */
 .feedback #feedback-form .feedback-counter {
   border-color: #908b85 #908b85;
   border-radius: 0 0 0.5em 0.5em;
@@ -223,19 +247,19 @@
   text-align: right;
   top: -7px;
 }
-/* line 206, style.scss */
+/* line 226, style.scss */
 .feedback #feedback-form .feedback-error {
   color: #f22f24;
   position: absolute;
   top: 0;
   visibility: hidden;
 }
-/* line 214, style.scss */
+/* line 234, style.scss */
 .feedback #feedback-form .feedback-counter.error,
 .feedback #feedback-form .feedback-text.error {
   border-color: #f22f24;
 }
-/* line 219, style.scss */
+/* line 239, style.scss */
 .feedback #feedback-form .feedback-text {
   border-color: #908b85 #908b85 -moz-use-text-color;
   border-image: none;
@@ -249,27 +273,53 @@
   padding: 0.5em 0.5em 0;
   resize: none;
 }
-/* line 233, style.scss */
+/* line 253, style.scss */
 .feedback #feedback-form ul li {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 237, style.scss */
+/* line 257, style.scss */
 .feedback #feedback-form ul li input {
   position: relative;
 }
-/* line 241, style.scss */
+/* line 261, style.scss */
 .feedback #feedback-form ul li label,
 .feedback #feedback-form ul li input {
   display: inline;
   white-space: nowrap;
 }
-/* line 248, style.scss */
+/* line 268, style.scss */
+.feedback #feedback-form .disclaimer {
+  margin-top: 3.45em;
+}
+/* line 272, style.scss */
+.feedback #feedback-form .disclaimer #accept-terms {
+  margin-top: 1.6rem;
+}
+/* line 276, style.scss */
+.feedback #feedback-form .disclaimer ul {
+  list-style: circle;
+}
+/* line 280, style.scss */
+.feedback #feedback-form .disclaimer [for=accept-terms] {
+  display: inline;
+  text-decoration: underline;
+}
+/* line 283, style.scss */
+.feedback #feedback-form .disclaimer [for=accept-terms].error {
+  color: #f22f24;
+}
+/* line 288, style.scss */
+.feedback #feedback-form .disclaimer li {
+  display: list-item;
+  margin-left: 1.6rem;
+}
+/* line 294, style.scss */
 .feedback #feedback-form h2 {
   font-size: 20px;
   margin: 0;
 }
-/* line 255, style.scss */
+/* line 301, style.scss */
 .feedback .feedback-spinner {
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url("spinner.gif");

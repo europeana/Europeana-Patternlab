@@ -894,6 +894,10 @@
             "feedback":{
               "open": "feedback",
               "close": "close",
+              "data-use-header": "Any personal data",
+              "data-use-1": "We may share your data anonymously with our partners in order to improve Europeana",
+              "data-use-2": "If you provide an email address we may contact you for other information",
+              "data-agreement": "I agree to Europeana's privacy policy",
               "error": "An error occurred - please try again later",
               "title": "feedback",
               "placeholder": "We want to hear from you! Enter your feedback here.",

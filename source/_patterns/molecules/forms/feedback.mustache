@@ -26,6 +26,8 @@
         </li>
       </ul>
 
+      <input type="email" class="feedback-email" placeholder="{{i18n.global.email-address}}"/>
+
       <textarea class="step1 feedback-text" maxlength="{{maxlength}}" placeholder="{{ i18n.global.feedback.placeholder }}" name="feedback_text"></textarea>
       <div class="step1 feedback-counter" data-maxlength="{{maxlength}}">{{maxlength}}</div>
       <div class="controls step1">
@@ -33,6 +35,16 @@
       </div>
 
       <a class="feedback-cancel"><svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></a>
+
+      <div class="disclaimer">
+        <span>{{i18n.global.feedback.data-use-header}}:</span>
+        <ul>
+          <li>{{i18n.global.feedback.data-use-1}}.</li>
+          <li>{{i18n.global.feedback.data-use-2}}.</li>
+        </ul>
+        <input type="checkbox" id="accept-terms"/><label for="accept-terms">{{i18n.global.feedback.data-agreement}}</label>
+      </div>
+
       <div class="feedback-spinner" aria-role="progressbar">
       </div>
 
