@@ -1,12 +1,7 @@
-require.config({
-  paths: {
-    eu_tooltip: '../../eu/tooltip/eu-tooltip',
-    jquery: '../../lib/jquery/jquery',
-  }
-});
-
-require(['jquery'], function($){
-  require(['eu_tooltip'], function(euTooltip){
-    euTooltip.configure();
+require([require.toUrl('../config/main-config.js')], function() {
+  require(['jquery'], function(){
+    require(['eu_tooltip'], function(euTooltip){
+      euTooltip.configure();
+    });
   });
 });

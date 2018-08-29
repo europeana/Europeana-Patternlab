@@ -226,7 +226,7 @@ define(['jquery', 'purl'], function($){
     var cmp            = conf.cmp;
     var loadUrl        = conf.loadUrl.replace(/^https?:/, location.protocol);
     var template       = conf.template;
-    var totalLoaded    = cmp.find('li').size();
+    var totalLoaded    = cmp.find('li').length;
     var totalAvailable = null;
     var doAfter        = conf.doAfter ? conf.doAfter : false;
     var doOnLoadError  = conf.doOnLoadError ? conf.doOnLoadError : false;
@@ -239,7 +239,7 @@ define(['jquery', 'purl'], function($){
     var append = function(data){
       var appendData = templates[template](data);
       cmp.append(appendData.markup);
-      totalLoaded    = cmp.find('li').size();
+      totalLoaded    = cmp.find('li').length;
       totalAvailable = data.total;
 
       if(doAfter){

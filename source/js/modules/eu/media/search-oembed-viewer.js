@@ -91,7 +91,7 @@ define([], function() {
         oembed.css('margin-bottom',    '1em');
 
         $('.object-media-oembed iframe').on('load', function(){
-          if($('#newspaper-full-screen').size() > 0){
+          if($('#newspaper-full-screen').length > 0){
             return;
           }
           var iframe             = $(this);

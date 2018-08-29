@@ -13,7 +13,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var introDuration  = 400;
 
   if($url.param('introDuration')){
-    if($url.param('introDuration') == parseInt($url.param('introDuration')) + ''){
+    if($url.param('introDuration') === parseInt($url.param('introDuration')) + ''){
       introDuration = parseInt($url.param('introDuration'));
     }
     else{
@@ -27,7 +27,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var scrollDuration   = 1400;
 
   if($url.param('scrollDuration')){
-    if($url.param('scrollDuration') == parseInt($url.param('scrollDuration')) + ''){
+    if($url.param('scrollDuration') === parseInt($url.param('scrollDuration')) + ''){
       scrollDuration = parseInt($url.param('scrollDuration'));
     }
     else{
@@ -46,7 +46,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   function initExhibitions(){
     var doneSfx, doneProgressState;
 
-    if($('.editor').size() > 0 ){
+    if($('.editor').length > 0 ){
       inEditor = true;
     }
     if(inEditor){
@@ -140,7 +140,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   var initFeedback = function(){
-    if($('.feedback').size()>0){
+    if($('.feedback').length > 0){
       require(['feedback'], function(fb){
         fb.init($('.feedback'), {
           beforeSend: function(xhr) {
@@ -159,9 +159,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       localStorage.removeItem(key);
     }
 
-    if($(document).scrollTop() == 0){
+    if($(document).scrollTop() === 0){
       var doShow = false;
-      if(typeof(Storage) == 'undefined') {
+      if(typeof(Storage) === 'undefined') {
         doShow = true;
       }
       else{
@@ -311,7 +311,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     if(hash){
       var $hash = $(hash);
-      if($hash.size()>0){
+      if($hash.length > 0){
         if($hash.hasClass('ve-element-anchor')){
           hash  = $hash.closest('.ve-slide').find('.ve-anchor').attr('id');
           $hash = $('#' + hash);
@@ -369,7 +369,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         });
         $('.js-hack-smartmenu a').click(function(){
           var href = $(this).attr('href');
-          if(href != '#'){
+          if(href !== '#'){
             window.location = $(this).attr('href');
           }
         });
@@ -393,8 +393,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         smCtrl.removeScene(sfxScenes);
         sfxScenes    = [];
 
-        var isIntroE = $introE.size() > 0;
-        var isIntroC = $introC.size() > 0;
+        var isIntroE = $introE.length > 0;
+        var isIntroC = $introC.length > 0;
 
         if(isIntroC || isIntroE){
 
@@ -552,7 +552,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           var l      = $(ob).find('.ve-col-50-left').height();
           var r      = $(ob).find('.ve-col-50-right').height();
           var diff   = Math.abs(l-r);
-          var alignL = img.closest('.ve-col-50-left').size() > 0;
+          var alignL = img.closest('.ve-col-50-left').length > 0;
 
           if((alignL && l < r) || (!alignL && r < l)){
 
@@ -565,14 +565,13 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                   triggerHook: 0,
                   duration: diff + 30,
                   reverse: true
-                })
-                .setPin(img[0])
-                .addTo(smCtrl)
+                }).setPin(img[0])
+                  .addTo(smCtrl)
               );
             }
           }
           else{
-            if(qte.size() > 0 && qte.height() < diff){
+            if(qte.length > 0 && qte.height() < diff){
 
               // pin quote if text and quote are smaller than image
 
@@ -622,7 +621,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function scrollToAdaptedForPin($target, afterResize){
 
-    if($target.size()==0){
+    if($target.length === 0){
       return false;
     }
 
@@ -731,23 +730,23 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       var baseEmbed   = section.find('.ve-base-embed');
       var imgCompare  = section.find('.image-compare');
 
-      if(baseIntro.size() > 0){
+      if(baseIntro.length > 0){
         imgUrl = baseIntro.css('background-image');
         imgUrl = imgUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
       }
-      else if(baseImage.size() > 0){
+      else if(baseImage.length > 0){
         imgUrl = baseImage.find('img').attr('src');
       }
-      else if(richImage.size() > 0){
+      else if(richImage.length > 0){
         imgUrl = richImage.find('img').attr('src');
       }
-      else if(imgCompare.size() > 0){
+      else if(imgCompare.length > 0){
         imgUrl = imgCompare.find('>img').attr('src');
       }
-      else if(baseQuote.size() > 0){
+      else if(baseQuote.length > 0){
         bubbleContent.html('<span style="white-space:nowrap">"Quote..."</span>');
       }
-      else if(baseEmbed.size() > 0){
+      else if(baseEmbed.length > 0){
         bubbleContent.html('<span style="white-space:nowrap">Embed</span>');
       }
       if(imgUrl){
@@ -793,24 +792,20 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           new ScrollMagic.Scene({
             triggerElement: this,
             triggerHook:    'onCenter'
-          })
-          .on('progress', function(e){
+          }).on('progress', function(e){
             if(e.scrollDirection === 'FORWARD'){
               setProgressState(i);
             }
-          })
-          .addTo(smCtrl);
+          }).addTo(smCtrl);
 
           new ScrollMagic.Scene({
             triggerElement: this,
             triggerHook:    'onLeave'
-          })
-          .on('progress', function(e){
+          }).on('progress', function(e){
             if(e.scrollDirection === 'REVERSE'){
               setProgressState(i);
             }
-          })
-          .addTo(smCtrl);
+          }).addTo(smCtrl);
         });
 
         new ScrollMagic.Scene(
