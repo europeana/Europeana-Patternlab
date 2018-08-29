@@ -15,6 +15,10 @@ define(['jquery'], function($){
     var spinner   = el.find('.feedback-spinner');
     var submit    = el.find('.feedback-send');
     var text      = el.find('.feedback-text');
+    var email     = el.find('.feedback-email');
+    var acceptTC  = el.find('#accept-terms');
+    var acceptTxt = el.find('[for=accept-terms]');
+
     var maxLength = 0;
     var minWords  = el.data('min-words');
 
@@ -43,26 +47,58 @@ define(['jquery'], function($){
           $(this).css(rule);
           next();
         });
-    }
+    };
 
     var fbHide = function(el, delay){
       delayed(el, {'visibility': 'hidden'}, delay);
-    }
+    };
+
     var fbShow = function(el, delay){
       delayed(el, {'visibility': 'visible'}, delay);
-    }
+    };
 
     submit.on('click', function(){
 
-      if(text.val().length==0){
+      var error = false;
+
+      if(text.val().length === 0){
         text.addClass('error');
         counter.addClass('error');
-        return false;
+        error = true;
       }
-      if(text.val().split(' ').length < minWords){
+      else if(text.val().split(' ').length < minWords){
         text.addClass('error');
         counter.addClass('error');
         alert('Your feedback has to consist of ' + minWords + ' words at minimum.');
+        error = true;
+      }
+      else{
+        text.removeClass('error');
+        counter.removeClass('error');
+      }
+
+      if(!acceptTC.is(':checked')){
+        acceptTxt.addClass('error');
+        error = true;
+      }
+      else{
+        acceptTxt.removeClass('error');
+      }
+
+      if(email.val().length > 0){
+        if(!email.is(':valid')){
+          email.addClass('error');
+          error = true;
+        }
+        else{
+          email.removeClass('error');
+        }
+      }
+      else{
+        email.removeClass('error');
+      }
+
+      if(error){
         return false;
       }
 
@@ -71,22 +107,22 @@ define(['jquery'], function($){
       spinner.show();
       var url  = el.find('form').attr('action');
       var data = {
-        "type": el.find('input[name=type]:checked').val(),
-        "text": text.val(),
-        "page": window.location.href
-      }
+        'type': el.find('input[name=type]:checked').val(),
+        'text': (email.val().length > 0 ? email.val() + ' ' : '') + text.val(),
+        'page': window.location.href
+      };
 
       var doSubmit = function(csrfToken){
         $.ajax({
           beforeSend: function(xhr) {
             if(csrfToken){
-              xhr.setRequestHeader("X-CSRF-Token", csrfToken);
+              xhr.setRequestHeader('X-CSRF-Token', csrfToken);
             }
           },
           url : url.replace(/^https?:/, location.protocol),
           type : 'POST',
           data: data,
-          success : function(data){
+          success : function(){
             spinner.hide();
 
             fbHide(el.find('.step1'));
@@ -95,7 +131,7 @@ define(['jquery'], function($){
             text.val('');
             counter.html(maxLength);
           },
-          error : function(data){
+          error : function(){
             setTimeout(function(){
               fbShow(el.find('.feedback-error'));
               fbHide(el.find('.step1'));
@@ -103,14 +139,14 @@ define(['jquery'], function($){
             }, 200);
           }
         });
-      }
+      };
 
       var metaToken = $('meta[name="csrf-token"]').attr('content');
-      if(typeof metaToken != 'undefined'){
-      doSubmit(metaToken);
+      if(typeof metaToken !== 'undefined'){
+        doSubmit(metaToken);
       }
       else{
-        var tokenUrl = (enableCSRFWithoutSSL ? location.protocol : 'https:') + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/csrf.json';
+        var tokenUrl = (window.enableCSRFWithoutSSL ? location.protocol : 'https:') + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/csrf.json';
         $.get(tokenUrl, function(data){
           if(data.token){
             doSubmit(data.token);
@@ -131,10 +167,11 @@ define(['jquery'], function($){
     el.fadeIn(function(){
       el.addClass('loaded');
     });
-  }
+  };
+
   return {
     init : function(el){
       new EuFeedback(el);
     }
-  }
+  };
 });
