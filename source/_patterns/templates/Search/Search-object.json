@@ -370,7 +370,6 @@
           "title": "Location",
           "sections": [
             {
-              "title": "Location",
               "items": [
                 {
                   "text": "Sverige",
@@ -391,7 +390,7 @@
                   "extra_info": {
                     "latitude": 62.4,
                     "longitude": 15
-                  }                  
+                  }
                 },
                 {
                   "text": "Kingdom of Norway",
@@ -401,11 +400,12 @@
                   }
                 },
                 {
-                  "text": "Norway",                  
-                  "extra_info": {
-                    "latitude": 62,
-                    "longitude": 10
-                  }
+                  "text": "Norway",
+                  "url": false
+                },
+                {
+                  "text": "Scandinavia",
+                  "url": false
                 }
               ],
               "is_desc": false
