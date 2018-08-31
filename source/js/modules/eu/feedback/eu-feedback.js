@@ -6,12 +6,21 @@ define(['jquery'], function($){
     console.log('eu-feedback: ' + msg);
   };
 
+  var ajaxDone = function(){
+    instanceRef.ajaxDone();
+  };
+
+  var ajaxFail = function(){
+    instanceRef.ajaxFail();
+  };
+
   var EuFeedback = function(el){
 
     var open      = el.find('.feedback-toggle .open');
     var close     = el.find('.feedback-toggle .close');
     var cancel    = el.find('.feedback-cancel');
     var counter   = el.find('.feedback-counter');
+    var textError = el.find('.feedback-text-error');
     var spinner   = el.find('.feedback-spinner');
     var submit    = el.find('.feedback-send');
     var text      = el.find('.feedback-text');
@@ -40,6 +49,24 @@ define(['jquery'], function($){
       fbHide(el.find('.step2'), 200);
       fbHide(el.find('.feedback-error'), 200);
     });
+
+    var ajaxDone = function(){
+      spinner.hide();
+      fbHide(el.find('.step1'));
+      fbShow(el.find('.step2'));
+      fbHide(el.find('.feedback-error'));
+      text.val('');
+      counter.html(maxLength);
+    };
+
+    var ajaxFail = function(){
+      setTimeout(function(){
+        fbShow(el.find('.feedback-error'));
+        fbHide(el.find('.step1'));
+        fbHide(el.find('.step2'));
+        spinner.hide();
+      }, 200);
+    };
 
     var delayed = function(el, rule, delay){
       el.delay(delay)
@@ -90,11 +117,12 @@ define(['jquery'], function($){
       else if(text.val().split(' ').length < minWords){
         text.addClass('error');
         counter.addClass('error');
-        alert('Your feedback has to consist of ' + minWords + ' words at minimum.');
+        textError.addClass('error');
         error = true;
       }
       else{
         text.removeClass('error');
+        textError.removeClass('error');
         counter.removeClass('error');
       }
 
@@ -108,6 +136,7 @@ define(['jquery'], function($){
       var url  = el.find('form').attr('action');
       var data = {
         'type': el.find('input[name=type]:checked').val(),
+        'privacy_policy': el.find('#accept-terms').val(),
         'text': (email.val().length > 0 ? email.val() + ' ' : '') + text.val(),
         'page': window.location.href
       };
@@ -121,24 +150,8 @@ define(['jquery'], function($){
           },
           url : url.replace(/^https?:/, location.protocol),
           type : 'POST',
-          data: data,
-          success : function(){
-            spinner.hide();
-
-            fbHide(el.find('.step1'));
-            fbShow(el.find('.step2'));
-
-            text.val('');
-            counter.html(maxLength);
-          },
-          error : function(){
-            setTimeout(function(){
-              fbShow(el.find('.feedback-error'));
-              fbHide(el.find('.step1'));
-              spinner.hide();
-            }, 200);
-          }
-        });
+          data: data
+        }).done(ajaxDone).fail(ajaxFail);
       };
 
       var metaToken = $('meta[name="csrf-token"]').attr('content');
@@ -147,7 +160,7 @@ define(['jquery'], function($){
       }
       else{
         var tokenUrl = (window.enableCSRFWithoutSSL ? location.protocol : 'https:') + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/csrf.json';
-        $.get(tokenUrl, function(data){
+        $.getJSON(tokenUrl).done(function(data){
           if(data.token){
             doSubmit(data.token);
           }
@@ -167,11 +180,20 @@ define(['jquery'], function($){
     el.fadeIn(function(){
       el.addClass('loaded');
     });
+
+    return {
+      ajaxDone: ajaxDone,
+      ajaxFail: ajaxFail
+    };
   };
+
+  var instanceRef;
 
   return {
     init : function(el){
-      new EuFeedback(el);
-    }
+      instanceRef = new EuFeedback(el);
+    },
+    ajaxDone : ajaxDone,
+    ajaxFail : ajaxFail
   };
 });
