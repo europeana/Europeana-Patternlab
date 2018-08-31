@@ -61,22 +61,6 @@ define(['jquery'], function($){
 
       var error = false;
 
-      if(text.val().length === 0){
-        text.addClass('error');
-        counter.addClass('error');
-        error = true;
-      }
-      else if(text.val().split(' ').length < minWords){
-        text.addClass('error');
-        counter.addClass('error');
-        alert('Your feedback has to consist of ' + minWords + ' words at minimum.');
-        error = true;
-      }
-      else{
-        text.removeClass('error');
-        counter.removeClass('error');
-      }
-
       if(!acceptTC.is(':checked')){
         acceptTxt.addClass('error');
         error = true;
@@ -96,6 +80,22 @@ define(['jquery'], function($){
       }
       else{
         email.removeClass('error');
+      }
+
+      if(text.val().length === 0){
+        text.addClass('error');
+        counter.addClass('error');
+        error = true;
+      }
+      else if(text.val().split(' ').length < minWords){
+        text.addClass('error');
+        counter.addClass('error');
+        alert('Your feedback has to consist of ' + minWords + ' words at minimum.');
+        error = true;
+      }
+      else{
+        text.removeClass('error');
+        counter.removeClass('error');
       }
 
       if(error){

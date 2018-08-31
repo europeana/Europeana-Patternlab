@@ -30,19 +30,19 @@
 
       <textarea class="step1 feedback-text" maxlength="{{maxlength}}" placeholder="{{ i18n.global.feedback.placeholder }}" name="feedback_text"></textarea>
       <div class="step1 feedback-counter" data-maxlength="{{maxlength}}">{{maxlength}}</div>
-      <div class="controls step1">
-        <a class="feedback-send"><svg class="icon icon-check"><use xlink:href="#icon-check"/></svg></a>
-      </div>
-
-      <a class="feedback-cancel"><svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></a>
 
       <div class="disclaimer">
-        <span>{{i18n.global.feedback.data-use-header}}:</span>
+        <span>{{i18n.global.feedback.data-use-header}}</span>
         <ul>
-          <li>{{i18n.global.feedback.data-use-1}}.</li>
-          <li>{{i18n.global.feedback.data-use-2}}.</li>
+          <li>{{i18n.global.feedback.data-use-1}}</li>
+          <li>{{i18n.global.feedback.data-use-2}}</li>
         </ul>
-        <input type="checkbox" id="accept-terms"/><label for="accept-terms">{{i18n.global.feedback.data-agreement}}</label>
+        <input type="checkbox" id="accept-terms"/><label for="accept-terms"><a href="{{url_privacy_policy}}" target="_blank">{{i18n.global.feedback.data-agreement}}</a></label>
+      </div>
+
+      <div class="controls step1">
+        <a class="feedback-send"><svg class="icon icon-check"><use xlink:href="#icon-check"/></svg></a>
+        <a class="feedback-cancel"><svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></a>
       </div>
 
       <div class="feedback-spinner" aria-role="progressbar">
