@@ -115,7 +115,7 @@ module.exports = function(grunt) {
       // trigger compass to compile the sass
       compass: {
         files: ['source/**/*.{scss,sass}'],
-        tasks: ['compass:js_components', 'compass:dev', 'copy:dev_css', 'shell:patternlab_full']
+        tasks: ['compass:js_components', 'compass:dev', 'copy:dev_css', 'shell:patternlab_full', 'copy:js_templates']
       },
       // Fire the patternlab markup build process
       patternlab_markup: {
