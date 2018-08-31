@@ -259,7 +259,17 @@
 .feedback #feedback-form .feedback-text.error {
   border-color: #f22f24;
 }
-/* line 239, style.scss */
+/* line 238, style.scss */
+.feedback #feedback-form .feedback-text-error {
+  color: #f22f24;
+  display: none;
+  padding-top: 0.5em;
+}
+/* line 242, style.scss */
+.feedback #feedback-form .feedback-text-error.error {
+  display: block;
+}
+/* line 247, style.scss */
 .feedback #feedback-form .feedback-text {
   border-color: #908b85 #908b85 -moz-use-text-color;
   border-image: none;
@@ -272,52 +282,52 @@
   padding: 0.5em 0.5em 0;
   resize: none;
 }
-/* line 252, style.scss */
+/* line 260, style.scss */
 .feedback #feedback-form ul li {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 256, style.scss */
+/* line 264, style.scss */
 .feedback #feedback-form ul li input {
   position: relative;
 }
-/* line 260, style.scss */
+/* line 268, style.scss */
 .feedback #feedback-form ul li label,
 .feedback #feedback-form ul li input {
   display: inline;
   white-space: nowrap;
 }
-/* line 267, style.scss */
+/* line 275, style.scss */
 .feedback #feedback-form .disclaimer {
   padding-bottom: 1.6rem;
 }
-/* line 271, style.scss */
+/* line 279, style.scss */
 .feedback #feedback-form .disclaimer #accept-terms {
   margin-top: 1.6rem;
 }
-/* line 275, style.scss */
+/* line 283, style.scss */
 .feedback #feedback-form .disclaimer ul {
   list-style: circle;
 }
-/* line 279, style.scss */
+/* line 287, style.scss */
 .feedback #feedback-form .disclaimer [for=accept-terms] {
   display: inline;
 }
-/* line 281, style.scss */
+/* line 289, style.scss */
 .feedback #feedback-form .disclaimer [for=accept-terms].error a {
   color: #f22f24;
 }
-/* line 286, style.scss */
+/* line 294, style.scss */
 .feedback #feedback-form .disclaimer li {
   display: list-item;
   margin-left: 1.6rem;
 }
-/* line 292, style.scss */
+/* line 300, style.scss */
 .feedback #feedback-form h2 {
   font-size: 20px;
   margin: 0;
 }
-/* line 299, style.scss */
+/* line 307, style.scss */
 .feedback .feedback-spinner {
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url("spinner.gif");

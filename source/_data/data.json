@@ -899,6 +899,7 @@
             "data-use-2": "If you provide an email address we may contact you for other information.",
             "data-agreement": "I agree to Europeana's privacy policy",
             "error": "An error occurred - please try again later",
+            "error-short": "Your feedback has to consist of %{minwords} words at minimum.",
             "title": "feedback",
             "placeholder": "We want to hear from you! Enter your feedback here.",
             "submit": "send",
@@ -975,7 +976,7 @@
     "more_link": "javascript:alert('open more info')"
   },
   "feedback":{
-    "form_action": "should-be-present",
+    "form_action": "feedback_submit",
     "maxlength": 20,
     "url_privacy_policy": "javascript:alert('open priacy policy')"
   }

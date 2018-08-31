@@ -26,12 +26,14 @@
         </li>
       </ul>
 
-      <input type="email" class="feedback-email" placeholder="{{i18n.global.email-address}}"/>
+      <input type="email" class="feedback-email step1" placeholder="{{i18n.global.email-address}}"/>
+
+      <span class="step1 feedback-text-error">{{i18n.global.feedback.error-short}}</span>
 
       <textarea class="step1 feedback-text" maxlength="{{maxlength}}" placeholder="{{ i18n.global.feedback.placeholder }}" name="feedback_text"></textarea>
       <div class="step1 feedback-counter" data-maxlength="{{maxlength}}">{{maxlength}}</div>
 
-      <div class="disclaimer">
+      <div class="step1 disclaimer">
         <span>{{i18n.global.feedback.data-use-header}}</span>
         <ul>
           <li>{{i18n.global.feedback.data-use-1}}</li>

@@ -235,6 +235,14 @@
         border-color: $error;
       }
      }
+     .feedback-text-error{
+        color: $error;
+        display: none;
+        padding-top: 0.5em;
+        &.error{
+          display: block;
+        }
+     }
 
     .feedback-text {
       border-color: #908b85 #908b85 -moz-use-text-color;
