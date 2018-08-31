@@ -6,6 +6,7 @@
     }],
   "feedback":{
     "form_action": "should-be-present",
+    "url_privacy_policy": "javascript:alert('open priacy policy')",
     "maxlength": 200,
     "minwords": 10
   }
