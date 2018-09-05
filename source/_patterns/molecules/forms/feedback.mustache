@@ -4,7 +4,7 @@
       <a class="open">{{ i18n.global.feedback.open }}</a>
       <a class="close">{{ i18n.global.feedback.open }}</a>
     </div>
-    <form id="feedback-form" method="post" action="{{form_action}}">
+    <form id="feedback-form" method="post" action="{{form_action}}" novalidate>
 
       <input type="hidden" name="pageurl" class="pageurl">
       <p class="feedback-error">{{ i18n.global.feedback.error }}</p>
@@ -27,9 +27,8 @@
         </li>
       </ul>
 
-      <input type="email" class="feedback-email step1" placeholder="{{i18n.global.email-address}}" title=""/>
-      <span class="step1 feedback-email-error">{{i18n.global.feedback.error-email}}</span>
-
+      <input type="email" class="feedback-email step1" placeholder="{{i18n.global.email-address}}" />
+      
       <textarea class="step1 feedback-text" maxlength="{{maxlength}}" placeholder="{{ i18n.global.feedback.placeholder }}" name="feedback_text"></textarea>
       <div class="step1 feedback-counter" data-maxlength="{{maxlength}}">{{maxlength}}</div>
       <span class="step1 feedback-text-error">{{i18n.global.feedback.error-short}}</span>
@@ -52,7 +51,7 @@
       <div class="feedback-spinner" aria-role="progressbar">
       </div>
 
-      <p class="step2"         >{{ i18n.global.feedback.thanks.long }}</p>
+      <p class="step2">{{ i18n.global.feedback.thanks.long }}</p>
     </form>
   </div>
 {{/feedback}}
