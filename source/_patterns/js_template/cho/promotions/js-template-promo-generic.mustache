@@ -5,7 +5,12 @@
         <div class="content-outer">
           <div class="content-inner">
             <img src="[[img.src]]" class="js-remove">
-            <a href="[[url]]" class="bg-img" style="background-image:url('[[img.src]]');"></a>
+            [[#url]]
+              <a href="[[url]]" class="bg-img" style="background-image:url('[[img.src]]');"></a>
+            [[/url]]
+            [[^url]]
+              <div class="bg-img" style="background-image:url('[[img.src]]');"></div>
+            [[/url]]
           </div>
         </div>
         {{> js_template/cho/promotions/channel-object-promo-text-js}}

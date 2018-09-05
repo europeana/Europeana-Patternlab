@@ -52,13 +52,20 @@
         <div class="collections-promo-overlay">
           <div class="collections-promo-overlay-inner">
             [[#img]]
-              <div class="channel-object-viewmore">
+              <div class="channel-object-viewmore">                
                 <span class="viewmore-image" style="background-image: url('[[.]]');"></span>
               </div>
             [[/img]]
             [[#title]]
                <span class="title">
-                 [[.]]
+                [[#link_more]]
+                  [[#url]]
+                    <a href="[[.]]">[[title]]</a>
+                  [[/url]]
+                [[/link_more]]
+                [[^link_more]]
+                  [[title]]
+                [[/link_more]]    
                </span>
             [[/title]]
             [[#description]]
