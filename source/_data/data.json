@@ -900,7 +900,6 @@
             "data-agreement": "I agree to Europeana's privacy policy",
             "error": "An error occurred - please try again",
             "error-accept": "Please agree to Europeana's privacy policy",
-            "error-email": "Please include an '@' in your email address",
             "error-short": "Your feedback has to consist of %{minwords} words at minimum.",
             "title": "feedback",
             "placeholder": "We want to hear from you! Enter your feedback here.",
