@@ -25,7 +25,6 @@ define(['jquery'], function($){
     var submit    = el.find('.feedback-send');
     var text      = el.find('.feedback-text');
     var email     = el.find('.feedback-email');
-    var emailError = el.find('.feedback-email-error');
     var acceptTC  = el.find('#accept-terms');
     var acceptTxt = el.find('[for=accept-terms]');
     var acceptError  = el.find('.feedback-accept-error');
