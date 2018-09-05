@@ -164,11 +164,6 @@ define(['jquery'], function($){
         }).done(ajaxDone).fail(ajaxFail);
       };
 
-      function ajax_response(response) {
-        var deferred = $.Deferred().resolve(response);
-        return deferred.promise();
-      }
-
       var metaToken = $('meta[name="csrf-token"]').attr('content');
       if(typeof metaToken !== 'undefined'){
         doSubmit(metaToken);
