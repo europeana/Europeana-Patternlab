@@ -7,6 +7,7 @@
     <form id="feedback-form" method="post" action="{{form_action}}">
 
       <input type="hidden" name="pageurl" class="pageurl">
+      <p class="feedback-error">{{ i18n.global.feedback.error }}</p>
 
       <h2 class="feedback-title">
         <span class="step2"><svg class="icon icon-check"><use xlink:href="#icon-check"/></svg>{{ i18n.global.feedback.thanks.short }}</span>
@@ -26,12 +27,12 @@
         </li>
       </ul>
 
-      <input type="email" class="feedback-email step1" placeholder="{{i18n.global.email-address}}"/>
-
-      <span class="step1 feedback-text-error">{{i18n.global.feedback.error-short}}</span>
+      <input type="email" class="feedback-email step1" placeholder="{{i18n.global.email-address}}" title=""/>
+      <span class="step1 feedback-email-error">{{i18n.global.feedback.error-email}}</span>
 
       <textarea class="step1 feedback-text" maxlength="{{maxlength}}" placeholder="{{ i18n.global.feedback.placeholder }}" name="feedback_text"></textarea>
       <div class="step1 feedback-counter" data-maxlength="{{maxlength}}">{{maxlength}}</div>
+      <span class="step1 feedback-text-error">{{i18n.global.feedback.error-short}}</span>
 
       <div class="step1 disclaimer">
         <span>{{i18n.global.feedback.data-use-header}}</span>
@@ -39,7 +40,8 @@
           <li>{{i18n.global.feedback.data-use-1}}</li>
           <li>{{i18n.global.feedback.data-use-2}}</li>
         </ul>
-        <input type="checkbox" id="accept-terms"/><label for="accept-terms"><a href="{{url_privacy_policy}}" target="_blank">{{i18n.global.feedback.data-agreement}}</a></label>
+        <input type="checkbox" id="accept-terms" value="1"/><label for="accept-terms"><a href="{{url_privacy_policy}}" target="_blank">{{i18n.global.feedback.data-agreement}}</a></label>
+        <span class="step1 feedback-accept-error">{{i18n.global.feedback.error-accept}}</span>
       </div>
 
       <div class="controls step1">
@@ -51,7 +53,6 @@
       </div>
 
       <p class="step2"         >{{ i18n.global.feedback.thanks.long }}</p>
-      <p class="feedback-error">{{ i18n.global.feedback.error }}</p>
     </form>
   </div>
 {{/feedback}}

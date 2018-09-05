@@ -25,8 +25,10 @@ define(['jquery'], function($){
     var submit    = el.find('.feedback-send');
     var text      = el.find('.feedback-text');
     var email     = el.find('.feedback-email');
+    var emailError = el.find('.feedback-email-error');
     var acceptTC  = el.find('#accept-terms');
     var acceptTxt = el.find('[for=accept-terms]');
+    var acceptError  = el.find('.feedback-accept-error');
 
     var maxLength = 0;
     var minWords  = el.data('min-words');
@@ -40,29 +42,29 @@ define(['jquery'], function($){
       el.removeClass('open');
       fbShow(el.find('.step1'), 200);
       fbHide(el.find('.step2'), 200);
-      fbHide(el.find('.feedback-error'), 200);
+      el.find('.feedback-error').hide().delay(200);
     });
 
     cancel.on('click', function(){
       el.removeClass('open');
       fbShow(el.find('.step1'), 200);
       fbHide(el.find('.step2'), 200);
-      fbHide(el.find('.feedback-error'), 200);
+      el.find('.feedback-error').hide().delay(200);
     });
 
     var ajaxDone = function(){
       spinner.hide();
       fbHide(el.find('.step1'));
       fbShow(el.find('.step2'));
-      fbHide(el.find('.feedback-error'));
+      el.find('.feedback-error').hide();
       text.val('');
       counter.html(maxLength);
     };
 
     var ajaxFail = function(){
       setTimeout(function(){
-        fbShow(el.find('.feedback-error'));
-        fbHide(el.find('.step1'));
+        el.find('.feedback-error').show();
+        fbShow(el.find('.step1'));
         fbHide(el.find('.step2'));
         spinner.hide();
       }, 200);
@@ -88,27 +90,35 @@ define(['jquery'], function($){
 
       var error = false;
 
+      // accept terms and conditions
       if(!acceptTC.is(':checked')){
         acceptTxt.addClass('error');
+        acceptError.addClass('error');
         error = true;
       }
       else{
         acceptTxt.removeClass('error');
+        acceptError.removeClass('error');
       }
 
+      // email
       if(email.val().length > 0){
         if(!email.is(':valid')){
           email.addClass('error');
+          emailError.addClass('error');
           error = true;
         }
         else{
           email.removeClass('error');
+          emailError.removeClass('error');
         }
       }
       else{
         email.removeClass('error');
+        emailError.removeClass('error');
       }
 
+      // feedback itself
       if(text.val().length === 0){
         text.addClass('error');
         counter.addClass('error');
@@ -153,6 +163,11 @@ define(['jquery'], function($){
           data: data
         }).done(ajaxDone).fail(ajaxFail);
       };
+
+      function ajax_response(response) {
+        var deferred = $.Deferred().resolve(response);
+        return deferred.promise();
+      }
 
       var metaToken = $('meta[name="csrf-token"]').attr('content');
       if(typeof metaToken !== 'undefined'){
