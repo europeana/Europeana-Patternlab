@@ -104,6 +104,7 @@ define(['jquery'], function($){
       if(text.val().length === 0){
         text.addClass('error');
         counter.addClass('error');
+        textError.addClass('error');
         error = true;
       }
       else if(text.val().split(' ').length < minWords){
