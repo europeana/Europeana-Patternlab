@@ -979,6 +979,6 @@
   "feedback":{
     "form_action": "feedback_submit",
     "maxlength": 20,
-    "url_privacy_policy": "javascript:alert('open priacy policy')"
+    "privacy_policy_url": "javascript:alert('open priacy policy')"
   }
 }
