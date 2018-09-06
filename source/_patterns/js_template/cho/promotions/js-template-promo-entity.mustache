@@ -4,7 +4,12 @@
       <div class="content-inner">
         <div class="content-outer">
           <div class="content-inner">
-            <span class="bg-img" style="background-image:url('[[img.src]]');"></span>
+            [[#overlay.link_more.url]]
+              <a href="[[overlay.link_more.url]]" class="bg-img" style="background-image:url('[[img.src]]');"></a>
+            [[/overlay.link_more.url]]
+            [[^overlay.link_more.url]]
+              <span class="bg-img" style="background-image:url('[[img.src]]');"></span>
+            [[/overlay.link_more.url]]
           </div>
         </div>
         {{> js_template/cho/promotions/channel-object-promo-text-js}}
