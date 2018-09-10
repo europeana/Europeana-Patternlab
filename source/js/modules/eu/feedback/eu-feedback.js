@@ -57,6 +57,8 @@ define(['jquery'], function($){
       fbShow(el.find('.step2'));
       el.find('.feedback-error').hide();
       text.val('');
+      email.val('');
+      el.find('#accept-terms').prop('checked', false);
       counter.html(maxLength);
     };
 
@@ -130,7 +132,8 @@ define(['jquery'], function($){
       var data = {
         'type': el.find('input[name=type]:checked').val(),
         'privacy_policy': el.find('#accept-terms').val(),
-        'text': (email.val().length > 0 ? email.val() + ' ' : '') + text.val(),
+        'email': (email.val().length > 0 ? email.val() + ' ' : ''), 
+        'text':  text.val(),
         'page': window.location.href
       };
 
