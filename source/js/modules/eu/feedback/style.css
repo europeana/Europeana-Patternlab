@@ -214,30 +214,30 @@
   margin: 1em;
   padding-bottom: 3em;
 }
-/* line 191, style.scss */
-.feedback #feedback-form .controls.step1 {
+/* line 192, style.scss */
+.feedback #feedback-form .controls {
   position: relative;
 }
-/* line 195, style.scss */
+/* line 196, style.scss */
 .feedback #feedback-form .step2 {
   position: absolute;
   top: 0;
   visibility: hidden;
 }
-/* line 201, style.scss */
+/* line 202, style.scss */
 .feedback #feedback-form h2 .step2 {
   color: #1676aa;
 }
-/* line 205, style.scss */
+/* line 206, style.scss */
 .feedback #feedback-form p.step2 {
   position: absolute;
   top: 4em;
 }
-/* line 210, style.scss */
+/* line 211, style.scss */
 .feedback #feedback-form .step2 {
   margin-top: 1.6rem;
 }
-/* line 214, style.scss */
+/* line 215, style.scss */
 .feedback #feedback-form .feedback-counter {
   border-color: #908b85 #908b85;
   border-radius: 0 0 0.5em 0.5em;
@@ -251,18 +251,18 @@
   text-align: right;
   top: -7px;
 }
-/* line 228, style.scss */
+/* line 229, style.scss */
 .feedback #feedback-form .feedback-error {
   color: #f22f24;
   display: none;
   margin-bottom: 1rem;
 }
-/* line 236, style.scss */
+/* line 237, style.scss */
 .feedback #feedback-form .feedback-counter.error,
 .feedback #feedback-form .feedback-text.error {
   border-color: #f22f24;
 }
-/* line 241, style.scss */
+/* line 242, style.scss */
 .feedback #feedback-form .feedback-accept-error,
 .feedback #feedback-form .feedback-email-error,
 .feedback #feedback-form .feedback-text-error {
@@ -273,13 +273,13 @@
   padding: 0.25em 0.5em;
   margin-bottom: 0.5em;
 }
-/* line 251, style.scss */
+/* line 252, style.scss */
 .feedback #feedback-form .feedback-accept-error.error,
 .feedback #feedback-form .feedback-email-error.error,
 .feedback #feedback-form .feedback-text-error.error {
   display: block;
 }
-/* line 256, style.scss */
+/* line 257, style.scss */
 .feedback #feedback-form .feedback-text {
   border-color: #908b85 #908b85 -moz-use-text-color;
   border-image: none;
@@ -291,53 +291,53 @@
   padding: 0.5em 0.5em 0;
   resize: none;
 }
-/* line 268, style.scss */
+/* line 269, style.scss */
 .feedback #feedback-form ul li {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 272, style.scss */
+/* line 273, style.scss */
 .feedback #feedback-form ul li input {
   position: relative;
 }
-/* line 276, style.scss */
+/* line 277, style.scss */
 .feedback #feedback-form ul li label,
 .feedback #feedback-form ul li input {
   display: inline;
   white-space: nowrap;
 }
-/* line 283, style.scss */
+/* line 284, style.scss */
 .feedback #feedback-form .disclaimer {
   padding-bottom: 1.6rem;
 }
-/* line 287, style.scss */
+/* line 288, style.scss */
 .feedback #feedback-form .disclaimer #accept-terms {
   margin-top: 1.6rem;
   margin-bottom: 0.5rem;
 }
-/* line 292, style.scss */
+/* line 293, style.scss */
 .feedback #feedback-form .disclaimer ul {
   list-style: circle;
 }
-/* line 296, style.scss */
+/* line 297, style.scss */
 .feedback #feedback-form .disclaimer [for=accept-terms] {
   display: inline;
 }
-/* line 298, style.scss */
+/* line 299, style.scss */
 .feedback #feedback-form .disclaimer [for=accept-terms].error a {
   color: #f22f24;
 }
-/* line 303, style.scss */
+/* line 304, style.scss */
 .feedback #feedback-form .disclaimer li {
   display: list-item;
   margin-left: 1.6rem;
 }
-/* line 309, style.scss */
+/* line 310, style.scss */
 .feedback #feedback-form h2 {
   font-size: 20px;
   margin: 0;
 }
-/* line 316, style.scss */
+/* line 317, style.scss */
 .feedback .feedback-spinner {
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url("spinner.gif");

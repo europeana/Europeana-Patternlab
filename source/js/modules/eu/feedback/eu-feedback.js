@@ -132,7 +132,7 @@ define(['jquery'], function($){
       var data = {
         'type': el.find('input[name=type]:checked').val(),
         'privacy_policy': el.find('#accept-terms').val(),
-        'email': (email.val().length > 0 ? email.val() + ' ' : ''),
+        'email': (email.val().length > 0 ? email.val() : ''),
         'text':  text.val(),
         'page': window.location.href
       };
