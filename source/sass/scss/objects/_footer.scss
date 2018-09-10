@@ -49,6 +49,7 @@
     color: transparent;
     font-size: $font-size-sm;
     height: 3.34em;
+    margin-bottom: 1rem;
     padding-top: 3em;
   }
 
@@ -119,7 +120,7 @@
   padding: $space 0;
 
   .nav {
-    margin-bottom: $space-half;
+    margin-bottom: $space;
 
     a {
       border-bottom: 1px dotted $blue-dark;
