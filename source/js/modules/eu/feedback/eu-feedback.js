@@ -158,7 +158,7 @@ define(['jquery'], function($){
         var tokenUrl = (window.enableCSRFWithoutSSL ? location.protocol : 'https:') + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/csrf.json';
         $.getJSON(tokenUrl).done(function(data){
           if(data.token){
-            doSubmit('5C1D+I7yS5qYJO31gYNx3mWj7XfSDQeGrpRplEc+luNallSTMndtde9qmbVJSpBethPbbDjDVy8LV3Kmt7Hpdw==');
+            doSubmit(data.token);
           }
         });
       }
