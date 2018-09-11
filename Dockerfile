@@ -13,4 +13,4 @@ RUN php core/console --generate
 RUN $(npm bin)/grunt copy:js_templates
 
 RUN rm -r /usr/share/nginx/html
-RUN mv /data/public /usr/share/nginx/html
+RUN ln -s /data/public /usr/share/nginx/html
