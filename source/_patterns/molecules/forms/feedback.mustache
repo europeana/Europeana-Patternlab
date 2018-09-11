@@ -4,34 +4,34 @@
       <a class="open">{{ i18n.global.feedback.open }}</a>
       <a class="close">{{ i18n.global.feedback.open }}</a>
     </div>
-    <form id="feedback-form" method="post" action="{{form_action}}">
+    <form id="feedback-form" method="post" action="{{form_action}}" novalidate>
 
       <input type="hidden" name="pageurl" class="pageurl">
+      <p class="feedback-error">{{ i18n.global.feedback.error }}</p>
 
       <h2 class="feedback-title">
         <span class="step2"><svg class="icon icon-check"><use xlink:href="#icon-check"/></svg>{{ i18n.global.feedback.thanks.short }}</span>
       </h2>
       <ul class="step1">
         <li>
-          <input type="radio" checked="checked" name="type" value="comment" id="feedback-1">
+          <input type="radio" checked="checked" name="type" value="comment" id="feedback-1" tabindex="1">
           <label for="feedback-1">{{ i18n.global.feedback.type.comment }}</label>
         </li>
         <li>
-          <input type="radio" name="type" value="correction" id="feedback-2">
+          <input type="radio" name="type" value="correction" id="feedback-2" tabindex="2">
           <label for="feedback-2">{{ i18n.global.feedback.type.correction }}</label>
         </li>
         <li>
-          <input type="radio" name="type" value="bug" id="feedback-3">
+          <input type="radio" name="type" value="bug" id="feedback-3" tabindex="3">
           <label for="feedback-3">{{ i18n.global.feedback.type.bug }}</label>
         </li>
       </ul>
 
-      <input type="email" class="feedback-email step1" placeholder="{{i18n.global.email-address}}"/>
-
-      <span class="step1 feedback-text-error">{{i18n.global.feedback.error-short}}</span>
-
-      <textarea class="step1 feedback-text" maxlength="{{maxlength}}" placeholder="{{ i18n.global.feedback.placeholder }}" name="feedback_text"></textarea>
+      <input type="email" class="feedback-email step1" placeholder="{{i18n.global.email-address}}" tabindex="4" />
+      
+      <textarea class="step1 feedback-text" maxlength="{{maxlength}}" placeholder="{{ i18n.global.feedback.placeholder }}" name="feedback_text" tabindex="5"></textarea>
       <div class="step1 feedback-counter" data-maxlength="{{maxlength}}">{{maxlength}}</div>
+      <span class="step1 feedback-text-error">{{i18n.global.feedback.error-short}}</span>
 
       <div class="step1 disclaimer">
         <span>{{i18n.global.feedback.data-use-header}}</span>
@@ -39,19 +39,20 @@
           <li>{{i18n.global.feedback.data-use-1}}</li>
           <li>{{i18n.global.feedback.data-use-2}}</li>
         </ul>
-        <input type="checkbox" id="accept-terms"/><label for="accept-terms"><a href="{{url_privacy_policy}}" target="_blank">{{i18n.global.feedback.data-agreement}}</a></label>
+        <input type="checkbox" id="accept-terms" value="1" tabindex="6"/>
+        <label for="accept-terms"><a href="{{privacy_policy_url}}" target="_blank">{{i18n.global.feedback.data-agreement}}</a></label>
+        <span class="step1 feedback-accept-error">{{i18n.global.feedback.error-accept}}</span>
       </div>
 
-      <div class="controls step1">
-        <a class="feedback-send"><svg class="icon icon-check"><use xlink:href="#icon-check"/></svg></a>
-        <a class="feedback-cancel"><svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></a>
+      <div class="controls">
+        <a class="feedback-send step1" tabindex="7"><svg class="icon icon-check"><use xlink:href="#icon-check"/></svg></a>
+        <a class="feedback-cancel" tabindex="8"><svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></a>
       </div>
 
       <div class="feedback-spinner" aria-role="progressbar">
       </div>
 
-      <p class="step2"         >{{ i18n.global.feedback.thanks.long }}</p>
-      <p class="feedback-error">{{ i18n.global.feedback.error }}</p>
+      <p class="step2">{{ i18n.global.feedback.thanks.long }}</p>
     </form>
   </div>
 {{/feedback}}

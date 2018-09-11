@@ -898,7 +898,8 @@
             "data-use-1": "We may share your data anonymously with our partners in order to improve Europeana.",
             "data-use-2": "If you provide an email address we may contact you for other information.",
             "data-agreement": "I agree to Europeana's privacy policy",
-            "error": "An error occurred - please try again later",
+            "error": "An error occurred - please try again",
+            "error-accept": "Please agree to Europeana's privacy policy",
             "error-short": "Your feedback has to consist of %{minwords} words at minimum.",
             "title": "feedback",
             "placeholder": "We want to hear from you! Enter your feedback here.",
@@ -978,6 +979,6 @@
   "feedback":{
     "form_action": "feedback_submit",
     "maxlength": 20,
-    "url_privacy_policy": "javascript:alert('open priacy policy')"
+    "privacy_policy_url": "javascript:alert('open priacy policy')"
   }
 }
