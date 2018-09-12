@@ -30,7 +30,7 @@ define(['jquery'], function($){
     var acceptError  = el.find('.feedback-accept-error');
 
     var maxLength = 0;
-    var minWords  = 4;
+    var minWords  = el.data('min-words');
 
 
     open.on('click', function(){
@@ -103,7 +103,7 @@ define(['jquery'], function($){
       }
 
       // feedback itself
-      if(text.val().length === 0 || text.val().trim().match(/\w+/g) === null || (text.val().trim().match(/\w+/g) !== null && text.val().trim().match(/\w+/g).length < minWords)){
+      if(text.val().trim().match(/\w+/g) === null || (text.val().trim().match(/\w+/g) !== null && text.val().trim().match(/\w+/g).length < minWords)){
         text.addClass('error');
         counter.addClass('error');
         textError.addClass('error');
@@ -113,13 +113,14 @@ define(['jquery'], function($){
         text.removeClass('error');
         textError.removeClass('error');
         counter.removeClass('error');
+        text.val(text.val().trim());
       }
 
       if(error){
         return false;
       }
 
-      log('counted ' + text.val().split(' ') + ' words');
+      log('counted ' + text.val().trim().match(/\w+/g).length + ' words');
 
       spinner.show();
       var url  = el.find('form').attr('action');
