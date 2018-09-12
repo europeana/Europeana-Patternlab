@@ -44,7 +44,7 @@ define(['jquery', 'leaflet'], function($, L){
       if ($(markers[i]).data('latitude') && $(markers[i]).data('longitude')) {
         coordLabels += $(markers[i]).data('latitude') + '&deg; ' + ($(markers[i]).data('latitude') > 0 ? labels.n : labels.s) + ', ';
         coordLabels += $(markers[i]).data('longitude') + '&deg; ' + ($(markers[i]).data('longitude') > 0 ? labels.e : labels.w);
-      } 
+      }
       coordLabels += '<br/>';
     }
 
@@ -54,7 +54,7 @@ define(['jquery', 'leaflet'], function($, L){
     } else {
       $('.map').remove();
     }
- 
+
     $('#' + mapInfoId).html(coordLabels);
 
     $.each(
