@@ -631,7 +631,7 @@
         "title": "Location",
         "sections": [
           {
-            "title": "Location",
+            "title": "Location2",
             "geo": true,
             "items": [
               {
@@ -797,19 +797,6 @@
         "pinterest": true,
         "googleplus": true,
         "tumblr": true
-      }
-    },
-    "labels": {
-      "geo": {
-        "map": "Map",
-        "longitude": "Longitude",
-        "latitude": "Latitude",
-        "points": {
-          "n": "North",
-          "e": "East",
-          "s": "South",
-          "w": "West"
-        }
       }
     },
     "suggestions": {

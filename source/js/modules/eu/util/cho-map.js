@@ -4,11 +4,9 @@ define(['jquery', 'leaflet'], function($, L){
 
     console.log('initLeaflet', markers);
 
-    var mapInfoId = 'map-info';
+    $('.map-wrapper').show();
+
     var osmUrl    = location.protocol + '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-    $('.map-data-header').after('<div id="' + mapInfoId + '"></div>');
-
     var osmAttr = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
     var map = L.map($('.map')[0], {
@@ -39,23 +37,14 @@ define(['jquery', 'leaflet'], function($, L){
         L.marker(pair);
         L.marker(pair).addTo(map);
       }
-
-      coordLabels += $(markers[i]).data('label') + ' ';
-      if ($(markers[i]).data('latitude') && $(markers[i]).data('longitude')) {
-        coordLabels += $(markers[i]).data('latitude') + '&deg; ' + ($(markers[i]).data('latitude') > 0 ? labels.n : labels.s) + ', ';
-        coordLabels += $(markers[i]).data('longitude') + '&deg; ' + ($(markers[i]).data('longitude') > 0 ? labels.e : labels.w);
-      }
-      coordLabels += '<br/>';
     }
 
     if(pairs.length > 0){
       map.setView(pairs[0]);
       map.fitBounds(pairs, {padding: [50, 50]});
     } else {
-      $('.map').remove();
+      $('.map-wrapper').remove();
     }
-
-    $('#' + mapInfoId).html(coordLabels);
 
     $.each(
       [

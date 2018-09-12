@@ -18,6 +18,11 @@
   .channel-object-extended-information {
     .data-group{
       color: $gray-med;
+
+      .data-group:not(.comma-list) {
+        display: block;
+      }
+
     }
   }
 
@@ -64,6 +69,10 @@
       .data-header {
         line-height: 1.6;
       }
+    }
+
+    .map-wrapper {
+      display: none;
     }
 
     .map {
