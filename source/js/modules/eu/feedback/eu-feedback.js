@@ -108,7 +108,7 @@ define(['jquery'], function($){
         counter.addClass('error');
         textError.addClass('error');
         error = true;
-      }     
+      }
       else{
         text.removeClass('error');
         textError.removeClass('error');
