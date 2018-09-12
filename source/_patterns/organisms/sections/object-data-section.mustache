@@ -15,30 +15,53 @@
       {{#sections}}
         <li>
           <section>
-            {{#title }}<h4 class="data-header">{{.}}:</h4>{{/title }}
-            <ul class="comma-list data-group">
-              {{# items }}
-                <li {{#is_desc}}class="split-items"{{/is_desc}}>
+            
+            {{#geo}}
+                <a class="scroll-trigger"
+                 id="scroll-trigger-map"
+                 data-enabled="true"
+                 data-fire-on-open="showMap"
+                 data-fire-on-open-params="{'labels': { 'n':'{{labels.geo.points.n}}', 's': '{{labels.geo.points.s}}', 'e': '{{labels.geo.points.e}}', 'w': '{{labels.geo.points.w}}' }}"></a>
+                <a id="map" style="bottom: 4.8em; position: relative;"></a>
+                <div class="map">
+                  <div class="markers">
+                    {{#items}}
+                      <a data-latitude="{{extra_info.latitude}}" data-longitude="{{extra_info.longitude}}" data-label="{{text}}"></a>
+                    {{/items}}
+                  </div>
+                </div>
+                {{#title }}<h4 class="map-data-header data-header">{{.}}:</h4>{{/title }}
+                <a class="scroll-trigger trigger-chain"
+                    data-enabled="true"
+                    data-disable-when-fired="showMap"
+                    data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
+            {{/geo}}
 
-                  {{#url }}<a href="{{.}}">{{/url }}{{#ga_data}}<span class="ga-data" data-ga-metric="{{.}}">{{/ga_data}}{{#raw}}{{{text}}}{{/raw}}{{^raw}}{{text}}{{/raw}}{{#ga_data}}</span>{{/ga_data}}{{#url }}</a>{{/url }}
+            {{^geo}}
+              {{#title }}<h4 class="data-header">{{.}}:</h4>{{/title }}
+              <ul class="comma-list data-group">
+                {{# items }}
+                  <li {{#is_desc}}class="split-items"{{/is_desc}}>
 
-                  {{#extra_info}}
-                    {{#life}}
-                      <span class="life-dates">
-                        (<time>{{from.short}} {{#to.short}} — {{.}}{{/to.short}}</time>)
-                      </span>
-                    {{/life}}
+                    {{#url }}<a href="{{.}}">{{/url }}{{#ga_data}}<span class="ga-data" data-ga-metric="{{.}}">{{/ga_data}}{{#raw}}{{{text}}}{{/raw}}{{^raw}}{{text}}{{/raw}}{{#ga_data}}</span>{{/ga_data}}{{#url }}</a>{{/url }}
 
-                    {{#biography}}
-                      <div class="biography">
-                        {{text}}
-                      </div>
-                    {{/biography}}
-                  {{/extra_info}}
+                    {{#extra_info}}
+                      {{#life}}
+                        <span class="life-dates">
+                          (<time>{{from.short}} {{#to.short}} — {{.}}{{/to.short}}</time>)
+                        </span>
+                      {{/life}}
 
-                  </li>
-              {{/ items}}
-            </ul>
+                      {{#biography}}
+                        <div class="biography">
+                          {{text}}
+                        </div>
+                      {{/biography}}
+                    {{/extra_info}}
+                    </li>
+                {{/ items}}
+              </ul>
+            {{/geo}}
           </section>
         </li>
       {{/sections}}
