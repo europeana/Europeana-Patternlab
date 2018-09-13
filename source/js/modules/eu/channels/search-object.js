@@ -712,7 +712,7 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 
       showMediaThumbs(data);
     });
 
-    $(window).bind('showMap', function(e){
+    $(window).bind('showMap', function(){
       showMap();
     });
 
