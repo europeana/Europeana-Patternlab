@@ -103,13 +103,7 @@ define(['jquery'], function($){
       }
 
       // feedback itself
-      if(text.val().length === 0){
-        text.addClass('error');
-        counter.addClass('error');
-        textError.addClass('error');
-        error = true;
-      }
-      else if(text.val().split(' ').length < minWords){
+      if(text.val().trim().match(/\w+/g) === null || (text.val().trim().match(/\w+/g) !== null && text.val().trim().match(/\w+/g).length < minWords)){
         text.addClass('error');
         counter.addClass('error');
         textError.addClass('error');
@@ -119,13 +113,14 @@ define(['jquery'], function($){
         text.removeClass('error');
         textError.removeClass('error');
         counter.removeClass('error');
+        text.val(text.val().trim());
       }
 
       if(error){
         return false;
       }
 
-      log('counted ' + text.val().split(' ') + ' words');
+      log('counted ' + text.val().trim().match(/\w+/g).length + ' words');
 
       spinner.show();
       var url  = el.find('form').attr('action');
