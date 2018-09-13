@@ -40,7 +40,9 @@ define(['jquery', 'leaflet'], function($, L){
 
     if(pairs.length > 0){
       map.setView(pairs[0]);
+      if (pairs.length === 1) { map.setMaxZoom(6); }
       map.fitBounds(pairs, {padding: [50, 50]});
+      map.setMaxZoom(18);
     } else {
       $('.map-wrapper').remove();
     }
