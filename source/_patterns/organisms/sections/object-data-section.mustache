@@ -21,8 +21,7 @@
                 <a class="scroll-trigger"
                  id="scroll-trigger-map"
                  data-enabled="true"
-                 data-fire-on-open="showMap"
-                 data-fire-on-open-params="{'labels': { 'n':'{{labels.geo.points.n}}', 's': '{{labels.geo.points.s}}', 'e': '{{labels.geo.points.e}}', 'w': '{{labels.geo.points.w}}' }}"></a>
+                 data-fire-on-open="showMap"></a>
                 <a id="map" style="bottom: 4.8em; position: relative;"></a>
                 <div class="map">
                   <div class="markers">
@@ -39,7 +38,7 @@
             {{/geo}}
 
             {{#title }}<h4 class="data-header">{{.}}:</h4>{{/title }}
-            <ul class="data-group {{^geo}}comma-list{{/geo}}">
+            <ul class="data-group {{#geo}}data-group-block{{/geo}} {{^geo}}comma-list{{/geo}}">
               {{# items }}
                 <li {{#is_desc}}class="split-items"{{/is_desc}}>
 
@@ -51,10 +50,6 @@
                   {{#url }}</a>{{/url }}
 
                   {{#extra_info}}
-
-                    {{#latitude}}{{.}} &deg; ,{{/latitude}}
-                    {{#longitude}}{{.}} &deg; {{/longitude}}
-
                     {{#life}}
                       <span class="life-dates">
                         (<time>{{from.short}} {{#to.short}} — {{.}}{{/to.short}}</time>)

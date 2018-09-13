@@ -1,6 +1,6 @@
 define(['jquery', 'leaflet'], function($, L){
 
-  var initLeaflet = function(markers, labels){
+  var initLeaflet = function(markers){
 
     console.log('initLeaflet', markers);
 
@@ -27,7 +27,6 @@ define(['jquery', 'leaflet'], function($, L){
     }));
     map.invalidateSize();
 
-    var coordLabels = '';
     var pairs        = [];
 
     for(var i = 0; i < markers.length; i++){
@@ -57,27 +56,12 @@ define(['jquery', 'leaflet'], function($, L){
     );
   };
 
-  function loadMap(data, markers){
-    if(!data){
-      return false;
-    }
-
-    if(typeof data === 'string'){
-      data = data.replace(/\'/g, '"');
-      try{
-        data = JSON.parse(data);
-      }
-      catch(e){
-        console.log('unparseable geo data:\n\t' + data);
-        return false;
-      }
-    }
-
+  function loadMap(markers) {
     if(markers.length === 0){
       return false;
     }
 
-    initLeaflet(markers, data.labels);
+    initLeaflet(markers);
     return true;
   }
 

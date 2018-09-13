@@ -631,7 +631,7 @@
         "title": "Location",
         "sections": [
           {
-            "title": "Location2",
+            "title": "Location",
             "geo": true,
             "items": [
               {
@@ -655,7 +655,7 @@
                 "europeana_entity": false
               },
               {
-                "text": "Sverige",
+                "text": "Sverige 60.37888 ° North, 10.75128 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
@@ -668,7 +668,7 @@
                 "europeana_entity": true
               },
               {
-                "text": "Kingdom of Sweden",
+                "text": "Kingdom of Sweden 62.0 ° North, 15.0 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
@@ -681,7 +681,7 @@
                 "europeana_entity": true
               },
               {
-                "text": "Sweden",
+                "text": "Sweden 62.0 ° North, 15.0 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
@@ -694,7 +694,7 @@
                 "europeana_entity": true
               },
               {
-                "text": "Kingdom of Norway",
+                "text": "Kingdom of Norway 62.0 ° North, 10.0 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
@@ -707,7 +707,7 @@
                 "europeana_entity": true
               },
               {
-                "text": "Norway",
+                "text": "Norway 62.0 ° North, 10.0 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
@@ -720,7 +720,7 @@
                 "europeana_entity": true
               },
               {
-                "text": "Scania",
+                "text": "Scania 55.98333 ° North, 13.5 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
@@ -733,7 +733,7 @@
                 "europeana_entity": true
               },
               {
-                "text": "Skåne",
+                "text": "Skåne 55.98333 ° North, 13.5 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
@@ -746,7 +746,7 @@
                 "europeana_entity": true
               },
               {
-                "text": "Skåne County",
+                "text": "Skåne County 55.98333 ° North, 13.5 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
@@ -759,7 +759,7 @@
                 "europeana_entity": true
               },
               {
-                "text": "Helsingborg",
+                "text": "Helsingborg 56.04673 ° North, 12.69437 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
@@ -772,7 +772,20 @@
                 "europeana_entity": true
               },
               {
-                "text": "Helsingborg Municipality",
+                "text": "Helsingborg 56.03149 ° North, 12.70845 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "56.03149",
+                  "longitude": "12.70845"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/31276-helsingborg.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Helsingborg Municipality 56.05648 ° North, 12.78718 ° East",
                 "url": null,
                 "ga_data": null,
                 "extra_info": {
