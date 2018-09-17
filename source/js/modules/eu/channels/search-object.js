@@ -79,9 +79,9 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 
     $.getJSON(initUrl, null).done(buildHierarchy).fail(error);
   }
 
-  function showMap(mapData){
+  function showMap(){
     require(['util_cho_map'], function(MapUtil){
-      MapUtil.loadMap(mapData, $('.markers a'));
+      MapUtil.loadMap($('.markers a'));
     });
   }
 
@@ -712,8 +712,8 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 
       showMediaThumbs(data);
     });
 
-    $(window).bind('showMap', function(e, data){
-      showMap(data);
+    $(window).bind('showMap', function(){
+      showMap();
     });
 
     $(window).bind('loadHierarchy', function(e, data){

@@ -626,73 +626,182 @@
         ]
       },
 
-      "location":
+      "location": 
       {
-        "present": true,
-        "places": {
-          "title": "Location",
-          "sections": [
-            {
-              "items": [
-                {
-                  "text": "Sverige",
-                  "extra_info": {
-                    "latitude": 60.37888,
-                    "longitude": 10.75128
-                  }
-                },
-                {
-                  "text": "Kingdom of Sweden",
-                  "extra_info": {
-                    "latitude": 62,
-                    "longitude": 15
-                  }
-                },
-                {
-                  "text": "Sweden",
-                  "extra_info": {
-                    "latitude": 62.4,
-                    "longitude": 15
-                  }
-                },
-                {
-                  "text": "Kingdom of Norway",
-                  "extra_info": {
-                    "latitude": 62,
-                    "longitude": 10.3
-                  }
-                },
-                {
-                  "text": "Norway",
-                  "url": false
-                },
-                {
-                  "text": "Scandinavia",
-                  "url": false
-                }
-              ],
-              "is_desc": false
-            }
-          ],
-          "id": "location"
-        },
-        "geo":
-        {
-          "long_and_lat": true,
-          "labels":
+        "title": "Location",
+        "sections": [
           {
-            "map": "Map",
-            "longitude": "Longitude",
-            "latitude": "Latitude",
-            "points":
-            {
-              "n": "North",
-              "e": "East",
-              "s": "South",
-              "w": "West"
-            }
+            "title": "Location",
+            "geo": true,
+            "items": [
+              {
+                "text": "Helsingborg [tryckort]",
+                "url": null,
+                "ga_data": null,
+                "extra_info": null,
+                "raw": false,
+                "json_url": null,
+                "entity": false,
+                "europeana_entity": false
+              },
+              {
+                "text": "Malmöhus",
+                "url": null,
+                "ga_data": null,
+                "extra_info": null,
+                "raw": false,
+                "json_url": null,
+                "entity": false,
+                "europeana_entity": false
+              },
+              {
+                "text": "Sverige 60.37888 ° North, 10.75128 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "60.37888",
+                  "longitude": "10.75128"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/176046.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Kingdom of Sweden 62.0 ° North, 15.0 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "62.0",
+                  "longitude": "15.0"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/113-kingdom-of-sweden.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Sweden 62.0 ° North, 15.0 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "62.0",
+                  "longitude": "15.0"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/113-kingdom-of-sweden.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Kingdom of Norway 62.0 ° North, 10.0 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "62.0",
+                  "longitude": "10.0"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/107-kingdom-of-norway.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Norway 62.0 ° North, 10.0 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "62.0",
+                  "longitude": "10.0"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/107-kingdom-of-norway.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Scania 55.98333 ° North, 13.5 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "55.98333",
+                  "longitude": "13.5"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/31194-scania.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Skåne 55.98333 ° North, 13.5 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "55.98333",
+                  "longitude": "13.5"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/31194-scania.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Skåne County 55.98333 ° North, 13.5 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "55.98333",
+                  "longitude": "13.5"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/31194-scania.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Helsingborg 56.04673 ° North, 12.69437 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "56.04673",
+                  "longitude": "12.69437"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/27560-helsingborg.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Helsingborg 56.03149 ° North, 12.70845 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "56.03149",
+                  "longitude": "12.70845"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/31276-helsingborg.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Helsingborg Municipality 56.05648 ° North, 12.78718 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "56.05648",
+                  "longitude": "12.78718"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/27559-helsingborg-municipality.json",
+                "entity": true,
+                "europeana_entity": true
+              }
+            ],
+            "is_desc": false
           }
-        }
+        ],
+        "id": "location"
       },
       "social_share":{
         "url": "this page url for share links",

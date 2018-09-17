@@ -272,51 +272,7 @@
             {{/refs_rels}}
 
             {{#location}}
-              {{#present}}
-                <div class="map-section">
-                  <h3 class="subsection-label">
-                    {{i18n.site.object.meta-label.location}}
-                  </h3>
-                  <div class="object-info">
-                    {{#places}}
-                      {{#geo.long_and_lat}}
-                        {{#sections}}
-                         <a class="scroll-trigger"
-                           id="scroll-trigger-map"
-                           data-enabled="true"
-                           data-fire-on-open="showMap"
-                           data-fire-on-open-params="{'labels': { 'n':'{{geo.labels.points.n}}', 's': '{{geo.labels.points.s}}', 'e': '{{geo.labels.points.e}}', 'w': '{{geo.labels.points.w}}' }}"></a>
-                          <a id="map" style="bottom:4.8em; position: relative;"></a>
-                          <div class="map">
-                            <div class="markers">
-                              {{#items}}
-                                {{#extra_info}}
-                                  {{#latitude}}
-                                    {{#longitude}}
-                                      <a data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-label="{{text}}"></a>
-                                    {{/longitude}}
-                                  {{/latitude}}
-                                {{/extra_info}}
-                              {{/items}}
-                            </div>
-                          </div>
-                          <a class="scroll-trigger trigger-chain"
-                            data-enabled="true"
-                            data-disable-when-fired="showMap"
-                            data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
-                        {{/sections}}
-                      {{/geo.long_and_lat}}
-                      {{#sections}}
-                        {{#items}}
-                          {{^extra_info}}
-                            {{#url}}<a href="{{.}}">{{/url}}{{#raw}}{{{text}}}{{/raw}}{{^raw}}{{text}}{{/raw}}{{#url}}</a>{{/url}}<br/>
-                          {{/extra_info}}
-                        {{/items}}
-                      {{/sections}}
-                    {{/places}}
-                  </div>
-                </div>
-              {{/present}}
+              {{> organisms/sections/object-data-section }}
             {{/location}}
           {{/object}}
         </div>

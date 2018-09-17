@@ -1,21 +1,19 @@
 define(['jquery', 'leaflet'], function($, L){
 
-  var initLeaflet = function(markers, labels){
+  var initLeaflet = function(markers){
 
     console.log('initLeaflet', markers);
 
-    var mapInfoId = 'map-info';
+    $('.map-wrapper').show();
+
     var osmUrl    = location.protocol + '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-    $('.map').after('<div id="' + mapInfoId + '"></div>');
-
     var osmAttr = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+    var defaultZoomLevel = 8;
 
     var map = L.map($('.map')[0], {
-      center : new L.LatLng($(markers[0]).data('latitude'), $(markers[0]).data('longitude')),
       zoomControl : true,
       zoomsliderControl: false,
-      zoom : 8
+      zoom : defaultZoomLevel
     });
 
     var imagePath = require.toUrl('leaflet').split('/');
@@ -30,26 +28,26 @@ define(['jquery', 'leaflet'], function($, L){
     }));
     map.invalidateSize();
 
-    var coordLabels = '';
     var pairs        = [];
 
     for(var i = 0; i < markers.length; i++){
-      var pair = [$(markers[i]).data('latitude'), $(markers[i]).data('longitude')];
-      pairs.push(pair);
-      L.marker(pair);
-      L.marker(pair).addTo(map);
-
-      coordLabels += $(markers[i]).data('label') + ' ';
-      coordLabels += $(markers[i]).data('latitude') + '&deg; ' + ($(markers[i]).data('latitude') > 0 ? labels.n : labels.s) + ', ';
-      coordLabels += $(markers[i]).data('longitude') + '&deg; ' + ($(markers[i]).data('longitude') > 0 ? labels.e : labels.w);
-      coordLabels += '<br/>';
+      if ($(markers[i]).data('latitude') && $(markers[i]).data('longitude')) {
+        var pair = [$(markers[i]).data('latitude'), $(markers[i]).data('longitude')];
+        pairs.push(pair);
+        L.marker(pair);
+        L.marker(pair).addTo(map);
+      }
     }
 
     if(pairs.length > 0){
+      map.setView(pairs[0]);
       map.fitBounds(pairs, {padding: [50, 50]});
+      if (map.getZoom() > defaultZoomLevel) {
+        map.setZoom(defaultZoomLevel);
+      }
+    } else {
+      $('.map-wrapper').remove();
     }
-
-    $('#' + mapInfoId).html(coordLabels);
 
     $.each(
       [
@@ -62,27 +60,12 @@ define(['jquery', 'leaflet'], function($, L){
     );
   };
 
-  function loadMap(data, markers){
-    if(!data){
-      return false;
-    }
-
-    if(typeof data === 'string'){
-      data = data.replace(/\'/g, '"');
-      try{
-        data = JSON.parse(data);
-      }
-      catch(e){
-        console.log('unparseable geo data:\n\t' + data);
-        return false;
-      }
-    }
-
+  function loadMap(markers) {
     if(markers.length === 0){
       return false;
     }
 
-    initLeaflet(markers, data.labels);
+    initLeaflet(markers);
     return true;
   }
 
