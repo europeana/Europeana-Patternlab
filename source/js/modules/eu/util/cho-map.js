@@ -8,11 +8,12 @@ define(['jquery', 'leaflet'], function($, L){
 
     var osmUrl    = location.protocol + '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var osmAttr = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+    var defaultZoomLevel = 8;
 
     var map = L.map($('.map')[0], {
       zoomControl : true,
       zoomsliderControl: false,
-      zoom : 8
+      zoom : defaultZoomLevel
     });
 
     var imagePath = require.toUrl('leaflet').split('/');
@@ -40,9 +41,10 @@ define(['jquery', 'leaflet'], function($, L){
 
     if(pairs.length > 0){
       map.setView(pairs[0]);
-      if (pairs.length === 1) { map.setMaxZoom(6); }
       map.fitBounds(pairs, {padding: [50, 50]});
-      map.setMaxZoom(18);
+      if (map.getZoom() > defaultZoomLevel) {
+        map.setZoom(defaultZoomLevel);
+      }
     } else {
       $('.map-wrapper').remove();
     }
