@@ -86,7 +86,7 @@ rules:
   no-trailing-whitespace: 1
   no-trailing-zero: 1
   no-transition-all: 0
-  no-url-protocols: 1
+  no-url-protocols: 0
   no-vendor-prefixes:
     - 0
     - additional-identifiers: []
