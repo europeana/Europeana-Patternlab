@@ -257,18 +257,12 @@ noscript div{
 }
 
 .ugc-video {
-  height: 0;
-  max-width: 100%;
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
+  margin: 0 auto;
+  max-width: 560px;
 
   iframe {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+    max-height: 315px;
+    max-width: 100%;
   }
 }
 
