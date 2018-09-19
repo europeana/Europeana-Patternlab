@@ -40,5 +40,11 @@ define(['jasmine_jquery', 'viewport_contains'], function(x, ViewportContains){
       expect(inView).toBe(true);
     });
 
+    it('returns true when an item is out of view but within the margin', function(){
+      window.scrollTo(0, 4550);
+      var inView = ViewportContains.isElementInViewport($('.top-element'), true, 100);
+      expect(inView).toBe(true);
+    });
+
   });
 });

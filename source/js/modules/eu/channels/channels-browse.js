@@ -68,9 +68,9 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
         var preloader = $('<img style="width:0px; height:0px;">').appendTo(cardImg);
 
         $(preloader).imagesLoaded(function(){
-          cardImg.css('background-image', 'url("' + imgSrc + '")');
           cardImg.removeClass('loading preloading');
           cardImg.addClass('loaded');
+          cardImg.css('background-image', 'url("' + imgSrc + '")');
           preloader.remove();
 
           returned ++;
@@ -79,6 +79,7 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
             cb();
           }
         });
+
         preloader.attr('src', imgSrc);
 
         cardImg.next('.inner').find('.ellipsis').each(function(){
@@ -92,22 +93,26 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
 
     var loadImagesInView = function(){
 
-      var selCard = '.card-img:not(.loaded, .loading)';
-      var batch   = $(selCard).map(function(){
-        if(ViewportContains.isElementInViewport(this, true)){
+      var peekAheadPixels = 300;
+      var selCard         = '.card-img:not(.loaded, .loading)';
+      var selSublist      = '.browseabe-list';
+
+      var batch           = $(selCard).map(function(){
+        if(ViewportContains.isElementInViewport(this, true, peekAheadPixels)){
           return this;
         }
       });
 
-      var batchList = batch.first().closest('.browseabe-list');
-      var nextBatch = batchList.nextAll('.browseabe-list').first().find(selCard);
+      var batchList        = batch.first().closest(selSublist);
+      var notLoadedCurrent = batchList.find(selCard);
+      var nextBatch        = notLoadedCurrent.length > 0 ? batch : batchList.nextAll(selSublist).first().find(selCard);
       var loadNext;
 
       if(nextBatch.length > 0){
         loadNext = nextBatch;
       }
       else{
-        loadNext = batchList.prevAll('.browseabe-list').first().find(selCard);
+        loadNext = batchList.prevAll(selSublist).first().find(selCard);
       }
 
       if(loadNext.length > 0){
