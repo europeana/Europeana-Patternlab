@@ -19,7 +19,7 @@ define([], function(){
 
   var isElementInViewport = function(el, acceptPartial, margin){
 
-    if(typeof jQuery === 'function' && el instanceof jQuery){
+    if(el instanceof jQuery){
       el = el[0];
     }
 
