@@ -5,20 +5,21 @@
       <span class="type">[[.]]</span>
     [[/type]]
 
-    [[#title]]
-      <div class="content-text-upper">
-
-        <div class="promo-title-wrap">
-          <div class="promo-title[[#icon]] with-icon[[/icon]][[#tags]] has-tags-after[[/tags]][[#relation]] has-relation-after[[/relation]]">
-            [[#url]]<a href="[[.]]">[[/url]][[.]][[#url]]</a>[[/url]]
-          </div>
-          [[#icon]]
-              <span class="icon icon-[[.]]"></span>
-          [[/icon]]
+    <div class="content-text-upper">
+      <div class="promo-title-wrap">
+        <div class="promo-title[[#icon]] with-icon[[/icon]][[#tags]] has-tags-after[[/tags]][[#relation]] has-relation-after[[/relation]]">
+          [[#url]]<a href="[[.]]">[[/url]][[title]][[#url]]</a>[[/url]]
         </div>
-
+        [[#icon]]
+          <span class="icon icon-[[.]]"></span>
+        [[/icon]]
+        [[#is_3d]]<span class="icon icon-3d"></span>[[/is_3d]]
+        [[#is_audio]]<span class="icon icon-music"></span>[[/is_audio]]
+        [[#is_image]]<span class="icon icon-image"></span>[[/is_image]]
+        [[#is_text]]<span class="icon icon-text"></span>[[/is_text]]
+        [[#is_video]]<span class="icon icon-video"></span>[[/is_video]]
       </div>
-    [[/title]]
+    </div>
 
     [[#excerpt]]
       [[#short]]
@@ -33,7 +34,7 @@
           [[#attribution]]|[[/attribution]]
         [[/date]]
         [[#attribution]][[.]][[/attribution]]
-      </div>        
+      </div>
     </div>
 
     <div class="text-footer">
@@ -47,7 +48,7 @@
           [[/items]]
         </ul>
       [[/tags]]
-        
+
       [[#overlay]]
         <div class="collections-promo-overlay">
           <div class="collections-promo-overlay-inner">
@@ -65,7 +66,7 @@
                 [[/link_more]]
                 [[^link_more]]
                   [[title]]
-                [[/link_more]]    
+                [[/link_more]]
                </span>
             [[/title]]
             [[#description]]
@@ -88,7 +89,6 @@
         </div>
       [[/overlay]]
 
-      
       [[#relation]]
         <div class="relation">[[.]]</div>
       [[/relation]]

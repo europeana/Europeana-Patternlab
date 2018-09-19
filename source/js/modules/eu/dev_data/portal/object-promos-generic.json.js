@@ -41,6 +41,7 @@ define([], function(){
         "src": "/images/sample/object_thumbnail3.jpg"
       },
       "title": false,
+      "is_text": true,
       "type": "blog",
       "date": "14/12/2016",
       "label": "Generic",
