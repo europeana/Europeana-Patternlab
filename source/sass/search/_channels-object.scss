@@ -199,13 +199,13 @@ $max-page-width: 1400px;
   }
 
   .channel-media-wrap  {
-    border-radius: $base-border-radius;
     position: relative;
   }
 
   .channel-object-information,
   .channel-media-wrap  {
     background: $white;
+    border-radius: $base-border-radius;
   }
 
   .channel-object-title{
