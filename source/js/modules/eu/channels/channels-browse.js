@@ -61,15 +61,12 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
         var cardImg  = $(card);
         var imgSrc   = cardImg.data('image');
 
-        if(!cardImg.hasClass('preloading')){
-          cardImg.addClass('loading');
-        }
+        cardImg.addClass('loading');
 
         var preloader = $('<img style="width:0px; height:0px;">').appendTo(cardImg);
 
         $(preloader).imagesLoaded(function(){
-          cardImg.removeClass('loading preloading');
-          cardImg.addClass('loaded');
+          cardImg.removeClass('loading').addClass('loaded');
           cardImg.css('background-image', 'url("' + imgSrc + '")');
           preloader.remove();
 
@@ -103,28 +100,28 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
         }
       });
 
-      var batchList        = batch.first().closest(selSublist);
-      var notLoadedCurrent = batchList.find(selCard);
-      var nextBatch        = notLoadedCurrent.length > 0 ? batch : batchList.nextAll(selSublist).first().find(selCard);
-      var loadNext;
-
-      if(nextBatch.length > 0){
-        loadNext = nextBatch;
-      }
-      else{
-        loadNext = batchList.prevAll(selSublist).first().find(selCard);
-      }
-
-      if(loadNext.length > 0){
-        loadNext.addClass('preloading');
-      }
-
       loadBatch(batch, function(){
+
+        var batchList        = batch.first().closest(selSublist);
+        var notLoadedCurrent = batchList.find(selCard).length;
+        var nextBatch        = notLoadedCurrent > 0 ? batch : batchList.nextAll(selSublist).first().find(selCard);
+        var loadNext;
+
+        if(nextBatch.length > 0){
+          loadNext = nextBatch;
+        }
+        else{
+          loadNext = batchList.prevAll(selSublist).first().find(selCard);
+        }
+
+        if(loadNext.length > 0){
+          loadNext.addClass('loading');
+        }
+
         if(loadNext.length > 0){
           loadBatch(loadNext);
         }
       });
-
     };
 
     require(['util_scroll'], function(){
