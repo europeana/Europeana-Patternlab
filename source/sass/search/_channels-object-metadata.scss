@@ -53,8 +53,7 @@
       }
 
       .subsection-label {
-        color:         $black;
-        cursor: pointer;
+        color: $black;
         margin-bottom: 0;
         padding-left:  0;
         padding-right: 0;
@@ -83,9 +82,17 @@
   .channel-object-extended-information {
 
     h2.channel-object-title {
-      .ctrl {
-        top: 0.1em;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      &:hover .ctrl::after {
+        opacity: 1;
       }
+    }
+
+    .subsection-label {
+      cursor: pointer;
     }
 
     .channel-object-title.closed,
@@ -101,7 +108,9 @@
         max-height: 0;
         opacity: 0;
         padding-top: 0;
-        transition-property: opacity, max-height;
+        transition:
+        opacity 0.3s ease 0s,
+        max-height 0.5s ease 0.3s;
       }
     }
 
@@ -120,28 +129,49 @@
       display:    block;
       height:     1.125rem;
       transform:  scale(1.22222222222);
-      width:      1.125rem;
+      width:     1.125rem;
     }
 
     .ctrl {
-      cursor:            pointer;
-      display:           block;
-      font-size:         1rem;
-      height:            1.5em;
-      position:          absolute;
-      right:             0;
-      top:               2em;
-      width:             1.5em;
+      display: block;
+      position: relative;
 
       .icon {
         display:  block;
+      }
+
+      &::after {
+        background: $gray-lightest;
+        border-radius: 50%;
+        content: "";
+        display: block;
+        height: 200%;
+        left: -50%;
+        opacity: 0;
+        position: absolute;
+        top: -50%;
+        transition: opacity 0.3s;
+        width: 200%;
+        z-index: -1;
       }
     }
 
     .data-section {
       overflow: hidden;
       .subsection-label {
+        align-items: center;
         color: $gray-med;
+        display: flex;
+        justify-content: space-between;
+
+        .ctrl {
+          margin-right: 0.6rem;
+          position: relative;
+        }
+
+        &:hover .ctrl::after {
+          opacity: 1;
+        }
       }
     }
 
@@ -150,10 +180,9 @@
       opacity: 1;
       padding-right: 3.4em;
       position: relative;
-      transition-delay: 0s, 0.25s;
-      transition-duration: 0.3s, 0.3s;
-      transition-property: max-height, opacity;
-      transition-timing-function: ease;
+      transition:
+      max-height 1s ease 0s,
+      opacity 0.3s ease 0.25s;
 
       > ul {
         display: inline-block;
@@ -173,28 +202,31 @@
 
   @media all and (min-width: $bp-med) {
 
-    .channel-object-extended-information {
-      h2.channel-object-title {
-        .ctrl {
-          &::before{
-            content:     attr(data-before);
-            font-size:   $font-size-slightly-smaller;
-            font-weight: lighter;
-            line-height: 1.4;
-            position:    absolute;
-            right:       2rem;
-            text-align:  right;
-            width:       300px;
+    .object-details {
+      .channel-object-extended-information {
+        h2.channel-object-title {
+          cursor: pointer;
+          display: flex;
+
+          .ctrl {
+            &::before{
+              content:     attr(data-before);
+              font-size:   $font-size-slightly-smaller;
+              font-weight: lighter;
+              line-height: 1.4;
+              position:    absolute;
+              right:       2rem;
+              text-align:  right;
+              width:       300px;
+            }
           }
         }
-      }
 
-      .ctrl {
-        top: 1.6rem;
-
-        .icon {
-          -webkit-transform: scale(1);
-          transform:         scale(1);
+        .ctrl {
+          .icon {
+            -webkit-transform: scale(1);
+            transform:         scale(1);
+          }
         }
       }
     }

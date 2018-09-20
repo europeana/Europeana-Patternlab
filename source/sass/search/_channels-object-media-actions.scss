@@ -1,7 +1,9 @@
 .channel-object-action-bar {
+  border-radius: $base-border-radius;
 
   .channel-object-media-actions {
     background-color:        $action-bar-bg;
+    border-radius: $base-border-radius;
     display:                 -webkit-flex;
     display:                 flex;
     flex-wrap:               wrap;
@@ -364,6 +366,7 @@
 
   .action-modal {
     background-color: $action-bar-bg;
+    min-height: 5.5rem;
   }
 
   .action-modal-section {
