@@ -41,6 +41,7 @@ define([], function(){
         "src": "/images/sample/object_thumbnail3.jpg"
       },
       "title": false,
+      "is_text": true,
       "type": "blog",
       "date": "14/12/2016",
       "label": "Generic",
@@ -49,6 +50,7 @@ define([], function(){
         "short": "Text but no title."
       },
       "tags": false,
+      "media_type": "3d",
       "relation": "All data fields accepted in generic card apart from icons (will show but may collide with text)"
     }
   ];
