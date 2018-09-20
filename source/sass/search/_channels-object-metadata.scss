@@ -89,7 +89,7 @@
 
       &:hover .ctrl::after {
         opacity: 1;
-      }      
+      }
     }
 
     .channel-object-title.closed,
@@ -105,9 +105,9 @@
         max-height: 0;
         opacity: 0;
         padding-top: 0;
-        transition: 
-          opacity 0.3s ease 0s,
-          max-height 0.5s ease 0.3s;          
+        transition:
+        opacity 0.3s ease 0s,
+        max-height 0.5s ease 0.3s;
       }
     }
 
@@ -140,7 +140,7 @@
       &::after {
         background: $gray-lightest;
         border-radius: 50%;
-        content: '';
+        content: "";
         display: block;
         height: 200%;
         left: -50%;
@@ -150,7 +150,7 @@
         transition: opacity 0.3s;
         width: 200%;
         z-index: -1;
-      }      
+      }
     }
 
     .data-section {
@@ -160,11 +160,11 @@
         color: $gray-med;
         display: flex;
         justify-content: space-between;
-        
+
         .ctrl {
           margin-right: 0.6rem;
           position: relative;
-        }  
+        }
 
         &:hover .ctrl::after {
           opacity: 1;
@@ -177,9 +177,9 @@
       opacity: 1;
       padding-right: 3.4em;
       position: relative;
-      transition: 
-        max-height 1s ease 0s,
-        opacity 0.3s ease 0.25s;
+      transition:
+      max-height 1s ease 0s,
+      opacity 0.3s ease 0.25s;
 
       > ul {
         display: inline-block;
