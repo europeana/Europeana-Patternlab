@@ -53,8 +53,7 @@
       }
 
       .subsection-label {
-        color:         $black;
-        cursor: pointer;
+        color: $black;
         margin-bottom: 0;
         padding-left:  0;
         padding-right: 0;
@@ -90,6 +89,10 @@
       &:hover .ctrl::after {
         opacity: 1;
       }
+    }
+
+    .subsection-label {
+      cursor: pointer;        
     }
 
     .channel-object-title.closed,
@@ -199,9 +202,10 @@
 
   @media all and (min-width: $bp-med) {
 
-    .object-details:not(.zoom-one) {
+    .object-details {
       .channel-object-extended-information {
         h2.channel-object-title {
+          cursor: pointer;
           display: flex;
 
           .ctrl {
