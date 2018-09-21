@@ -209,7 +209,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
         return {
           'url':  fnItemStorageUrl(fnGetAttr($el, '.link', 'href')),
-          'icon': fnGetAttr($el, '.svg-icon', 'class').replace('svg-icon', '').replace('svg-icon-', '').trim(),
+          'media_type': fnGetAttr($el, '.svg-icon', 'class').replace('svg-icon', '').replace('svg-icon-', '').trim(),
           'img':{
             'src': fnGetAttr($el, 'img', 'src')
           },
@@ -227,6 +227,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
         items.each(function(i, ob){
 
           var $item = $(ob);
+
           lastResults.push(fnItemStorage($item));
 
           $item.find('a').each(function(){

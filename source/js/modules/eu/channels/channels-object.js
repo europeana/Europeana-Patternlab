@@ -1389,7 +1389,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       var item = arr[i];
       res.push({
         'url': item['object_url'].split('?')[0] + sParams,
-        'icon': (item.is_image ? 'image' : item.is_iiif ? 'iiif' : item.is_video ? 'video' : item.is_audio ? 'music' : item.is_text ? 'text' : 'unknown'),
+        'media_type': item.media_type,
         'img': item.img,
         'title': item.title,
         'excerpt': (item.text ? item.text.medium : ''),
