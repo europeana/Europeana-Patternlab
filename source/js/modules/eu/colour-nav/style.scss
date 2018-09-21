@@ -1,0 +1,48 @@
+@import '../../../../sass/scss/generic/variables';
+
+$dimension_mobile:  75px;
+$dimension_desktop: 50px;
+
+.colour-grid{
+  align-items:      center;
+  display:          none;
+  flex-wrap:        wrap;
+  justify-content:  center;
+  text-align:       center;
+
+  &.active{
+    display:        flex;
+  }
+
+  .colour-grid-item{
+    margin:        $pad;
+  }
+
+  .colour-sample{
+    border:        1px solid $white;
+    border-radius: 50%;
+    display:       block;
+    height:        $dimension_mobile;
+    margin:        auto;
+    width:         $dimension_mobile;
+  }
+
+  .colour-hex{
+    color:       $gray-light;
+    font-size:   12px;
+    font-weight: bold;
+  }
+
+  .colour-name{
+    color:     $gray-med;
+    display:   block;
+    font-size: 14px;
+  }
+
+  @media all and (min-width: $bp-med) {
+    .colour-sample{
+      height:      $dimension_desktop;
+      width:       $dimension_desktop;
+    }
+  }
+}

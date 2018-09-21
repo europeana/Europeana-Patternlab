@@ -1,0 +1,44 @@
+/* line 6, style.scss */
+.colour-grid {
+  align-items: center;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+/* line 13, style.scss */
+.colour-grid.active {
+  display: flex;
+}
+/* line 17, style.scss */
+.colour-grid .colour-grid-item {
+  margin: 1rem;
+}
+/* line 21, style.scss */
+.colour-grid .colour-sample {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  display: block;
+  height: 75px;
+  margin: auto;
+  width: 75px;
+}
+/* line 30, style.scss */
+.colour-grid .colour-hex {
+  color: #777777;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* line 36, style.scss */
+.colour-grid .colour-name {
+  color: #4d4d4d;
+  display: block;
+  font-size: 14px;
+}
+@media all and (min-width: 50em) {
+  /* line 43, style.scss */
+  .colour-grid .colour-sample {
+    height: 50px;
+    width: 50px;
+  }
+}

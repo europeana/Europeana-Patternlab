@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'util_foldable', 'blacklight'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader) {
+define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'eu_colour_nav', 'util_foldable', 'blacklight'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader, EuColourNav) {
 
   var channelData     = null;
   var suggestions     = null;
@@ -493,6 +493,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     item.addClass('is-current');
 
     updateTechData(item);
+    EuColourNav.updateColourData();
 
     $('.media-options').trigger(type, $.extend(type === 'iiif' ? {'transcriptions-unavailable': true} : {}, {'download-link': downloadUri}));
 
@@ -1637,7 +1638,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
             'loadUrl': data.loadUrl,
             'load_per_page': 8, // has to be in sync with number preloaded
             'itemsAvailable': data.total_available,
-            'templateText': html
+            'templateText': html,
+            'onDataLoaded': EuColourNav.addColourDataFromAjax
           }).init();
 
           if(typeof ResizeObserver === 'undefined'){
@@ -1752,6 +1754,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     });
 
     loadAnnotations();
+    EuColourNav.initColourData();
 
     if(!$('.channel-media-wrap').hasClass('empty')){
       bindMediaUI();
