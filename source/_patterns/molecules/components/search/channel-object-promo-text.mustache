@@ -5,19 +5,16 @@
       <span class="type">{{.}}</span>
      {{/type}}
 
-    {{#title}}
-
-      <div class="content-text-upper">
-        <div class="promo-title-wrap">
-          <div class="promo-title{{#icon}} with-icon{{/icon}}{{#tags}} has-tags-after{{/tags}}{{#relation}} has-relation-after{{/relation}}">
-            {{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}
-          </div>
-          {{#icon}}
-              <span class="icon icon-{{.}}"></span>
-          {{/icon}}
-        </div>
-      </div>
-    {{/title}}
+     <div class="content-text-upper">
+       <div class="promo-title-wrap">
+         <div class="promo-title{{#media_type}} with-icon{{/media_type}}{{#tags}} has-tags-after{{/tags}}{{#relation}} has-relation-after{{/relation}}">
+           {{#url}}<a href="{{.}}">{{/url}}{{title}}{{#url}}</a>{{/url}}
+         </div>
+         {{#media_type}}
+           <span class="icon icon-{{.}}"></span>
+         {{/media_type}}
+       </div>
+     </div>
 
     {{#excerpt}}
       {{#short}}
@@ -77,7 +74,7 @@
             {{#attribution}}|{{/attribution}}
           {{/date}}
           {{#attribution}}{{.}}{{/attribution}}
-        </div>       
+        </div>
       </div>
       {{#relation}}
         <div class="relation">{{.}}</div>
