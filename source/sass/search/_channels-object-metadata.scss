@@ -178,7 +178,6 @@
     .subsection-content {
       max-height: 100rem;
       opacity: 1;
-      padding-right: 3.4em;
       position: relative;
       transition:
       max-height 1s ease 0s,
@@ -188,6 +187,10 @@
         display: inline-block;
         margin-top: 1.6rem;
         width: 100%;
+      }
+
+      @media all and (min-width: $bp-med) {
+        padding-right: 3.4em;
       }
     }
 

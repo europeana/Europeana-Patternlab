@@ -1,19 +1,33 @@
 define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
 
-  var css_path = require.toUrl('../../eu/colour-nav/style.css');
+  var css_path        = require.toUrl('../../eu/colour-nav/style.css');
+  var colourContainer = $('.colour-container');
 
   function getColourName(hex){
     if(hex && typeof window.I18n !== 'undefined'){
+      var fnMissing = window.I18n.missingTranslation;
+      window.I18n.missingTranslation = function(){ return ''; };
       var colourName = window.I18n.translate('X11.colours.' + hex.replace('#', ''));
+      window.I18n.missingTranslation = fnMissing;
       return colourName;
+    }
+    else{
+      return '';
     }
   }
 
   function addColourData(model, cb){
+
+    var tmpCmp = $('<div class="tmp">').appendTo(colourContainer);
+
     EuMustacheLoader.loadMustacheAndRender('colour-navigation-colour-navigation/colour-navigation-colour-navigation', model, function(markup){
-      $('.colour-container').append(markup);
+
+      var $markup = $(markup);
+      tmpCmp.append($markup);
+      $markup.unwrap();
+
       if(cb){
-        cb();
+        cb($markup);
       }
     });
   }
@@ -29,15 +43,16 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
     });
 
     $.each(extracted, function(){
-      var colourName = getColourName(this.hex);
-      this.colourName = colourName;
+      $.each(this.items, function(){
+        this.colourName = getColourName(this.hex);
+      });
       addColourData(this);
     });
   }
 
   function updateColourData(attemptNum){
 
-    if(!$('.colour-container').hasClass('js-initialised')){
+    if(!colourContainer.hasClass('js-initialised')){
       attemptNum = attemptNum ? attemptNum + 1 : 1;
       if(attemptNum < 4){
         setTimeout(function(){ updateColourData(attemptNum); }, 1500);
@@ -55,7 +70,6 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
 
   function initColourData(){
 
-    var colourContainer = $('.colour-container');
     colourContainer.empty();
 
     var colourData = $('.media-thumbs a[data-colour-hexes][data-colour-urls]');
@@ -85,6 +99,7 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
 
       var data = {'items': items};
       var cb   = index === colourData.length - 1 ? onAllAdded : null;
+
       addColourData(data, cb);
     });
   }

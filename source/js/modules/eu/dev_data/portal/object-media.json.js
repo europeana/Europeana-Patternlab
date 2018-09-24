@@ -485,7 +485,7 @@ define([], function(){
               "url": "javascript:alert('black');"
             },
             {
-              "hex": "#888888",
+              "hex": "#6A5ACD",
               "url": "javascript:alert('grey 8');"
             },
             {
@@ -545,7 +545,7 @@ define([], function(){
               "url": "javascript:alert('orange');"
             },
             {
-              "hex": "#EEEE00",
+              "hex": "#AFEEEE",
               "url": "javascript:alert('yellow');"
             }
           ]
@@ -568,8 +568,12 @@ define([], function(){
           "present": true,
           "items": [
             {
-              "hex": "#FF1199",
+              "hex": "#FFD700",
               "url": "javascript:alert('pink');"
+            },
+            {
+              "hex": "#FFC0CB",
+              "url": "javascript:alert('light pink');"
             },
             {
               "hex": "#FFFFFF",
