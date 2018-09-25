@@ -76,7 +76,7 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
   }
 
   function splitPSV(s){
-    if(s && typeof s.split != 'undefined'){
+    if(s && typeof s.split !== 'undefined'){
       return $.map(  s.split('|'), function(x){ return x === '' ? null : x; }  );
     }
     return [];
