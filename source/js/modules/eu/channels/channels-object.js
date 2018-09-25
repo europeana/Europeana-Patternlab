@@ -476,7 +476,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   }
 
   function initMedia(index){
-
     var item        = $('.cho-media-nav .lc-item:eq(' + index + ') a');
     var type        = item.data('type');
     var downloadUri = item.data('download-uri');
@@ -1754,6 +1753,16 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     });
 
     loadAnnotations();
+
+    $(window).on('colour-data-available', function(e, data){
+      if(data.tf){
+        $('.colour-navigation-section').show();
+      }
+      else{
+        $('.colour-navigation-section').hide();
+      }
+    });
+
     EuColourNav.initColourData();
 
     if(!$('.channel-media-wrap').hasClass('empty')){

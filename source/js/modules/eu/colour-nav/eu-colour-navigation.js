@@ -1,10 +1,10 @@
 define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
 
   var css_path        = require.toUrl('../../eu/colour-nav/style.css');
-  var colourContainer = $('.colour-container');
+  var colourContainer = null;
 
   function getColourName(hex){
-    if(hex && typeof window.I18n !== 'undefined'){
+    if(hex && typeof window.I18n !== 'undefined' && window.I18n){
       var fnMissing = window.I18n.missingTranslation;
       window.I18n.missingTranslation = function(){ return ''; };
       var colourName = window.I18n.translate('X11.colours.' + hex.replace('#', ''));
@@ -63,13 +63,28 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
     $('.colour-grid').removeClass('active');
     var index = $(' .media-thumbs a[data-has-colour-info=true]').index($(' .media-thumbs .active a'));
 
-    if(index > -1){
+    var available = index > -1;
+
+    if(available){
       $($('.colour-grid').get(index)).addClass('active');
     }
+    indicateAvailability(available);
+  }
+
+  function indicateAvailability(tf){
+    $(window).trigger('colour-data-available', {'tf': tf});
+  }
+
+  function splitPSV(s){
+    if(s && typeof s.split != 'undefined'){
+      return $.map(  s.split('|'), function(x){ return x === '' ? null : x; }  );
+    }
+    return [];
   }
 
   function initColourData(){
 
+    colourContainer = $('.colour-container');
     colourContainer.empty();
 
     var colourData = $('.media-thumbs a[data-colour-hexes][data-colour-urls]');
@@ -78,8 +93,10 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
       colourContainer.addClass('js-initialised');
     };
 
-    if(colourData.length === 0){
-      console.log('TODO: hide the colour container section');
+    var available = colourData.length === 0;
+    indicateAvailability(available);
+
+    if(available){
       onAllAdded();
       return;
     }
@@ -89,8 +106,8 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
     colourData.each(function(index){
 
       var el    = $(this);
-      var hexes = $.map(el.data('colour-hexes').split('|'), function(x){ return x === '' ? null : x; });
-      var urls  = $.map(el.data('colour-urls').split('|'), function(x){ return x === '' ? null : x; });
+      var hexes = splitPSV(el.data('colour-hexes'));
+      var urls  = splitPSV(el.data('colour-urls'));
       var items = [];
 
       for(var i = 0; i < Math.min(hexes.length, urls.length); i++){

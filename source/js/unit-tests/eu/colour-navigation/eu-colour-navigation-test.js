@@ -7,8 +7,8 @@ define(['jquery', 'jasmine_jquery', 'jasmine_ajax'], function($){
 
   describe('Eu Colour Navigation', function(){
 
-    var waitInit         = 4000;
-    var waitRender       = 1000;
+    var waitInit         = 1750;
+    var waitRender       = 750;
 
     var basePathJson = '/base/js/unit-tests/fixture-data';
     var ajaxFile     = 'eu-colour-navigation.json';
@@ -16,7 +16,8 @@ define(['jquery', 'jasmine_jquery', 'jasmine_ajax'], function($){
 
     afterEach(function(){
       jasmine.Ajax.uninstall();
-    })
+    });
+
     beforeEach(function(done) {
 
       jasmine.getFixtures().fixturesPath     = 'base/js/unit-tests/fixtures';
@@ -25,11 +26,9 @@ define(['jquery', 'jasmine_jquery', 'jasmine_ajax'], function($){
       window.loadFixtures('fx-eu-colour-navigation.html');
       window.loadJSONFixtures(ajaxFile);
 
-      if(!ajaxData){
-        $.get(ajaxPath, function(data){
-          ajaxData = data;
-        });
-      }
+      $.get(ajaxPath, function(data){
+        ajaxData = data;
+      });
 
       jasmine.Ajax.install();
       jasmine.Ajax.stubRequest(
@@ -44,14 +43,14 @@ define(['jquery', 'jasmine_jquery', 'jasmine_ajax'], function($){
         + '      <a [[#url]]href="[[.]]"[[/url]]>'
         + '        <span class="colour-sample" style="background-color:[[hex]];"></span>'
         + '        <span class="colour-hex">[[#hex]][[.]][[/hex]][[^hex]]&nbsp;[[/hex]]</span>'
-        + '        <span class="colour-name">[[#colourName]][[.]][[/colourName]][[^colourName]]&nbsp;[[/colourName]]</span>'
+        + '        [[#colourName]]<span class="colour-name">[[.]]</span>[[/colourName]]'
         + '      </a>'
         + '    </li>'
         + '  [[/items]]'
         + '</ol>'
       });
 
-      require(['eu_colour_nav'], function(lib){
+      require(['eu_colour_nav', 'i18n_base', 'i18n'], function(lib){
         EuColourNav = lib;
         done();
       });
@@ -81,7 +80,6 @@ define(['jquery', 'jasmine_jquery', 'jasmine_ajax'], function($){
 
         var initiallyLoaded = $('.colour-grid').length;
 
-        console.log('ajaxData = ' + JSON.stringify(ajaxData))
         EuColourNav.addColourDataFromAjax(ajaxData);
 
         setTimeout(function(){
@@ -92,26 +90,77 @@ define(['jquery', 'jasmine_jquery', 'jasmine_ajax'], function($){
       }, waitInit);
     });
 
-    /*
     it('Uses I18n to label colours with their name', function(done){
-      done();
+
+      EuColourNav.initColourData();
+
+      setTimeout(function(){
+        expect($('.colour-name').length).toBeGreaterThan(0);
+        done();
+      }, waitInit);
+
     });
 
-    it('Leaves colour name lables blank if I18n translations are unavailable', function(done){
-      done();
+    it('Leaves colour name labels blank if I18n translations are unavailable', function(done){
+
+      var window_I18n = window.I18n;
+      window.I18n = null;
+
+      EuColourNav.initColourData();
+      setTimeout(function(){
+        expect($('.colour-name').length).toEqual(0);
+        done();
+      }, waitInit);
+
+      window.I18n = window_I18n;
     });
 
     it('Only displays colour elements corresponding to "active" elements in the data source', function(done){
-      done();
+
+      EuColourNav.initColourData();
+
+      setTimeout(function(){
+        expect($('.colour-grid:visible').length).toEqual(0);
+        $('.media.1').addClass('active');
+        EuColourNav.updateColourData();
+        expect($('.colour-grid:visible').length).toBeGreaterThan(0);
+        done();
+      }, waitInit);
     });
 
     it('Triggers an event indicating when colour data is available', function(done){
-      done();
+
+      var eventCallback  = { 'coloursAvailable': function(){}};
+      spyOn(eventCallback, 'coloursAvailable');
+      $(window).on('colour-data-available', eventCallback.coloursAvailable);
+
+      EuColourNav.initColourData();
+
+      setTimeout(function(){
+        $('.media.1').addClass('active');
+        EuColourNav.updateColourData();
+        expect(eventCallback.coloursAvailable).toHaveBeenCalled();
+        expect(eventCallback.coloursAvailable.calls.mostRecent().args[1].tf).toBe(true);
+        done();
+      }, waitInit);
     });
 
-    it('Triggers an event indicating when colour data is not available', function(done){
-      done();
+    it('Triggers an event indicating when colour data is NOT available', function(done){
+
+      var eventCallback  = { 'coloursAvailable': function(){}};
+
+      spyOn(eventCallback, 'coloursAvailable');
+      $(window).on('colour-data-available', eventCallback.coloursAvailable);
+
+      EuColourNav.initColourData();
+
+      setTimeout(function(){
+        EuColourNav.updateColourData();
+        expect(eventCallback.coloursAvailable).toHaveBeenCalled();
+        expect(eventCallback.coloursAvailable.calls.mostRecent().args[1].tf).toBe(false);
+        done();
+      }, waitInit);
     });
-    */
+
   });
 });

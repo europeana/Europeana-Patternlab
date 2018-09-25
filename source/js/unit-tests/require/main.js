@@ -11,12 +11,16 @@ requirejs.config({
   paths: {
     eu_accordion_tabs:         '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_autocomplete:           '../../eu/autocomplete/eu-autocomplete',
-    eu_colour_nav:             '../../eu/colour-nav/eu-colour-nav',
+    eu_colour_nav:             '../../eu/colour-nav/eu-colour-navigation',
     eu_data_continuity:        '../../eu/util/eu-data-continuity',
     eu_global:                 '../../eu/global/global',
     eu_light_carousel:         '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
     eu_title_bar:              '../../eu/title-bar/eu-title-bar',
+
+    i18n:                      '../../lib/I18n/I18n',
+    i18n_base:                 '../../lib/I18n/I18n-base',
+
     jasmine_jquery:            '../../../unit-tests/require/jasmine-jquery',
     jasmine_ajax:              '../../../unit-tests/require/mock-ajax',
     jqDropdown:                '../../lib/jquery/jquery.dropdown',
