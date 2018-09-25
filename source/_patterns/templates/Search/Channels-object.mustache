@@ -351,6 +351,27 @@
               {{> organisms/sections/object-data-section }}
             {{/location}}
 
+            <div class="data-section colour-navigation-section cf{{#extended_information}} closed{{/extended_information}}"{{#id}} data-section-id="{{.}}"{{/id}}>
+              <h3 class="subsection-label">
+                {{{i18n.site.object.actions.explore-by-colour}}}
+              </h3>
+              <div class="subsection-content colour-container">
+                {{#media}}
+                  {{#items}}
+                    {{#technical_metadata}}
+                      {{#colours}}
+                        {{#present}}
+                          {{#items}}
+                            <a href="{{url}}">{{hex}}</a>
+                          {{/items}}
+                        {{/present}}
+                      {{/colours}}
+                    {{/technical_metadata}}
+                  {{/items}}
+                {{/media}}
+              </div>
+            </div>
+
             <div class="data-section closed" data-section-id="hierarchy">
               <div class="hierarchy cf">
                 <div class="subsection-label">

@@ -15,6 +15,7 @@ require.config({
     eu_autocomplete_processor_def: '../../eu/autocomplete/eu-autocomplete-processor-default',
     eu_carousel:                   '../../eu/channels/eu-carousel',
     eu_carousel_appender:          '../../eu/channels/eu-carousel-appender',
+    eu_colour_nav:                 '../../eu/colour-nav/eu-colour-navigation',
     eu_data_continuity:            '../../eu/util/eu-data-continuity',
 
     eu_form_restore:               '../../eu/util/eu-form-restore',

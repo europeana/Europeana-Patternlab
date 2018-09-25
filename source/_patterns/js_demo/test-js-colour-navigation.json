@@ -1,0 +1,14 @@
+{
+  "js_files": [
+    {
+      "path": "/js/modules/require.js",
+      "data_main": "/js/modules/main/js_demo/main-test-colour-nav.js"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "mock_ajax",
+      "value": "{'mappings': [{'pattern': 'http', 'resolveTo': 'self'}]}"
+    }
+  ]
+}

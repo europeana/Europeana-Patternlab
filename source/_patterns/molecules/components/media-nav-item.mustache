@@ -109,6 +109,13 @@
         {{#attribution_html}}
           data-attribution-html="{{.}}"
         {{/attribution_html}}
+
+        {{#colours.present}}
+          data-has-colour-info=true
+          data-colour-hexes="{{#colours.items}}{{hex}}|{{/colours.items}}"
+          data-colour-urls="{{#colours.items}}{{url}}|{{/colours.items}}"
+        {{/colours.present}}
+
       {{/technical_metadata}}
 
       class="link {{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}{{#external_media}} external-media{{/external_media}}"

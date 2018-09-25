@@ -2,5 +2,6 @@
 **/js/modules/lib/*
 **/js/modules/require.js
 **/js/unit-tests/lib/*
+**/js/unit-tests/require/*
 **/js/unit-tests/lib/*.js
 **/js/modules/lib/**/*.js
