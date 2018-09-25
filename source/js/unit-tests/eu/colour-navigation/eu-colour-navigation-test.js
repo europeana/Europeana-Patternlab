@@ -120,10 +120,10 @@ define(['jquery', 'jasmine_jquery', 'jasmine_ajax'], function($){
       EuColourNav.initColourData();
 
       setTimeout(function(){
-        expect($('.colour-grid:visible').length).toEqual(0);
+        expect($('.colour-grid.active').length).toEqual(0);
         $('.media.1').addClass('active');
         EuColourNav.updateColourData();
-        expect($('.colour-grid:visible').length).toBeGreaterThan(0);
+        expect($('.colour-grid.active').length).toBeGreaterThan(0);
         done();
       }, waitInit);
     });

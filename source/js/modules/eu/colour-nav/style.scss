@@ -4,7 +4,7 @@ $circle_border_colour:     $white;
 $circle_margin:            6px;
 
 $dimension_mobile_circle:  75px;
-$dimension_desktop_circle: 75px;
+$dimension_desktop_circle: $dimension_mobile_circle;
 
 $dimension_mobile:         (2 * $circle_margin) + $dimension_mobile_circle;
 $dimension_desktop:        (2 * $circle_margin) + $dimension_desktop_circle;
