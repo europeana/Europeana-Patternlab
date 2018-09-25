@@ -1,0 +1,26 @@
+@import "../../../generic/variables";
+@import "../css-grid-variables";
+
+.gridlayout-wrapper-full {
+  margin-top: 2rem;
+}
+
+.gridlayout-card {
+  align-items: flex-end;
+  display: flex;
+  min-height: 20rem;
+  padding-top: 5rem;
+  position: relative;
+
+  .card-content {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    width: 100%;
+
+    h3,
+    p {
+      max-height: none;
+    }
+
+  }
+}
