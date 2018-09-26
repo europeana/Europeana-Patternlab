@@ -52,7 +52,7 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
 
   function updateColourData(attemptNum){
 
-    if(!colourContainer.hasClass('js-initialised')){
+    if(!colourContainer || !colourContainer.hasClass('js-initialised')){
       attemptNum = attemptNum ? attemptNum + 1 : 1;
       if(attemptNum < 4){
         setTimeout(function(){ updateColourData(attemptNum); }, 1500);
@@ -93,10 +93,10 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
       colourContainer.addClass('js-initialised');
     };
 
-    var available = colourData.length === 0;
+    var available = colourData.length > 0;
     indicateAvailability(available);
 
-    if(available){
+    if(!available){
       onAllAdded();
       return;
     }
