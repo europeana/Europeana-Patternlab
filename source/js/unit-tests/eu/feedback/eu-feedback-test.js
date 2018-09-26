@@ -61,7 +61,24 @@ define(['jquery', 'feedback', 'jasmine_jquery'], function($, fb){
             var l3    = rect3.left;
 
             expect(l1).toEqual(l3);
-            done();
+
+            $('.feedback-toggle .open').click();
+
+            setTimeout(function(){
+
+              $('.feedback-cancel').click();
+
+              setTimeout(function(){
+
+                var rect4 = $(selFb)[0].getBoundingClientRect();
+                var l4    = rect4.left;
+                expect(l1).toEqual(l4);
+
+                done();
+              }, waitOpen);
+
+            }, waitOpen);
+
           }, waitOpen);
         }, waitOpen);
       }, waitInit);
