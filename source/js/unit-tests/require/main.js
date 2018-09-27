@@ -17,6 +17,7 @@ requirejs.config({
     eu_light_carousel:         '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
     eu_title_bar:              '../../eu/title-bar/eu-title-bar',
+    feedback:                  '../../eu/feedback/eu-feedback',
 
     i18n:                      '../../lib/I18n/I18n',
     i18n_base:                 '../../lib/I18n/I18n-base',
