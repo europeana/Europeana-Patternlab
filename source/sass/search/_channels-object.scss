@@ -27,10 +27,6 @@ $max-page-width: 1400px;
     content: ", ";
   }
 
-  .entity-wrapper {
-    margin-right: -$spacing-2x;
-  }
-
   .channel-object-viewmore {
     display: inline-block;
 
@@ -46,7 +42,7 @@ $max-page-width: 1400px;
 
     .viewmore-image {
       flex-shrink: 0;
-      margin: 0 $spacing-2x 0 $spacing-base;
+      margin:      0 0 0 $spacing-base;
     }
   }
 
@@ -108,7 +104,7 @@ $max-page-width: 1400px;
       padding:   0;
 
       &.has-right-column{
-        padding-right: 1%;
+        padding: 0 1%;
       }
     }
 
