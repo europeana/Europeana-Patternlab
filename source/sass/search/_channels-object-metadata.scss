@@ -16,6 +16,10 @@
   }
 
   .channel-object-extended-information {
+    .channel-object-title .ctrl{
+      transform: translateX(-50%);
+    }
+
     .data-group{
       color: $gray-med;
 
