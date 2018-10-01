@@ -20,6 +20,7 @@ require.config({
     eu_form_restore:               '../../eu/util/eu-form-restore',
     eu_form_save:                  '../../eu/util/eu-form-save',
     eu_hierarchy:                  '../../eu/channels/eu-hierarchy',
+    eu_hotspot:                    '../../eu/hotspot/eu-hotspot',
     eu_light_carousel:             '../../eu/light-carousel/eu-light-carousel',
     eu_media_options:              '../../eu/media/media-options/media-options',
     eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',
@@ -109,6 +110,7 @@ require.config({
     //pinterest:                     'http://assets.pinterest.com/js/pinit_main',
     pinterest:                     '../../lib/pinterest/pinit_main',
 
+    util_cho_map:                  '../../eu/util/cho-map',
     util_ellipsis:                 '../../eu/util/ellipsis',
     util_eu_ellipsis:              '../../eu/util/eu-ellipsis',
 
@@ -156,8 +158,8 @@ require.config({
     // videojs:                       '../../lib/videojs/video',
     videojs_aurora:                '../../lib/videojs-aurora/videojs-aurora',
     videojs_silverlight:           '../../lib/videojs-silverlight/videojs-silverlight',
-
     videojs_wavesurfer:            '../../lib/videojs-wavesurfer/videojs-wavesurfer',
+    viewport_contains:             '../../eu/util/viewport-contains',
     wavesurfer:                    '../../lib/videojs-wavesurfer/wavesurfer'
   },
   shim: {

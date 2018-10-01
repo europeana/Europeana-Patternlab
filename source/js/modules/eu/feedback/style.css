@@ -48,62 +48,91 @@
   text-transform: uppercase;
 }
 /* line 45, style.scss */
+.feedback .feedback-email {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+/* line 49, style.scss */
+.feedback .feedback-email::-webkit-input-placeholder {
+  text-transform: capitalize;
+}
+/* line 52, style.scss */
+.feedback .feedback-email::-moz-placeholder {
+  text-transform: capitalize;
+}
+/* line 55, style.scss */
+.feedback .feedback-email::-ms-placeholder {
+  text-transform: capitalize;
+}
+/* line 58, style.scss */
+.feedback .feedback-email::placeholder {
+  text-transform: capitalize;
+}
+/* line 61, style.scss */
+.feedback .feedback-email.error {
+  border-color: #f22f24;
+}
+/* line 66, style.scss */
 .feedback .feedback-text {
   border-radius: 0.5em 0.5em 0 0;
 }
-/* line 48, style.scss */
+/* line 69, style.scss */
 .feedback .feedback-cancel,
 .feedback .feedback-send {
   border-radius: 0.25em;
 }
-/* line 55, style.scss */
+/* line 74, style.scss */
+.feedback.open {
+  max-width: 30em;
+}
+/* line 78, style.scss */
 .feedback.open a.open {
   display: none;
 }
-/* line 58, style.scss */
+/* line 81, style.scss */
 .feedback.open a.close {
   display: block;
 }
 @media all and (max-width: 50em) {
-  /* line 53, style.scss */
+  /* line 74, style.scss */
   .feedback.open {
     top: auto;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 53, style.scss */
+  /* line 74, style.scss */
   .feedback.open {
     transform: translateX(0);
     -webkit-transform: translateX(0);
   }
 }
-/* line 72, style.scss */
+/* line 95, style.scss */
 .feedback .feedback-toggle {
   color: #fff;
   left: 0;
   position: absolute;
 }
 @media all and (max-width: 50em) {
-  /* line 72, style.scss */
+  /* line 95, style.scss */
   .feedback .feedback-toggle {
     top: 0;
     width: 100%;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 72, style.scss */
+  /* line 95, style.scss */
   .feedback .feedback-toggle {
     bottom: 0;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 72, style.scss */
+  /* line 95, style.scss */
   .feedback .feedback-toggle {
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
   }
 }
-/* line 91, style.scss */
+/* line 114, style.scss */
 .feedback .feedback-toggle a {
   border: 0 none;
   cursor: pointer;
@@ -113,7 +142,7 @@
   vertical-align: middle;
 }
 @media all and (min-width: 50em) {
-  /* line 91, style.scss */
+  /* line 114, style.scss */
   .feedback .feedback-toggle a {
     left: 100%;
     transform: rotate(270deg);
@@ -121,23 +150,23 @@
     transform-origin: bottom left;
     -webkit-transform-origin: bottom left;
   }
-  /* line 109, style.scss */
+  /* line 132, style.scss */
   .feedback .feedback-toggle a.open:hover, .feedback .feedback-toggle a.open:focus {
     background: #212121;
   }
-  /* line 114, style.scss */
+  /* line 137, style.scss */
   .feedback .feedback-toggle a.close {
     background-color: #293745;
   }
 }
 @media all and (max-width: 50em) {
-  /* line 91, style.scss */
+  /* line 114, style.scss */
   .feedback .feedback-toggle a {
     transform: translateY(-100%);
     -webkit-transform: translateY(-100%);
   }
 }
-/* line 126, style.scss */
+/* line 149, style.scss */
 .feedback .feedback-toggle a,
 .feedback .feedback-cancel,
 .feedback .feedback-send {
@@ -146,7 +175,7 @@
   padding: 0.5em;
 }
 @media all and (max-width: 50em) {
-  /* line 133, style.scss */
+  /* line 156, style.scss */
   .feedback .feedback-toggle a.close,
   .feedback .feedback-cancel.close,
   .feedback .feedback-send.close {
@@ -154,11 +183,11 @@
     width: 100%;
   }
 }
-/* line 141, style.scss */
+/* line 164, style.scss */
 .feedback .feedback-toggle a {
   padding: 0.75em 1em;
 }
-/* line 145, style.scss */
+/* line 168, style.scss */
 .feedback .feedback-cancel,
 .feedback .feedback-send {
   color: #fff;
@@ -166,50 +195,49 @@
   position: absolute;
   width: 2.45em;
 }
-/* line 151, style.scss */
+/* line 174, style.scss */
 .feedback .feedback-cancel svg.icon,
 .feedback .feedback-send svg.icon {
   height: 1.4em;
   width: 1.4em;
 }
-/* line 157, style.scss */
+/* line 180, style.scss */
 .feedback .feedback-cancel {
   background-color: #ccc;
 }
-/* line 161, style.scss */
+/* line 184, style.scss */
 .feedback .feedback-send {
   right: 0;
 }
-/* line 165, style.scss */
+/* line 188, style.scss */
 .feedback #feedback-form {
   margin: 1em;
   padding-bottom: 3em;
 }
-/* line 168, style.scss */
-.feedback #feedback-form .controls.step1 {
+/* line 192, style.scss */
+.feedback #feedback-form .controls {
   position: relative;
 }
-/* line 172, style.scss */
+/* line 196, style.scss */
 .feedback #feedback-form .step2 {
   position: absolute;
   top: 0;
   visibility: hidden;
 }
-/* line 178, style.scss */
+/* line 202, style.scss */
 .feedback #feedback-form h2 .step2 {
   color: #1676aa;
 }
-/* line 182, style.scss */
+/* line 206, style.scss */
 .feedback #feedback-form p.step2 {
   position: absolute;
   top: 4em;
 }
-/* line 187, style.scss */
-.feedback #feedback-form .step2,
-.feedback #feedback-form .feedback-error {
+/* line 211, style.scss */
+.feedback #feedback-form .step2 {
   margin-top: 1.6rem;
 }
-/* line 192, style.scss */
+/* line 215, style.scss */
 .feedback #feedback-form .feedback-counter {
   border-color: #908b85 #908b85;
   border-radius: 0 0 0.5em 0.5em;
@@ -223,53 +251,93 @@
   text-align: right;
   top: -7px;
 }
-/* line 206, style.scss */
+/* line 229, style.scss */
 .feedback #feedback-form .feedback-error {
   color: #f22f24;
-  position: absolute;
-  top: 0;
-  visibility: hidden;
+  display: none;
+  margin-bottom: 1rem;
 }
-/* line 214, style.scss */
+/* line 237, style.scss */
 .feedback #feedback-form .feedback-counter.error,
 .feedback #feedback-form .feedback-text.error {
   border-color: #f22f24;
 }
-/* line 219, style.scss */
+/* line 242, style.scss */
+.feedback #feedback-form .feedback-accept-error,
+.feedback #feedback-form .feedback-email-error,
+.feedback #feedback-form .feedback-text-error {
+  background-color: #f22f24;
+  color: #ffffff;
+  display: none;
+  font-size: 0.75em;
+  padding: 0.25em 0.5em;
+  margin-bottom: 0.5em;
+}
+/* line 252, style.scss */
+.feedback #feedback-form .feedback-accept-error.error,
+.feedback #feedback-form .feedback-email-error.error,
+.feedback #feedback-form .feedback-text-error.error {
+  display: block;
+}
+/* line 257, style.scss */
 .feedback #feedback-form .feedback-text {
   border-color: #908b85 #908b85 -moz-use-text-color;
   border-image: none;
   border-style: solid solid none;
   border-width: 1px 1px medium;
   box-shadow: none;
-  font-size: 14px;
   height: 90px;
   margin-bottom: 0;
-  margin-top: 0.5em;
   padding: 0.5em 0.5em 0;
   resize: none;
 }
-/* line 233, style.scss */
+/* line 269, style.scss */
 .feedback #feedback-form ul li {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 237, style.scss */
+/* line 273, style.scss */
 .feedback #feedback-form ul li input {
   position: relative;
 }
-/* line 241, style.scss */
+/* line 277, style.scss */
 .feedback #feedback-form ul li label,
 .feedback #feedback-form ul li input {
   display: inline;
   white-space: nowrap;
 }
-/* line 248, style.scss */
+/* line 284, style.scss */
+.feedback #feedback-form .disclaimer {
+  padding-bottom: 1.6rem;
+}
+/* line 288, style.scss */
+.feedback #feedback-form .disclaimer #accept-terms {
+  margin-top: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+/* line 293, style.scss */
+.feedback #feedback-form .disclaimer ul {
+  list-style: circle;
+}
+/* line 297, style.scss */
+.feedback #feedback-form .disclaimer [for=accept-terms] {
+  display: inline;
+}
+/* line 299, style.scss */
+.feedback #feedback-form .disclaimer [for=accept-terms].error a {
+  color: #f22f24;
+}
+/* line 304, style.scss */
+.feedback #feedback-form .disclaimer li {
+  display: list-item;
+  margin-left: 1.6rem;
+}
+/* line 310, style.scss */
 .feedback #feedback-form h2 {
   font-size: 20px;
   margin: 0;
 }
-/* line 255, style.scss */
+/* line 317, style.scss */
 .feedback .feedback-spinner {
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url("spinner.gif");

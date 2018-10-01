@@ -8,9 +8,6 @@ module.exports = function(grunt) {
       // }
       index: {
         src: ['public/index.html']
-      },
-      js_templates: {
-        src: ['source/js/js-mustache/*', 'source/js/js-mustache/**/*']
       }
     },
     concat: {
@@ -58,7 +55,7 @@ module.exports = function(grunt) {
       js_templates: {
         cwd:    'public/patterns/',
         src:    ['js_template*/*.markup-only.html', 'js_template*/**/*.markup-only.html'],
-        dest:   'source/js/js-mustache/',
+        dest:   'public/js/js-mustache/',
         expand: true,
         rename: function(dest, src) {
           // this exploits an undocumented feature - see here:
@@ -118,17 +115,17 @@ module.exports = function(grunt) {
       // trigger compass to compile the sass
       compass: {
         files: ['source/**/*.{scss,sass}'],
-        tasks: ['compass:js_components', 'compass:dev', 'copy:dev_css', 'shell:patternlab_full']
+        tasks: ['compass:js_components', 'compass:dev', 'copy:dev_css', 'shell:patternlab_full', 'copy:js_templates']
       },
       // Fire the patternlab markup build process
       patternlab_markup: {
         files: ['source/_patterns/**/*.mustache', 'source/_patterns/**/*.json', 'source/_data/*.json'],
-        tasks: ['shell:patternlab_markup', 'copy:js_templates', 'shell:patternlab_markup']
+        tasks: ['shell:patternlab_markup', 'copy:js_templates']
       },
       // Fire the patternlab build process
       patternlab_full: {
         files: ['source/js/**/*.js', 'source/images/**/*.{jpg,jpeg,png,gif,svg}'],
-        tasks: ['shell:patternlab_markup', 'copy:js_templates', 'shell:patternlab_full']
+        tasks: ['shell:patternlab_full', 'copy:js_templates']
       },
 
       //reload the browser
@@ -352,12 +349,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'clean:index',
-    'clean:js_templates',
     'concat:blacklight',
     'copy:dev_css',
-
     'shell:patternlab_markup',
-    'copy:js_templates',
-    'shell:patternlab_markup'
+    'copy:js_templates'
   ]);
 }

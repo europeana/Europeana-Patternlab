@@ -652,6 +652,10 @@
   .data-group{
     display: inline-block;
   }
+
+  .data-group-block {
+    display: block;
+  }
 }
 
 
@@ -687,6 +691,8 @@
 
 .map{
   height: 22em;
+  margin-bottom: $spacing-base;
+  margin-top: $spacing-base;
   position: relative;
   z-index: 1;
 }
@@ -1035,7 +1041,6 @@
 
 @media all and (min-width: $bp-med) {
   .subsection-label{
-    @include span(4);
     .object-overview &{
       @include span(4 of 18);
     }

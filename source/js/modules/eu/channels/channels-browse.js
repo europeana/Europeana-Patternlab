@@ -1,4 +1,4 @@
-define(['jquery'], function($){
+define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], function($, Ellipsis, ViewportContains){
 
   'use strict';
 
@@ -19,6 +19,18 @@ define(['jquery'], function($){
       });
 
       initScrollToAnchor();
+    });
+  }
+
+  function initEllipsis(){
+    require(['util_eu_ellipsis'], function(Ellipsis){
+      $('.gridlayout-card .inner-text h3').each(function(){
+        Ellipsis.create($(this), {textSelectors:['a']});
+      });
+
+      $('.gridlayout-card .inner-text p').each(function(){
+        Ellipsis.create($(this), {textSelectors:['span']});
+      });
 
     });
   }
@@ -27,19 +39,7 @@ define(['jquery'], function($){
     $('.anchor-list a').each(function() {
       $(this).on('click', function(e) {
         e.preventDefault();
-        if ($(this).parent('.sublist').length > 0) {
-          if ($(this).parent('.sublist').hasClass('sublist-open')) {
-            scrollToAnchor($(this));
-            $(this).parent('.sublist').removeClass('sublist-open');
-          }
-          else{
-            $('.anchor-list li').removeClass('sublist-open');
-            $(this).parent('.sublist').addClass('sublist-open');
-          }
-        }
-        else{
-          scrollToAnchor($(this));
-        }
+        scrollToAnchor($(this));
       });
     });
   }
@@ -50,17 +50,90 @@ define(['jquery'], function($){
     }, 1000);
   }
 
-  function initEllipsis(){
-    require(['util_eu_ellipsis'], function(Ellipsis){
-      $('.gridlayout-card .inner p:first-of-type').each(function(){
-        Ellipsis.create($(this), {textSelectors:['a']});
+  function initLazyLoad(){
+
+    var loadBatch = function($batch, cb){
+
+      var returned = 0;
+
+      $batch.each(function(i, card){
+
+        var cardImg  = $(card);
+        var imgSrc   = cardImg.data('image');
+
+        if(!cardImg.hasClass('preloading')){
+          cardImg.addClass('loading');
+        }
+
+        var preloader = $('<img style="width:0px; height:0px;">').appendTo(cardImg);
+
+        $(preloader).imagesLoaded(function(){
+          cardImg.css('background-image', 'url("' + imgSrc + '")');
+          cardImg.removeClass('loading preloading');
+          cardImg.addClass('loaded');
+          preloader.remove();
+
+          returned ++;
+
+          if(returned === $batch.length && cb){
+            cb();
+          }
+        });
+        preloader.attr('src', imgSrc);
+
+        cardImg.next('.inner').find('.ellipsis').each(function(){
+          var txt = $(this);
+          txt.removeClass('ellipsis');
+          Ellipsis.create(txt, {textSelectors:['a']});
+        });
+
+      });
+    };
+
+    var loadImagesInView = function(){
+
+      var selCard = '.card-img:not(.loaded, .loading)';
+      var batch   = $(selCard).map(function(){
+        if(ViewportContains.isElementInViewport(this, true)){
+          return this;
+        }
+      });
+
+      var batchList = batch.first().closest('.browseabe-list');
+      var nextBatch = batchList.nextAll('.browseabe-list').first().find(selCard);
+      var loadNext;
+
+      if(nextBatch.length > 0){
+        loadNext = nextBatch;
+      }
+      else{
+        loadNext = batchList.prevAll('.browseabe-list').first().find(selCard);
+      }
+
+      if(loadNext.length > 0){
+        loadNext.addClass('preloading');
+      }
+
+      loadBatch(batch, function(){
+        if(loadNext.length > 0){
+          loadBatch(loadNext);
+        }
+      });
+
+    };
+
+    require(['util_scroll'], function(){
+      $(window).europeanaScroll(function(){
+        loadImagesInView();
       });
     });
+    loadImagesInView();
   }
 
   function initPage(){
     initEllipsis();
     initTitleBar();
+    initLazyLoad();
   }
 
   return {

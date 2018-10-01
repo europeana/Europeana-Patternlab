@@ -247,7 +247,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
                 if($tabContent.find('.results .search-list-item').length < totals[tabIndex]){
                   var linkMore = $tabContent.find('.show-more-mlt');
-                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + totals[tabIndex] + ')'));
+                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + (Number(totals[tabIndex])).toLocaleString() + ')'));
                   linkMore.removeClass('js-hidden');
                 }
               };

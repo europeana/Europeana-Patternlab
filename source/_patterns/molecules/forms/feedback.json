@@ -3,10 +3,12 @@
     {
       "path": "/js/modules/require.js",
       "data_main": "/js/modules/main/molecules/main-feedback-molecule.js"
-    }],
-  "feedback":{
-    "form_action": "should-be-present",
+    }
+  ],
+  "feedback": {
+    "form_action": "feedback_submit",
+    "privacy_policy_url": "javascript:alert('open privacy policy')",
     "maxlength": 200,
-    "minwords": 10
+    "minwords": 3
   }
 }

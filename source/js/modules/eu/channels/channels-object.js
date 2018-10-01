@@ -194,7 +194,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         ob = $(ob);
         var sectionId = ob.data('section-id');
         if(prefs.indexOf(sectionId) > -1){
-          $(ob).addClass('closed');
+          $(ob).addClass('closed no-animation');
         }
         else{
           $(ob).removeClass('closed');
@@ -235,7 +235,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       }
     };
 
-
     if(!topTitle.hasClass('ctrl')){
       $(sClose).appendTo(topTitle).attr('data-before', topTitle.data('label-collapse'));
       $(sOpen).appendTo(topTitle).attr('data-before', topTitle.data('label-expand'));
@@ -244,20 +243,22 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     ei.find('.data-section').each(function(i, ob){
       var $ob = $(ob);
       if($ob.find('.ctrl').length === 0){
-        $ob.append(sClose);
-        $ob.append(sOpen);
+        $ob.find('.subsection-label').append(sClose);
+        $ob.find('.subsection-label').append(sOpen);
       }
     });
 
     if(addHandler){
-      $(document).on('click', '.ctrl', function(){
+      $(document).on('click', '.subsection-label, .channel-object-title', function(){
         var btn = $(this);
         var el  = btn.closest('.data-section');
+        ei.find('.no-animation').removeClass('no-animation');
 
         if(el.length === 0){
           el = ei.find('.data-section').add(topTitle);
         }
-        if(btn.hasClass('open')){
+
+        if(btn.find('.ctrl:visible').hasClass('open')){
           el.removeClass('closed');
         }
         else{
@@ -873,9 +874,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
             if(depiction){
               imageEl.css('background-image', 'url("' + depiction + '")');
             }
-            else{
-              imageEl.remove();
-            }
           });
         }
       };
@@ -1040,102 +1038,10 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     $.getJSON(initUrl, null).done(buildHierarchy).fail(error);
   }
 
-  function showMap(data){
-
-    var initLeaflet = function(longitudes, latitudes, labels){
-
-      log('initLeaflet:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes));
-
-      var mapInfoId = 'map-info';
-      var placeName = $('#js-map-place-name').text();
-
-      require(['leaflet'], function(L){
-
-        var osmUrl = location.protocol + '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-        $('.map').after('<div id="' + mapInfoId + '"></div>');
-
-        var osmAttr = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-
-        var map = L.map($('.map')[0], {
-          center : new L.LatLng(latitudes[0], longitudes[0]),
-          zoomControl : true,
-          zoomsliderControl: false,
-          zoom : 8
-        });
-
-        var imagePath = require.toUrl('leaflet').split('/');
-        imagePath.pop();
-        L.Icon.Default.imagePath = imagePath.join('/') + '/images/';
-
-        map.addLayer(new L.TileLayer(osmUrl, {
-          minZoom : 4,
-          maxZoom : 18,
-          attribution : osmAttr,
-          type : 'osm'
-        }));
-        map.invalidateSize();
-
-        var coordLabels = [];
-
-        for(var i = 0; i < Math.min(latitudes.length, longitudes.length); i++){
-          L.marker([latitudes[i], longitudes[i]]).addTo(map);
-          coordLabels.push(latitudes[i] + '&deg; ' + (latitudes[i] > 0 ? labels.n : labels.s) + ', ' + longitudes[i] + '&deg; ' + (longitudes[i] > 0 ? labels.e : labels.w));
-        }
-
-        placeName = placeName ? placeName.toUpperCase() + ' ' : '';
-
-        $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
-
-        $.each(
-          [
-            require.toUrl('leaflet') + '.css',
-            require.toUrl('leaflet_style_override_folder') + '/style-overrides.css',
-            require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css')
-          ], function(i, cssPath){
-            $('head').append('<link rel="stylesheet" href="' + cssPath + '" type="text/css"/>');
-          }
-        );
-
-      });
-    };
-
-    // split multi-values on (whitespace or comma + whitespace)
-
-    var latitude = (data.latitude + '').split(/,*\s+/g);
-    var longitude = (data.longitude + '').split(/,*\s+/g);
-
-    if(latitude && longitude){
-      // replace any comma-delimited decimals with decimal points / make decimal format
-      var i;
-      for(i = 0; i < latitude.length; i++){
-        latitude[i] = latitude[i].replace(/,/g, '.').indexOf('.') > -1 ? latitude[i] : latitude[i] + '.00';
-      }
-      for(i = 0; i < longitude.length; i++){
-        longitude[i] + longitude[i].replace(/,/g, '.').indexOf('.') > -1 ? longitude[i] : longitude[i] + '.00';
-      }
-
-      var longitudes = [];
-      var latitudes = [];
-
-      // sanity check
-      for(i = 0; i < Math.min(latitude.length, longitude.length); i++){
-        if(latitude[i] && longitude[i] && [latitude[i] + '', longitude[i] + ''].join(',').match(/^\s*-?\d+\.\d+,\s?-?\d+\.\d+\s*$/)){
-          longitudes.push(longitude[i]);
-          latitudes.push(latitude[i]);
-        }
-        else{
-          log('Map data error: invalid coordinate pair:\n\t' + longitudes[i] + '\n\t' + latitudes[i]);
-        }
-      }
-
-      if(longitudes.length && latitudes.length){
-        initLeaflet(longitudes, latitudes, data.labels);
-      }
-      else{
-        log('Map data missing');
-      }
-    }
+  function showMap(){
+    require(['util_cho_map'], function(MapUtil){
+      MapUtil.loadMap($('.markers a'));
+    });
   }
 
   function updateSlideNav(EuSlide, cmp, fwd, back){
@@ -1385,8 +1291,19 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
         $.each(window.enabledPromos, function(i, promo){
-          var conf = { id: promo.id, templateId: promoTemplates[promo.id], url: promo.url };
+          var mapping = null;
+          var tempId  = promo.id;
+
+          if(promo.id === 'blog'){
+            tempId  = 'generic';
+            mapping = PromoLoader.getMappingFunctions()['fnBlogToGeneric'];
+          }
+          var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url, mapping: mapping };
           promoConf.push(conf);
+
+          if(promo.relation){
+            conf.relation = promo.relation;
+          }
         });
       }
 
@@ -1599,101 +1516,108 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     suggestions.css('width', '5000px');
 
-    var initUI = function(){
+    EuMustacheLoader.loadMustache('cho-suggestions-item/cho-suggestions-item', function(template, Mustache){
 
-      EuMustacheLoader.loadMustache('cho-suggestions-item/cho-suggestions-item', function(template, Mustache){
+      require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(EUAccordionTabs, Ellipsis){
 
-        require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(EUAccordionTabs, Ellipsis){
+        var back = $('.suggestions-section .eu-slide-nav-left');
+        var fwd  = $('.suggestions-section .eu-slide-nav-right');
 
-          var back = $('.suggestions-section .eu-slide-nav-left');
-          var fwd  = $('.suggestions-section .eu-slide-nav-right');
+        var updateActiveSwipeableNav = function(){
+          var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
+          if(activeSwipeable.length > 0){
+            updateSlideNav(EuSlide, activeSwipeable, fwd, back);
+          }
+        };
 
-          var updateActiveSwipeableNav = function(){
-            var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
-            if(activeSwipeable.length > 0){
-              updateSlideNav(EuSlide, activeSwipeable, fwd, back);
-            }
-          };
+        back.data('dir', -1);
+        fwd.data('dir', 1);
 
-          back.data('dir', -1);
-          fwd.data('dir', 1);
+        EUAccordionTabs.init(suggestions, {
+          active: 0,
+          fnOpenTab: function(){
+            $(window).trigger('ellipsis-update');
+            updateActiveSwipeableNav();
+          },
+          lockTabs: true
+        });
 
-          EUAccordionTabs.init(suggestions, {
-            active: 0,
-            fnOpenTab: function(){
-              $(window).trigger('ellipsis-update');
-              updateActiveSwipeableNav();
-            },
-            lockTabs: true
-          });
+        EUAccordionTabs.loadTabs(
+          suggestions,
+          function(data, tab){
 
-          EUAccordionTabs.loadTabs(
-            suggestions,
-            function(data, tab){
+            tab = $(tab);
 
-              tab = $(tab);
-              tab.find('.tab-subtitle').html(data.tab_subtitle);
+            tab.find('.tab-subtitle .results-count').html('');
+            tab.find('.tab-subtitle .results-label').addClass('js-hidden');
 
-              var slideContent = tab.next('.tab-content').find('.slide-content');
-
-              $.each(data.items, function(i, itemData){
-                slideContent.append(Mustache.render(template, itemData));
-              });
-
-              slideContent.updateSwipe = function(){
-                var totalW = 0;
-                slideContent.children().each(function(i, ob){
-                  totalW += $(ob).outerWidth();
-                });
-                slideContent.css('width', totalW + 'px');
-                return totalW;
-              };
-              EuSlide.makeSwipeable(slideContent, {'transition-on-simulate': true});
-              slideContent.on('eu-swiped', updateActiveSwipeableNav);
-              return data;
-            },
-            function(data, tab, index, completed){
-
-              var ellipsisConf = {textSelectors:['a .link-text']};
-              var tabContent   = $(tab).next('.tab-content');
-              var texts        = tabContent.find('.suggestion-item .item-info h2');
-
-              texts.each(function(i, ob){
-                Ellipsis.create($(ob), ellipsisConf);
-              });
-
-              if(completed){
-
-                suggestions.closest('.slide-rail').css('left', '0px');
-
-                suggestions.updateSwipe = function(){
-
-                  EUAccordionTabs.setOptimalSize(suggestions);
-
-                  setTimeout(function(){
-                    updateActiveSwipeableNav();
-                  }, 1);
-                };
-
-                var navClick = function(){
-                  var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
-                  if(activeSwipeable.length > 0){
-                    EuSlide.simulateSwipe(activeSwipeable, $(this).data('dir'), null, updateActiveSwipeableNav);
-                  }
-                };
-
-                back.on('click', navClick);
-                fwd.on('click', navClick);
-                EuSlide.makeSwipeable(suggestions);
+            if(data.total){
+              tab.find('.tab-subtitle .results-count').html(Number(data.total).toLocaleString());
+              if(parseInt(data.total) === 1){
+                tab.find('.tab-subtitle .results-label.single').removeClass('js-hidden');
+              }
+              else{
+                tab.find('.tab-subtitle .results-label.plural').removeClass('js-hidden');
               }
             }
-          );
-          suggestions.addClass('loaded');
-        });
-      });
-    };
 
-    initUI();
+            var slideContent = tab.next('.tab-content').find('.slide-content');
+
+            $.each(data.documents, function(i, itemData){
+              slideContent.append(Mustache.render(template, itemData));
+            });
+
+            slideContent.updateSwipe = function(){
+              var totalW = 0;
+              slideContent.children().each(function(i, ob){
+                totalW += $(ob).outerWidth();
+              });
+              slideContent.css('width', totalW + 'px');
+              return totalW;
+            };
+            EuSlide.makeSwipeable(slideContent, {'transition-on-simulate': true});
+            slideContent.on('eu-swiped', updateActiveSwipeableNav);
+            return data;
+          },
+          function(data, tab, index, completed){
+
+            var ellipsisConf = {textSelectors:['a .link-text']};
+            var tabContent   = $(tab).next('.tab-content');
+            var texts        = tabContent.find('.suggestion-item .item-info h2');
+
+            texts.each(function(i, ob){
+              Ellipsis.create($(ob), ellipsisConf);
+            });
+
+            if(completed){
+
+              suggestions.closest('.slide-rail').css('left', '0px');
+
+              suggestions.updateSwipe = function(){
+
+                EUAccordionTabs.setOptimalSize(suggestions);
+
+                setTimeout(function(){
+                  updateActiveSwipeableNav();
+                }, 1);
+              };
+
+              var navClick = function(){
+                var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
+                if(activeSwipeable.length > 0){
+                  EuSlide.simulateSwipe(activeSwipeable, $(this).data('dir'), null, updateActiveSwipeableNav);
+                }
+              };
+
+              back.on('click', navClick);
+              fwd.on('click', navClick);
+              EuSlide.makeSwipeable(suggestions);
+            }
+          }
+        );
+        suggestions.addClass('loaded');
+      });
+    });
   }
 
   var showMediaThumbs = function(data){
@@ -1817,8 +1741,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       showMediaThumbs(data);
     });
 
-    $(window).bind('showMap', function(e, data){
-      showMap(data);
+    $(window).bind('showMap', function(){
+      showMap();
     });
 
     $(window).bind('loadHierarchy', function(e, data){

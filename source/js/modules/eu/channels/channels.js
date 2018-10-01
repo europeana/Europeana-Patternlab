@@ -111,6 +111,21 @@ define(['jquery', 'smartmenus'], function($){
     initFeedback();
   };
 
+  var loadAppRequirements = function(cb){
+    if((typeof window.requirementsApplication).toLowerCase() === 'object'){
+      require([window.requirementsApplication[0]], function(){
+        require([window.requirementsApplication[1]], function(){
+          if(cb){
+            cb();
+          }
+        });
+      });
+    }
+    else if(cb){
+      cb();
+    }
+  };
+
   if(typeof pageName === 'undefined' || !pageName){
     console.warn('pageName not specified - cannot bootstrap app');
     return;
@@ -316,32 +331,23 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'portal/show-new':
-      var loadFromStyleguide = function(){
+      loadAppRequirements(function(){
         require(['channels_object', 'search_form'], function(page, euSearchForm){
           page.initPage(euSearchForm);
           promisedPageJS.resolve(page);
           doForAllPages();
         });
-      };
-
-      if((typeof window.requirementsApplication).toLowerCase() === 'object'){
-        require([window.requirementsApplication[0]], function(){
-          require([window.requirementsApplication[1]], function(){
-            loadFromStyleguide();
-          });
-        });
-      }
-      else{
-        loadFromStyleguide();
-      }
+      });
       break;
 
     case 'portal/index':
       var loadPageJS = function(){
-        require(['search_results', 'search_form'], function(page, euSearchForm){
-          page.initPage(euSearchForm, euSearchForm);
-          promisedPageJS.resolve(page);
-          doForAllPages();
+        loadAppRequirements(function(){
+          require(['search_results', 'search_form'], function(page, euSearchForm){
+            page.initPage(euSearchForm, euSearchForm);
+            promisedPageJS.resolve(page);
+            doForAllPages();
+          });
         });
       };
 

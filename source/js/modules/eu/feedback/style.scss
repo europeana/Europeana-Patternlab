@@ -42,6 +42,27 @@
     text-transform: uppercase;
   }
 
+  .feedback-email{
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+    &::-webkit-input-placeholder {
+      text-transform: capitalize;
+    }
+    &::-moz-placeholder {
+      text-transform: capitalize;
+    }
+    &::-ms-placeholder {
+      text-transform: capitalize;
+    }
+    &::placeholder {
+      text-transform: capitalize;
+    }
+    &.error{
+      border-color: $error;
+    }
+  }
+
   .feedback-text{
     border-radius: 0.5em 0.5em 0 0;
   }
@@ -51,6 +72,8 @@
   }
 
   &.open{
+
+    max-width: 30em;
 
     a.open {
       display: none;
@@ -163,9 +186,10 @@
   }
 
   #feedback-form {
-    margin: 1em;
+    margin:         1em;
     padding-bottom: 3em;
-    .controls.step1{
+
+    .controls {
       position: relative;
     }
 
@@ -184,8 +208,7 @@
       top: 4em;
     }
 
-    .step2,
-    .feedback-error{
+    .step2 {
       margin-top: $space;
     }
 
@@ -205,14 +228,29 @@
 
     .feedback-error{
       color: $error;
-      position: absolute;
-      top: 0;
-      visibility: hidden;
+      display: none;
+      margin-bottom: 1rem;
     }
+
     .feedback-counter,
     .feedback-text{
       &.error{
         border-color: $error;
+      }
+     }
+
+    .feedback-accept-error,
+    .feedback-email-error,
+    .feedback-text-error{
+      background-color: $error;
+      color: $white;
+      display: none;
+      font-size: $font-size-sm;
+      padding: 0.25em 0.5em;
+      margin-bottom: 0.5em;
+
+      &.error{
+        display: block;
       }
      }
 
@@ -222,10 +260,8 @@
       border-style: solid solid none;
       border-width: 1px 1px medium;
       box-shadow: none;
-      font-size: 14px;
       height: 90px;
       margin-bottom: 0;
-      margin-top: 0.5em;
       padding: 0.5em 0.5em 0;
       resize: none;
     }
@@ -242,6 +278,32 @@
       input{
         display: inline;
         white-space: nowrap;
+      }
+    }
+
+    .disclaimer{
+
+      padding-bottom: $space;
+
+      #accept-terms{
+        margin-top: $space;
+        margin-bottom: 0.5rem;
+      }
+
+      ul{
+        list-style: circle;
+      }
+
+      [for=accept-terms]{
+        display: inline;
+        &.error a{
+          color: $error;
+        }
+      }
+
+      li{
+        display:         list-item;
+        margin-left:     $space;
       }
     }
 

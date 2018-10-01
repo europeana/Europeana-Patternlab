@@ -14,7 +14,7 @@ require([require.toUrl('../config/main-config.js')], function() {
           });
 
           $('.image-set-title').each(function(i, ob){
-            Ellipsis.create($(ob));
+            Ellipsis.create($(ob), {textSelectors:['span']});
           });
 
           $('.promo-tags').each(function(i, ob){
@@ -33,6 +33,7 @@ require([require.toUrl('../config/main-config.js')], function() {
 
         });
       };
+
 
       if(typeof window.template_id !== 'undefined'){
         template = $('#' + window.template_id);

@@ -25,23 +25,27 @@ $page-bg-colour:   #ececec;
 
       a {
         color: $black;
+
+        &:focus {
+          outline: 0;
+        }
+      }
+
+      .sublist a::after {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid $gray-light;
+        content: "";
+        height: 0;
+        position: absolute;
+        right: -0.7rem;
+        top: 1.2rem;
+        width: 0;
       }
 
       > ul > li {
         position: relative;
         text-align: center;
-
-        &.sublist::after {
-          border-left: 4px solid transparent;
-          border-right: 4px solid transparent;
-          border-top: 4px solid $gray-light;
-          content: "";
-          height: 0;
-          position: absolute;
-          right: -0.5rem;
-          top: 1.2rem;
-          width: 0;
-        }
 
         ul {
           background: $white;
@@ -49,16 +53,19 @@ $page-bg-colour:   #ececec;
           border-radius: $base-border-radius;
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
           display: none;
-          left: 0;
+          left: -0.3rem;
+          max-height: 20rem;
           opacity: 0;
-          padding: $spacing-half / 2;
+          overflow-y: auto;
+          padding: 0.3rem;
+          padding-right: 0.7rem;
           position: absolute;
           top: -0.3rem;
           transition: all 0.2s;
         }
 
-        &.sublist.sublist-open {
-          &::after {
+        &.sublist:hover {
+          a::after {
             display: none;
           }
 
@@ -91,23 +98,15 @@ $page-bg-colour:   #ececec;
             padding: 0 $spacing-half;
             position: relative;
 
-            &.sublist.sublist-open {
-              position: static;
-
+            &.sublist:hover {
               ul {
-                left: auto;
-                top: 0.75rem;
+                display: none;
               }
             }
 
-            &.sublist::after {
-              right: -0.2rem;
+            &.sublist a::after {
+              display: none;
             }
-
-            ul {
-              width: auto;
-            }
-
           }
         }
       }
@@ -155,14 +154,14 @@ $page-bg-colour:   #ececec;
 
       .anchor-list-wrapper > ul > li {
 
-        &.sublist::after {
-          right: -0.5rem;
+        &.sublist a::after {
+          right: -0.7rem;
           top: 1.4rem;
         }
 
-        &.sublist.sublist-open {
+        &.sublist {
           ul {
-            top: -0.25rem;
+            padding-right: 1rem;
           }
         }
 
@@ -189,20 +188,13 @@ $page-bg-colour:   #ececec;
           > ul > li {
             padding: 0 $spacing-half;
 
-            &.sublist::after {
-              right: -0.1rem;
+            &.sublist a::after {
+              display: none;
             }
 
-            &.sublist ul {
-              width: auto;
-            }
-
-            &.sublist.sublist-open {
-              position: static;
-
+            &.sublist:hover {
               ul {
-                left: auto;
-                top: -0.3rem;
+                display: none;
               }
             }
           }
