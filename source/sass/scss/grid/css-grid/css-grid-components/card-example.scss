@@ -9,7 +9,6 @@
   align-items: flex-end;
   display: flex;
   min-height: 20rem;
-  padding-top: 5rem;
   position: relative;
 
   .card-content {
@@ -22,5 +21,26 @@
       max-height: none;
     }
 
+    .card-tags,
+    p:last-of-type {
+      margin-bottom: $spacing-base;
+    }
+
+    .card-tags li {
+      display: inline-block;
+    }
+
   }
+
+  .card-footer {
+    border-top: 1px solid #ddd;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 1rem 1rem 0;
+  }
+
+}
+
+.gridlayout-card[style^="background"] { 
+  padding-top: 5rem;
 }
