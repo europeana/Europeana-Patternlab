@@ -4,6 +4,7 @@
 @import "channels-object-metadata";
 @import "channels-object-variables";
 
+$dark-blue:      #2a3745;
 $max-page-width: 1400px;
 
 .non-eu-entities {
@@ -152,6 +153,22 @@ $max-page-width: 1400px;
       .channel-object-media-nav  .media-thumb-section::after{
         top: 1.6em;
       }
+    }
+  }
+
+  .footer{
+    background-color: $dark-blue;
+    color:            $white;
+
+    .title{
+      color:          $white;
+    }
+
+    .sub-footer .nav a,
+    .l-linklist a{
+      border-bottom:  $white;
+      color:          $white;
+
     }
   }
 
