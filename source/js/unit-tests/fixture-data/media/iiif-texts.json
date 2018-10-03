@@ -5,7 +5,7 @@
   "resources": [
     {
       "@id":      "1",
-      "dc:type":  "Page",
+      "dcType":  "Page",
       "fullText": {
         "value": "Paragraph one has 5 words. Paragraph two also has words."
       },
@@ -16,7 +16,7 @@
     },
     {
       "@id":      "p1",
-      "dc:type":  "Paragraph",
+      "dcType":  "Block",
       "resource": {
         "@id": "http://url#char=0,26"
       },
@@ -24,7 +24,7 @@
     },
     {
       "@id":      "p2",
-      "dc:type":  "Paragraph",
+      "dcType":  "Block",
       "resource": {
         "@id": "http://url#char=27,56"
       },
@@ -32,7 +32,7 @@
     },
     {
       "@id":      "w1",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
          "@id": "http://url#char=0,9"
       },
@@ -40,7 +40,7 @@
     },
     {
       "@id":      "w2",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
         "@id": "http://url#char=10,13"
       },
@@ -48,7 +48,7 @@
     },
     {
       "@id":      "w3",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
         "@id": "http://url#char=14,17"
       },
@@ -56,7 +56,7 @@
     },
     {
       "@id":      "w4",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
         "@id": "http://url#char=18,19"
       },
@@ -64,7 +64,7 @@
     },
     {
       "@id":      "w5",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
         "@id": "http://url#char=20,26"
       },
@@ -72,7 +72,7 @@
     },
     {
       "@id":      "w6",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
         "@id": "http://url#char=27,36"
       },
@@ -80,7 +80,7 @@
     },
     {
       "@id":      "w7",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
         "@id": "http://url#char=37,40"
       },
@@ -88,7 +88,7 @@
     },
     {
       "@id":      "w8",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
         "@id": "http://url#char=41,45"
       },
@@ -96,7 +96,7 @@
     },
     {
       "@id":      "w9",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
         "@id": "http://url#char=46,49"
       },
@@ -104,7 +104,7 @@
     },
     {
       "@id":      "w10",
-      "dc:type":  "Word",
+      "dcType":  "Word",
       "resource": {
         "@id": "http://url#char=50,56"
       },

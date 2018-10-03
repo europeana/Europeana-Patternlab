@@ -27,7 +27,7 @@ define(['jquery', 'media_iiif_text_processor', 'jasmine_jquery'], function($, Pr
 
     it('exposes utility functions for filtering JSON', function(){
       Processor.init(pnlTranscriptions, 0);
-      var p = Processor.getTypedData(json, 'Paragraph');
+      var p = Processor.getTypedData(json, 'Block');
       expect(p.length).toBe(2);
     });
 
