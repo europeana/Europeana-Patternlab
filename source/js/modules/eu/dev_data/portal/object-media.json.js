@@ -475,13 +475,47 @@ define([], function(){
       "playable": false,
       "downloadable": false,
       "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail_negative.jpg"
+      "thumbnail": "/images/sample/object_thumbnail_negative.jpg",
+      "technical_metadata": {
+        "colours": {
+          "present": true,
+          "items": [
+            {
+              "hex": "#000000",
+              "url": "javascript:alert('black');"
+            },
+            {
+              "hex": "#6A5ACD",
+              "url": "javascript:alert('grey 8');"
+            },
+            {
+              "hex": "#FFFFFF",
+              "url": "javascript:alert('white');"
+            }
+          ]
+        }
+      }
     },
     {
       "playable": false,
       "downloadable": false,
       "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail_bw.jpg"
+      "thumbnail": "/images/sample/object_thumbnail_bw.jpg",
+      "technical_metadata": {
+        "colours": {
+          "present": true,
+          "items": [
+            {
+              "hex": "#000000",
+              "url": "javascript:alert('black');"
+            },
+            {
+              "hex": "#FFFFFF",
+              "url": "javascript:alert('white');"
+            }
+          ]
+        }
+      }
     },
     {
       "playable": false,
@@ -493,7 +527,30 @@ define([], function(){
       "playable": false,
       "downloadable": false,
       "is_image": true,
-      "thumbnail": "/media/thumb-dsotm.png"
+      "thumbnail": "/media/thumb-dsotm.png",
+      "technical_metadata": {
+        "colours": {
+          "present": true,
+          "items": [
+            {
+              "hex": "#000000",
+              "url": "javascript:alert('black');"
+            },
+            {
+              "hex": "#FF0000",
+              "url": "javascript:alert('red');"
+            },
+            {
+              "hex": "#FFA500",
+              "url": "javascript:alert('orange');"
+            },
+            {
+              "hex": "#AFEEEE",
+              "url": "javascript:alert('yellow');"
+            }
+          ]
+        }
+      }
     },
     {
       "playable": false,
@@ -505,7 +562,26 @@ define([], function(){
       "playable": false,
       "downloadable": false,
       "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail_real.png"
+      "thumbnail": "/images/sample/object_thumbnail_real.png",
+      "technical_metadata": {
+        "colours": {
+          "present": true,
+          "items": [
+            {
+              "hex": "#FFD700",
+              "url": "javascript:alert('pink');"
+            },
+            {
+              "hex": "#FFC0CB",
+              "url": "javascript:alert('light pink');"
+            },
+            {
+              "hex": "#FFFFFF",
+              "url": "javascript:alert('white');"
+            }
+          ]
+        }
+      }
     },
     {
       "playable": false,

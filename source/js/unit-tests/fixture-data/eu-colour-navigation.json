@@ -1,0 +1,20 @@
+[
+  {
+    "media_type":"image",
+    "technical_metadata":{
+      "colours":{
+        "present":true,
+        "items":[
+          {
+            "hex": "#E6E6FA",
+            "url": "/portal/en/search?f%5BCOLOURPALETTE%5D%5B%5D=%23E6E6FA\u0026f%5BTYPE%5D%5B%5D=IMAGE"
+          },
+          {
+            "hex": "#F5F5F5",
+            "url": "/portal/en/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F5F5F5\u0026f%5BTYPE%5D%5B%5D=IMAGE"
+          }
+        ]
+      }
+    }
+  }
+]

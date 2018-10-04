@@ -22,19 +22,6 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
     });
   }
 
-  function initEllipsis(){
-    require(['util_eu_ellipsis'], function(Ellipsis){
-      $('.gridlayout-card .inner-text h3').each(function(){
-        Ellipsis.create($(this), {textSelectors:['a']});
-      });
-
-      $('.gridlayout-card .inner-text p').each(function(){
-        Ellipsis.create($(this), {textSelectors:['span']});
-      });
-
-    });
-  }
-
   function initScrollToAnchor() {
     $('.anchor-list a').each(function() {
       $(this).on('click', function(e) {
@@ -59,18 +46,21 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
       $batch.each(function(i, card){
 
         var cardImg  = $(card);
-        var imgSrc   = cardImg.data('image');
 
-        if(!cardImg.hasClass('preloading')){
-          cardImg.addClass('loading');
+        if(cardImg.hasClass('loaded')){
+          return true;
         }
 
+        cardImg.addClass('loading');
+
+        var imgSrc    = cardImg.data('image');
         var preloader = $('<img style="width:0px; height:0px;">').appendTo(cardImg);
 
         $(preloader).imagesLoaded(function(){
+
+          cardImg.removeClass('loading').addClass('loaded');
           cardImg.css('background-image', 'url("' + imgSrc + '")');
-          cardImg.removeClass('loading preloading');
-          cardImg.addClass('loaded');
+
           preloader.remove();
 
           returned ++;
@@ -79,6 +69,7 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
             cb();
           }
         });
+
         preloader.attr('src', imgSrc);
 
         cardImg.next('.inner').find('.ellipsis').each(function(){
@@ -92,34 +83,27 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
 
     var loadImagesInView = function(){
 
-      var selCard = '.card-img:not(.loaded, .loading)';
-      var batch   = $(selCard).map(function(){
-        if(ViewportContains.isElementInViewport(this, true)){
+      var peekAheadPixels = 300;
+      var selCard         = '.card-img:not(.loaded, .loading)';
+      var selSublist      = '.browseabe-list';
+
+      var batch           = $(selCard).map(function(){
+        if(ViewportContains.isElementInViewport(this, true, peekAheadPixels)){
           return this;
         }
       });
 
-      var batchList = batch.first().closest('.browseabe-list');
-      var nextBatch = batchList.nextAll('.browseabe-list').first().find(selCard);
-      var loadNext;
-
-      if(nextBatch.length > 0){
-        loadNext = nextBatch;
-      }
-      else{
-        loadNext = batchList.prevAll('.browseabe-list').first().find(selCard);
-      }
-
-      if(loadNext.length > 0){
-        loadNext.addClass('preloading');
-      }
-
       loadBatch(batch, function(){
+
+        var batchList        = batch.first().closest(selSublist);
+        var notLoadedCurrent = batchList.find(selCard).length;
+        var nextBatch        = notLoadedCurrent > 0 ? batch : batchList.nextAll(selSublist).first().find(selCard);
+        var loadNext         = nextBatch.length > 0 ? nextBatch : batchList.prevAll(selSublist).last().find(selCard);
+
         if(loadNext.length > 0){
           loadBatch(loadNext);
         }
       });
-
     };
 
     require(['util_scroll'], function(){
@@ -131,7 +115,6 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
   }
 
   function initPage(){
-    initEllipsis();
     initTitleBar();
     initLazyLoad();
   }

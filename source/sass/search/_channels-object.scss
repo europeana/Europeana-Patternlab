@@ -4,6 +4,8 @@
 @import "channels-object-metadata";
 @import "channels-object-variables";
 
+$max-page-width: 1400px;
+
 .non-eu-entities {
   color: $gray-med;
   line-height: 1.375;
@@ -25,10 +27,6 @@
     content: ", ";
   }
 
-  .entity-wrapper {
-    margin-right: -$spacing-2x;
-  }
-
   .channel-object-viewmore {
     display: inline-block;
 
@@ -44,7 +42,7 @@
 
     .viewmore-image {
       flex-shrink: 0;
-      margin: 0 $spacing-2x 0 $spacing-base;
+      margin:      0 0 0 $spacing-base;
     }
   }
 
@@ -99,17 +97,30 @@
 
   @media all and (min-width: $bp-med) {
 
+    .object-details{
+
+      margin:    $space auto 0 auto;
+      max-width: $max-page-width;
+      padding:   0;
+
+      &.has-right-column{
+        padding: 0 1%;
+      }
+    }
+
     .object-details:not(.zoom-two){
 
       .channel-object-overview,
       .channel-object-similar{
-        @include span(24);
+        width: 100%;
       }
 
       &.has-right-column{
         .channel-object-overview,
         .channel-object-similar{
-          @include span(18);
+          float:         left;
+          padding-right: 1%;
+          width:         75%;
         }
       }
     }
@@ -184,22 +195,20 @@
   }
 
   .channel-media-wrap  {
-    border-radius: $base-border-radius;
     position: relative;
   }
 
   .channel-object-information,
   .channel-media-wrap  {
     background: $white;
+    border-radius: $base-border-radius;
   }
 
   .channel-object-title{
     color: $black;
-    cursor: pointer;
   }
 
   // hotspot style-overrides
-
   .hotspot-expand{
     margin-right: 0;
 
@@ -425,7 +434,10 @@
 
     .object-details:not(.zoom-two){
       .channel-object-actions{
-        @include span(last 6);
+
+        float:        right;
+        padding-left: 1%;
+        width:        25%;
 
         .eu-slide-navs{
           display: none;

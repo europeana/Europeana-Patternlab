@@ -98,6 +98,11 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
           var html = Mustache.render(template, datum);
           itemContainer.children().eq(loadOffset + i).replaceWith(html);
         });
+
+        if(that.ops.onDataLoaded){
+          that.ops.onDataLoaded(data);
+        }
+
         that.load();
       });
     });
@@ -110,7 +115,7 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     var $this = $(scrollable);
     var $cmp  = $this.closest('.light-carousel');
 
-    if(scrollable.scrollLeft == 0){
+    if(scrollable.scrollLeft === 0){
       $cmp.find('.nav-left').hide();
     }
     else{
@@ -143,7 +148,7 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
   fxBindScrollables(); // made callable for testing
 
   var setInitialState = function(){
-    var ro = typeof ResizeObserver == 'undefined' ? null : new ResizeObserver(function(entries){
+    var ro = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(function(entries){
       $.each(entries, function(){
         $(this.target).trigger('carousel-scrolled');
       });
