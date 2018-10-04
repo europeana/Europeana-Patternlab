@@ -115,7 +115,7 @@ define(['jquery', 'jasmine_jquery', 'jasmine_ajax'], function($){
       window.I18n = window_I18n;
     });
 
-    it('Only displays colour elements corresponding to "active" elements in the data source', function(done){
+    it('Only displays colour elements corresponding to "active" elements in the data source when multiple items are available', function(done){
 
       EuColourNav.initColourData();
 
@@ -123,6 +123,28 @@ define(['jquery', 'jasmine_jquery', 'jasmine_ajax'], function($){
         expect($('.colour-grid.active').length).toEqual(0);
         $('.media.1').addClass('active');
         EuColourNav.updateColourData();
+        expect($('.colour-grid.active').length).toBeGreaterThan(0);
+        done();
+      }, waitInit);
+    });
+
+    it('Does not require an "active" element in the data source to display for a single item', function(done){
+
+      EuColourNav.initColourData();
+
+      setTimeout(function(){
+        expect($('.colour-grid.active').length).toEqual(0);
+
+        EuColourNav.updateColourData();
+
+        expect($('.colour-grid.active').length).toEqual(0);
+
+        $('.media.2').remove();
+        $('.media.3').remove();
+        $('.media.4').remove();
+
+        EuColourNav.updateColourData();
+
         expect($('.colour-grid.active').length).toBeGreaterThan(0);
         done();
       }, waitInit);
