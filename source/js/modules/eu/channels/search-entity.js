@@ -238,7 +238,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   masonries[tabIndex].layout();
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
                   if(repeat){
-                    fixMasonry();
+                    fixMasonry(repeat - 1);
                   }
                 }, 500);
               };
@@ -260,7 +260,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
                   if(masonries[tabIndex]){
                     masonries[tabIndex].layout();
-                    fixMasonry(true);
+                    fixMasonry(2);
                   }
                   else{
                     euAccordionTabs.fixTabContentHeight(cmpTabs);
