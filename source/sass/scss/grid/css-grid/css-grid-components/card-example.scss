@@ -85,10 +85,12 @@
   }
 
   .card-footer {
+    background-color: #f4f4f4;
     border-top: 1px solid #ddd;
-    margin-left: -$spacing-base;
-    margin-right: -$spacing-base;
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
     padding: $spacing-base;
+    flex: 0;
   }
 }
 
@@ -96,4 +98,26 @@
   min-height: 20rem;
   display: flex;
   flex-direction: column;
+}
+
+.gridlayout-card-entity {
+  margin-left: $spacing-base;
+
+  .card-content,
+  .card-footer {
+    margin-left: -$spacing-base;
+  }
+
+  .card-content {
+    border-top-left-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
+  }
+
+  &:hover {
+    .card-content,
+    .card-footer {
+      box-shadow: -8px 0 12px -8px $gridlayout-card-shadow-hover;
+    }
+  }
+
 }
