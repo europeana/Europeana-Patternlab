@@ -12,10 +12,15 @@
   margin-bottom: $spacing-2x;
   min-height: 1rem;
   position: relative;
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
 
   .card-image {
     flex: 1;  
     min-height: 10rem;
+    background-position: center center;
+    background-size: cover;
   }
 
   .card-image-set {
@@ -60,17 +65,31 @@
       align-items: center;
       justify-content: space-between;
 
+      p {
+        color: $gray-light;
+      }
+
       .icon {
         background-position: right center;
         background-repeat: no-repeat;
+        flex-basis: 2rem;
         height: 2rem;
-        width: 2rem;
         margin-left: $spacing-base;
         margin-top: -$spacing-half;
+        width: 2rem;
       }
 
       .icon-multi-page {
-        background-image: url("data:image/svg+xml,%3Csvg id='icon-multi-page' viewBox='0 0 23 32' fill='#{url-encode-color($gray-med)}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.3 24.9c-.7 0-1.3-.6-1.3-1.3v-13c0-.7.6-1.3 1.3-1.3h8.2c.5 0 .9.4.9.9v13.4c0 .7-.6 1.3-1.3 1.3H3.3zM14 20.8V10.3c0-1.4-1.2-2.6-2.6-2.6H5.8v-1c0-.7.6-1.3 1.3-1.3h8c.7 0 1.3.6 1.3 1.3v12.8c0 .7-.6 1.3-1.3 1.3H14zm4-3.9V6.4c0-1.4-1.2-2.6-2.6-2.6H9.8v-1c0-.7.6-1.3 1.3-1.3h8c.7 0 1.3.6 1.3 1.3v12.8c0 .7-.6 1.3-1.3 1.3H18z'%3E%3C/path%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg id='icon-multi-page' viewBox='0 0 23 32' fill='#777' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.3 24.9c-.7 0-1.3-.6-1.3-1.3v-13c0-.7.6-1.3 1.3-1.3h8.2c.5 0 .9.4.9.9v13.4c0 .7-.6 1.3-1.3 1.3H3.3zM14 20.8V10.3c0-1.4-1.2-2.6-2.6-2.6H5.8v-1c0-.7.6-1.3 1.3-1.3h8c.7 0 1.3.6 1.3 1.3v12.8c0 .7-.6 1.3-1.3 1.3H14zm4-3.9V6.4c0-1.4-1.2-2.6-2.6-2.6H9.8v-1c0-.7.6-1.3 1.3-1.3h8c.7 0 1.3.6 1.3 1.3v12.8c0 .7-.6 1.3-1.3 1.3H18z'%3E%3C/path%3E%3C/svg%3E");
+      }
+    }
+
+    .extras {
+      span + span {
+        display: inline-block;
+        &::before {
+          content: '| ';
+        }
       }
     }
 
@@ -94,8 +113,10 @@
     border-top: 1px solid #ddd;
     border-bottom-left-radius: $base-border-radius;
     border-bottom-right-radius: $base-border-radius;
-    padding: $spacing-base;
+    color: $gray-med;
     flex: 0;
+    font-style: italic;
+    padding: $spacing-half $spacing-base;    
   }
 }
 
@@ -118,6 +139,10 @@
     border-top-left-radius: $base-border-radius;
     border-top-right-radius: $base-border-radius;
     box-shadow: -1px 0 3px 0 $gridlayout-card-shadow;
+
+    .description {
+      display: inline;
+    }
   }
 
   &:hover {
