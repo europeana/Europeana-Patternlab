@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'eu_colour_nav', 'util_foldable', 'blacklight'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader, EuColourNav) {
+define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'eu_colour_nav', 'util_foldable'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader, EuColourNav) {
 
   var channelData     = null;
   var suggestions     = null;

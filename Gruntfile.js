@@ -10,26 +10,6 @@ module.exports = function(grunt) {
         src: ['public/index.html']
       }
     },
-    concat: {
-      /**
-       * Merge files that would otherwise be loaded as groups
-       **/
-      blacklight: {
-        options: {
-          separator: ';\n'
-        },
-        files: {
-          'source/js/modules/lib/blacklight/blacklight-all.js': [
-            'source/js/modules/lib/blacklight/core.js',
-            'source/js/modules/lib/blacklight/search_context.js'
-            // 'source/js/modules/lib/blacklight/checkbox_submit.js',
-            // 'source/js/modules/lib/blacklight/bookmark_toggle.js',
-            // 'source/js/modules/lib/blacklight/ajax_modal.js',
-            // 'source/js/modules/lib/blacklight/collapsable.js',
-          ]
-        }
-      }
-    },
     copy: {
       /*
       js_assets_enable: {
@@ -259,7 +239,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -349,7 +328,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'clean:index',
-    'concat:blacklight',
     'copy:dev_css',
     'shell:patternlab_markup',
     'copy:js_templates'
