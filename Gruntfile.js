@@ -10,11 +10,6 @@ module.exports = function(grunt) {
         src: ['public/index.html']
       }
     },
-    //concat: {
-      /**
-       * Merge files that would otherwise be loaded as groups
-       **/
-    //},
     copy: {
       /*
       js_assets_enable: {
@@ -244,7 +239,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  // grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
