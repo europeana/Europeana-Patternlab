@@ -1044,21 +1044,27 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     });
   }
 
-  function updateSlideNav(EuSlide, cmp, fwd, back){
+  function updateSlideNavCtrls(EuSlide, cmp, fwd, back){
 
-    var nav = EuSlide.getNavOptions(cmp);
-
-    if(nav[0]){
-      fwd.removeClass('disabled');
-    }
-    else{
+    if(cmp.children().length === 1){
       fwd.addClass('disabled');
-    }
-    if(nav[1]){
-      back.removeClass('disabled');
+      back.addClass('disabled');
     }
     else{
-      back.addClass('disabled');
+      var nav = EuSlide.getNavOptions(cmp);
+
+      if(nav[0]){
+        fwd.removeClass('disabled');
+      }
+      else{
+        fwd.addClass('disabled');
+      }
+      if(nav[1]){
+        back.removeClass('disabled');
+      }
+      else{
+        back.addClass('disabled');
+      }
     }
   }
 
@@ -1072,7 +1078,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     var navClick = function(){
       if(promotions.length > 0){
-        EuSlide.simulateSwipe(promotions, $(this).data('dir'), null, function(){ updateSlideNav(EuSlide, promotions, fwd, back); });
+        EuSlide.simulateSwipe(promotions, $(this).data('dir'), null, function(){ updateSlideNavCtrls(EuSlide, promotions, fwd, back); });
       }
     };
 
@@ -1087,12 +1093,12 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         totalW = totalW + $(this).outerWidth();
       });
       promotions.css('width', totalW + 'px');
-      updateSlideNav(EuSlide, promotions, fwd, back);
+      updateSlideNavCtrls(EuSlide, promotions, fwd, back);
     };
 
     promotions.css('width', '5000px');
     promotions.on('eu-swiped', function(){
-      updateSlideNav(EuSlide, promotions, fwd, back);
+      updateSlideNavCtrls(EuSlide, promotions, fwd, back);
     });
     EuSlide.makeSwipeable(promotions, {'not-on-stacked': true, 'transition-on-simulate': true});
 
@@ -1349,10 +1355,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
             require(['util_slide'], function(EuSlide){
               initPromos(EuSlide);
+
+              // is this needed now that adding promos no longer changes column count?
               $(window).trigger('carouselResize');
             });
 
             var foyerCards = $('.ve-foyer-card');
+
             if(foyerCards.length > 0){
               require(['ve_state_card'], function(Card){
                 foyerCards.each(function(){
@@ -1360,6 +1369,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
                 });
               });
             }
+
+            // is this needed now that adding promos no longer changes column count?
             resetZoomable();
           }
           else{
@@ -1513,7 +1524,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   }
 
   function initSuggestions(EuSlide){
-
     suggestions.css('width', '5000px');
 
     EuMustacheLoader.loadMustache('cho-suggestions-item/cho-suggestions-item', function(template, Mustache){
@@ -1526,7 +1536,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         var updateActiveSwipeableNav = function(){
           var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
           if(activeSwipeable.length > 0){
-            updateSlideNav(EuSlide, activeSwipeable, fwd, back);
+            updateSlideNavCtrls(EuSlide, activeSwipeable, fwd, back);
           }
         };
 
