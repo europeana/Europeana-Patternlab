@@ -79,16 +79,30 @@ module.exports = function(grunt) {
     },
     uglify: {
       production: {
-          cwd: 'source/js/modules',
-          expand:  true,
-          src: ['**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
-          dest: 'source/js_min/modules'
+        cwd: 'source/js_min/modules',
+        expand:  true,
+        src: ['**/*.js'],
+        dest: 'source/js_min/modules'
       },
       version_js: {
         cwd: 'source/js/dist',
         expand:  true,
         src: ['**/*.js',  '!**/soundfont/*'],
         dest: 'source/v/' + grunt.option('styleguide-version') + '/js/dist'
+      }
+    },
+    babel: {
+      options: {
+        sourceMap: true,
+        presets: ['@babel/preset-env']
+      },
+      production: {
+        files: [{
+          cwd: 'source/js/modules',
+          expand:  true,
+          src: ['**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
+          dest: 'source/js_min/modules'
+        }]
       }
     },
     watch: {
@@ -237,6 +251,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -246,6 +261,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('production', function(){
+    console.warn('transpile to js 5...');
+    grunt.task.run('babel:production');
+
     console.warn('minify js...');
     grunt.task.run('uglify:production');
 
