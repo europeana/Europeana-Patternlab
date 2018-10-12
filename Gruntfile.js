@@ -81,7 +81,7 @@ module.exports = function(grunt) {
       production: {
         cwd: 'source/js_min/modules',
         expand:  true,
-        src: ['**/*.js'],
+        src: ['*.js', '**/*.js'],
         dest: 'source/js_min/modules'
       },
       version_js: {
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
         files: [{
           cwd: 'source/js/modules',
           expand:  true,
-          src: ['**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
+          src: ['*.js', '**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
           dest: 'source/js_min/modules'
         }]
       }
