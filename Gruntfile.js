@@ -46,14 +46,21 @@ module.exports = function(grunt) {
       production_js_assets: {
         cwd: 'source/js/modules',
         expand:  true,
-        src: ['**/*.*',  '!**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
+        src: ['**/*.*',  '!**/*.js'],
+        dest: 'source/js_min/modules'
+      },
+
+      production_stage_for_transpile: {
+        cwd: 'source/js/modules',
+        expand: true,
+        src: ['*.js', '**/*.js', '!**/soundfont/*', '!bower_components/**'],
         dest: 'source/js_min/modules'
       },
 
       production_swap_js: {
         cwd: 'source/js_min/modules',
         expand: true,
-        src: ['**/*.*'],
+        src: ['*.*', '**/*.*'],
         dest: 'source/js/modules'
       },
 
@@ -99,9 +106,9 @@ module.exports = function(grunt) {
       },
       production: {
         files: [{
-          cwd: 'source/js/modules',
+          cwd: 'source/js_min/modules',
           expand:  true,
-          src: ['*.js', '**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
+          src: ['lib/audiocogs/flac.js'],
           dest: 'source/js_min/modules'
         }]
       }
@@ -263,6 +270,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('production', function(){
     console.warn('transpile to js 5...');
+    grunt.task.run('copy:production_stage_for_transpile');
     grunt.task.run('babel:production');
 
     console.warn('minify js...');
