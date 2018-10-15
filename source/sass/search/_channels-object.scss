@@ -157,6 +157,7 @@ $max-page-width: 1400px;
   }
 
   .footer{
+
     background-color: $dark-blue;
     color:            $white;
 
@@ -166,9 +167,19 @@ $max-page-width: 1400px;
 
     .sub-footer .nav a,
     .l-linklist a{
-      border-bottom:  $white;
-      color:          $white;
+      border-bottom: 0;
+      color:         $white;
+      display:       inline-block;
+      &:hover{
+        border-bottom:  1px dashed $white;
+      }
+    }
 
+    .social-links a{
+      color: $offwhite;
+      &:hover{
+        color: $eu-blue;
+      }
     }
   }
 
