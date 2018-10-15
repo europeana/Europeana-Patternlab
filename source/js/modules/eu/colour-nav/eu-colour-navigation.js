@@ -61,13 +61,19 @@ define(['jquery', 'util_mustache_loader'], function($, EuMustacheLoader){
     }
 
     $('.colour-grid').removeClass('active');
-    var index = $(' .media-thumbs a[data-has-colour-info=true]').index($(' .media-thumbs .active a'));
+    var index = $('.media-thumbs a[data-has-colour-info=true]').index($('.media-thumbs .active a'));
+
+    // single images have the carousel disbaled - detect colour availability here
+    if($('[data-has-colour-info=true]').length === 1 && $('.lc-item a').length === 1){
+      index = 0;
+    }
 
     var available = index > -1;
 
     if(available){
       $($('.colour-grid').get(index)).addClass('active');
     }
+
     indicateAvailability(available);
   }
 

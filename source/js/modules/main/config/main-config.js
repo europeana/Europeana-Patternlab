@@ -1,7 +1,6 @@
 require.config({
   paths: {
     aurora:                        '../../lib/audiocogs/aurora',
-    blacklight:                    '../../lib/blacklight/blacklight_all',
     channels:                      '../../eu/channels/channels',
     channels_browse:               '../../eu/channels/channels-browse',
     channels_object:               '../../eu/channels/channels-object',
@@ -164,7 +163,6 @@ require.config({
     wavesurfer:                    '../../lib/videojs-wavesurfer/wavesurfer'
   },
   shim: {
-    blacklight:     ['jquery'],
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
     placeholder:    ['jquery'],
