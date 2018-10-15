@@ -70,24 +70,9 @@
           </div>
         </div>
 
-        <div class="entity-content">
+        <div class="eu-accordion-tabs cf">
           {{#tab_items}}
-            <div class="entity-grid-header"{{#url}} data-content-url="{{.}}"{{/url}}>
-              {{#tab_title}}<span class="tab-title">{{.}}</span>{{/tab_title}}
-            </div>
-            <div class="entity-content-inner">
-              <div class="results">
-                {{#referenced_records}}
-                  <ol class="result-items display-grid cf not-loaded" {{#total.value}} data-total="{{.}}"{{/total.value}}>
-                  <li class="grid-sizer"></li>
-                    {{#search_results}}
-                      <li>{{> molecules/components/search/search-listitem}}</li>
-                    {{/search_results}}
-                  </ol>
-                {{/referenced_records}}
-              </div>
-              <a href="{{search_url}}" class="show-more-mlt js-hidden">{{ i18n.global.more.show-more }}… ()</a>
-            </div>
+            {{> organisms/components/eu-accordion-tabs-entity}}
           {{/tab_items}}
         </div>
       </div>
