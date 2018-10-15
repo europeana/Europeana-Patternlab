@@ -1,0 +1,65 @@
+<div id="template-promo-card">  
+  [[#overlay]]
+  <div class="gridlayout-card gridlayout-card-entity" style="background-image: url([[img.src]]);">
+    <div class="card-image">
+        [[#url]]<a href="[[.]]"></a>[[/url]]
+    </div>
+  [[/overlay]]
+  [[^overlay]]
+  <div class="gridlayout-card">
+    [[#count]]
+      <div class="card-image card-image-set">
+        [[#images]]
+          [[#link]]
+            <a href="[[link]]">
+              <img src="[[url]]"/>
+            </a>
+          [[/link]]
+        [[/images]]
+      </div>
+    [[/count]]
+    [[^images]]
+      [[#img.src]]
+        <div class="card-image" style="background-image: url([[img.src]]);">
+            [[#url]]<a href="[[.]]"></a>[[/url]]
+        </div>
+      [[/img.src]]
+    [[/images]]
+  [[/overlay]]
+    <div class="card-content">
+      [[#type]]<h4>[[.]]</h4>[[/type]]
+      [[#overlay.img]]<span class="viewmore-image" style="background-image: url([[.]]);"></span>[[/overlay.img]]
+      [[#title]]<h3><a href="[[url]]">[[.]]</a></h3>[[/title]]
+      <div class="description">
+        [[#excerpt]]
+          [[#short]]
+            <p>[[[.]]]</p>  
+          [[/short]]
+        [[/excerpt]]
+        [[#count]]
+          <p>[[count]] {{i18n.global.labels.images}}</p>
+        [[/count]]
+        [[#info]]
+          <span class="icon icon-info"></span> 
+          <div class="info image-set-overlay">[[[.]]]</div>
+        [[/info]]
+        [[#media_type]]
+            <span class="icon media-type-[[.]]"></span>
+        [[/media_type]]
+      </div>
+      <p class="extras">[[#date]]<span>[[.]]</span>[[/date]][[#attribution]]<span>[[.]]</span>[[/attribution]]</p>
+      [[#tags]]
+        <ul class="card-tags">
+          [[#items]]
+            <li>
+              [[#url]]<a class="promo-tag-link" href="[[.]]">[[/url]]#[[text]][[#url]]</a>[[/url]]
+            </li>
+          [[/items]]
+        </ul>
+      [[/tags]]  
+    </div>
+    [[#relation]]
+      <div class="card-footer">[[.]]</div>
+    [[/relation]]
+  </div>  
+</div>

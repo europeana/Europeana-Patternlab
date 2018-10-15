@@ -1083,7 +1083,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       var totalW = (promotions.children().length - 1) * 32;
       totalW = totalW + promotions.children('.separator-after, .separator-before').length * 32;
 
-      promotions.children('.collections-promo-item').each(function(){
+      promotions.children('.gridlayout-card').each(function(){
         totalW = totalW + $(this).outerWidth();
       });
       promotions.css('width', totalW + 'px');
@@ -1284,20 +1284,23 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         'gallery': 'template-promo-gallery',
         'news': 'template-promo-news',
         'entity': 'template-promo-entity',
-        'generic': 'template-promo-generic'
+        'generic': 'template-promo-generic',
+        'card': 'template-promo-card'
       };
 
       var promoConf = [];
 
       if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
         $.each(window.enabledPromos, function(i, promo){
+          
           var mapping = null;
-          var tempId  = promo.id;
+          var tempId  = 'card';
 
           if(promo.id === 'blog'){
-            tempId  = 'generic';
+            //tempId  = 'generic';
             mapping = PromoLoader.getMappingFunctions()['fnBlogToGeneric'];
           }
+
           var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url, mapping: mapping };
           promoConf.push(conf);
 
@@ -1332,7 +1335,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       }
 
       EuMustacheLoader.loadMustache('cho-promotions/cho-promotions', function(templateMarkup){
-
         templateMarkup = $('<template>' + templateMarkup + '</template>' );
         templateMarkup = $(templateMarkup.prop('content'));
 
