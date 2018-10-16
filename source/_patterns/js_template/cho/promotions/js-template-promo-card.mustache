@@ -1,4 +1,15 @@
 <div id="template-promo-card">  
+  [[#is_next]]
+    <span class="next-item-title">
+      {{ i18n.site.object.next-item }}
+    </span>
+  [[/is_next]]
+  [[#is_prev]]
+    <span class="previous-item-title">
+      {{ i18n.site.object.previous-item }}
+    </span>
+  [[/is_prev]]
+
   [[#overlay]]
   <div class="gridlayout-card gridlayout-card-entity" style="background-image: url([[img.src]]);">
     <div class="card-image">
@@ -30,12 +41,16 @@
       [[#type]]<h4>[[.]]</h4>[[/type]]
       [[#overlay.img]]<span class="viewmore-image" style="background-image: url([[.]]);"></span>[[/overlay.img]]
       [[#title]]<h3><a href="[[url]]">[[.]]</a></h3>[[/title]]
+      [[#overlay.title]]<h3><a href="[[url]]">[[.]]</a></h3>[[/overlay.title]]
       <div class="description">
         [[#excerpt]]
           [[#short]]
             <p>[[[.]]]</p>  
           [[/short]]
         [[/excerpt]]
+        [[#overlay.description]]
+          <p>[[[.]]]</p>  
+        [[/overlay.description]]
         [[#count]]
           <p>[[count]] {{i18n.global.labels.images}}</p>
         [[/count]]
@@ -63,3 +78,10 @@
     [[/relation]]
   </div>  
 </div>
+
+[[#is_next]]
+<hr/>
+[[/is_next]]
+[[#is_prev]]
+<hr/>
+[[/is_prev]]
