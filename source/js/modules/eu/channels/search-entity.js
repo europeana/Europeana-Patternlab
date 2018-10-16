@@ -143,7 +143,6 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqIma
                   callback(res);
                 }
               }
-
             }
           };
 
@@ -158,9 +157,7 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqIma
               }
               afterAppend();
             });
-
             items.append(item);
-
           }
           else{
             items.append(item);
@@ -215,12 +212,12 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqIma
       initMasonry(function(){
 
         if(allPreloaded || (hasPreloaded && hasSpaceToFill() < 0)){
-
           header.removeClass('loading').addClass('js-loaded');
 
           if(!allPreloaded){
             showMoreLinkIfNecessary();
           }
+          masonry.layout();
         }
         else{
           header.addClass('loading');
@@ -237,6 +234,7 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqIma
               $('.entity-content-inner').find('.show-more-mlt').addClass('js-hidden');
             }
             header.removeClass('loading').addClass('js-loaded');
+            masonry.layout();
           });
 
         }
