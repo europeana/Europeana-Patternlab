@@ -26,11 +26,11 @@ define(['jquery', 'util_resize'], function($){
         return this.nodeType === 3;
       });
 
-      if(nText.length == 1){
+      if(nText.length === 1){
         nText.first().replaceWith(text);
         return true;
       }
-      else if(ops.multiNode == true){
+      else if(ops.multiNode === true){
         el.text(text);
         return true;
       }
@@ -45,27 +45,6 @@ define(['jquery', 'util_resize'], function($){
       var ok = replaceTextNode(cmp, txt.substr(0, length) +  (suppressSuffix ? '' : suffix));
       if(!ok){
         exitLookup = true;
-/*
-        var debug = function(depth, s){
-          console.log('debug...');
-          var xCmp = cmp;
-          s = s ? s : '';
-          depth = depth ? depth : 5;
-
-          for(var i=0; i<depth; i++){
-            xCmp = xCmp.parent();
-            s =  '.' + xCmp.attr('class').replace(' ', '.')  + ' ' + s;
-          }
-          if(depth > 0){
-            s = ' > ' + s;
-            return debug(depth-1, s);
-          }
-          return s;
-        };
-        console.log('Exit - mixed content not supported - exitLookup - ');
-        console.log('\t' + cmp.attr('class'));
-        console.log('\t' + cmp.parent().attr('class'));
- */
         return true;
       }
       return !fn();
@@ -83,7 +62,7 @@ define(['jquery', 'util_resize'], function($){
         newGuess = guess - newBite;
       }
       else{
-        if(tryForSize($node, text, guess, guess == text.length)){
+        if(tryForSize($node, text, guess, guess === text.length)){
           if(exitLookup){
             return {
               guess: guess,
@@ -91,7 +70,7 @@ define(['jquery', 'util_resize'], function($){
             };
           }
 
-          if(bite==1){
+          if(bite === 1){
             return {
               guess: guess,
               index: nodeIndex
@@ -151,7 +130,6 @@ define(['jquery', 'util_resize'], function($){
     };
 
     var respond = function(){
-
       var cmpData = getCmpData();
       var tgtCmp  = cmpData.tgtCmp;
       var tgtTxt  = cmpData.tgtTxt;
@@ -170,7 +148,7 @@ define(['jquery', 'util_resize'], function($){
         var index = tgtCmp.length-1;
 
         for(var i=0; i<tgtCmp.length; i++){
-          if($(tgtCmp[i]).text().length == 0){
+          if($(tgtCmp[i]).text().length === 0){
             index --;
           }
         }
@@ -185,9 +163,9 @@ define(['jquery', 'util_resize'], function($){
             console.log('too much recursion!');
             return;
           }
-          var max   = locateMax(cmp, index, text, text.length, 16, false);
+          var max = locateMax(cmp, index, text, text.length, 16, false);
 
-          if(max.guess == 0 && index > 0){
+          if(max.guess === 0 && index > 0){
             if(triedIndexes.indexOf(index-1) > -1){
               replaceTextNode($(cmp[index]), suffix);
             }
@@ -261,6 +239,7 @@ define(['jquery', 'util_resize'], function($){
       });
 
     };
+    this.respond = respond;
     init();
   };
 
