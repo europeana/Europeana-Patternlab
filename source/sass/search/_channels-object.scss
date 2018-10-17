@@ -193,25 +193,29 @@ $max-page-width: 1400px;
     transition: height 0.3s ease-out;
 
     .content{
-      bottom:   0;
-      height:   100%;
-      padding:  $pad-quarter $pad;
-      position: absolute;
-      width:    100%;
+      align-items: center;
+      display:     flex;
+      height:      100%;
+      padding:     $pad-quarter $pad;
+      position:    absolute;
+      width:       100%;
+
+      .img-remind{
+        padding:  0 $pad 0 0;
+      }
 
       .img-remind{
         cursor:     pointer;
         display:    block;
-        margin:     auto;
+        height:     100%;
         max-height: 100%;
       }
 
-      .text-left{
-        display:           block;
-        position:          absolute;
-        top:               50%;
-        -webkit-transform: translateY(-50%);
-        transform:         translateY(-50%);
+      .title-summary{
+        display:    block;
+        max-height: 3.5em;
+        overflow:   hidden;
+        width:      100%;
       }
     }
   }

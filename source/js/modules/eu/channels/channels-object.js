@@ -132,11 +132,26 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   function initTitleBar(cb){
 
-    require(['eu_title_bar'], function(EuTitlebar){
+    var classSummary = 'title-summary';
+    var selSummary   = '.' + classSummary;
+    var titleText    = $('.channel-object-title:eq(0)').text();
+
+    require(['eu_title_bar', 'util_eu_ellipsis'], function(EuTitlebar, Ellipsis){
+      var ellipsis;
       EuTitlebar.init({
         $container:        $('.header-wrapper'),
         $detectionElement: $('.object-media-viewer'),
-        markup:            '<div class="title-bar"><span class="content"><span class="text-left"></span></span></div>'
+        markup:            '<div class="title-bar"><span class="content"><span class="' + classSummary + '">' + titleText + '</span></span></div>',
+        onShow: function(){
+          if(ellipsis){
+            setTimeout(function(){
+              ellipsis.respond();
+            }, 333);
+          }
+          else{
+            ellipsis = Ellipsis.create($(selSummary));
+          }
+        }
       });
       cb();
     });
@@ -499,15 +514,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     var reminderImg = $('.title-bar .img-remind');
 
     if(reminderImg.length === 0){
-      reminderImg = $('<img class="img-remind">').appendTo($('.title-bar .content'));
+      reminderImg = $('<img class="img-remind" src="' + $('.zoomable img').attr('src') + '">').prependTo($('.title-bar .content'));
     }
     reminderImg.attr('src', thumbnail);
 
     reminderImg.off('click').on('click', function(){
       scrollPageToElement('.media-poster', 333, -16);
     });
-
-    $('.title-bar .text-left').text($('.channel-object-title:eq(0)').text());
 
     var removeOldMedia = function(){
 
