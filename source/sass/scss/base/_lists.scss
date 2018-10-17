@@ -25,27 +25,35 @@ dd {
 }
 
 // Comma separated inline text list
-.comma-list{
+.comma-list {
+  > *, li {
+    display: inline-block;
+    margin-right: 0.3rem;
+    padding-right: 0.3rem;
+    position: relative;
+    
+    .comma-list li {
+      margin-right: 0.5rem;
+    }
+  }
 
-    > *, li {
-        display: inline-block;
-        margin-right: 0.4em;
-    }
+  li:after{
+    content: ',';
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  li:last-child:after{
+    content: '';
+  }
 
-    li:after{
-        content: ',';
+  li.split-items{
+    display: block;
+    margin-bottom: 1em;
+    &:after{
+      content: '';
     }
-    li:last-child:after{
-        content: '';
-    }
-
-    li.split-items{
-      display: block;
-      margin-bottom: 1em;
-      &:after{
-        content: '';
-      }
-    }
+  }
 }
 
 
