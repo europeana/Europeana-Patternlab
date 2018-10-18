@@ -103,6 +103,7 @@ $card-fixed-width: 275px;
         height: $spacing-2x;
         margin-left: $spacing-base;
         margin-top: -$spacing-half;
+        transform: scale(0.65);
       }
 
       .media-type-multi-page {
@@ -136,6 +137,7 @@ $card-fixed-width: 275px;
         flex-basis: $spacing-base;
         height: $spacing-base;
         margin-top: -$spacing-base;
+        transform: scale(1);
         width: $spacing-base;
 
         &:hover + .image-set-overlay {
@@ -223,6 +225,15 @@ $card-fixed-width: 275px;
 
     .description {
       display: inline;
+    }
+
+    .extras {
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        color: $eu-blue;
+      }
     }
   }
 
