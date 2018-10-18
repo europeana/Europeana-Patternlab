@@ -213,9 +213,9 @@ $max-page-width: 1400px;
 
       .title-summary{
         display:    block;
+        flex-grow:  1;
         max-height: 3.5em;
         overflow:   hidden;
-        width:      100%;
       }
     }
   }

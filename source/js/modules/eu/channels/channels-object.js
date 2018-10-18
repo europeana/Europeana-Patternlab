@@ -141,16 +141,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       EuTitlebar.init({
         $container:        $('.header-wrapper'),
         $detectionElement: $('.object-media-viewer'),
-        markup:            '<div class="title-bar"><span class="content"><span class="' + classSummary + '">' + titleText + '</span></span></div>',
+        markup:            '<div class="title-bar"><span class="content"><img class="img-remind"><span class="' + classSummary + '" style="display:none;">' + titleText + '</span></span></div>',
         onShow: function(){
-          if(ellipsis){
-            setTimeout(function(){
-              ellipsis.respond();
-            }, 333);
-          }
-          else{
+          if(!ellipsis){
             ellipsis = Ellipsis.create($(selSummary));
+            $(selSummary).removeAttr('style');
           }
+          setTimeout(function(){
+            ellipsis.respond();
+          }, 333);
         }
       });
       cb();
@@ -513,9 +512,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     var reminderImg = $('.title-bar .img-remind');
 
-    if(reminderImg.length === 0){
-      reminderImg = $('<img class="img-remind" src="' + $('.zoomable img').attr('src') + '">').prependTo($('.title-bar .content'));
-    }
     reminderImg.attr('src', thumbnail);
 
     reminderImg.off('click').on('click', function(){
