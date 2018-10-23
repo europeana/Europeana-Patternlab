@@ -374,7 +374,7 @@ $card-fixed-width: 275px;
 
     .inner+.inner-footer {
       margin-top: -$spacing-base;
-    }  
+    }
 
     p {
       max-height: $card-line-height * 3;
@@ -394,7 +394,7 @@ $card-fixed-width: 275px;
       position: absolute;
       right: $spacing-base;
       width: 1rem;
-    }    
+    }
   }
 
   .gridlayout-card + .gridlayout-card {

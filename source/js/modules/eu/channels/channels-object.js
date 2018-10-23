@@ -1292,7 +1292,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
         $.each(window.enabledPromos, function(i, promo){
-          
           var mapping = null;
           var tempId  = 'card';
 
