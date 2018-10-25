@@ -157,6 +157,7 @@ $max-page-width: 1400px;
   }
 
   .footer{
+
     background-color: $dark-blue;
     color:            $white;
 
@@ -166,9 +167,19 @@ $max-page-width: 1400px;
 
     .sub-footer .nav a,
     .l-linklist a{
-      border-bottom:  $white;
-      color:          $white;
+      border-bottom: 0;
+      color:         $white;
+      display:       inline-block;
+      &:hover{
+        border-bottom:  1px dashed $white;
+      }
+    }
 
+    .social-links a{
+      color: $gray-lighter;
+      &:hover{
+        color: $white;
+      }
     }
   }
 
@@ -182,25 +193,23 @@ $max-page-width: 1400px;
     transition: height 0.3s ease-out;
 
     .content{
-      bottom:   0;
-      height:   100%;
-      padding:  $pad-quarter $pad;
-      position: absolute;
-      width:    100%;
+      align-items: center;
+      display:     flex;
+      height:      100%;
+      padding:     $pad-quarter $pad;
 
       .img-remind{
         cursor:     pointer;
         display:    block;
-        margin:     auto;
-        max-height: 100%;
+        height:     4em;
+        padding:    0 $pad 0 0;
       }
 
-      .text-left{
-        display:           block;
-        position:          absolute;
-        top:               50%;
-        -webkit-transform: translateY(-50%);
-        transform:         translateY(-50%);
+      .title-summary{
+        display:    block;
+        flex-grow:  1;
+        max-height: 3.5em;
+        overflow:   hidden;
       }
     }
   }

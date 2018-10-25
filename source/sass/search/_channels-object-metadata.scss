@@ -26,6 +26,10 @@
       .data-group:not(.comma-list) {
         display: block;
       }
+
+      .data-group {
+        display: inline;
+      }
     }
   }
 

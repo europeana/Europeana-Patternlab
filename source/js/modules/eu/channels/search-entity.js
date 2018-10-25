@@ -1,18 +1,13 @@
-define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
+define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqImagesLoaded', 'purl'], function($, scrollEvents, EuMustacheLoader, Masonry){
 
-  var masonries         = [];
-  var totals            = [];
-  var selActiveResult   = '.eu-accordion-tabs .tab-content.active .result-items';
-  var cmpTabs           = $('.eu-accordion-tabs');
-  var accordionTabs     = null;
+  var masonry;
+  var total;
+  var selActiveResult   = '.result-items';
   var template          = null;
   var thumbless         = false;
   var heightAddedByLast = 0;
   var pageW             = $(document).width();
-
-  function log(msg){
-    console.log('Entity: ' + msg);
-  }
+  var prevHeight        = 0;
 
   function showCarouselIfAvailable(ops){
     $('.entity-related-outer').removeClass('js-hidden');
@@ -34,11 +29,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         var h = img.height();
         img.closest('.js-carousel-item').addClass('js-img-processed ' + (w > h ? 'landscape' : portraitClass));
       };
-      require(['jqImagesLoaded'], function(){
-        $('.entity-related .js-carousel-item:not(.js-img-processed) img').imagesLoaded(function($images){
-          $images.each(function(i, img){
-            fnProcessImage($(img));
-          });
+      $('.entity-related .js-carousel-item:not(.js-img-processed) img').imagesLoaded(function($images){
+        $images.each(function(i, img){
+          fnProcessImage($(img));
         });
       });
     };
@@ -56,7 +49,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           Ellipsis.create(ob, conf);
         });
       });
-
     };
 
     require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
@@ -79,10 +71,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     });
   }
 
-  function initAccordionTabs(){
+  function initGrid(){
 
     var getLoadParams = function(base, present){
-
       var params  = $.url(base).param();
       var initial = 12;
       var extra   = 12;
@@ -93,15 +84,14 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       return base ? base.split('?')[0] + '?' + $.param(params) : '';
     };
 
-
-    var loadMoreItems = function($tabContent, contentUrl, tabIndex, callback){
+    var loadMoreItems = function(contentUrl, callback){
 
       var items = $(selActiveResult);
-      var url   = getLoadParams(contentUrl, $tabContent.find('.search-list-item').length);
+      var url   = getLoadParams(contentUrl, $('.search-list-item').length);
 
       loadMasonryItems(url, function(res){
 
-        totals[tabIndex] = res.total;
+        total = res.total;
 
         var toAppend     = res.rendered;
         var lastAppended = null;
@@ -113,7 +103,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
           var afterAppend = function(){
 
-            var spaceToFill = hasSpaceToFill($tabContent);
+            var spaceToFill = hasSpaceToFill();
             lastAppended    = item;
             index           = index + 1;
 
@@ -126,8 +116,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 return;
               }
               else{
-                if($tabContent.find('.search-list-item').length < totals[tabIndex]){
-                  loadMoreItems($tabContent, contentUrl, tabIndex, callback);
+                if($('.search-list-item').length < total){
+                  loadMoreItems(contentUrl, callback);
                   return;
                 }
                 else{
@@ -136,53 +126,43 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   }
                 }
               }
-
             }
             else{
-
               if(lastAppended && heightAddedByLast > 30){
-
                 lastAppended.empty().remove();
-                cmpTabs.css('height', (parseInt(cmpTabs.css('height')) - heightAddedByLast) + 'px');
-                require(['masonry', 'jqImagesLoaded'], function(Masonry){
-                  masonries[tabIndex].destroy();
-                  masonries[tabIndex] = makeMasonry(Masonry);
-                  if(masonries[tabIndex]){
-                    masonries[tabIndex].layout();
-                  }
-                  if(callback){
-                    callback(res);
-                  }
-                });
+                masonry.destroy();
+                masonry = makeMasonry();
+
+                if(callback){
+                  callback(res);
+                }
               }
               else{
                 if(callback){
                   callback(res);
                 }
               }
-
             }
           };
 
           if(hasImg){
+
             item.imagesLoaded(function(){
+
               applyImgStyling(item.find('.item-image'));
-              if(masonries[tabIndex]){
-                masonries[tabIndex].appended(item);
-                masonries[tabIndex].layout();
+
+              if(masonry){
+                masonry.appended(item);
               }
               afterAppend();
             });
-
             items.append(item);
-
           }
           else{
             items.append(item);
 
-            if(masonries[tabIndex]){
-              masonries[tabIndex].appended(item);
-              masonries[tabIndex].layout();
+            if(masonry){
+              masonry.appended(item);
             }
             afterAppend();
           }
@@ -191,135 +171,111 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       });
     };
 
-    require(['eu_accordion_tabs'], function(euAccordionTabs){
+    var header = $('.entity-main .entity-grid-header');
 
-      accordionTabs = euAccordionTabs;
-      euAccordionTabs.fixTabContentHeight(cmpTabs, true);
+    if(!header.hasClass('js-loaded')){
 
-      euAccordionTabs.init(
-        cmpTabs,
-        {
-          'active': 0,
-          'fnOpenTab': function(tabIndex, $tabContent){
+      var hasPreloaded = $('.result-items').length > 0;
+      var allPreloaded = false;
 
-            var header = $('.entity-main .tab-header:eq(' + tabIndex + ')');
-            if(header.hasClass('js-loaded')){
-              log('call masonry layout (open tab)');
-              if(masonries[tabIndex]){
-                masonries[tabIndex].layout();
-              }
-            }
-            else {
+      if(hasPreloaded){
+        var items = $('.results .item-image');
+        items.each(function(i, ob){
+          applyImgStyling($(ob));
+        });
+        allPreloaded = items.length >= $('.display-grid').data('total');
 
-              var hasPreloaded = $tabContent.find('.result-items').length > 0;
-              var allPreloaded = false;
+        if(typeof total === 'undefined' && typeof $('.display-grid').data('total') === 'number'){
+          total = $('.display-grid').data('total');
+        }
+      }
+      else{
+        $('.results').append(''
+          + '<ol class="result-items display-grid cf not-loaded">'
+          +   '<li class="grid-sizer"></li>'
+          + '</ol>'
+        );
+      }
 
-              if(hasPreloaded){
-                var items = $tabContent.find('.results .item-image');
-                items.each(function(i, ob){
-                  applyImgStyling($(ob));
-                });
-                allPreloaded = items.length >= $tabContent.find('.display-grid').data('total');
+      var showMoreLinkIfNecessary = function(){
 
-                if(typeof totals[tabIndex] === 'undefined' && typeof $tabContent.find('.display-grid').data('total') === 'number'){
-                  totals[tabIndex] = $tabContent.find('.display-grid').data('total');
-                }
-              }
-              else{
-                $tabContent.find('.results').append(''
-                  + '<ol class="result-items display-grid cf not-loaded">'
-                  +   '<li class="grid-sizer"></li>'
-                  + '</ol>'
-                );
-              }
+        if($('.results .search-list-item').length < total){
+          var linkMore = $('.show-more-mlt');
+          linkMore.text(linkMore.text().replace(/\(\)/, '(' + (Number(total)).toLocaleString() + ')'));
+          linkMore.removeClass('js-hidden');
+        }
+      };
 
-              var fixMasonry = function(repeat){
-                setTimeout(function(){
-                  masonries[tabIndex].layout();
-                  euAccordionTabs.fixTabContentHeight(cmpTabs);
-                  if(repeat){
-                    fixMasonry(repeat - 1);
-                  }
-                }, 500);
-              };
+      prevHeight = $(selActiveResult).height();
 
-              var showMoreLinkIfNecessary = function(){
+      initMasonry(function(){
 
-                if($tabContent.find('.results .search-list-item').length < totals[tabIndex]){
-                  var linkMore = $tabContent.find('.show-more-mlt');
-                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + (Number(totals[tabIndex])).toLocaleString() + ')'));
-                  linkMore.removeClass('js-hidden');
-                }
-              };
+        if(allPreloaded || (hasPreloaded && hasSpaceToFill() < 0)){
+          header.removeClass('loading').addClass('js-loaded');
 
-              initMasonry(function(){
-
-                if(allPreloaded || (hasPreloaded && hasSpaceToFill($tabContent) < 0)){
-
-                  header.removeClass('loading').addClass('js-loaded');
-
-                  if(masonries[tabIndex]){
-                    masonries[tabIndex].layout();
-                    fixMasonry(2);
-                  }
-                  else{
-                    euAccordionTabs.fixTabContentHeight(cmpTabs);
-                  }
-                  if(!allPreloaded){
-                    showMoreLinkIfNecessary();
-                  }
-                }
-                else{
-                  header.addClass('loading');
-                  loadMoreItems($tabContent, header.data('content-url'), tabIndex, function(res){
-                    if(typeof res.total === 'undefined'){
-                      console.warn('Expected @total');
-                    }
-                    else{
-                      showMoreLinkIfNecessary();
-                    }
-                    if($(selActiveResult + ' .search-list-item').length >= totals[tabIndex]){
-                      $tabContent.find('.show-more-mlt').addClass('js-hidden');
-                    }
-
-                    header.removeClass('loading').addClass('js-loaded');
-                    euAccordionTabs.fixTabContentHeight(cmpTabs);
-                  });
-
-                }
-              });
-
-              require(['util_resize'], function(){
-                $(window).europeanaResize(function(){
-                  var w = $(document).width();
-                  if(w !== pageW){
-                    pageW = w;
-                    thumblessLayout();
-                    setTimeout(function(){
-                      euAccordionTabs.fixTabContentHeight(cmpTabs);
-                    }, 100);
-                  }
-                });
-              });
-
-            }
+          if(!allPreloaded){
+            showMoreLinkIfNecessary();
           }
         }
-      );
-    });
+        else{
+          header.addClass('loading');
+
+          loadMoreItems(header.data('content-url'), function(res){
+
+            if(typeof res.total === 'undefined'){
+              console.warn('Expected @total');
+            }
+            else{
+              showMoreLinkIfNecessary();
+            }
+            if($('.search-list-item').length >= total){
+              $('.entity-content-inner').find('.show-more-mlt').addClass('js-hidden');
+            }
+            header.removeClass('loading').addClass('js-loaded');
+            masonry.layout();
+          });
+        }
+
+        setInterval(function(){
+          masonry.layout();
+        }, 750);
+
+      });
+
+      require(['util_resize'], function(){
+        $(window).europeanaResize(function(){
+          var w = $(document).width();
+          if(w !== pageW){
+            pageW = w;
+            thumblessLayout();
+          }
+        });
+      });
+
+    }
+
   }
 
-  function hasSpaceToFill($tabContent){
+
+  function hasSpaceToFill(){
     if($('.nav-toggle-menu').is(':visible')){
       return 0;
     }
-    return $('.summary-column').height() - $tabContent.height();
+    var $content = $('.entity-content-inner');
+    return $('.summary-column').height() - $content.height();
   }
 
   function applyImgStyling($item){
-    if($item.height() > 650){
-      $item.addClass('super-tall');
+
+    var classChanged = false;
+
+    if($item.height() > 600){
+      if(!$item.hasClass('super-tall')){
+        $item.addClass('super-tall');
+        classChanged = true;
+      }
     }
+    return classChanged;
   }
 
   function thumblessLayout(){
@@ -340,8 +296,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     require(['mustache'], function(Mustache){
 
       if(url && url.length > 0 && template.length > 0){
+
         $.getJSON(url).done(function(data){
           var rendered = [];
+
           $.each(data.search_results, function(i, ob){
             rendered.push('<li style="visibility:hidden;">' + Mustache.render(template, ob) + '</li>');
           });
@@ -357,13 +315,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           });
         });
       }
-      else{
-        log('no template found for tab content');
-      }
     });
   }
 
-  function makeMasonry(Masonry){
+  function makeMasonry(){
     return new Masonry(selActiveResult, {
       itemSelector:       '.search-list-item',
       columnWidth:        '.grid-sizer',
@@ -373,29 +328,22 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     });
   }
 
-
   function initMasonry(callback){
 
     var $cmp = $(selActiveResult);
     $cmp.removeClass('not-loaded');
 
-    require(['masonry', 'jqImagesLoaded'], function(Masonry){
+    masonry = makeMasonry();
 
-      var masonry = makeMasonry(Masonry);
-      masonries.push(masonry);
-
-      $cmp.on('layoutComplete', function(){
-        var prevHeight    = parseInt(cmpTabs.css('height'));
-        accordionTabs.fixTabContentHeight(cmpTabs);
-        var newHeight     = parseInt(cmpTabs.css('height'));
-        heightAddedByLast = newHeight - prevHeight;
-      });
-
-      if(callback){
-        callback(masonry);
-      }
-
+    $cmp.on('layoutComplete', function(){
+      var newHeight     = $(selActiveResult).height();
+      heightAddedByLast = newHeight - prevHeight;
+      prevHeight = newHeight;
     });
+
+    if(callback){
+      callback();
+    }
 
   }
 
@@ -415,38 +363,34 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   function checkThumbnail(trueSrc){
 
-    require(['jqImagesLoaded'], function(){
-      $('.js-test-thumb').imagesLoaded(function($images, $proper, $broken){
+    $('.js-test-thumb').imagesLoaded(function($images, $proper, $broken){
 
-        if($broken.length === 1){
+      if($broken.length === 1){
 
-          $('.entity-main-thumb').remove();
-          $('.summary-column').css('position', 'relative').find('.header-bio').removeClass('js-hidden');
+        $('.entity-main-thumb').remove();
+        $('.summary-column').css('position', 'relative').find('.header-bio').removeClass('js-hidden');
 
-          thumbless = true;
-          thumblessLayout();
+        thumbless = true;
+        thumblessLayout();
+      }
+      else{
+        if($('.js-test-thumb').attr('src') !== trueSrc){
+          $('.entity-main-thumb').css('background-image', 'url("' + trueSrc + '")');
         }
-        else{
-          if($('.js-test-thumb').attr('src') !== trueSrc){
-            $('.entity-main-thumb').css('background-image', 'url("' + trueSrc + '")');
-          }
-          $('.entity-main-thumb-titled a.external').removeClass('js-hidden');
-        }
-      });
+        $('.entity-main-thumb-titled a.external').removeClass('js-hidden');
+      }
     });
   }
 
   function initPage(form){
-    require(['util_mustache_loader'], function(EuMustacheLoader){
-      var url = 'search-search-listitem-js/search-search-listitem-js';
-      EuMustacheLoader.loadMustache(url, function(templateIn){
-        template = templateIn;
-        $(window).bind('showCarousel', function(e, ops){
-          showCarouselIfAvailable(ops);
-        });
+    var url = 'search-search-listitem-js/search-search-listitem-js';
+    EuMustacheLoader.loadMustache(url, function(templateIn){
+      template = templateIn;
+      $(window).bind('showCarousel', function(e, ops){
+        showCarouselIfAvailable(ops);
       });
       form.bindShowInlineSearch();
-      initAccordionTabs();
+      initGrid();
       getImgRedirectSrc(checkThumbnail);
       scrollEvents.fireAllVisible();
     });
