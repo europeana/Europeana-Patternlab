@@ -204,6 +204,11 @@ $card-fixed-width: 275px;
       top: 0;
       width: 100%;
       z-index: 3;
+
+      b {
+        padding-left: 0.3rem;
+      }
+
     }
 
     .viewmore-image {
