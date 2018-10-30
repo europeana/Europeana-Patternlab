@@ -53,6 +53,41 @@ $card-fixed-width: 275px;
     img {
       object-fit: cover;
     }
+
+    .ve-foyer-card {
+      height: inherit;
+      width: 100%;
+
+      .ve-foyer-card-content {
+        height: 100%;
+      }
+
+      .ve-foyer-card-state {
+        height: calc(100% - 14px - #{$spacing-base});
+
+        img {
+          border-top-left-radius: $base-border-radius;
+          border-top-right-radius: $base-border-radius;
+        }
+      }
+
+      .svg-icon-next,
+      .svg-icon-previous {
+        margin: 0;
+      }
+
+      .ve-state-buttons {
+        height: 14px;
+        padding-top: 0;
+      }
+
+      .ve-state-button-on,
+      .ve-state-button-off {
+        height: 12px;
+        margin: 0 $spacing-half;
+        width: 12px;
+      }
+    }
   }
 
   .card-image-set {
@@ -208,7 +243,6 @@ $card-fixed-width: 275px;
       b {
         padding-left: 0.3rem;
       }
-
     }
 
     .viewmore-image {
