@@ -461,8 +461,8 @@ $card-fixed-width: 275px;
     transform: none;
   }
 
-  .gridlayout-card + .previous-item-title {
-    margin-top: $spacing-2x;
+  .previous-item-title {
+    margin-top: -0.5rem;
   }
 }
 
