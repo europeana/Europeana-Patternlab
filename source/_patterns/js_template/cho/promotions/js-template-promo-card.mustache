@@ -11,10 +11,15 @@
     [[/is_prev]]
 
     [[#overlay]]
-    <div class="gridlayout-card gridlayout-card-entity" style="background-image: url([[img.src]]);">
-      <div class="card-image">
-          [[#url]]<a href="[[.]]"></a>[[/url]]
-      </div>
+      [[#img.src]]
+        <div class="gridlayout-card gridlayout-card-entity" style="background-image: url([[img.src]]);">
+          <div class="card-image">
+              [[#url]]<a href="[[.]]"></a>[[/url]]
+          </div>
+      [[/img.src]]
+      [[^img.src]]
+        <div class="gridlayout-card gridlayout-card-entity">
+      [[/img.src]]          
     [[/overlay]]
     [[^overlay]]
     <div class="gridlayout-card">
@@ -24,7 +29,7 @@
         </div>
       [[/exhibition_promo]]    
       [[#count]]
-        <div class="card-image card-image-set">
+        <div class="card-image card-image-set image-set">
           [[#images]]
             [[#link]]
               <a href="[[link]]">
@@ -45,10 +50,20 @@
       <div class="card-content">
         [[#type]]<h4>[[.]]</h4>[[/type]]
         [[#overlay.img]]<span class="viewmore-image" style="background-image: url([[.]]);"></span>[[/overlay.img]]
-        [[#title]]<h3><a href="[[url]]">[[.]]</a></h3>[[/title]]
+        [[#title]]
+          <h3>
+            <a href="[[url]]">[[.]]</a> 
+            [[^excerpt.short]]
+              [[#media_type]]
+                <span class="icon media-type-[[.]]"></span>
+              [[/media_type]]
+            [[/excerpt.short]]
+          </h3>
+        [[/title]]
         [[#overlay.title]]<h3><a href="[[url]]">[[.]]</a></h3>[[/overlay.title]]
         [[#exhibition_promo.title]]<h3><a href="[[exhibition_promo.url]]">[[.]]</a></h3>[[/exhibition_promo.title]]
         <div class="description">
+          [[excerpt.short]]
           [[#excerpt]]
             [[#short]]
               <p>[[[.]]]</p>  
@@ -64,9 +79,11 @@
             <span class="icon icon-info"></span> 
             <div class="info image-set-overlay">[[[.]]]</div>
           [[/info]]
-          [[#media_type]]
+          [[#excerpt.short]]
+            [[#media_type]]
               <span class="icon media-type-[[.]]"></span>
-          [[/media_type]]
+            [[/media_type]]
+          [[/excerpt.short]]
         </div>
         <p class="extras">[[#overlay.link_related]]<a href="[[url]]">[[text]]</a>[[/overlay.link_related]][[#overlay.link_more]]<a href="[[url]]">[[text]]</a>[[/overlay.link_more]]</p>
         <p class="extras">[[#date]]<span>[[.]]</span>[[/date]][[#attribution]]<span>[[.]]</span>[[/attribution]]</p>
