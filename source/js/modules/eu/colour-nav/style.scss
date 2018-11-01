@@ -1,0 +1,62 @@
+@import '../../../../sass/scss/generic/variables';
+
+$circle_border_colour:     $white;
+$circle_margin:            6px;
+
+$dimension_mobile_circle:  75px;
+$dimension_desktop_circle: $dimension_mobile_circle;
+
+$dimension_mobile:         (2 * $circle_margin) + $dimension_mobile_circle;
+$dimension_desktop:        (2 * $circle_margin) + $dimension_desktop_circle;
+
+.colour-grid{
+  align-items:      start;
+  display:          none;
+  flex-wrap:        wrap;
+  justify-content:  center;
+  margin-top:       $pad;
+  text-align:       center;
+
+  &.active{
+    display:        flex;
+  }
+
+  .colour-grid-item{
+    margin:        $pad;
+    width:         $dimension_mobile;
+  }
+
+  .colour-sample{
+    border:        1px solid $circle_border_colour;
+    box-shadow:    0 0 1px 0 $circle_border_colour; // supplement almost invisible border / ease pixelation
+    border-radius: 50%;
+    display:       block;
+    height:        $dimension_mobile_circle;
+    margin:        auto;
+    width:         $dimension_mobile_circle;
+  }
+
+  .colour-hex{
+    color:       $gray-light;
+    font-size:   12px;
+    font-weight: bold;
+  }
+
+  .colour-name{
+    color:     $gray-med;
+    display:   block;
+    font-size: 14px;
+  }
+
+  @media all and (min-width: $bp-med) {
+
+    .colour-grid-item{
+      width:       $dimension_desktop;
+    }
+
+    .colour-sample{
+      height:      $dimension_desktop_circle;
+      width:       $dimension_desktop_circle;
+    }
+  }
+}

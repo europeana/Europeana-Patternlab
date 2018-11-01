@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'util_foldable', 'blacklight'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader) {
+define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'eu_colour_nav', 'util_foldable'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader, EuColourNav) {
 
   var channelData     = null;
   var suggestions     = null;
@@ -132,11 +132,25 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   function initTitleBar(cb){
 
-    require(['eu_title_bar'], function(EuTitlebar){
+    var classSummary = 'title-summary';
+    var selSummary   = '.' + classSummary;
+    var titleText    = $('.channel-object-title:eq(0)').text();
+
+    require(['eu_title_bar', 'util_eu_ellipsis'], function(EuTitlebar, Ellipsis){
+      var ellipsis;
       EuTitlebar.init({
         $container:        $('.header-wrapper'),
         $detectionElement: $('.object-media-viewer'),
-        markup:            '<div class="title-bar"><span class="content"><span class="text-left"></span></span></div>'
+        markup:            '<div class="title-bar"><span class="content"><img class="img-remind"><span class="' + classSummary + '" style="display:none;">' + titleText + '</span></span></div>',
+        onShow: function(){
+          if(!ellipsis){
+            ellipsis = Ellipsis.create($(selSummary));
+            $(selSummary).removeAttr('style');
+          }
+          setTimeout(function(){
+            ellipsis.respond();
+          }, 333);
+        }
       });
       cb();
     });
@@ -476,7 +490,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   }
 
   function initMedia(index){
-
     var item        = $('.cho-media-nav .lc-item:eq(' + index + ') a');
     var type        = item.data('type');
     var downloadUri = item.data('download-uri');
@@ -493,21 +506,17 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     item.addClass('is-current');
 
     updateTechData(item);
+    EuColourNav.updateColourData();
 
     $('.media-options').trigger(type, $.extend(type === 'iiif' ? {'transcriptions-unavailable': true} : {}, {'download-link': downloadUri}));
 
     var reminderImg = $('.title-bar .img-remind');
 
-    if(reminderImg.length === 0){
-      reminderImg = $('<img class="img-remind">').appendTo($('.title-bar .content'));
-    }
     reminderImg.attr('src', thumbnail);
 
     reminderImg.off('click').on('click', function(){
       scrollPageToElement('.media-poster', 333, -16);
     });
-
-    $('.title-bar .text-left').text($('.channel-object-title:eq(0)').text());
 
     var removeOldMedia = function(){
 
@@ -1044,21 +1053,27 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     });
   }
 
-  function updateSlideNav(EuSlide, cmp, fwd, back){
+  function updateSlideNavCtrls(EuSlide, cmp, fwd, back){
 
-    var nav = EuSlide.getNavOptions(cmp);
-
-    if(nav[0]){
-      fwd.removeClass('disabled');
-    }
-    else{
+    if(cmp.children().length === 1){
       fwd.addClass('disabled');
-    }
-    if(nav[1]){
-      back.removeClass('disabled');
+      back.addClass('disabled');
     }
     else{
-      back.addClass('disabled');
+      var nav = EuSlide.getNavOptions(cmp);
+
+      if(nav[0]){
+        fwd.removeClass('disabled');
+      }
+      else{
+        fwd.addClass('disabled');
+      }
+      if(nav[1]){
+        back.removeClass('disabled');
+      }
+      else{
+        back.addClass('disabled');
+      }
     }
   }
 
@@ -1072,7 +1087,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     var navClick = function(){
       if(promotions.length > 0){
-        EuSlide.simulateSwipe(promotions, $(this).data('dir'), null, function(){ updateSlideNav(EuSlide, promotions, fwd, back); });
+        EuSlide.simulateSwipe(promotions, $(this).data('dir'), null, function(){ updateSlideNavCtrls(EuSlide, promotions, fwd, back); });
       }
     };
 
@@ -1087,12 +1102,12 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         totalW = totalW + $(this).outerWidth();
       });
       promotions.css('width', totalW + 'px');
-      updateSlideNav(EuSlide, promotions, fwd, back);
+      updateSlideNavCtrls(EuSlide, promotions, fwd, back);
     };
 
     promotions.css('width', '5000px');
     promotions.on('eu-swiped', function(){
-      updateSlideNav(EuSlide, promotions, fwd, back);
+      updateSlideNavCtrls(EuSlide, promotions, fwd, back);
     });
     EuSlide.makeSwipeable(promotions, {'not-on-stacked': true, 'transition-on-simulate': true});
 
@@ -1350,10 +1365,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
             require(['util_slide'], function(EuSlide){
               initPromos(EuSlide);
+
+              // is this needed now that adding promos no longer changes column count?
               $(window).trigger('carouselResize');
             });
 
             var foyerCards = $('.ve-foyer-card');
+
             if(foyerCards.length > 0){
               require(['ve_state_card'], function(Card){
                 foyerCards.each(function(){
@@ -1361,6 +1379,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
                 });
               });
             }
+
+            // is this needed now that adding promos no longer changes column count?
             resetZoomable();
           }
           else{
@@ -1514,7 +1534,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   }
 
   function initSuggestions(EuSlide){
-
     suggestions.css('width', '5000px');
 
     EuMustacheLoader.loadMustache('cho-suggestions-item/cho-suggestions-item', function(template, Mustache){
@@ -1527,7 +1546,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         var updateActiveSwipeableNav = function(){
           var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
           if(activeSwipeable.length > 0){
-            updateSlideNav(EuSlide, activeSwipeable, fwd, back);
+            updateSlideNavCtrls(EuSlide, activeSwipeable, fwd, back);
           }
         };
 
@@ -1638,7 +1657,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
             'loadUrl': data.loadUrl,
             'load_per_page': 8, // has to be in sync with number preloaded
             'itemsAvailable': data.total_available,
-            'templateText': html
+            'templateText': html,
+            'onDataLoaded': EuColourNav.addColourDataFromAjax
           }).init();
 
           if(typeof ResizeObserver === 'undefined'){
@@ -1753,6 +1773,17 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     });
 
     loadAnnotations();
+
+    $(window).on('colour-data-available', function(e, data){
+      if(data.tf){
+        $('.colour-navigation-section').show();
+      }
+      else{
+        $('.colour-navigation-section').hide();
+      }
+    });
+
+    EuColourNav.initColourData();
 
     if(!$('.channel-media-wrap').hasClass('empty')){
       bindMediaUI();

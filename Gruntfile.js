@@ -10,26 +10,6 @@ module.exports = function(grunt) {
         src: ['public/index.html']
       }
     },
-    concat: {
-      /**
-       * Merge files that would otherwise be loaded as groups
-       **/
-      blacklight: {
-        options: {
-          separator: ';\n'
-        },
-        files: {
-          'source/js/modules/lib/blacklight/blacklight-all.js': [
-            'source/js/modules/lib/blacklight/core.js',
-            'source/js/modules/lib/blacklight/search_context.js'
-            // 'source/js/modules/lib/blacklight/checkbox_submit.js',
-            // 'source/js/modules/lib/blacklight/bookmark_toggle.js',
-            // 'source/js/modules/lib/blacklight/ajax_modal.js',
-            // 'source/js/modules/lib/blacklight/collapsable.js',
-          ]
-        }
-      }
-    },
     copy: {
       /*
       js_assets_enable: {
@@ -66,14 +46,21 @@ module.exports = function(grunt) {
       production_js_assets: {
         cwd: 'source/js/modules',
         expand:  true,
-        src: ['**/*.*',  '!**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
+        src: ['**/*.*',  '!**/*.js'],
+        dest: 'source/js_min/modules'
+      },
+
+      production_stage_for_transpile: {
+        cwd: 'source/js/modules',
+        expand: true,
+        src: ['*.js', '**/*.js', '!**/soundfont/*', '!bower_components/**'],
         dest: 'source/js_min/modules'
       },
 
       production_swap_js: {
         cwd: 'source/js_min/modules',
         expand: true,
-        src: ['**/*.*'],
+        src: ['*.*', '**/*.*'],
         dest: 'source/js/modules'
       },
 
@@ -99,16 +86,31 @@ module.exports = function(grunt) {
     },
     uglify: {
       production: {
-          cwd: 'source/js/modules',
-          expand:  true,
-          src: ['**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
-          dest: 'source/js_min/modules'
+        cwd: 'source/js_min/modules',
+        expand:  true,
+        src: ['*.js', '**/*.js'],
+        dest: 'source/js_min/modules'
       },
       version_js: {
         cwd: 'source/js/dist',
         expand:  true,
         src: ['**/*.js',  '!**/soundfont/*'],
         dest: 'source/v/' + grunt.option('styleguide-version') + '/js/dist'
+      }
+    },
+    babel: {
+      options: {
+        sourceMap: true,
+        presets: ['babel-preset-env'],
+        plugins: ["transform-remove-strict-mode"]
+      },
+      production: {
+        files: [{
+          cwd: 'source/js_min/modules',
+          expand:  true,
+          src: ['lib/audiocogs/flac.js'],
+          dest: 'source/js_min/modules'
+        }]
       }
     },
     watch: {
@@ -257,9 +259,9 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -267,6 +269,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('production', function(){
+    console.warn('transpile to js 5...');
+    grunt.task.run('copy:production_stage_for_transpile');
+    grunt.task.run('babel:production');
+
     console.warn('minify js...');
     grunt.task.run('uglify:production');
 
@@ -349,7 +355,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'clean:index',
-    'concat:blacklight',
     'copy:dev_css',
     'shell:patternlab_markup',
     'copy:js_templates'

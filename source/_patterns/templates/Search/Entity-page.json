@@ -174,12 +174,6 @@
             }
           ]
         }
-      },
-      {
-        "tab_subtitle":               false,
-        "tab_title":                  "Items about Coco Chanel",
-        "url":                        "portal_entity?type=about",
-        "search_url":                 "javascript:alert('load all about')"
       }
     ],
     "social_share": {

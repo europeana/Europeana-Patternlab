@@ -1,0 +1,51 @@
+/* line 12, style.scss */
+.colour-grid {
+  align-items: start;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  text-align: center;
+}
+/* line 20, style.scss */
+.colour-grid.active {
+  display: flex;
+}
+/* line 24, style.scss */
+.colour-grid .colour-grid-item {
+  margin: 1rem;
+  width: 87px;
+}
+/* line 29, style.scss */
+.colour-grid .colour-sample {
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 1px 0 #ffffff;
+  border-radius: 50%;
+  display: block;
+  height: 75px;
+  margin: auto;
+  width: 75px;
+}
+/* line 39, style.scss */
+.colour-grid .colour-hex {
+  color: #777777;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* line 45, style.scss */
+.colour-grid .colour-name {
+  color: #4d4d4d;
+  display: block;
+  font-size: 14px;
+}
+@media all and (min-width: 50em) {
+  /* line 53, style.scss */
+  .colour-grid .colour-grid-item {
+    width: 87px;
+  }
+  /* line 57, style.scss */
+  .colour-grid .colour-sample {
+    height: 75px;
+    width: 75px;
+  }
+}

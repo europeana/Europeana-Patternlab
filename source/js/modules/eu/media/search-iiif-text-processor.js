@@ -14,7 +14,7 @@ define(['jquery'], function($){
 
   function getTypedData(json, type){
     return $.grep(json.resources, function(r){
-      return r['dc:type'] === type;
+      return r['dcType'] === type;
     });
   }
 
@@ -120,7 +120,7 @@ define(['jquery'], function($){
       'features': []
     };
 
-    var p = getTypedData(annotationData, 'Paragraph');
+    var p = getTypedData(annotationData, 'Block');
     var w = getTypedData(annotationData, 'Word');
 
     var fullText      = ft.value ? ft.value : ft['rdf:value'];

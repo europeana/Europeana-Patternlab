@@ -15,7 +15,6 @@ define(['jquery'], function($){
   };
 
   var EuFeedback = function(el){
-
     var open      = el.find('.feedback-toggle .open');
     var close     = el.find('.feedback-toggle .close');
     var cancel    = el.find('.feedback-cancel');
@@ -84,6 +83,7 @@ define(['jquery'], function($){
     };
 
     var fbShow = function(el, delay){
+      $('.feedback').removeAttr('style');
       delayed(el, {'visibility': 'visible'}, delay);
     };
 

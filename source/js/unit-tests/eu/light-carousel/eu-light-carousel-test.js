@@ -212,6 +212,23 @@ define(['jquery', 'jasmine_jquery'], function(){
 
       });
 
+      it('executes a callback after data is loaded', function(done){
+
+        var conf = getConf();
+        conf.onDataLoaded = function(){};
+        spyOn(conf, 'onDataLoaded');
+
+        new EuLC.EuLightCarousel(conf).init();
+
+        $('.example-2 .nav-right').click();
+
+        setTimeout(function(){
+          expect(conf.onDataLoaded).toHaveBeenCalled();
+          done();
+        }, 400);
+
+      });
+
     });
 
   });

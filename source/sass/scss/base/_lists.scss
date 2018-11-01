@@ -1,11 +1,11 @@
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-/* Definition Lists */
 dl {
-  overflow: hidden;
   margin: 0 0 $space;
+  overflow: hidden;
 }
 
 dt {
@@ -16,36 +16,45 @@ dd {
   margin-left: 0;
 }
 
-.inline-list, ul.inline-list {
-    margin-left: 0;
+.inline-list,
+ul.inline-list {
+  margin-left: 0;
   li {
     display: inline-block;
     margin-right: $space-quarter;
   }
 }
 
-// Comma separated inline text list
-.comma-list{
+.comma-list {
+  > *,
+  li {
+    display: inline-block;
+    margin-right: 0.3rem;
+    padding-right: 0.3rem;
+    position: relative;
 
-    > *, li {
-        display: inline-block;
-        margin-right: 0.4em;
+    .comma-list li {
+      margin-right: 0.5rem;
     }
+  }
 
-    li:after{
-        content: ',';
-    }
-    li:last-child:after{
-        content: '';
-    }
+  li:after{
+    content: ",";
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  li:last-child:after{
+    content: "";
+  }
 
-    li.split-items{
-      display: block;
-      margin-bottom: 1em;
-      &:after{
-        content: '';
-      }
+  li.split-items{
+    display: block;
+    margin-bottom: 1em;
+    &:after{
+      content: "";
     }
+  }
 }
 
 
