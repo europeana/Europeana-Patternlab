@@ -1641,9 +1641,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   var showMediaThumbs = function(data){
 
-    var noItems = $('.channel-object-media-nav .lc-item').length;
-
-    if(noItems > 1){
+    if(parseInt(data.total_available) > 1){
 
       require(['eu_light_carousel'], function(EuLC){
 
