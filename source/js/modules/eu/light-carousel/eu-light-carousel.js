@@ -1,14 +1,13 @@
-define(['jquery', 'util_resize'], function ($, Debouncer){
+define(['jquery', 'util_resize', 'viewport_contains', 'util_scroll'], function ($, Debouncer, ViewportContains){
+
+  Debouncer.addDebouncedFunction('carousel-scrolled', 'carouselScrolled', 80);
 
   var scrollIncrement = 200;
   var initialStateSet = false;
 
-  $(document).on('eu-light-carousel-styled', function(){
-    setTimeout(function(){
-      setInitialState();
-      initialStateSet = true;
-    }, 50);
-  });
+  var appendStyle = function(url, callInit){
+    $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css"' + (callInit ? ' id="lc-stylesheet" onload="$(document).trigger(\'eu-light-carousel-styled\')"' : '') + '/>');
+  };
 
   function EuLightCarousel(ops){
     this.ops = ops;
@@ -27,13 +26,58 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
       that.load();
     });
 
+    var elScrollable = itemContainer.closest('.lc-scrollable');
+
     if(initialStateSet){ // we're too late: trigger another event
-      fnCarouselScrolled(itemContainer.closest('.lc-scrollable')[0]);
+      fnCarouselScrolled(elScrollable[0]);
+    }
+
+    $(window).europeanaScroll(function(){
+      if(ViewportContains.isElementInViewport(elScrollable, true)){
+        fnCarouselScrolled(elScrollable[0]);
+      }
+    });
+
+    elScrollable.carouselScrolled(function(){
+      fnCarouselScrolled(elScrollable[0]);
+    });
+
+    elScrollable.on('scroll',
+      function(){
+        elScrollable.trigger('carousel-scrolled');
+      }
+    );
+
+    if($('#lc-stylesheet').length === 0){
+
+      $(document).on('eu-light-carousel-styled', function(){
+        setTimeout(function(){
+          setInitialState();
+          initialStateSet = true;
+        }, 50);
+      });
+
+      if($('.light-carousel.def-style').length > 0){
+        appendStyle(require.toUrl('../../eu/light-carousel/style-def.css'), true);
+      }
+      else{
+        appendStyle(require.toUrl('../../eu/light-carousel/style.css'), true);
+      }
+    }
+    else{
+      setInitialState();
+      initialStateSet = true;
     }
   };
 
   EuLightCarousel.prototype.itemsInViewport = function(container){
+
     var rect            = container[0].getBoundingClientRect();
+
+    if(!ViewportContains.isElementInViewport(container, true)){
+      return [];
+    }
+
     var minL            = rect.left;
     var maxR            = rect.right;
     var includedIndexes = [];
@@ -57,7 +101,6 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     if(!hasWaiting){
       this.loadedAll = true;
       this.ops.$el.off('load');
-      console.log('lc loaded all');
     }
 
     return includedIndexes;
@@ -66,27 +109,33 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
   EuLightCarousel.prototype.load = function(){
 
     if(this.loadedAll){
-      console.log('fully loaded');
+      return;
+    }
+
+    var containerRect = this.ops.$el[0].getBoundingClientRect();
+    var that = this;
+
+    if(containerRect.left === 0 || containerRect.right === 0){
+      setTimeout(function(){
+        that.load();
+      }, 100);
       return;
     }
 
     var toLoad = this.itemsInViewport(this.ops.$el);
 
     if(!toLoad.length){
-      console.log('viewport loaded');
       return;
     }
 
     var itemContainer  = this.ops.$el.find('.lc-item-container');
     var template       = this.ops.templateText;
     var batchSize      = (this.ops.load_per_page ? this.ops.load_per_page : 12);
-
     var startAt        = Math.min.apply(null, toLoad);
     startAt            = Math.floor(startAt / batchSize);
 
     var paramString    = '?page=' + (startAt + 1) + '&per_page=' + batchSize;
     var loadOffset     = startAt * batchSize;
-    var that           = this;
 
     for(var i=loadOffset; i<loadOffset + batchSize; i++){
       itemContainer.children().eq(i).addClass('loading').removeClass('waiting');
@@ -108,9 +157,6 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     });
   };
 
-  // scrolling
-  Debouncer.addDebouncedFunction('carousel-scrolled', 'carouselScrolled', 80);
-
   var fnCarouselScrolled = function(scrollable){
     var $this = $(scrollable);
     var $cmp  = $this.closest('.light-carousel');
@@ -131,23 +177,8 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     $cmp.trigger('load');
   };
 
-  var fxBindScrollables = function(){
-
-    $('.lc-scrollable').carouselScrolled(function(){
-      fnCarouselScrolled(this);
-    });
-
-    $('.lc-scrollable:not(.js-bound)').on('scroll',
-      function(){
-        $(this).trigger('carousel-scrolled');
-      }
-    ).addClass('js-bound');
-
-    // $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); }); });
-  };
-  fxBindScrollables(); // made callable for testing
-
   var setInitialState = function(){
+
     var ro = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(function(entries){
       $.each(entries, function(){
         $(this.target).trigger('carousel-scrolled');
@@ -166,28 +197,18 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     }
   };
 
-  var appendStyle = function(url, callInit){
-    $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css"' + (callInit ? ' id="removeThis" onload="$(document).trigger(\'eu-light-carousel-styled\')"' : '') + '/>');
-  };
-
-  if($('.light-carousel.def-style').length > 0){
-    appendStyle(require.toUrl('../../eu/light-carousel/style-def.css'));
-  }
-
   require(['jqScrollto'], function(){
-
-    appendStyle(require.toUrl('../../eu/light-carousel/style.css'), true);
 
     $(document).on('click', '.lc-nav', function(){
       var $this       = $(this);
       var $scrollable = $this.closest('.light-carousel').find('.lc-scrollable');
-      $scrollable.scrollTo(($this.hasClass('nav-right') ? '+' : '-') + '=200px', scrollIncrement);
+      var param1 = ($this.hasClass('nav-right') ? '+' : '-') + '=200px';
+      $scrollable.scrollTo(param1, scrollIncrement);
     });
   });
 
   return {
     EuLightCarousel: EuLightCarousel,
-    fxBindScrollables: fxBindScrollables,
     getInitialStateSet: function(){ return initialStateSet; }
   };
 });

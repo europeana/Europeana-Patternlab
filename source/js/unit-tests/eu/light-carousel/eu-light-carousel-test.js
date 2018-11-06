@@ -6,7 +6,11 @@ define(['jquery', 'jasmine_jquery'], function(){
 
   describe('Eu Light Carousel', function(){
 
-    var EuLC;
+    var getConf = function(){
+      return {
+        '$el': $('.example-1')
+      };
+    };
 
     beforeEach(function(done){
 
@@ -16,28 +20,12 @@ define(['jquery', 'jasmine_jquery'], function(){
       window.loadFixtures('fx-eu-light-carousel.html');
 
       require(['eu_light_carousel'], function(EuLightCarousel){
-        EuLC = EuLightCarousel;
+
+        new EuLightCarousel.EuLightCarousel(getConf()).init();
+
         setTimeout(function(){
-
-          var hasUnbound = false;
-
-          $('.lc-scrollable').each(function(){
-            if(!$(this).hasClass('js-bound')){
-              hasUnbound = true;
-            }
-          });
-
-          if(hasUnbound){
-            EuLC.fxBindScrollables();
-            setTimeout(function(){
-              done();
-            }, 1001);
-          }
-          else{
-            done();
-          }
-
-        }, 100);
+          done();
+        }, 200);
       });
     });
 
@@ -68,7 +56,6 @@ define(['jquery', 'jasmine_jquery'], function(){
         var navRight        = $('.example-1 .nav-right');
         var _ResizeObserver = window.ResizeObserver; // store native behaviour here
         var execObserved    = [];
-        var $scrollable     = $('.example-1 .lc-scrollable');
 
         window.ResizeObserver = function(fnIn){
           this.fn      = fnIn;
@@ -89,11 +76,6 @@ define(['jquery', 'jasmine_jquery'], function(){
           });
         };
         var spyObserve = spyOn(window.ResizeObserver.prototype, 'observe').and.callThrough();
-
-        if(!$scrollable.hasClass('js-bound')){
-          // jasmine work-around: we expect the markup to be present on dom ready
-          EuLC.fxBindScrollables();
-        }
 
         navRight.hide();
         expect(navRight).toBeHidden();
@@ -122,14 +104,8 @@ define(['jquery', 'jasmine_jquery'], function(){
       it('scrolls its content horizontally', function(done){
 
         var firstItem   = $('.example-1 .lc-item:first');
-        var $scrollable = $('.example-1 .lc-scrollable');
         var navRight    = $('.example-1 .nav-right');
         var left        = firstItem[0].getBoundingClientRect().left;
-
-        // in case the js initialised before this fixture was loaded...
-        if(!$scrollable.hasClass('js-bound')){
-          EuLC.fxBindScrollables();
-        }
 
         navRight.click();
 
@@ -139,18 +115,12 @@ define(['jquery', 'jasmine_jquery'], function(){
           done();
         }, 50);
       });
-
       it('updates its buttons in reaction to scroll events', function(done){
 
         var navLeft     = $('.example-1 .nav-left');
         var $scrollable = $('.example-1 .lc-scrollable');
 
         expect(navLeft).toBeHidden();
-
-        // in case the js initialised before this fixture was loaded...
-        if(!$scrollable.hasClass('js-bound')){
-          EuLC.fxBindScrollables();
-        }
 
         $scrollable.scrollTo(10);
 
@@ -159,13 +129,12 @@ define(['jquery', 'jasmine_jquery'], function(){
           done();
         }, 100);
       });
-
     });
-
     describe ('Dynamic Loading', function(){
 
       var jsonFile;
       var itemsAvailable = 5;
+      var EuLightCarousel;
 
       var getConf = function(){
         return {
@@ -180,14 +149,18 @@ define(['jquery', 'jasmine_jquery'], function(){
       beforeEach(function(done){
         jsonFile = 'eu-light-carousel-data.json';
         window.loadJSONFixtures(jsonFile);
-        done();
+
+        require(['eu_light_carousel'], function(EuLC){
+          EuLightCarousel = EuLC;
+          done();
+        });
       });
 
       it('pre-populates its items when using dynamic data', function(done){
 
         expect($('.example-2 .lc-item').length).toBe(0);
 
-        new EuLC.EuLightCarousel(getConf()).init();
+        new EuLightCarousel.EuLightCarousel(getConf()).init();
 
         setTimeout(function(){
           expect($('.example-2 .lc-item').length).toBe(itemsAvailable);
@@ -199,7 +172,7 @@ define(['jquery', 'jasmine_jquery'], function(){
 
         expect($('.example-2 .lc-item').length).toBe(0);
 
-        new EuLC.EuLightCarousel(getConf()).init();
+        new EuLightCarousel.EuLightCarousel(getConf()).init();
 
         var navRight  = $('.example-2 .nav-right');
         navRight.click();
@@ -209,7 +182,6 @@ define(['jquery', 'jasmine_jquery'], function(){
           expect($('.example-2 .lc-item:last').text()).toEqual('dynamic item 5');
           done();
         }, 400);
-
       });
 
       it('executes a callback after data is loaded', function(done){
@@ -218,7 +190,7 @@ define(['jquery', 'jasmine_jquery'], function(){
         conf.onDataLoaded = function(){};
         spyOn(conf, 'onDataLoaded');
 
-        new EuLC.EuLightCarousel(conf).init();
+        new EuLightCarousel.EuLightCarousel(conf).init();
 
         $('.example-2 .nav-right').click();
 
@@ -226,7 +198,6 @@ define(['jquery', 'jasmine_jquery'], function(){
           expect(conf.onDataLoaded).toHaveBeenCalled();
           done();
         }, 400);
-
       });
 
     });
