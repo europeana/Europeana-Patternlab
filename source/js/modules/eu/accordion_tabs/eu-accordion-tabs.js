@@ -19,7 +19,7 @@ define(['jquery', 'util_resize'], function($){
 
     $cmp.css('width', 'auto');
 
-    while($cmp.find('.tab-header:first')[0].offsetTop != $cmp.find('.tab-header:last')[0].offsetTop){
+    while($cmp.find('.tab-header:first')[0].offsetTop !== $cmp.find('.tab-header:last')[0].offsetTop){
       i++;
       newW = $cmp.width() + 15 + 'px';
       $cmp.css('width', newW);
@@ -39,7 +39,7 @@ define(['jquery', 'util_resize'], function($){
       return;
     }
 
-    if($cmp.find('.tab-header:first')[0].offsetTop != $cmp.find('.tab-header:last')[0].offsetTop){
+    if($cmp.find('.tab-header:first')[0].offsetTop !== $cmp.find('.tab-header:last')[0].offsetTop){
       $cmp.removeClass(tabsClass);
     }
   }
@@ -84,11 +84,9 @@ define(['jquery', 'util_resize'], function($){
         var complete = $tab.closest('.eu-accordion-tabs').find('.tab-header.loading').length === 0;
         callback(data, $tab[0], index, complete);
       }
-    })
-    .fail(function(msg){
+    }).fail(function(msg){
       log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
-    })
-    .always(function(){
+    }).always(function(){
       $tab.removeClass('loading').addClass('loaded');
       $tab.next('.tab-content').removeClass('loading');
     });
@@ -122,7 +120,7 @@ define(['jquery', 'util_resize'], function($){
 
     $(window).europeanaResize(function(){
       var w = $(document).width();
-      if(w != pageW){
+      if(w !== pageW){
         pageW = w;
         applyMode($cmp, ops);
       }
