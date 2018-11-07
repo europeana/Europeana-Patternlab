@@ -65,41 +65,39 @@ define(['jquery', 'util_resize'], function($){
     $cmp.attr('style', 'height:' + (h1 + h2 + pad) + 'px; overflow-y:hidden;');
   }
 
-  function loadTabs($cmp, preProcess, callback){
+  function loadTab($tab, index, preProcess, callback){
 
-    var totalCompleted = 0;
-    var totalExpected  = $cmp.find('.tab-header').length;
+    if($tab.hasClass('loaded') || $tab.hasClass('loading')){
+      return;
+    }
 
-    var getTabContent = function(tab, index){
+    $tab.addClass('loading');
+    $tab.next('.tab-content').addClass('loading');
 
-      $(tab).addClass('loading');
-      $(tab).next('.tab-content').addClass('loading');
+    var url = $tab.data('content-url').replace(/^https?:/, location.protocol);
 
-      var url = $(tab).data('content-url').replace(/^https?:/, location.protocol);
-
-      $.getJSON(url).done(function(data) {
-        totalCompleted ++;
-        if(preProcess){
-          data = preProcess(data, tab, index);
-        }
-        if(callback){
-          callback(data, tab, index, totalCompleted === totalExpected);
-        }
-      })
-      .fail(function(msg){
-        totalCompleted ++;
-        log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
-      })
-      .always(function(){
-        $(tab).removeClass('loading');
-        $(tab).next('.tab-content').removeClass('loading');
-      });
-    };
-
-    $.each($cmp.find('.tab-header'), function(i, tabHeader){
-      getTabContent(tabHeader, i);
+    $.getJSON(url).done(function(data) {
+      if(preProcess){
+        data = preProcess(data, $tab[0], index);
+      }
+      if(callback){
+        var complete = $tab.closest('.eu-accordion-tabs').find('.tab-header.loading').length === 0;
+        callback(data, $tab[0], index, complete);
+      }
+    })
+    .fail(function(msg){
+      log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
+    })
+    .always(function(){
+      $tab.removeClass('loading').addClass('loaded');
+      $tab.next('.tab-content').removeClass('loading');
     });
+  }
 
+  function loadTabs($cmp, preProcess, callback){
+    $.each($cmp.find('.tab-header'), function(i, tabHeader){
+      loadTab($(tabHeader), i, preProcess, callback);
+    });
   }
 
   function init($cmp, ops){
@@ -183,6 +181,7 @@ define(['jquery', 'util_resize'], function($){
     activate: activate,
     deactivate: deactivate,
     fixTabContentHeight: fixTabContentHeight,
+    loadTab: loadTab,
     loadTabs: loadTabs,
     setOptimalSize: setOptimalSize
   };
