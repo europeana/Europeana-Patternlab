@@ -190,11 +190,11 @@
 
           margin-left: $spacing-gap;
 
-          &.waiting{
+          &.dynamic{
             border: 1px solid #ccc;
           }
           &.lc-item.loading,
-          &.lc-item.waiting {
+          &.lc-item.dynamic {
             min-height: $media-thumb-width;
             min-width:  $media-thumb-width;
           }

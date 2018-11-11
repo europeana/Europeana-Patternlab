@@ -13,23 +13,24 @@
   display: flex;
 }
 /* line 15, style.scss */
-.light-carousel .lc-item.loading {
+.light-carousel .lc-item [data-image].loading {
   background-image: url("spinner.gif");
   background-position: center;
   background-repeat: no-repeat;
+  background-size: auto;
 }
-/* line 21, style.scss */
+/* line 22, style.scss */
 .light-carousel .wrapper-hide-scroll {
   margin-bottom: -3em;
   overflow: hidden;
 }
-/* line 26, style.scss */
+/* line 27, style.scss */
 .light-carousel .lc-scrollable {
   overflow: hidden;
   overflow-x: scroll;
   padding-bottom: 3em;
 }
-/* line 31, style.scss */
+/* line 32, style.scss */
 .light-carousel .lc-scrollable::-webkit-scrollbar {
   display: none;
 }
