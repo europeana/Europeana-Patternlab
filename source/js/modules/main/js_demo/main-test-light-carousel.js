@@ -4,7 +4,6 @@ require([require.toUrl('../config/main-config.js')], function() {
     $(document).ready(function(){
 
       // item addition
-
       var addItem     = $('.add-item');
       var removeItem  = $('.remove-item');
       var removeStyle = $('.remove-style');
@@ -46,13 +45,16 @@ require([require.toUrl('../config/main-config.js')], function() {
         $('.example-1 .lc-item').css('max-width', h + 'px');
       });
 
+      var templateText = $('#item-template').text();
+      templateText = templateText.replace(/\[\[\[/g, '{{{').replace(/\[\[/g, '{{').replace(/\]\]\]/g, '}}}').replace(/\]\]/g, '}}');
+
       var getConf = function(el){
         return {
           '$el': el,
           'loadUrl': 'portal_object-media',
           'load_per_page': 3,
           'itemsAvailable': 12, // 30
-          'templateText': '<div class="lc-item">' + $('#item-template').text() + '</div>'
+          'templateText': '<div class="lc-item">' + templateText + '</div>'
         };
       };
 

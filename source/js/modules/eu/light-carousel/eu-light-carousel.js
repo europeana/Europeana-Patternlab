@@ -1,4 +1,4 @@
-define(['jquery', 'util_resize', 'viewport_contains', 'util_scroll'], function ($, Debouncer, ViewportContains){
+define(['jquery', 'util_resize', 'viewport_contains', 'eu_lazy_image_loader', 'util_scroll'], function ($, Debouncer, ViewportContains, LazyimageLoader){
 
   Debouncer.addDebouncedFunction('carousel-scrolled', 'carouselScrolled', 80);
 
@@ -13,13 +13,18 @@ define(['jquery', 'util_resize', 'viewport_contains', 'util_scroll'], function (
     this.ops = ops;
   }
 
+  /**
+    - writes divs for all unloaded items
+    - assigns load method to element
+    - loads style, binds, fires scroll event to triggers load
+  */
   EuLightCarousel.prototype.init = function(){
 
     var that          = this;
     var itemContainer = this.ops.$el.find('.lc-item-container');
 
     for(var i=itemContainer.children('.lc-item').length; i<this.ops.itemsAvailable; i++){
-      itemContainer.append('<div class="lc-item waiting"></div>');
+      itemContainer.append('<div class="lc-item waiting dynamic"></div>');
     }
 
     this.ops.$el.on('load', function(){
@@ -33,9 +38,7 @@ define(['jquery', 'util_resize', 'viewport_contains', 'util_scroll'], function (
     }
 
     $(window).europeanaScroll(function(){
-      if(ViewportContains.isElementInViewport(elScrollable, true)){
-        fnCarouselScrolled(elScrollable[0]);
-      }
+      fnCarouselScrolled(elScrollable[0]);
     });
 
     elScrollable.carouselScrolled(function(){
@@ -58,11 +61,9 @@ define(['jquery', 'util_resize', 'viewport_contains', 'util_scroll'], function (
       });
 
       if($('.light-carousel.def-style').length > 0){
-        appendStyle(require.toUrl('../../eu/light-carousel/style-def.css'), true);
+        appendStyle(require.toUrl('../../eu/light-carousel/style-def.css'));
       }
-      else{
-        appendStyle(require.toUrl('../../eu/light-carousel/style.css'), true);
-      }
+      appendStyle(require.toUrl('../../eu/light-carousel/style.css'), true);
     }
     else{
       setInitialState();
@@ -70,82 +71,87 @@ define(['jquery', 'util_resize', 'viewport_contains', 'util_scroll'], function (
     }
   };
 
-  EuLightCarousel.prototype.itemsInViewport = function(container){
+  EuLightCarousel.prototype.getIndexFirstVisibleWaiting = function(container){
 
-    var rect            = container[0].getBoundingClientRect();
+    var res = -1;
 
-    if(!ViewportContains.isElementInViewport(container, true)){
-      return [];
+    if(!ViewportContains.isElementInViewport(container, {acceptPartial: true})){
+      return res;
     }
 
-    var minL            = rect.left;
-    var maxR            = rect.right;
-    var includedIndexes = [];
-    var hasWaiting      = false;
-
-    container.find('.lc-item').each(function(i){
-
+    $.each(container.find('.lc-item.waiting'), function(){
       var $this = $(this);
-
-      if($this.hasClass('waiting')){
-
-        hasWaiting = true;
-        var r = this.getBoundingClientRect();
-
-        if(r.right >= minL && r.left <= maxR){
-          includedIndexes.push(i);
-        }
+      if(ViewportContains.isElementInViewport($this, {acceptPartial: true, checkViewport: container[0]})){
+        res = $this.index() + 1;
+        return false;
       }
     });
 
-    if(!hasWaiting){
-      this.loadedAll = true;
-      this.ops.$el.off('load');
-    }
-
-    return includedIndexes;
+    return res;
   };
 
+  EuLightCarousel.prototype.lazyLoadImages = function(){
+    LazyimageLoader.loadLazyimages(this.ops.$el.find('[data-image]:not(.loaded)'), {checkViewport: this.ops.$el[0] });
+  };
+
+  /** - loads JSON data
+     - renders with template and appends (some or all - according to what's preloaded)
+     - calls self recursively while unloaded are in view
+  */
   EuLightCarousel.prototype.load = function(){
 
-    if(this.loadedAll){
+    if(this.loadedAllData){
+      this.lazyLoadImages();
       return;
     }
 
-    var containerRect = this.ops.$el[0].getBoundingClientRect();
     var that = this;
 
+    /*
+    // come back later if waiting for styling to be applied...
+
+    var containerRect = this.ops.$el[0].getBoundingClientRect();
     if(containerRect.left === 0 || containerRect.right === 0){
       setTimeout(function(){
         that.load();
       }, 100);
       return;
     }
+    */
 
-    var toLoad = this.itemsInViewport(this.ops.$el);
+    var startAt = this.getIndexFirstVisibleWaiting(this.ops.$el);
 
-    if(!toLoad.length){
+    if(startAt === -1){
+      that.lazyLoadImages();
       return;
     }
 
     var itemContainer  = this.ops.$el.find('.lc-item-container');
     var template       = this.ops.templateText;
     var batchSize      = (this.ops.load_per_page ? this.ops.load_per_page : 12);
-    var startAt        = Math.min.apply(null, toLoad);
     startAt            = Math.floor(startAt / batchSize);
 
     var paramString    = '?page=' + (startAt + 1) + '&per_page=' + batchSize;
     var loadOffset     = startAt * batchSize;
 
     for(var i=loadOffset; i<loadOffset + batchSize; i++){
-      itemContainer.children().eq(i).addClass('loading').removeClass('waiting');
+      itemContainer.children().eq(i).removeClass('waiting');
     }
 
     $.getJSON(this.ops.loadUrl + paramString).done(function(data){
+
       require(['mustache'], function(Mustache){
+
         $.each(data, function(i, datum){
-          var html = Mustache.render(template, datum);
-          itemContainer.children().eq(loadOffset + i).replaceWith(html);
+
+          var targetEl = itemContainer.children().eq(loadOffset + i);
+
+          // replace markup unless it was already preloaded
+
+          if(targetEl.hasClass('dynamic')){
+            var html = Mustache.render(template, datum);
+            targetEl.replaceWith(html);
+          }
         });
 
         if(that.ops.onDataLoaded){

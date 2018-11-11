@@ -130,6 +130,15 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
         }
       }
     }
+    else{
+      // prevent pulling beyond the slide-rail limits (and ping-back on move end)
+      var projectedLeft = getNewLeft(cmp);
+
+      if(projectedLeft > 0 || projectedLeft < 0 - ssn){
+        e.stopPropagation();
+        return;
+      }
+    }
 
     if(!delegate){
       cmp.css({
@@ -239,7 +248,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
         back = true;
       }
     });
-    return [(ssn + l) > 0, back];
+    return [(parseInt(ssn) + l) > 0, back];
   }
 
   function simulateSwipe(cmp, dir, dist, callback){
