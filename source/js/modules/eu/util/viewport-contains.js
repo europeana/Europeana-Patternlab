@@ -7,9 +7,13 @@ define([], function(){
     var h;
     var w;
 
+    var deductLeft = 0;
+
     if(container){
       h = container.clientHeight;
       w = container.clientWidth;
+      deductLeft = container.getBoundingClientRect().left;
+      deductLeft -= container.style.left ? parseInt(container.style.left) : 0;
     }
     else{
       h = (window.innerHeight || document.documentElement.clientHeight);
@@ -17,15 +21,19 @@ define([], function(){
     }
 
     var cTop  = container ? container.getBoundingClientRect().top  : 0;
-    var cLeft = container ? container.getBoundingClientRect().left : 0;
+
+    var left   = rect.left  - deductLeft;
+    var right  = rect.right - deductLeft;
+    var top    = rect.top;
+    var bottom = rect.bottom;
 
     if(acceptPartial){
-      resV = (rect.top >= cTop  && rect.top <= cTop + h)  || (rect.bottom >= cTop && rect.bottom <= cTop + h);
-      resH = rect.left >= cLeft && rect.left <=    w  || (rect.right  >= cLeft && rect.right <= cLeft + w);
+      resV = (top >= cTop  && top <= cTop + h)  || (bottom >= cTop  && bottom <= cTop + h);
+      resH = left >= 0 && left <= w         || (right  >= 0 && right <=  w);
     }
     else{
-      resV = rect.top  >= cTop  && rect.bottom <= cTop + h;
-      resH = rect.left >= 0 && rect.left >= cLeft && rect.right  <= cLeft + w;
+      resV = top  >= cTop && bottom <= cTop + h;
+      resH = left >= 0    && left >= 0 && right <= w;
     }
     return resV && resH;
   };

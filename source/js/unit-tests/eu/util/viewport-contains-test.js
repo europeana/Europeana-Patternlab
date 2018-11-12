@@ -6,8 +6,9 @@ define(['jasmine_jquery', 'viewport_contains'], function(x, ViewportContains){
 
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
 
-  var setElementOffset = function(val){
-    $('.offset-el').css('left', (val ? val : 0) + 'px');
+  var setElementOffset = function(left, top){
+    $('.offset-el').css('left', (left ? left : 0) + 'px');
+    $('.offset-el').css('top', (top ? top : 0) + 'px');
   };
 
   describe('Viewport Contains', function(){
@@ -106,39 +107,97 @@ define(['jasmine_jquery', 'viewport_contains'], function(x, ViewportContains){
         $container = $('.offset-container');
       });
 
-      it('returns false when an item is not in view (left)', function(){
+      describe('Left', function(){
 
-        setElementOffset(-15);
+        it('returns false when an item is not in view (left)', function(){
 
-        var elLeft      = $container.find('.left-element-contained');
-        var leftInView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0]});
+          setElementOffset(-500);
 
-        expect(leftInView).toBe(false);
+          var elLeft      = $container.find('.offsetEl');
+
+          elLeft.each(function(){
+            var inView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0]});
+            expect(inView).toBe(false);
+          });
+        });
+
+        it('returns true when an item is in view', function(){
+          var elLeft      = $container.find('.offsetEl');
+
+          elLeft.each(function(){
+            var inView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0]});
+            expect(inView).toBe(false);
+          });
+
+        });
+
+        it('returns true when an item is only partially in view and the "partial" setting is set to true', function(){
+          setElementOffset(-20);
+          var elLeft      = $container.find('.left-element');
+          var leftInView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0], acceptPartial: false});
+          expect(leftInView).toBe(false);
+
+          leftInView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0], acceptPartial: true});
+          expect(leftInView).toBe(true);
+
+          setElementOffset(20);
+          var elRight      = $container.find('.right-element');
+          var rightInView  = ViewportContains.isElementInViewport(elRight,  {checkViewport: $container[0], acceptPartial: false});
+          expect(rightInView).toBe(false);
+
+          rightInView  = ViewportContains.isElementInViewport(elRight,  {checkViewport: $container[0], acceptPartial: true});
+          expect(rightInView).toBe(true);
+        });
       });
 
-      it('returns true when an item is in view', function(){
-        var elLeft      = $container.find('.left-element-contained');
-        var leftInView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0]});
-        expect(leftInView).toBe(true);
+      describe('Top', function(){
+
+        it('returns false when an item is not in view (top)', function(){
+
+          setElementOffset(0, 1000);
+
+          var elLeft      = $container.find('.offsetEl');
+
+          elLeft.each(function(){
+            var inView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0]});
+            expect(inView).toBe(false);
+          });
+        });
+
+        it('returns true when an item is in view', function(){
+
+          var elLeft      = $container.find('.offsetEl');
+
+          elLeft.each(function(){
+            var inView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0]});
+            expect(inView).toBe(false);
+          });
+
+        });
+
+        it('returns true when an item is only partially in view and the "partial" setting is set to true', function(){
+
+          setElementOffset(0, -50);
+
+          var elLeft      = $container.find('.centre-element');
+          var leftInView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0], acceptPartial: false});
+          expect(leftInView).toBe(false);
+
+          leftInView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0], acceptPartial: true});
+          expect(leftInView).toBe(true);
+
+          setElementOffset(0, 50);
+
+          var elRight      = $container.find('.centre-element');
+          var rightInView  = ViewportContains.isElementInViewport(elRight,  {checkViewport: $container[0], acceptPartial: false});
+          expect(rightInView).toBe(false);
+
+          rightInView  = ViewportContains.isElementInViewport(elRight,  {checkViewport: $container[0], acceptPartial: true});
+          expect(rightInView).toBe(true);
+        });
       });
 
-      it('returns true when an item is only partially in view and the "partial" setting is set to true', function(){
-        setElementOffset(-9);
-        var elLeft      = $container.find('.left-element-contained');
-        var leftInView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0], acceptPartial: false});
-        expect(leftInView).toBe(false);
 
-        leftInView  = ViewportContains.isElementInViewport(elLeft,  {checkViewport: $container[0], acceptPartial: true});
-        expect(leftInView).toBe(true);
-
-        setElementOffset(9);
-        var elRight      = $container.find('.right-element-contained');
-        var rightInView  = ViewportContains.isElementInViewport(elRight,  {checkViewport: $container[0], acceptPartial: false});
-        expect(rightInView).toBe(false);
-
-        rightInView  = ViewportContains.isElementInViewport(elRight,  {checkViewport: $container[0], acceptPartial: true});
-        expect(rightInView).toBe(true);
-      });
     });
 
   });
