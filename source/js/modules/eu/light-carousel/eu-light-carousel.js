@@ -91,7 +91,8 @@ define(['jquery', 'util_resize', 'viewport_contains', 'eu_lazy_image_loader', 'u
   };
 
   EuLightCarousel.prototype.lazyLoadImages = function(){
-    LazyimageLoader.loadLazyimages(this.ops.$el.find('[data-image]:not(.loaded)'), {checkViewport: this.ops.$el[0] });
+    var $el = this.ops.$el;
+    LazyimageLoader.loadLazyimages($el.find('[data-image]:not(.loaded)'), {checkViewport: $el.closest('.light-carousel').find('.lc-scrollable')[0] });
   };
 
   /** - loads JSON data
