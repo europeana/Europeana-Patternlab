@@ -2,8 +2,8 @@
   <div class="item-preview">
     <div class="item-image">
       <div class="inner">
-        <a target="[[target]]" href="[[url]]" tabindex="-1">
-          <div class="mlt-img-div height-to-width" [[#img.src]]style="background-image:url('[[.]]');"[[/img.src]]></div>
+        <a target="[[target]]" href="[[url]]" tabindex="-1" onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false">
+          <div class="mlt-img-div height-to-width loading" [[#img.src]]data-image="[[.]]"[[/img.src]]></div>
         </a>
       </div>
     </div>
