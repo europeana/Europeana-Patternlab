@@ -1159,7 +1159,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           }
         });
       });
-    }
+    }    
+
+    var promoBoxes = promotions.find('.gridlayout-card');
+    promoBoxes.find('.description p').each(function(i, ob){
+      ob = $(ob);
+      ob.html(ob.text());
+    });
   }
 
   function makePromoRequest(){
