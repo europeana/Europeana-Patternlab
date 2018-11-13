@@ -159,7 +159,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
   var adaptForNewItemPage = function(){
 
-    if(location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
+    if((typeof window.newRecordPageDesign === 'boolean' && window.newRecordPageDesign) || location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
 
       var page    = $.url(location.href).param('page');
       var channel = $('.breadcrumbs').data('store-channel-name');

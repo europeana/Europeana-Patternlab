@@ -21,6 +21,7 @@ require.config({
     eu_form_save:                  '../../eu/util/eu-form-save',
     eu_hierarchy:                  '../../eu/channels/eu-hierarchy',
     eu_hotspot:                    '../../eu/hotspot/eu-hotspot',
+    eu_lazy_image_loader:          '../../eu/lazy-image-loader/eu-lazy-image-loader',
     eu_light_carousel:             '../../eu/light-carousel/eu-light-carousel',
     eu_media_options:              '../../eu/media/media-options/media-options',
     eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',

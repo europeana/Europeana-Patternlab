@@ -1061,7 +1061,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     }
     else{
       var nav = EuSlide.getNavOptions(cmp);
-
       if(nav[0]){
         fwd.removeClass('disabled');
       }
@@ -1402,24 +1401,107 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   }
 
   function initSuggestions(EuSlide){
+
     suggestions.css('width', '5000px');
 
-    EuMustacheLoader.loadMustache('cho-suggestions-item/cho-suggestions-item', function(template, Mustache){
+    require(['eu_accordion_tabs', 'util_eu_ellipsis', 'eu_lazy_image_loader'], function(EUAccordionTabs, Ellipsis, LazyimageLoader){
 
-      require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(EUAccordionTabs, Ellipsis){
+      LazyimageLoader.initStyle();
+
+      EuMustacheLoader.loadMustache('cho-suggestions-item/cho-suggestions-item', function(template, Mustache){
 
         var back = $('.suggestions-section .eu-slide-nav-left');
         var fwd  = $('.suggestions-section .eu-slide-nav-right');
 
+        back.data('dir', -1);
+        fwd.data('dir', 1);
+
         var updateActiveSwipeableNav = function(){
           var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
           if(activeSwipeable.length > 0){
+            LazyimageLoader.loadLazyimages(activeSwipeable.find('[data-image]'), {checkViewport: activeSwipeable.closest('.slide-rail')[0] });
             updateSlideNavCtrls(EuSlide, activeSwipeable, fwd, back);
           }
         };
 
-        back.data('dir', -1);
-        fwd.data('dir', 1);
+        var tabsLoadPreProcess = function(data, tab){
+
+          tab = $(tab);
+
+          tab.find('.tab-subtitle .results-count').html('');
+          tab.find('.tab-subtitle .results-label').addClass('js-hidden');
+
+          if(data.total){
+            tab.find('.tab-subtitle .results-count').html(Number(data.total).toLocaleString());
+            if(parseInt(data.total) === 1){
+              tab.find('.tab-subtitle .results-label.single').removeClass('js-hidden');
+            }
+            else{
+              tab.find('.tab-subtitle .results-label.plural').removeClass('js-hidden');
+            }
+          }
+
+          var slideContent = tab.next('.tab-content').find('.slide-content');
+
+          $.each(data.documents, function(i, itemData){
+            slideContent.append(Mustache.render(template, itemData));
+          });
+
+          slideContent.updateSwipe = function(){
+            var totalW = 0;
+            slideContent.children().each(function(i, ob){
+              totalW += $(ob).outerWidth();
+            });
+            slideContent.css('width', totalW + 'px');
+            return totalW;
+          };
+
+          EuSlide.makeSwipeable(slideContent, {'transition-on-simulate': true});
+          slideContent.on('eu-swiped', updateActiveSwipeableNav);
+
+          return data;
+        };
+
+        var makeSuggestionsSwipeable = function(){
+          suggestions.closest('.slide-rail').css('left', '0px');
+
+          suggestions.updateSwipe = function(){
+
+            EUAccordionTabs.setOptimalSize(suggestions);
+
+            setTimeout(function(){
+              updateActiveSwipeableNav();
+            }, 1);
+          };
+
+          var navClick = function(){
+            var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
+            if(activeSwipeable.length > 0){
+              EuSlide.simulateSwipe(activeSwipeable, $(this).data('dir'), null, updateActiveSwipeableNav);
+            }
+          };
+
+          back.on('click', navClick);
+          fwd.on('click', navClick);
+          EuSlide.makeSwipeable(suggestions);
+        };
+
+        var afterTabsLoaded = function(data, tab, index, completed){
+
+          var ellipsisConf = {textSelectors:['a .link-text']};
+          var tabContent   = $(tab).next('.tab-content');
+          var texts        = tabContent.find('.suggestion-item .item-info h2');
+
+          LazyimageLoader.loadLazyimages(tabContent.find('[data-image]'), {checkViewport: $(tab).closest('.slide-rail')[0] });
+
+          texts.each(function(i, ob){
+            Ellipsis.create($(ob), ellipsisConf);
+          });
+
+          if(completed){
+            makeSuggestionsSwipeable();
+          }
+        };
 
         EUAccordionTabs.init(suggestions, {
           active: 0,
@@ -1432,77 +1514,10 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         EUAccordionTabs.loadTabs(
           suggestions,
-          function(data, tab){
-
-            tab = $(tab);
-
-            tab.find('.tab-subtitle .results-count').html('');
-            tab.find('.tab-subtitle .results-label').addClass('js-hidden');
-
-            if(data.total){
-              tab.find('.tab-subtitle .results-count').html(Number(data.total).toLocaleString());
-              if(parseInt(data.total) === 1){
-                tab.find('.tab-subtitle .results-label.single').removeClass('js-hidden');
-              }
-              else{
-                tab.find('.tab-subtitle .results-label.plural').removeClass('js-hidden');
-              }
-            }
-
-            var slideContent = tab.next('.tab-content').find('.slide-content');
-
-            $.each(data.documents, function(i, itemData){
-              slideContent.append(Mustache.render(template, itemData));
-            });
-
-            slideContent.updateSwipe = function(){
-              var totalW = 0;
-              slideContent.children().each(function(i, ob){
-                totalW += $(ob).outerWidth();
-              });
-              slideContent.css('width', totalW + 'px');
-              return totalW;
-            };
-            EuSlide.makeSwipeable(slideContent, {'transition-on-simulate': true});
-            slideContent.on('eu-swiped', updateActiveSwipeableNav);
-            return data;
-          },
-          function(data, tab, index, completed){
-
-            var ellipsisConf = {textSelectors:['a .link-text']};
-            var tabContent   = $(tab).next('.tab-content');
-            var texts        = tabContent.find('.suggestion-item .item-info h2');
-
-            texts.each(function(i, ob){
-              Ellipsis.create($(ob), ellipsisConf);
-            });
-
-            if(completed){
-
-              suggestions.closest('.slide-rail').css('left', '0px');
-
-              suggestions.updateSwipe = function(){
-
-                EUAccordionTabs.setOptimalSize(suggestions);
-
-                setTimeout(function(){
-                  updateActiveSwipeableNav();
-                }, 1);
-              };
-
-              var navClick = function(){
-                var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
-                if(activeSwipeable.length > 0){
-                  EuSlide.simulateSwipe(activeSwipeable, $(this).data('dir'), null, updateActiveSwipeableNav);
-                }
-              };
-
-              back.on('click', navClick);
-              fwd.on('click', navClick);
-              EuSlide.makeSwipeable(suggestions);
-            }
-          }
+          tabsLoadPreProcess,
+          afterTabsLoaded
         );
+
         suggestions.addClass('loaded');
       });
     });
@@ -1510,20 +1525,17 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   var showMediaThumbs = function(data){
 
-    var noItems = $('.channel-object-media-nav .lc-item').length;
-
-    if(noItems > 1){
+    if(parseInt(data.total_available) > 1){
 
       require(['eu_light_carousel'], function(EuLC){
 
         var $el = $('.light-carousel.media-thumbs');
 
         EuMustacheLoader.loadMustache('media-carousel-item/media-carousel-item', function(html){
-
           new EuLC.EuLightCarousel({
             '$el': $el,
             'loadUrl': data.loadUrl,
-            'load_per_page': 8, // has to be in sync with number preloaded
+            'load_per_page': 8,
             'itemsAvailable': data.total_available,
             'templateText': html,
             'onDataLoaded': EuColourNav.addColourDataFromAjax
@@ -1624,7 +1636,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
     }
 
-    // event binding
+    // trigger event binding
 
     $(window).bind('showMediaThumbs', function(e, data){
       showMediaThumbs(data);
@@ -1632,6 +1644,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     $(window).bind('showMap', function(){
       showMap();
+    });
+
+    $(window).bind('showSuggestions', function(){
+      if($('.eu-accordion-tabs').length > 0){
+        suggestions = $('.eu-accordion-tabs');
+        require(['util_slide'], function(EuSlide){
+          initSuggestions(EuSlide);
+        });
+      }
     });
 
     $(window).bind('loadHierarchy', function(e, data){
@@ -1759,14 +1780,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
             makePromoRequest();
           }
         });
-
-      });
-    }
-
-    if($('.eu-accordion-tabs').length > 0){
-      suggestions = $('.eu-accordion-tabs');
-      require(['util_slide'], function(EuSlide){
-        initSuggestions(EuSlide);
       });
     }
 

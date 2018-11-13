@@ -1,7 +1,12 @@
 <div
   {{^ single_item}}
-    class="mlt-img-div height-to-width"
-    style="background-image: url({{thumbnail}})"
+    class="mlt-img-div height-to-width{{#new_design}} loading{{/new_design}}"
+    {{#new_design}}
+      data-image="{{thumbnail}}"
+    {{/new_design}}
+    {{^new_design}}
+      style="background-image: url({{thumbnail}})"
+    {{/new_design}}
   {{/single_item}}>
   <div class="inner"><a {{#external_media}}href="{{.}}" target="_blank"{{/external_media}}
       {{#is_audio}}

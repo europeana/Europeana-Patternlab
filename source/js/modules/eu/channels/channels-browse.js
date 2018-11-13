@@ -1,4 +1,4 @@
-define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], function($, Ellipsis, ViewportContains){
+define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'eu_lazy_image_loader', 'util_scroll'], function($, Ellipsis, ViewportContains, LazyimageLoader){
 
   'use strict';
 
@@ -39,45 +39,14 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
 
   function initLazyLoad(){
 
-    var loadBatch = function($batch, cb){
+    var addEllipsis = function(batch){
 
-      var returned = 0;
-
-      $batch.each(function(i, card){
-
-        var cardImg  = $(card);
-
-        if(cardImg.hasClass('loaded')){
-          return true;
-        }
-
-        cardImg.addClass('loading');
-
-        var imgSrc    = cardImg.data('image');
-        var preloader = $('<img style="width:0px; height:0px;">').appendTo(cardImg);
-
-        $(preloader).imagesLoaded(function(){
-
-          cardImg.removeClass('loading').addClass('loaded');
-          cardImg.css('background-image', 'url("' + imgSrc + '")');
-
-          preloader.remove();
-
-          returned ++;
-
-          if(returned === $batch.length && cb){
-            cb();
-          }
-        });
-
-        preloader.attr('src', imgSrc);
-
-        cardImg.next('.inner').find('.ellipsis').each(function(){
-          var txt = $(this);
+      batch.each(function(){
+        $(this).next('.inner').find('.ellipsis').each(function(i, txt){
+          txt = $(txt);
           txt.removeClass('ellipsis');
           Ellipsis.create(txt, {textSelectors:['a']});
         });
-
       });
     };
 
@@ -88,29 +57,35 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
       var selSublist      = '.browseabe-list';
 
       var batch           = $(selCard).map(function(){
-        if(ViewportContains.isElementInViewport(this, true, peekAheadPixels)){
+        if(ViewportContains.isElementInViewport(this, {acceptPartial: true, margin: peekAheadPixels})){
           return this;
         }
       });
 
-      loadBatch(batch, function(){
+      LazyimageLoader.loadLazyimages(batch, {
 
-        var batchList        = batch.first().closest(selSublist);
-        var notLoadedCurrent = batchList.find(selCard).length;
-        var nextBatch        = notLoadedCurrent > 0 ? batch : batchList.nextAll(selSublist).first().find(selCard);
-        var loadNext         = nextBatch.length > 0 ? nextBatch : batchList.prevAll(selSublist).last().find(selCard);
+        'cbLoadedAll': function(){
 
-        if(loadNext.length > 0){
-          loadBatch(loadNext);
+          addEllipsis(batch);
+
+          var batchList        = batch.first().closest(selSublist);
+          var notLoadedCurrent = batchList.find(selCard).length;
+          var nextBatch        = notLoadedCurrent > 0 ? batch : batchList.nextAll(selSublist).first().find(selCard);
+          var loadNext         = nextBatch.length > 0 ? nextBatch : batchList.prevAll(selSublist).last().find(selCard);
+
+          if(loadNext.length > 0){
+            LazyimageLoader.loadLazyimages(loadNext);
+            addEllipsis(loadNext);
+          }
         }
       });
+
     };
 
-    require(['util_scroll'], function(){
-      $(window).europeanaScroll(function(){
-        loadImagesInView();
-      });
+    $(window).europeanaScroll(function(){
+      loadImagesInView();
     });
+
     loadImagesInView();
   }
 
