@@ -464,7 +464,6 @@ $max-page-width: 1400px;
         overflow: visible;
         padding-left: 1%;
         width:        25%;
-
         .eu-slide-navs{
           display: none;
         }
@@ -480,8 +479,7 @@ $max-page-width: 1400px;
     }
 
     .object-details:not(.zoom-two){
-
-      has-right-column{
+      .has-right-column{
         .object-media-viewer {
           max-width: $max-width;
         }
