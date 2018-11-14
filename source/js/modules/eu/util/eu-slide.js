@@ -42,9 +42,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
     }
 
     if(typeof cmp.updateSwipe === 'function'){
-
       cmp.updateSwipe();
-
       var w = cmp.parents('.slide-rail').last().parent().width();
       cmp.find('.slide-rail').css('width', w);
     }
@@ -316,7 +314,8 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
   return {
     makeSwipeable: makeSwipeable,
     simulateSwipe: simulateSwipe,
-    getNavOptions: getNavOptions
+    getNavOptions: getNavOptions,
+    isStacked: isStacked
   };
 
 });

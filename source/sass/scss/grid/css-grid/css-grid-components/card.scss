@@ -153,7 +153,8 @@ $card-fixed-width: 275px;
       text-transform: uppercase;
     }
 
-    p {
+    p,
+    .excerpt {
       font-size: $card-font-size;
       margin-bottom: $spacing-base;
     }
@@ -163,8 +164,13 @@ $card-fixed-width: 275px;
       display: flex;
       justify-content: space-between;
 
-      p {
+      p,
+      .excerpt {
         color: $gray-light;
+      }
+
+      .excerpt p {
+        margin-bottom: 0;
       }
 
       .icon-info {
