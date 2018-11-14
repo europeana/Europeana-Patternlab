@@ -1,0 +1,26 @@
+{
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "title": "Date",
+  "date": true,
+  "date_start": "1923",
+  "date_end": "2015",
+  "data": false,
+  "filter_open": true,
+  "input_type": "date",
+  "range": {
+    "start": {
+      "input_name": "date_start",
+      "input_value": "1923"
+    },
+    "end": {
+      "input_name": "date_end",
+      "input_value": "2015"
+    }
+  },
+  "show_bars": true
+}

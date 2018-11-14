@@ -59,6 +59,7 @@
       "percent_of_max": 23
     }
   ],
+  "filter_open": true,
   "range": {
     "start": {
       "input_name": "date_start",
