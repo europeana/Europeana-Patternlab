@@ -1094,14 +1094,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     fwd.on('click', navClick);
 
     promotions.updateSwipe = function() {
-      
+
       if (EuSlide.isStacked(promotions)){
         promotions.removeAttr('style');
         return;
       }
 
       if (!EuSlide.isStacked(promotions)) {
-        var totalW = (promotions.children().length - 1) * 32;  
+        var totalW = (promotions.children().length - 1) * 32;
         promotions.children('.gridlayout-card').each(function() {
           totalW = totalW + $(this).outerWidth(true);
         });
@@ -1172,7 +1172,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       ob = $(ob);
       if (ob.text().length > 0) {
         ob.html(ob.text());
-      } 
+      }
     });
   }
 
