@@ -453,11 +453,6 @@ $max-page-width: 1400px;
       min-width: $min-width-media;
     }
 
-    .object-details::after{
-      content: "#{$min-width-media},#{$bp-med}";
-      width:   1px;
-    }
-
     .object-details:not(.zoom-two){
       .channel-object-actions{
         float: right;
@@ -469,6 +464,12 @@ $max-page-width: 1400px;
         }
       }
     }
+    
+    .object-details::after{
+      content: "#{$min-width-media},#{$bp-med}";
+      width:   1px;
+    }
+
   }
 
   @media all and (min-width: $bp-xl) {
