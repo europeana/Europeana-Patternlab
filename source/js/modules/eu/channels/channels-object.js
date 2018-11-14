@@ -1093,15 +1093,22 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     back.on('click', navClick);
     fwd.on('click', navClick);
 
-    promotions.updateSwipe = function(){
-      var totalW = (promotions.children().length - 1) * 32;
-      totalW = totalW + promotions.children('.separator-after, .separator-before').length * 32;
+    promotions.updateSwipe = function() {
 
-      promotions.children('.collections-promo-item').each(function(){
-        totalW = totalW + $(this).outerWidth();
-      });
-      promotions.css('width', totalW + 'px');
-      updateSlideNavCtrls(EuSlide, promotions, fwd, back);
+      if (EuSlide.isStacked(promotions)){
+        promotions.removeAttr('style');
+        return;
+      }
+
+      if (!EuSlide.isStacked(promotions)) {
+        var totalW = (promotions.children().length - 1) * 32;
+        promotions.children('.gridlayout-card').each(function() {
+          totalW = totalW + $(this).outerWidth(true);
+        });
+
+        promotions.width(totalW);
+        updateSlideNavCtrls(EuSlide, promotions, fwd, back);
+      }
     };
 
     promotions.css('width', '5000px');
@@ -1160,133 +1167,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       });
     }
 
-    var applyEllipsis = function(){
-
-      require(['util_eu_ellipsis'], function(Ellipsis){
-
-        promoBoxes.find('.promo-title').each(function(i, ob){
-          Ellipsis.create($(ob), {textSelectors:['a']});
-        });
-
-        promoBoxes.find('.image-set-title').each(function(i, ob){
-          Ellipsis.create($(ob));
-        });
-
-        promoBoxes.find('.promo-tags').each(function(i, ob){
-          Ellipsis.create($(ob), {multiNode:true, textSelectors:['.promo-tag-link']});
-        });
-
-        promoBoxes.find('.text-main').each(function(i, ob){
-          ob = $(ob);
-          ob.html(ob.text());
-          Ellipsis.create(ob);
-        });
-
-        promoBoxes.find('.collections-promo-overlay .title').each(function(i, ob){
-          Ellipsis.create(ob);
-        });
-
-      });
-    };
-
-    var promoBoxes        = promotions.find('.collections-promo-item');
-    var promoBoxesGeneric = promotions.find('.collections-promo-item.generic-promo');
-
-    if(promoBoxesGeneric.length > 0){
-      require(['jqImagesLoaded'], function(){
-        promoBoxesGeneric.each(function(i, ob){
-          ob = $(ob);
-          ob.imagesLoaded(function($images){
-            var textEl        = ob.find('.content-text-inner');
-            var textMain      = ob.find('.text-main');
-
-            var hasPortrait         = $images[0].naturalHeight > $images[0].naturalWidth;
-            var hasDateAuthorOrType = !textEl.hasClass('no-date-and-type');
-            var hasTags             = textEl.hasClass('has-tags');
-            var hasTitle            = textEl.hasClass('has-title');
-            var hasTitleShort       = hasTitle && (ob.find('.promo-title a').text().length < 20);
-            var hasText             = textEl.hasClass('has-text');
-            var hasTextShort        = hasText && (textMain.text().length < 25);
-            var hasRelation         = !textMain.hasClass('no-relation');
-
-            ob.find('.js-remove').remove();
-
-            var score = 0;
-
-            if(hasPortrait){
-              score += 75;
-            }
-            else{
-              //score += 38;
-              score += 75;
-            }
-
-            if(hasTitle){
-              if(hasTitleShort){
-                score += 7;
-              }
-              else{
-                score += 14;
-              }
-            }
-            if(hasText){
-              if(hasTextShort){
-                score += 7;
-              }
-              else{
-                score += 21;
-              }
-            }
-            if(hasRelation){
-              score += 7;
-            }
-            if(hasTags){
-              score += 8;
-            }
-            if(hasDateAuthorOrType){
-              score += 10;
-            }
-
-            /*
-            log('card data summary:\n'
-              + hasPortrait         + '\t hasPortrait\n'
-              + hasDateAuthorOrType + '\t hasDateAuthorOrType\n'
-              + hasTags             + '\t hasTags\n'
-              + hasTitle            + '\t hasTitle\n'
-              + hasTitleShort       + '\t hasTitleShort\n'
-              + hasText             + '\t hasText\n'
-              + hasTextShort        + '\t hasTextShort\n'
-              + hasRelation         + '\t hasRelation\n\n\t'
-              + score               + '%');
-            */
-
-            if(score > 100){
-              ob.addClass('text-centric');
-            }
-
-          }); // end img loaded
-        }); // end each
-        applyEllipsis();
-      });
-    }
-    else{
-      if(promoBoxes.length > 0){
-        applyEllipsis();
+    var promoBoxes = promotions.find('.gridlayout-card');
+    promoBoxes.find('.description .excerpt').each(function(i, ob){
+      ob = $(ob);
+      if (ob.text().length > 0) {
+        ob.html(ob.text());
       }
-    }
-
-    var promoOverlays = promotions.find('.collections-promo-item.entity-promo .collections-promo-overlay-inner');
-    if(promoOverlays.length > 0){
-      promoOverlays.each(function(i, ob){
-        ob = $(ob);
-        var nText = ob.contents().filter(function(){
-          return this.nodeType === 3;
-        });
-        var newVal = nText[nText.length-1].nodeValue.replace(/\s+/, '');
-        newVal = newVal.slice(0, 100) + (newVal.length > 100 ? '...' : '');
-        nText[nText.length-1].nodeValue = newVal;
-      });
-    }
+    });
   }
 
   function makePromoRequest(){
@@ -1294,11 +1181,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     require(['util_promo_loader'], function(PromoLoader){
 
       var promoTemplates = {
-        'exhibition': 'template-promo-exhibition',
-        'gallery': 'template-promo-gallery',
-        'news': 'template-promo-news',
-        'entity': 'template-promo-entity',
-        'generic': 'template-promo-generic'
+        'card': 'template-promo-card'
       };
 
       var promoConf = [];
@@ -1306,12 +1189,12 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
         $.each(window.enabledPromos, function(i, promo){
           var mapping = null;
-          var tempId  = promo.id;
+          var tempId  = 'card';
 
           if(promo.id === 'blog'){
-            tempId  = 'generic';
             mapping = PromoLoader.getMappingFunctions()['fnBlogToGeneric'];
           }
+
           var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url, mapping: mapping };
           promoConf.push(conf);
 
@@ -1326,7 +1209,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         promoConf.unshift({
           'id': 'next',
           'preloaded': nextItem,
-          'templateId': 'template-promo-next-prev'
+          'templateId': 'template-promo-card'
         });
       }
 
@@ -1335,7 +1218,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         promoConf.push({
           'id': 'previous',
           'preloaded': prevItem,
-          'templateId': 'template-promo-next-prev'
+          'templateId': 'template-promo-card'
         });
       }
 
@@ -1355,15 +1238,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           if(markup && markup.length > 0){
 
             markup.addClass('collections-promos js-swipe-not-stacked');
-
             $('.channel-object-actions .slide-rail').empty().append(markup);
 
             promotions = $('.collections-promos');
-            $(window).trigger('promotionsAppended');
 
+            $(window).trigger('promotionsAppended');
             require(['util_slide'], function(EuSlide){
               initPromos(EuSlide);
-
               // is this needed now that adding promos no longer changes column count?
               $(window).trigger('carouselResize');
             });
@@ -1383,9 +1264,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           }
           else{
             console.log('no promo markup returned');
-            // $('.channel-object-actions .slide-rail').empty();
-            // $('.object-details').removeClass('has-right-column').addClass('no-right-column');
-            // $(window).resize();
           }
         });
 

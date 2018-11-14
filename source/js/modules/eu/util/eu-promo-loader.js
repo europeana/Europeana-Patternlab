@@ -6,19 +6,17 @@ define(['jquery'], function($){
         return;
       }
       data = dataIn.data[0];
-
       var data = {
         'url': data.links.self.replace('/json', ''),
         'img': {
           'src': data.attributes.image ? data.attributes.image.thumbnail : false
         },
-        'title': data.attributes.teaser_attribution_title,
+        'title': data.attributes.title,
         'type': data.attributes.posttype.toLowerCase(),
         'date': data.attributes.datepublish.split('T')[0],
-        'label': 'Blog',
         'attribution': data.attributes.image_attribution_holder,
         'excerpt': {
-          'short': data.attributes.body
+          'short': data.attributes.teaser
         },
         'tags': false
       };
@@ -45,7 +43,6 @@ define(['jquery'], function($){
 
       var templateId = confItem.templateId;
       var id         = confItem.id;
-
 
       if(confItem.relation){
         data.relation = confItem.relation;

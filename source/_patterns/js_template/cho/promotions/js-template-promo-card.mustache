@@ -1,0 +1,116 @@
+  <div id="template-promo-card">
+    [[#is_next]]
+      <span class="next-item-title">
+        {{ i18n.site.object.next-item }}
+      </span>
+    [[/is_next]]
+    [[#is_prev]]
+      <hr/>
+      <span class="previous-item-title">
+        {{ i18n.site.object.previous-item }}
+      </span>
+    [[/is_prev]]
+
+    [[#overlay]]
+      [[#img.src]]
+        <div class="gridlayout-card gridlayout-card-entity" style="background-image: url('[[img.src]]');">
+          <div class="card-image">
+              [[#url]]<a href="[[.]]"></a>[[/url]]
+          </div>
+      [[/img.src]]
+      [[^img.src]]
+        <div class="gridlayout-card gridlayout-card-entity">
+      [[/img.src]]
+    [[/overlay]]
+    [[^overlay]]
+    <div class="gridlayout-card">
+      [[#exhibition_promo]]
+        <div class="card-image">
+          {{> organisms/virtual-exhibitions/foyer-card-js}}
+        </div>
+      [[/exhibition_promo]]
+      [[#count]]
+        <div class="card-image card-image-set image-set">
+          [[#images]]
+            [[#link]]
+              <a href="[[link]]">
+                <img src="[[url]]"/>
+              </a>
+            [[/link]]
+          [[/images]]
+        </div>
+      [[/count]]
+      [[^images]]
+        [[#img.src]]
+          <div class="card-image" style="background-image: url('[[img.src]]');">
+              [[#url]]<a href="[[.]]"></a>[[/url]]
+          </div>
+        [[/img.src]]
+      [[/images]]
+    [[/overlay]]
+      <div class="card-content">
+        [[#type]]<h4>[[.]]</h4>[[/type]]
+        [[#overlay.img]]<span class="viewmore-image" style="background-image: url([[.]]);"></span>[[/overlay.img]]
+        [[#title]]
+          <h3>
+            <a href="[[url]]">[[.]]</a>
+            [[^excerpt.short]]
+              [[#media_type]]
+                <span class="icon media-type-[[.]]"></span>
+              [[/media_type]]
+            [[/excerpt.short]]
+          </h3>
+        [[/title]]
+        [[#overlay.title]]<h3><a href="[[url]]">[[.]]</a></h3>[[/overlay.title]]
+        [[#exhibition_promo.title]]<h3><a href="[[exhibition_promo.url]]">[[.]]</a></h3>[[/exhibition_promo.title]]
+        <div class="description">
+          [[#excerpt]]
+            [[#short]]
+              <div class="excerpt">[[[.]]]</div>
+            [[/short]]
+          [[/excerpt]]
+          [[#overlay.description]]
+            <p>[[[.]]]</p>
+          [[/overlay.description]]
+          [[#count]]
+            <p>[[count]] {{i18n.global.labels.images}}</p>
+          [[/count]]
+          [[#info]]
+            <span class="icon icon-info"></span>
+            <div class="info image-set-overlay">[[[.]]]</div>
+          [[/info]]
+          [[#excerpt.short]]
+            [[#media_type]]
+              <span class="icon media-type-[[.]]"></span>
+            [[/media_type]]
+          [[/excerpt.short]]
+        </div>
+        <p class="extras">[[#overlay.link_related]]<a href="[[url]]">[[text]]</a>[[/overlay.link_related]][[#overlay.link_more]]<a href="[[url]]">[[text]]</a>[[/overlay.link_more]]</p>
+        <p class="extras">[[#date]]<span>[[.]]</span>[[/date]][[#attribution]]<span>[[.]]</span>[[/attribution]]</p>
+        [[#tags]]
+          <ul class="card-tags">
+            [[#items]]
+              <li>
+                [[#url]]<a class="promo-tag-link" href="[[.]]">[[/url]]#[[text]][[#url]]</a>[[/url]]
+              </li>
+            [[/items]]
+          </ul>
+        [[/tags]]
+        [[#exhibition_promo.tags]]
+          <ul class="card-tags">
+            [[#items]]
+              <li>
+                [[#url]]<a class="promo-tag-link" href="[[.]]">[[/url]]#[[text]][[#url]]</a>[[/url]]
+              </li>
+            [[/items]]
+          </ul>
+        [[/exhibition_promo.tags]]
+      </div>
+      [[#relation]]<div class="card-footer">[[.]]</div>[[/relation]]
+      [[#exhibition_promo.relation]]<div class="card-footer">[[.]]</div>[[/exhibition_promo.relation]]
+    </div>
+  </div>
+
+[[#is_next]]
+<hr/>
+[[/is_next]]

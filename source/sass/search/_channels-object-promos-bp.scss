@@ -13,10 +13,10 @@
 
 
 @media all and (min-width: $bp-med) {
-
   flex-direction: column;
   max-width: 100%;
-
+  padding-bottom: $spacing-2x;
+  
   .channel-object-next-prev,
   .image-set,
   .ve-foyer-card{
