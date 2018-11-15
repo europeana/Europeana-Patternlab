@@ -328,11 +328,8 @@ a:hover > .ve-state-button-off,
     }
   }
 
-  .ve-foyer-card-state.shaded::before{
+  .ve-foyer-card-state.shaded a::before {
     background-color:  $bg_colour_overlaid_text;
-  }
-
-  .ve-foyer-card-state.shaded::before{
     content:  "";
     display:  block;
     height:   100%;
@@ -342,7 +339,6 @@ a:hover > .ve-state-button-off,
     width:    100%;
     z-index:  1;
   }
-
 
   .text-box{
     color:          $colour_overlaid_text;
