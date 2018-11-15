@@ -14,23 +14,31 @@
         <span class="ve-state-1 ve-state-button-off"></span>
         <span class="ve-state-2 ve-state-button-off"></span>
       </div>
-      [[#items]]
-        <div class="ve-foyer-card-state [[#body]]hide-right shaded[[/body]] [[#logo]]hide-right[[/logo]]">
-          [[#url]]<a href="[[.]]">[[/url]]
-            <img src="[[image.thumbnail.url]]"/>
-            [[#body]]
-              <div class="text-box description">
-                [[[.]]]
-              </div>
-            [[/body]]          
-            [[#logo]]
-              <div class="text-box credits">
-                <img src="[[thumbnail.url]]"/>
-              </div>
-            [[/logo]]  
-          [[#url]]</a>[[/url]]
-        </div>
-      [[/items]]
+      <div class="ve-foyer-card-state">
+        [[#url]]<a href="[[.]]">[[/url]]
+          <img src="[[image]]"/>
+        [[#url]]</a>[[/url]]
+      </div>
+      [[#description]]
+      <div class="ve-foyer-card-state hide-right shaded">
+        [[#url]]<a href="[[.]]">[[/url]]
+          <img src="[[image]]"/>
+          <div class="text-box description">
+            [[[description]]]
+          </div>
+        [[#url]]</a>[[/url]]
+      </div>
+      [[/description]]
+      [[#logo_url]]
+       <div class="ve-foyer-card-state hide-right">
+        [[#url]]<a href="[[.]]">[[/url]]
+          <img src="[[image]]"/>
+          <div class="text-box credits">
+            <img src="[[logo_url]]"/>
+          </div>
+        [[#url]]</a>[[/url]]
+      </div>
+      [[/logo_url]]
     </div>
   </div>
 </figure>
