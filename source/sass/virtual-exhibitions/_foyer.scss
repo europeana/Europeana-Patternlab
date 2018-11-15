@@ -369,13 +369,12 @@ a:hover > .ve-state-button-off,
     &.credits{
       align-items: center;
       display: flex;
-      justify-content: center;
       height: 100%;
-
+      justify-content: center;
+      
       img {
         margin-bottom: 0;
       }
-
     }
 
     a{
@@ -386,7 +385,6 @@ a:hover > .ve-state-button-off,
     }
   }
 
-
   .ve-state-button-off,
   .ve-state-button-on{
     margin: 0 0.6em;
@@ -394,9 +392,7 @@ a:hover > .ve-state-button-off,
 }
 
 // end shared
-
-.ve-foyer-card{
-
+.ve-foyer-card {
   .ve-foyer-card-state{
     height: $max-height-state;
   }
@@ -407,4 +403,3 @@ a:hover > .ve-state-button-off,
     height: 100%;
   }
 }
-
