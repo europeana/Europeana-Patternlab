@@ -1080,6 +1080,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     var fwd  = $('.channel-object-actions .eu-slide-nav-right');
     var back = $('.channel-object-actions .eu-slide-nav-left');
+    var wasStacked;
 
     fwd.data('dir', 1);
     back.data('dir', -1);
@@ -1095,12 +1096,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     promotions.updateSwipe = function() {
 
-      if (EuSlide.isStacked(promotions)){
+      if (EuSlide.isStacked(promotions) || promotions.children().length === 1){
         promotions.removeAttr('style');
+        wasStacked = EuSlide.isStacked(promotions);
         return;
       }
 
       if (!EuSlide.isStacked(promotions)) {
+        if (wasStacked || wasStacked === undefined) { promotions.removeAttr('style'); }
+
         var totalW = (promotions.children().length - 1) * 32;
         promotions.children('.gridlayout-card').each(function() {
           totalW = totalW + $(this).outerWidth(true);
@@ -1108,6 +1112,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         promotions.width(totalW);
         updateSlideNavCtrls(EuSlide, promotions, fwd, back);
+
+        wasStacked = EuSlide.isStacked(promotions);
       }
     };
 

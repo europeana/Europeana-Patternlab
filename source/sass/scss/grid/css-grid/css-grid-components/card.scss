@@ -360,11 +360,13 @@ $card-fixed-width: 275px;
 
 .collections-promos .gridlayout-card {
   height: auto;
+  min-width: $card-fixed-width;
   width: $card-fixed-width;
 }
 
 @media all and (min-width: $bp-med) {
   .collections-promos .gridlayout-card {
+    min-width: 1px;
     width: auto;
   }
 
