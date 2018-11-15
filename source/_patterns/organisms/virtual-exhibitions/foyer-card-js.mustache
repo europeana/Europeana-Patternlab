@@ -16,26 +16,19 @@
       </div>
       [[#items]]
         <div class="ve-foyer-card-state [[#body]]hide-right shaded[[/body]] [[#logo]]hide-right[[/logo]]">
-          <img src="[[image.thumbnail.url]]"/>
-
-          [[#body]]
-          <div class="text-box description">
-          [[#url]]
-            <a href="[[url]]">[[[body]]]</a>
-          [[/url]]
-          [[^url]]
-            [[body]]
-          [[/url]]
-          </div>
-          [[/body]]
-
-          [[#logo]]
-            <div class="text-box credits">
-            [[#url]]
-              <a href="[[url]]"><img src="[[thumbnail.url]]"/></a>
-            [[/url]]
-            </div>
-          [[/logo]]  
+          [[#url]]<a href="[[.]]">[[/url]]
+            <img src="[[image.thumbnail.url]]"/>
+            [[#body]]
+              <div class="text-box description">
+                [[[.]]]
+              </div>
+            [[/body]]          
+            [[#logo]]
+              <div class="text-box credits">
+                <img src="[[thumbnail.url]]"/>
+              </div>
+            [[/logo]]  
+          [[#url]]</a>[[/url]]
         </div>
       [[/items]]
     </div>

@@ -1,7 +1,6 @@
 define([], function(){
 
   var promo = {
-    "url": "javascript:alert('open this exhibition (1)')",
     "states": {
       "items": [
         {
@@ -34,10 +33,11 @@ define([], function(){
       ]
     },
     "excerpt": false,
+    "url": "javascript:alert('open this exhibition (1)')",
     "icon": "multi-page",
     "title": "The Exhibition: Johann Vermeer can be found here too along with other objets d'art including some Art Nouveau",
     "relation": "Feautues Johann Vermeer",
-    "tags":{
+    "tags": {
       "items": [
         {
           "url": "javascript:alert('open tag')",
