@@ -723,6 +723,7 @@
           },
           "news": "News",
           "object": {
+              "created-by": "Created By",
               "similar-result": "Result",
               "similar-results": "Results",
               "similar-suggestions": "Suggested content",
