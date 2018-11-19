@@ -213,8 +213,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
           'img':{
             'src': fnGetAttr($el, 'img', 'src')
           },
-          'title': fnGetText($el.find('.item-info a')),
-          'relation': 'What goes here?'
+          'title': fnGetText($el.find('.item-info a'))
         };
       };
 
