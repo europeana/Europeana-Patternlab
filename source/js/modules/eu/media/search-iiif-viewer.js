@@ -37,6 +37,7 @@ define(['jquery', 'util_resize'], function($){
   var totalImages;
 
   var labelledData      = {}; // JSON (entire manifest): data.label: data
+  var annotationData    = {}; // Map annotation data label: url
   var iiifLayers        = {}; // Map layers (loaded): label: layer
   var miniMapCtrls      = {}; // Mini map object storage
   var allCanvases       = [];
@@ -359,8 +360,11 @@ define(['jquery', 'util_resize'], function($){
       var waitTime       = 5000;
       var timeoutFailure = null;
 
+      //manifestUrl = 'http://iiif-api-test.eanadev.org/presentation/9200396/BibliographicResource_3000118435063/manifest.json?wskey=api2demo'
+
       // Grab a IIIF manifest
       $.getJSON(manifestUrl).done(function(data){
+
 
         if(timeoutFailure){
           window.clearTimeout(timeoutFailure);
@@ -374,6 +378,13 @@ define(['jquery', 'util_resize'], function($){
 
         $.each(imageContainingCanvases, function(_, val) {
           labelledData[val.label] = val;
+
+          if(annotationData){ // new way enabled...
+            if(val.otherContent && val.otherContent instanceof Array && val.otherContent.length > 0){
+              annotationData[val.label] = val.otherContent[0]['@id'];
+            }
+          }
+
           allCanvases.push(val);
         });
 
@@ -604,14 +615,29 @@ define(['jquery', 'util_resize'], function($){
 
   function getAnnotationData(probe, pageRef, cb){
 
+    var fullTextServer     = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';  // new way not enabled
     var annotationsVersion = 2;
-    var manifestUrl        = $('#iiif').data('manifest-url');
-    var fullTextServer     = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
-    var iiifServer         = 'iiif.europeana.eu/presentation/';
-    var suffix             = '/' + (pageRef + 1) + '.iiifv' + annotationsVersion + '.json';
-    //var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', 'https:');
-    var annotationsUrl = 'https:' + manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', '');
-    annotationsUrl = annotationsUrl.replace('https:https:', 'https:');
+    var annotationsUrl;
+
+    if(annotationData){ // new way enabled
+      var annotationKey = Object.keys(annotationData)[currentImg + ''];
+      if(annotationKey){
+        annotationsUrl = annotationData[annotationKey];
+        console.error('will get annotations from ' + annotationsUrl);
+      }
+      else{
+        console.error('no key - return');
+        return;
+      }
+    }
+    else{
+      var manifestUrl        = $('#iiif').data('manifest-url');
+      var iiifServer         = 'iiif.europeana.eu/presentation/';
+      var suffix             = '/' + (pageRef + 1) + '.iiifv' + annotationsVersion + '.json';
+      //var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', 'https:');
+      annotationsUrl = 'https:' + manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', '');
+      annotationsUrl = annotationsUrl.replace('https:https:', 'https:');
+    }
 
     // @searchData (optional) = [searchMatches, searchTermLength]
     $.getJSON(annotationsUrl).done(function(data){
@@ -634,7 +660,13 @@ define(['jquery', 'util_resize'], function($){
 
         if(available){
 
-          var fullTextUrl = page[0]['resource']['@id'].replace('http://data.europeana.eu/fulltext/', 'https://' + fullTextServer) + '.json';
+          var fullTextUrl = page[0]['resource']['@id'];
+
+          if(!annotationData){ // new way not enabled
+            fullTextUrl = fullTextUrl.replace('http://data.europeana.eu/fulltext/', 'https://' + fullTextServer) + '.json';
+          }
+
+          console.log('fullTextUrl\n\t' + fullTextUrl);
 
           $.getJSON(fullTextUrl).done(function(ft){
             textProcessor.processAnnotationData(ft, data, pageRef, cb);
