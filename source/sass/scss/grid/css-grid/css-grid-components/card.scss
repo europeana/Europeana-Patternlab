@@ -8,6 +8,8 @@ $card-image-min-height: 10rem;
 $card-imageset-height: 15rem;
 $card-view-more-height: 4.5rem;
 $card-fixed-width: 275px;
+$colour_overlaid_text: #fff;
+$bg_colour_overlaid_text: rgba(0, 0, 0, 0.7);
 
 .gridlayout-card {
   background-color: $grid-card-gray;
@@ -63,11 +65,71 @@ $card-fixed-width: 275px;
       }
 
       .ve-foyer-card-state {
+        align-items: center;
+        display: flex;
         height: calc(100% - 14px - #{$spacing-base});
+        justify-content: center;
+
+        &.shaded a::before {
+          background-color:  $bg_colour_overlaid_text;
+          content:  "";
+          display:  block;
+          height:   100%;
+          left:     0;
+          position: absolute;
+          top:      0;
+          width:    100%;
+          z-index:  1;
+        }
+
+        a {
+          align-items: center;
+          display: flex;
+          height: 100%;
+          justify-content: center;
+        }
 
         img {
           border-top-left-radius: $base-border-radius;
           border-top-right-radius: $base-border-radius;
+        }
+
+        a > img {
+          border: 0;
+          bottom: 0;
+          height: 100%;
+          left: 0;
+          margin: 0;
+          max-width:  100%;
+          object-fit: cover;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 100%;
+        }
+
+        .text-box {
+          position: relative;
+          text-align: center;
+          width: 100%;
+          z-index: 1;
+
+          &.description {
+            padding: 0 2.75rem;
+            top: 0;
+            transform: none;
+          }
+
+          img {
+            margin-bottom: 0;
+          }
+
+          a{
+            color: $colour_overlaid_text;
+            &:hover{
+              text-decoration: underline;
+            }
+          }
         }
       }
 
