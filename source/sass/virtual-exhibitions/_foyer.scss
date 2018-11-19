@@ -238,16 +238,9 @@ a:hover > .ve-state-button-off,
       padding-top: 100%;
     }
 
-    .ve-foyer-card-state {
-      align-items: center;
-      display: flex;
-      justify-content: center;
-    }
-
     .inner,
     .ve-chapter-selection-state > img,
-    .ve-foyer-card-state > img,
-    .ve-foyer-card-state a > img {
+    .ve-foyer-card-state > img {
       bottom:    0;
       left:      0;
       position:  absolute;
@@ -256,21 +249,13 @@ a:hover > .ve-state-button-off,
     }
 
     .ve-chapter-selection-state > img,
-    .ve-foyer-card-state > img,
-    .ve-foyer-card-state a > img {
+    .ve-foyer-card-state > img {
       border:     0;
       height:     100%;
       margin:     0;
       max-width:  100%;
       object-fit: cover;
       width:      100%;
-    }
-
-    .ve-foyer-card-state a {
-      align-items: center;
-      display: flex;
-      height: 100%;
-      justify-content: center;
     }
   }
 
@@ -328,7 +313,7 @@ a:hover > .ve-state-button-off,
     }
   }
 
-  .ve-foyer-card-state.shaded a::before {
+  .ve-foyer-card-state.shaded::before {
     background-color:  $bg_colour_overlaid_text;
     content:  "";
     display:  block;
@@ -377,30 +362,6 @@ a:hover > .ve-state-button-off,
       padding:        0.75em 2.1em;
       top: 50%;
       transform: translateY(-50%);
-    }
-
-    a{
-      color: $colour_overlaid_text;
-      &:hover{
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .ve-foyer-card-state .text-box {
-    position: relative;
-    text-align: center;
-    width: 100%;
-    z-index: 1;
-
-    &.description {
-      padding: 0 2.75rem;
-      top: 0;
-      transform: none;
-    }
-
-    img {
-      margin-bottom: 0;
     }
 
     a{
