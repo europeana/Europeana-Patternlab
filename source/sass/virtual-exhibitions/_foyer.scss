@@ -1,5 +1,5 @@
-@import '../scss/generic/variables';
-@import 'variables';
+@import "../scss/generic/variables";
+@import "variables";
 
 $state-button-height:      3.5em;
 $max-height-state:         calc(100% - #{$state-button-height});
@@ -37,7 +37,7 @@ $state-button-height-half: $state-button-height / 2;
     width:    100%;
     &:hover,
     &:focus{
-      background-color: rgba($accent, .8);
+      background-color: rgba($accent, 0.8);
     }
   }
 }
@@ -54,7 +54,7 @@ $state-button-height-half: $state-button-height / 2;
 
 .ve-state-button-on,
 .ve-state-button-off{
-  background-image: url('../../images/formcontrols.png');
+  background-image: url("../../images/formcontrols.png");
   background-size:  155px 19px;
   display:          inline-block;
   height:           19px;
@@ -158,9 +158,6 @@ a:hover > .ve-state-button-off,
   }
 }
 
-@media all and (min-width: $bp-small-2) {
-}
-
 @media all and (min-width: $bp-small-3) {
   .ve-chapter-selection,
   .ve-foyer-card{
@@ -169,7 +166,6 @@ a:hover > .ve-state-button-off,
 }
 
 @media all and (min-width: $bp-med) {
-
   .ve-chapter-selection-container-inner,
   .ve-foyer-card-container{
     left:              50%;
@@ -209,7 +205,6 @@ a:hover > .ve-state-button-off,
 }
 
 // begin shared
-
 .ve-chapter-selection,
 .ve-foyer-card{
 
@@ -238,14 +233,21 @@ a:hover > .ve-state-button-off,
     width:    100%;
 
     &::before{
-      content:     '';
+      content:     "";
       display:     block;
       padding-top: 100%;
     }
 
+    .ve-foyer-card-state {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
     .inner,
     .ve-chapter-selection-state > img,
-    .ve-foyer-card-state > img{
+    .ve-foyer-card-state > img,
+    .ve-foyer-card-state a > img {
       bottom:    0;
       left:      0;
       position:  absolute;
@@ -254,13 +256,21 @@ a:hover > .ve-state-button-off,
     }
 
     .ve-chapter-selection-state > img,
-    .ve-foyer-card-state > img{
+    .ve-foyer-card-state > img,
+    .ve-foyer-card-state a > img {
       border:     0;
       height:     100%;
       margin:     0;
       max-width:  100%;
       object-fit: cover;
       width:      100%;
+    }
+
+    .ve-foyer-card-state a {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
     }
   }
 
@@ -318,12 +328,9 @@ a:hover > .ve-state-button-off,
     }
   }
 
-  .ve-foyer-card-state.shaded::before{
+  .ve-foyer-card-state.shaded a::before {
     background-color:  $bg_colour_overlaid_text;
-  }
-
-  .ve-foyer-card-state.shaded::before{
-    content:  '';
+    content:  "";
     display:  block;
     height:   100%;
     left:     0;
@@ -380,6 +387,29 @@ a:hover > .ve-state-button-off,
     }
   }
 
+  .ve-foyer-card-state .text-box {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+
+    &.description {
+      padding: 0 2.75rem;
+      top: 0;
+      transform: none;
+    }
+
+    img {
+      margin-bottom: 0;
+    }
+
+    a{
+      color: $colour_overlaid_text;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
 
   .ve-state-button-off,
   .ve-state-button-on{
@@ -388,9 +418,7 @@ a:hover > .ve-state-button-off,
 }
 
 // end shared
-
-.ve-foyer-card{
-
+.ve-foyer-card {
   .ve-foyer-card-state{
     height: $max-height-state;
   }
@@ -401,4 +429,3 @@ a:hover > .ve-state-button-off,
     height: 100%;
   }
 }
-

@@ -10,7 +10,6 @@
         {{ i18n.site.object.previous-item }}
       </span>
     [[/is_prev]]
-
     [[#overlay]]
       [[#img.src]]
         <div class="gridlayout-card gridlayout-card-entity" style="background-image: url('[[img.src]]');">
@@ -24,11 +23,15 @@
     [[/overlay]]
     [[^overlay]]
     <div class="gridlayout-card">
-      [[#exhibition_promo]]
-        <div class="card-image">
-          {{> organisms/virtual-exhibitions/foyer-card-js}}
-        </div>
-      [[/exhibition_promo]]
+      [[#image]]
+        [[#description]]
+          [[#logo_url]]
+          <div class="card-image">
+            {{> organisms/virtual-exhibitions/foyer-card-js}}
+          </div>
+          [[/logo_url]]
+        [[/description]]
+      [[/image]]
       [[#count]]
         <div class="card-image card-image-set image-set">
           [[#images]]
@@ -62,7 +65,6 @@
           </h3>
         [[/title]]
         [[#overlay.title]]<h3><a href="[[url]]">[[.]]</a></h3>[[/overlay.title]]
-        [[#exhibition_promo.title]]<h3><a href="[[exhibition_promo.url]]">[[.]]</a></h3>[[/exhibition_promo.title]]
         <div class="description">
           [[#excerpt]]
             [[#short]]
@@ -96,18 +98,8 @@
             [[/items]]
           </ul>
         [[/tags]]
-        [[#exhibition_promo.tags]]
-          <ul class="card-tags">
-            [[#items]]
-              <li>
-                [[#url]]<a class="promo-tag-link" href="[[.]]">[[/url]]#[[text]][[#url]]</a>[[/url]]
-              </li>
-            [[/items]]
-          </ul>
-        [[/exhibition_promo.tags]]
       </div>
       [[#relation]]<div class="card-footer">[[.]]</div>[[/relation]]
-      [[#exhibition_promo.relation]]<div class="card-footer">[[.]]</div>[[/exhibition_promo.relation]]
     </div>
   </div>
 

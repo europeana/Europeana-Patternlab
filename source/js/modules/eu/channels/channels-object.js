@@ -1094,8 +1094,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     fwd.on('click', navClick);
 
     promotions.updateSwipe = function() {
-
-      if (EuSlide.isStacked(promotions)){
+      if (EuSlide.isStacked(promotions) || promotions.children().length === 1){
         promotions.removeAttr('style');
         return;
       }
