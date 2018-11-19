@@ -1288,8 +1288,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         'media_type': item.media_type,
         'img': item.img,
         'title': item.title,
-        'excerpt': (item.text ? item.text.medium : ''),
-        'relation': 'What goes here? (relation)'
+        'excerpt': (item.text ? item.text.medium : '')
       });
     }
     return res;
