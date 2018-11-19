@@ -1,7 +1,6 @@
 define([], function(){
 
   var promo = {
-    "exhibtion_card": true,
     "url": "javascript:alert('open this exhibition (1)')",
     "title": "The Exhibition: Johann Vermeer can be found here too along with other objets d'art including some Art Nouveau",
     "description": "<p>Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces</p>",
