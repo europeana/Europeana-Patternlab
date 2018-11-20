@@ -17,8 +17,9 @@ $max-page-width: 1400px;
     width: calc(100% - (400px + 2rem));
   }
 
-  h5 {
+  .non-eu-entities-label {
     color: $gray-light;
+    display: inline-block;
     font-size: $font-size-sm;
     font-weight: normal;
     margin-bottom: $spacing-base;
