@@ -935,6 +935,17 @@
           },
           "language-english": "English",
           "language-french": "Français",
+          "media": {
+            "types": {
+              "audio"  : "audio",
+              "image"  : "image",
+              "IIIF"   : "IIIF",
+              "oembed" : "oembed",
+              "pdf"    : "pdf",
+              "text"   : "text",
+              "video"  : "video"
+            }
+          },
           "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
           "mission-title": "Our mission",
           "more": {

@@ -1545,7 +1545,44 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
             'load_per_page': 8,
             'itemsAvailable': data.total_available,
             'templateText': html,
-            'onDataLoaded': EuColourNav.addColourDataFromAjax
+            'onDataLoaded': function(data, loadOffset){
+              if(typeof window.I18n === 'object'){
+
+                $.each(data, function(i){
+
+                  var ariaLabel = window.I18n.translate('site.object.actions.open-media');
+                  var targetEl  = $el.find('.lc-item-container').children().eq(loadOffset + i).find('a');
+                  var typeKey   = null;
+
+                  if(this.is_audio){
+                    typeKey = 'audio';
+                  }
+                  else if(this.is_iiif){
+                    typeKey = 'IIIF';
+                  }
+                  else if(this.is_image){
+                    typeKey = 'image';
+                  }
+                  else if(this.is_oembed){
+                    typeKey = 'oembed';
+                  }
+                  else if(this.is_pdf){
+                    typeKey = 'pdf';
+                  }
+                  else if(this.is_text){
+                    typeKey = 'text';
+                  }
+                  else if(this.is_video){
+                    typeKey = 'video';
+                  }
+                  if(typeKey){
+                    ariaLabel = ariaLabel + ' ' + window.I18n.translate('global.media.types.' + typeKey);
+                  }
+                  targetEl.attr('aria-label', ariaLabel);
+                });
+              }
+              EuColourNav.addColourDataFromAjax(data);
+            }
           }).init();
 
           if(typeof ResizeObserver === 'undefined'){

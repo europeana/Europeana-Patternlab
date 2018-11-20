@@ -156,7 +156,7 @@ define(['jquery', 'util_resize', 'viewport_contains', 'eu_lazy_image_loader', 'u
         });
 
         if(that.ops.onDataLoaded){
-          that.ops.onDataLoaded(data);
+          that.ops.onDataLoaded(data, loadOffset);
         }
 
         that.load();

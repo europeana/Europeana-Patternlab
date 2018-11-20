@@ -11,35 +11,38 @@
   <div class="inner"><a {{#external_media}}href="{{.}}" target="_blank"{{/external_media}}
       {{#is_audio}}
           data-type="audio"
+          aria-label="{{i18n.site.object.actions.open-media}} {{i18n.global.media.types.audio}}"
       {{/is_audio}}
 
       {{#is_iiif}}
           data-type="iiif"
+          aria-label="{{i18n.site.object.actions.open-media}} {{i18n.global.media.types.IIIF}}"
       {{/is_iiif}}
 
       {{#is_image}}
           data-type="image"
+          aria-label="{{i18n.site.object.actions.open-media}} {{i18n.global.media.types.image}}"
       {{/is_image}}
 
       {{#is_pdf}}
           data-type="pdf"
+          aria-label="{{i18n.site.object.actions.open-media}} {{i18n.global.media.types.pdf}}"
       {{/is_pdf}}
 
       {{#is_oembed}}
           data-type="oembed"
+          aria-label="{{i18n.site.object.actions.open-media}} {{i18n.global.media.types.oembed}}"
       {{/is_oembed}}
 
       {{#is_text}}
           data-type="text"
+          aria-label="{{i18n.site.object.actions.open-media}} {{i18n.global.media.types.text}}"
       {{/is_text}}
 
       {{#is_video}}
           data-type="video"
+          aria-label="{{i18n.site.object.actions.open-media}} {{i18n.global.media.types.video}}"
       {{/is_video}}
-
-      {{#is_midi}}
-          data-type="midi"
-      {{/is_midi}}
 
       {{#play_html}}
          data-html="{{.}}"
