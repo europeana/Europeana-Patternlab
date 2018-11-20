@@ -724,6 +724,7 @@
           "news": "News",
           "object": {
               "created-by": "Created By",
+              "main-img-alt": "Image from object titled",
               "similar-result": "Result",
               "similar-results": "Results",
               "similar-suggestions": "Suggested content",

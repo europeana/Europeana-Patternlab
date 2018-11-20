@@ -2173,6 +2173,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
 				"technicalmetadata": "Technical metadata",
 				"view-more-at": "View more at"
 			},
+      "main-img-alt": "Image from object titled",
 			"promotions": {
 				"card-labels": {
 					"dcType": "The type of this object",

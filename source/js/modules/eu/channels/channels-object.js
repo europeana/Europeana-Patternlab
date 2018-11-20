@@ -130,18 +130,26 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     }
   }
 
+  function getTitleText(replaceQuotes){
+    var res = $('.channel-object-title:eq(0)').text();
+    if(replaceQuotes){
+      return res.replace(/\"/g, '');
+    }
+    return res;
+  }
+
   function initTitleBar(cb){
 
     var classSummary = 'title-summary';
     var selSummary   = '.' + classSummary;
-    var titleText    = $('.channel-object-title:eq(0)').text();
+    var titleText    = getTitleText();
 
     require(['eu_title_bar', 'util_eu_ellipsis'], function(EuTitlebar, Ellipsis){
       var ellipsis;
       EuTitlebar.init({
         $container:        $('.header-wrapper'),
         $detectionElement: $('.object-media-viewer'),
-        markup:            '<div class="title-bar"><span class="content"><img class="img-remind"><span class="' + classSummary + '" style="display:none;">' + titleText + '</span></span></div>',
+        markup:            '<div class="title-bar"><span class="content"><img class="img-remind" alt="' + getTitleText(true) + '"><span class="' + classSummary + '" style="display:none;">' + titleText + '</span></span></div>',
         onShow: function(){
           if(!ellipsis){
             ellipsis = Ellipsis.create($(selSummary));
@@ -597,10 +605,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         updateCtrls();
 
         $('.zoomable').addClass('busy').css('width', initW);
-        $('<img style="background-image:url(' + thumbnail + '); display:block; margin:auto; width:' + initW + 'px;">').appendTo('.zoomable').attr('src', uri);
+        var zImg = $('<img style="background-image:url(' + thumbnail + '); width:' + initW + 'px;">').appendTo('.zoomable').attr('src', uri);
+
+        if(typeof window.I18n === 'object'){
+          zImg.attr('alt', window.I18n.translate('site.object.main-img-alt') + ' \'' + getTitleText(true) + '\'' );
+        }
 
         setTimeout(function(){
-          $('.zoomable > img').removeAttr('style');
+          zImg.removeAttr('style');
           $('.zoomable').removeClass('busy');
           resetZoomable();
         }, 333);
