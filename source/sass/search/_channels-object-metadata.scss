@@ -221,10 +221,11 @@
 
           .ctrl {
             &::before{
+              bottom:      -0.02em;
               content:     attr(data-before);
               font-size:   $font-size-slightly-smaller;
               font-weight: lighter;
-              line-height: 1.4;
+              line-height: 100%;
               position:    absolute;
               right:       2rem;
               text-align:  right;
