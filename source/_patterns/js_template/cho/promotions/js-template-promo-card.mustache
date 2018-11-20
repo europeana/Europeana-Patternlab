@@ -11,15 +11,15 @@
       </span>
     [[/is_prev]]
     [[#overlay]]
-      [[#img.src]]
+      [[#link_more]]
         <div class="gridlayout-card gridlayout-card-entity" style="background-image: url('[[img.src]]');">
           <div class="card-image">
               [[#url]]<a href="[[.]]"></a>[[/url]]
           </div>
-      [[/img.src]]
-      [[^img.src]]
+      [[/link_more]]
+      [[^link_more]]
         <div class="gridlayout-card gridlayout-card-entity">
-      [[/img.src]]
+      [[/link_more]]
     [[/overlay]]
     [[^overlay]]
     <div class="gridlayout-card">
@@ -64,7 +64,7 @@
             [[/excerpt.short]]
           </h3>
         [[/title]]
-        [[#overlay.title]]<h3><a href="[[url]]">[[.]]</a></h3>[[/overlay.title]]
+        [[#overlay.title]]<h3><a href="[[overlay.link_more.url]]">[[.]]</a></h3>[[/overlay.title]]
         <div class="description">
           [[#excerpt]]
             [[#short]]
