@@ -154,9 +154,10 @@
   @media all and (min-width: $bp-med) {
     @include span(6);
 
-    background: $offwhite;
-    margin: 0;
-    padding: $space-half + $space-quarter 0 $space-double 0;
+    background:     $offwhite;
+    margin:         0;
+    padding-bottom: $space-double;
+    padding-top:    $space-half + $space-quarter;
 
     >h2{
       margin-bottom: $pad;

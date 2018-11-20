@@ -444,6 +444,11 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     var s = $('#date-range-start');
     var e = $('#date-range-end');
 
+    if(s.attr('type') === 'date'){
+      // we only constrain the inputs if they type number
+      return;
+    }
+
     e.attr('max', new Date().getFullYear());
     s.attr('max', new Date().getFullYear());
 
@@ -477,6 +482,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       }
       // thematicCollection = name;
     }
+
     bindViewButtons(defView);
     bindResultSizeLinks();
     bindGA();
