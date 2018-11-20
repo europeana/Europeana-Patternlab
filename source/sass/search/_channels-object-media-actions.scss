@@ -32,12 +32,6 @@
       }
     }
 
-    > .action-ctrl a {
-      @media all and (min-width: $bp-small-3) {
-        width: 8.2em;
-      }
-    }
-
     @media all and (min-width: $bp-xl) {
       flex-wrap:               nowrap;
       -webkit-justify-content: flex-start;
