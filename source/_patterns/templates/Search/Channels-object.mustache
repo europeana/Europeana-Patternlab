@@ -246,15 +246,17 @@
                   <span class="label">
                     <h4>{{i18n.global.facet.header.reusability}}</h4>
                     <span class="label-large">{{license_brief}}{{^license_brief}}{{#rights}}{{license_brief}}{{/rights}}{{/license_brief}}</span>
-
                     {{^license_restricted}}
                       {{#rights}}
                         {{#license_restricted}}
                           <a class="link-black-blue" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" target="_blank"><h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}<span class="svg-icon-external"></span></h4></a>
                         {{/license_restricted}}
                         {{^license_restricted}}
-                          <h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}</h4>
+                        <h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}</h4>
                         {{/license_restricted}}
+                      {{/rights}}
+                      {{^rights}}
+                        <h4>{{i18n.global.facet.reusability.free-reuse}}</h4>
                       {{/rights}}
                     {{/license_restricted}}
                     {{#license_restricted}}
