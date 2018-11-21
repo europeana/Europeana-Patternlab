@@ -1511,7 +1511,8 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
 					"info": "limitations apply",
 					"label": "Limited Re-use"
 				},
-				"simple": "Simple"
+				"simple": "Simple", 
+				"free-reuse": "Free reuse"
 			},
 			"rights": {
 				"cc-by": "CC BY",

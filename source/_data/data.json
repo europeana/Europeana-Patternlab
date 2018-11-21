@@ -891,8 +891,9 @@
               "restricted-brief": "Yes",
 
               "open-info":        "with attribution",
-              "permission-info": "learn why",
-              "restricted-info": "limitations apply"
+              "permission-info":  "learn why",
+              "restricted-info":  "limitations apply",
+              "free-reuse":       "Free reuse"
             }
           },
           "feedback":{
