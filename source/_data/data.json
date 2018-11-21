@@ -890,9 +890,9 @@
               "restricted-brief": "Yes",
 
               "open-info":        "with attribution",
-              "permission-info": "learn why",
-              "restricted-info": "limitations apply",
-              "free-reuse": "Free reuse"
+              "permission-info":  "learn why",
+              "restricted-info":  "limitations apply",
+              "free-reuse":       "Free reuse"
             }
           },
           "feedback":{
