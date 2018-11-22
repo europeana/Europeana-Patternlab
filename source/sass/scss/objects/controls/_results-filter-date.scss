@@ -28,19 +28,16 @@
     flex-grow: 1;
   }
 
-  [type]{
-    width: unset;
-  }
-
   [type=number],
   label{
     width: 5.2em;
   }
 
   [type=submit]{
-    background:   $white;
-    border:       1px solid $eu-blue;
-    padding:      0.5rem 0.7rem;
+    background: $white;
+    border:     1px solid $eu-blue;
+    padding:    0.5rem 0.7rem;
+    width:      100%;
 
     svg.icon{
       fill:         $eu-blue;
@@ -57,25 +54,47 @@
     }
   }
 
-  @media all and (min-width: 30em) {
+  .control-group [type=date]{
+    width: 100%;
+  }
+
+  .control-group{
+    padding-left:  0.2em;
+    padding-right: 0.2em;
+  }
+
+  @media all and (min-width: $bp-small-2) {
+
+    .control-group{
+      padding-left:  0;
+      padding-right: 0;
+    }
 
     .date:nth-of-type(2){
       flex-grow:    10000;
       padding-left: 0.4em;
     }
 
+    .control-group [type=date]{
+      width: unset;
+    }
   }
 
-  @media all and (max-width: 30em) {
+  @media all and (min-width: $bp-med) {
+    .control-group{
+      [type=date]{
+        width: 100%;
+      }
+    }
+    .date:nth-of-type(2){
+      padding-left: 0;
+    }
+  }
 
+  @media all and (min-width: 80em) {
     .control-group{
       padding-left:  0.2em;
       padding-right: 0.2em;
     }
-
-    .control-group [type]{
-      width: 100%;
-    }
-
   }
 }
