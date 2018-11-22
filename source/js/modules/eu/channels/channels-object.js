@@ -1201,11 +1201,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         $.each(window.enabledPromos, function(i, promo){
           var mapping = null;
           var tempId  = 'card';
-
-          if(promo.id === 'blog'){
-            mapping = PromoLoader.getMappingFunctions()['fnBlogToGeneric'];
-          }
-
           var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url, mapping: mapping };
           promoConf.push(conf);
 
