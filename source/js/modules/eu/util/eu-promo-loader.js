@@ -1,29 +1,5 @@
 define(['jquery'], function($){
 
-  var mappingFunctions = {
-    fnBlogToGeneric : function(dataIn){
-      if(!dataIn.data || !dataIn.data.length){
-        return;
-      }
-      data = dataIn.data[0];
-      var data = {
-        'url': data.links.self.replace('/json', ''),
-        'img': {
-          'src': data.attributes.image ? data.attributes.image.thumbnail : false
-        },
-        'title': data.attributes.title,
-        'type': data.attributes.posttype.toLowerCase(),
-        'date': data.attributes.datepublish.split('T')[0],
-        'attribution': data.attributes.image_attribution_holder,
-        'excerpt': {
-          'short': data.attributes.teaser
-        },
-        'tags': false
-      };
-      return data;
-    }
-  };
-
   function load(conf, $templateMarkup, callback){
 
     var expected   = conf ? conf.length : 0;
@@ -128,9 +104,6 @@ define(['jquery'], function($){
   }
 
   return {
-    load: load,
-    getMappingFunctions: function(){
-      return mappingFunctions;
-    }
+    load: load
   };
 });
