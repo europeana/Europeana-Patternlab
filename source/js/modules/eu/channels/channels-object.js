@@ -1177,14 +1177,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         });
       });
     }
-
-    var promoBoxes = promotions.find('.gridlayout-card');
-    promoBoxes.find('.description .excerpt').each(function(i, ob){
-      ob = $(ob);
-      if (ob.text().length > 0) {
-        ob.html(ob.text());
-      }
-    });
   }
 
   function makePromoRequest(){
@@ -1199,9 +1191,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
         $.each(window.enabledPromos, function(i, promo){
-          var mapping = null;
           var tempId  = 'card';
-          var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url, mapping: mapping };
+          var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url };
           promoConf.push(conf);
 
           if(promo.relation){
@@ -1293,9 +1284,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       res.push({
         'url': item['object_url'].split('?')[0] + sParams,
         'media_type': item.media_type,
-        'img': item.img,
+        'images': [item.img],
         'title': item.title,
-        'excerpt': (item.text ? item.text.medium : '')
+        'description': (item.text ? item.text.medium : '')
       });
     }
     return res;

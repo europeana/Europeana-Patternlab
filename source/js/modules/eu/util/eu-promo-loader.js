@@ -17,20 +17,29 @@ define(['jquery'], function($){
 
     var processCallback = function(Mustache, data, confItem){
 
-      var templateId = confItem.templateId;
-      var id         = confItem.id;
+      if(data){
+        if(confItem.relation){
+          data.relation = confItem.relation;
+        }
 
-      if(confItem.relation){
-        data.relation = confItem.relation;
-      }
-      if(confItem.mapping){
-        data = confItem.mapping(data);
-      }
+        if(confItem.id === 'gallery'){
+          data.is_gallery = true;
+        }
+        if(confItem.id === 'entity'){
+          data.is_entity = true;
+        }
+        if(confItem.id === 'exhibition'){
+          data.is_exhibition = true;
+        }
+        if(['news', 'generic', 'next', 'previous'].indexOf(confItem.id) > -1){
+          data.card_bg_image = true;
+        }
 
-      var template = $templateMarkup.find('#' + templateId).html();
+        var templateId = confItem.templateId;
+        var id         = confItem.id;
+        var template   = $templateMarkup.find('#' + templateId).html();
 
-      $(data).each(function(i, ob){
-        var html = Mustache.render(template, ob);
+        var html = Mustache.render(template, data);
 
         if(elements[id]){
           elements[id].push(html);
@@ -38,7 +47,8 @@ define(['jquery'], function($){
         else{
           elements[id] = [html];
         }
-      });
+
+      }
     };
 
     var checkDone = function(){
