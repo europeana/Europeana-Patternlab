@@ -210,9 +210,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
         return {
           'url':  fnItemStorageUrl(fnGetAttr($el, '.link', 'href')),
           'media_type': fnGetAttr($el, '.svg-icon', 'class').replace('svg-icon', '').replace('svg-icon-', '').trim(),
-          'img':{
-            'src': fnGetAttr($el, 'img', 'src')
-          },
+          'images': [fnGetAttr($el, 'img', 'src')],
           'title': fnGetText($el.find('.item-info a'))
         };
       };
