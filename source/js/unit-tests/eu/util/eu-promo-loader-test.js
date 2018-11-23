@@ -62,13 +62,6 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
       });
     });
 
-    it('renders the card multiple times when supplied with an array', function(done){
-      PromoLoader.load(conf, templateMarkup, function(markup){
-        expect(markup.find('h2.promo-generic').length).toBe(2);
-        done();
-      });
-    });
-
     it('can interpolate pre-loaded data into the loaded data', function(done){
 
       var testText      = 'ENTITIY-PRELOADED';
