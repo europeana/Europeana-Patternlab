@@ -31,7 +31,10 @@
               },
               "on": "http://iiif.io/api/presentation/2.1/example/fixtures/canvas/1/c1.json"
             }
-          ]
+          ],
+          "otherContent": [{
+            "@id" : "/base/js/unit-tests/fixture-data/media/iiif-texts.json"
+          }]
         },
         {
           "@id": "http://iiif.io/api/presentation/2.1/example/fixtures/canvas/1/c2.json",
@@ -56,7 +59,10 @@
               },
               "on": "http://iiif.io/api/presentation/2.1/example/fixtures/canvas/1/c1.json"
             }
-          ]
+          ],
+          "otherContent": [{
+            "@id" : "/base/js/unit-tests/fixture-data/media/iiif-texts.json"
+          }]
         }
       ]
     }

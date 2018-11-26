@@ -212,7 +212,7 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
               d.resolve(annotationsData);
               return d.promise();
             }
-            else if(url === 'http://url#char=0,56.json'){
+            else if(url === '/base/js/unit-tests/fixture-data/media/iiif-texts.json#char=0,56'){
               // full text
               var fullText = annotationsData.resources[0].fullText;
               d.resolve(fullText);
@@ -475,8 +475,6 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
           });
         }, loadWaitTime);
       });
-
     });
-
   });
 });
