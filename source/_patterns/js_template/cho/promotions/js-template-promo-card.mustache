@@ -11,18 +11,16 @@
       </span>
     [[/is_prev]]
 
-    [[#is_entity]]
-      [[#images]]
-        <div class="gridlayout-card gridlayout-card-entity" style="background-image: url('[[.]]');">
-          <div class="card-image">
+      <div class="gridlayout-card [[#is_entity]]gridlayout-card-entity[[/is_entity]]" style="[[#is_entity]][[#images]]background-image: url('[[.]]');[[/images]][[/is_entity]]">
+        [[#is_entity]]
+          [[#images]]
+            <div class="card-image">
               [[#url]]<a href="[[.]]"></a>[[/url]]
-          </div>
-      [[/images]]
-    [[/is_entity]]
+            </div>
+          [[/images]]
+        [[/is_entity]]
 
-    [[^is_entity]]
-      <div class="gridlayout-card">
-        [[#image]]
+        [[#images]]
           [[#description]]
             [[#logo_url]]
             <div class="card-image">
@@ -30,7 +28,7 @@
             </div>
             [[/logo_url]]
           [[/description]]
-        [[/image]]
+        [[/images]]
 
         [[#is_gallery]]
           <div class="card-image card-image-set image-set">
@@ -49,31 +47,29 @@
             </div>
           [[/images]]
         [[/card_bg_image]]
-    [[/is_entity]]
       <div class="card-content">
         [[#type]]<h4>[[.]]</h4>[[/type]]
         [[#title]]
           <h3>
             <a href="[[url]]">[[.]]</a>
-              [[#media_type]]
+              [[^description]][[#media_type]]
                 <span class="icon media-type-[[.]]"></span>
-              [[/media_type]]
+              [[/media_type]][[/description]]
           </h3>
         [[/title]]
         [[#description]]
           <div class="description">
 
-            [[^is_gallery]]
-              [[^is_exhibition]]
-                <div class="excerpt">[[[.]]]</div>
-              [[/is_exhibition]]
-            [[/is_gallery]]
-
+            [[^is_entity]]
+              [[^is_gallery]]
+                [[^is_exhibition]]
+                  <div class="excerpt">[[[.]]]</div>
+                [[/is_exhibition]]
+              [[/is_gallery]]
+            [[/is_entity]]
+             
             [[#is_entity]]
               <p>[[[description]]]</p>
-              <span class="extras">
-                <a href="[[url]]">[[more_link_text]]</a>
-              </span>
             [[/is_entity]]
 
             [[#is_gallery]]
@@ -90,17 +86,8 @@
           </div>
         [[/description]]
 
-        <p class="extras">[[#is_entity]]<a href="[[url]]">[[text]]</a>[[/is_entity]]</p>
+        <p class="extras">[[#is_entity]]<a href="[[url]]">[[more_link_text]]</a>[[/is_entity]]</p>
         <p class="extras">[[#date]]<span>[[.]]</span>[[/date]][[#attribution]]<span>[[.]]</span>[[/attribution]]</p>
-        [[#tags]]
-          <ul class="card-tags">
-            [[#items]]
-              <li>
-                [[#url]]<a class="promo-tag-link" href="[[.]]">[[/url]]#[[text]][[#url]]</a>[[/url]]
-              </li>
-            [[/items]]
-          </ul>
-        [[/tags]]
       </div>
       [[#relation]]<div class="card-footer">[[.]]</div>[[/relation]]
     </div>
