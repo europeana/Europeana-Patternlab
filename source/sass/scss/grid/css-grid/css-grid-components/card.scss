@@ -11,6 +11,28 @@ $card-fixed-width: 275px;
 $colour_overlaid_text: #fff;
 $bg_colour_overlaid_text: rgba(0, 0, 0, 0.7);
 
+.no-js{
+  .js-remove{
+    display: none;
+  }
+}
+
+.collections-promos {
+  display:                 flex;
+  justify-content:         space-between;
+  margin-bottom:           3px;
+  padding-bottom:          $spacing-half;
+  position:                relative;
+}
+
+.object-details:not(.zoom-two) {
+  .collections-promos{
+    flex-direction: column;
+    max-width: 100%;
+    padding-bottom: $spacing-2x;
+  }
+}
+
 .gridlayout-card {
   background-color: $grid-card-gray;
   background-position: center center;
@@ -58,6 +80,8 @@ $bg_colour_overlaid_text: rgba(0, 0, 0, 0.7);
 
     .ve-foyer-card {
       height: inherit;
+      margin:  0;
+      padding: 0;
       width: 100%;
 
       .ve-foyer-card-content {
@@ -158,6 +182,7 @@ $bg_colour_overlaid_text: rgba(0, 0, 0, 0.7);
     grid-template-columns: 70% auto;
     grid-template-rows: 65% 35%;
     height: $card-imageset-height;
+    margin-bottom: 0;
     max-height: $card-imageset-height;
     position: relative;
 
@@ -250,6 +275,7 @@ $bg_colour_overlaid_text: rgba(0, 0, 0, 0.7);
     }
 
     .icon {
+      align-self: center;
       background-position: right center;
       background-repeat: no-repeat;
       height: $spacing-2x;
