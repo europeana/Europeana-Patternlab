@@ -25,11 +25,13 @@ $bg_colour_overlaid_text: rgba(0, 0, 0, 0.7);
   position:                relative;
 }
 
-.object-details:not(.zoom-two) {
-  .collections-promos{
-    flex-direction: column;
-    max-width: 100%;
-    padding-bottom: $spacing-2x;
+@media all and (min-width: $bp-med) {
+  .object-details:not(.zoom-two) {
+    .collections-promos{
+      flex-direction: column;
+      max-width: 100%;
+      padding-bottom: $spacing-2x;
+    }
   }
 }
 
