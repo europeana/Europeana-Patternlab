@@ -48,7 +48,6 @@
 
   "content":{
     "anchor_title": true,
-    "helpbar_tip": "This is the helpbar for the A-Z page",
     "browse_lists": [
       {
         "head":{
