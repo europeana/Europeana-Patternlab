@@ -164,17 +164,6 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       var page    = $.url(location.href).param('page');
       var channel = $('.breadcrumbs').data('store-channel-name');
 
-      var updateUrl = function($anchor){
-        var url = $anchor.attr('href');
-        if(url && url.indexOf('design=new') === -1){
-          $anchor.attr('href', url + '&design=new');
-        }
-      };
-
-      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a, .search-list-item a').not('.filter-name-icon, .mlt_remove').each(function(){
-        updateUrl($(this));
-      });
-
       var fnGetText = function($el){
         return $el.contents().filter(function(){
           return this.nodeType === 3;

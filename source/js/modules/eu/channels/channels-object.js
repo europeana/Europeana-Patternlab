@@ -1736,14 +1736,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         params['per_page'] = params['per_page'] ? parseInt(params['per_page']) : null;
         params['per_page'] = localStorage.getItem('eu_portal_results_count') ? parseInt(localStorage.getItem('eu_portal_results_count')): 12;
 
-        delete params['dc'];
-
-        if(typeof params['q'] !== 'string'){
-          log('no q param: ' + typeof params['q']);
-          makePromoRequest();
-          return;
-        }
-
         var channelCheck = function(url){
 
           var cIndex = url.indexOf('/collections/');
@@ -1785,6 +1777,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         }
 
         DataContinuity.prep(function(cameFromSearch){
+
           if(cameFromSearch){
 
             var searchUrlNav = searchUrl.split('?')[0].replace('.html', '') + '.json?';
