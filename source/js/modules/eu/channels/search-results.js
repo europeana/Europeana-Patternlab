@@ -195,7 +195,6 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
           delete params['l'];
 
           params['page']   = page ? page : 1;
-          params['design'] = 'new';
 
           if(channel){
             params['channel'] = channel;
