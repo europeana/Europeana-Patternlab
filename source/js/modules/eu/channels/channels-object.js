@@ -1734,14 +1734,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         var params = $.url(location.href).param();
 
-        delete params['dc'];
-
-        if(typeof params['q'] !== 'string'){
-          log('no q param: ' + typeof params['q']);
-          makePromoRequest();
-          return;
-        }
-
         var channelCheck = function(url){
 
           var cIndex = url.indexOf('/collections/');
@@ -1783,6 +1775,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         }
 
         DataContinuity.prep(function(cameFromSearch){
+
           if(cameFromSearch){
 
             var searchUrlNav = searchUrl.split('?')[0].replace('.html', '') + '.json?';
