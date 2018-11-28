@@ -75,7 +75,7 @@
                       <div {{#playable}}class="playable"{{/playable}}{{^playable}}class="unplayable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
                         <div class="zoomable">
                           {{#thumbnail}}
-                            <img src="{{.}}"/>
+                            <img src="{{.}}" alt="{{i18n.site.object.main-img-alt}} {{#display_title}}{{.}}{{/display_title}} {{^display_title}}{{i18n.site.object.title_unavailable}}{{/display_title}}"/>
                           {{/thumbnail}}
                         </div>
                         <div class="media-options">
