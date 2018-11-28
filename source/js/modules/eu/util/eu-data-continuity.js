@@ -1,10 +1,15 @@
 define(['jquery'], function($){
 
-  var pageDC  = window.location.hash.replace('#', '');
-  pageDC = pageDC.length > 0 ? pageDC : null;
-
   var cbFired = false;
+  var pageDC  = null;
   var timerId;
+
+  var getHash = function(){
+    var res  = window.location.hash.replace('#', '');
+    return res.length > 0 ? res : null;
+  };
+
+  pageDC = getHash();
 
   // Allow windows opened in other tabs to inherit the session
 
@@ -84,8 +89,7 @@ define(['jquery'], function($){
 
       sessionStorage.clear();
       localStorage.clear();
-      pageDC  = window.location.hash.replace('#', '');
-      pageDC = pageDC.length > 0 ? pageDC : null;
+      pageDC = getHash();
       cbFired = false;
     }
   };
