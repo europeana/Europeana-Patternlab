@@ -38,6 +38,8 @@ define(['jquery', 'util_resize'], function($){
 
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var annotationData    = {}; // Map annotation data label: url
+  var disabledAnnotations = true; // temporarily disable
+
   var iiifLayers        = {}; // Map layers (loaded): label: layer
   var miniMapCtrls      = {}; // Mini map object storage
   var allCanvases       = [];
@@ -379,8 +381,10 @@ define(['jquery', 'util_resize'], function($){
         $.each(imageContainingCanvases, function(_, val) {
           labelledData[val.label] = val;
 
-          if(val.otherContent && val.otherContent instanceof Array && val.otherContent.length > 0){
-            annotationData[val.label] = val.otherContent[0]['@id'];
+          if(!disabledAnnotations){
+            if(val.otherContent && val.otherContent instanceof Array && val.otherContent.length > 0){
+              annotationData[val.label] = val.otherContent[0]['@id'];
+            }
           }
 
           allCanvases.push(val);
