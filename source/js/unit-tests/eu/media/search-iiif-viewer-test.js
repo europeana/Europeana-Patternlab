@@ -186,6 +186,10 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
       });
     });
 
+    /*
+
+    // disabled for #EC-3200
+
     describe('Transcriptions', function(){
 
       var annotationsData;
@@ -352,8 +356,8 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
           }, 50);
         }, loadWaitTime);
       });
-
     });
+    */
 
     describe('Mini Map', function(){
 
