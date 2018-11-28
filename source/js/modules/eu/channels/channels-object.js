@@ -1299,7 +1299,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     var s = sessionStorage;
 
     var fixOffset = function(){
-      var per_page = params['per_page'] ? parseInt(params['per_page']) : 12;
+      var per_page = params['per_page'];
       var page     = params['page'] ? parseInt(params['page']) : 1;
       var offset   = (per_page * page) - per_page;
       s.eu_portal_last_results_offset = offset;
@@ -1336,7 +1336,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   function getNextPrevItems(callback, searchUrl, params){
 
     var s           = sessionStorage;
-    var per_page    = params['per_page'] ? parseInt(params['per_page']) : 12;
+    var per_page    = params['per_page'];
     var page        = params['page'] ? parseInt(params['page']) : 1;
     var from        = ((page - 1) * per_page) + 1;
     var items       = s.eu_portal_last_results_items ? JSON.parse(s.eu_portal_last_results_items) : [];
@@ -1733,6 +1733,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       require(['eu_data_continuity', 'purl'], function(DataContinuity){
 
         var params = $.url(location.href).param();
+        params['per_page'] = params['per_page'] ? parseInt(params['per_page']) : null;
+        params['per_page'] = localStorage.getItem('eu_portal_results_count') ? parseInt(localStorage.getItem('eu_portal_results_count')): 12;
 
         delete params['dc'];
 
@@ -1763,7 +1765,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         var s               = sessionStorage;
         var searchUrl       = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/' + (channelCheck(location.href) ? 'collections/' + params['collection'] : 'search.html') + '?' + $.param(params);
-        var per_page        = params['per_page'] ? parseInt(params['per_page']) : 12;
+        var per_page        = params['per_page'];
         var backLinkPresent = $('.breadcrumbs .back-url').length > 0;
 
         channelCheck(searchUrl);
