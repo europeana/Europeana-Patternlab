@@ -566,7 +566,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         removeOldMedia();
 
-        $('<img src="' + thumbnail + '">').appendTo('.zoomable').imagesLoaded(function(){
+        $('<img src="' + thumbnail + '" alt="' + window.I18n.translate('site.object.main-img-alt') + ' \'' + getTitleText(true) + '\'' + '">').appendTo('.zoomable').imagesLoaded(function(){
           if($(this)[0].naturalHeight > minWidthMedia){
             omv.addClass('thumbnail-tall');
           }
