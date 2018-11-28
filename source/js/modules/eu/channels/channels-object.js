@@ -1743,7 +1743,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           makePromoRequest();
           return;
         }
-        
+
         var channelCheck = function(url){
 
           var cIndex = url.indexOf('/collections/');
