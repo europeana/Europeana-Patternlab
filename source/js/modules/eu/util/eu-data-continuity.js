@@ -1,8 +1,15 @@
-define(['jquery', 'purl'], function($){
+define(['jquery'], function($){
 
-  var pageDC  = $.url(window.location.href).param('dc');
   var cbFired = false;
+  var pageDC  = null;
   var timerId;
+
+  var getHash = function(){
+    var res  = window.location.hash.replace('#', '');
+    return res.length > 0 ? res : null;
+  };
+
+  pageDC = getHash();
 
   // Allow windows opened in other tabs to inherit the session
 
@@ -26,9 +33,9 @@ define(['jquery', 'purl'], function($){
 
       e = e.originalEvent;
 
-      if(e.key == 'eu_dc_rollcall_reply'){
+      if(e.key === 'eu_dc_rollcall_reply'){
         if(e.newValue){
-          var val = e.newValue.split('?')[0];
+          var val = e.newValue.split('#')[0];
           sessionStorage.setItem(dcId, val);
         }
 
@@ -37,8 +44,8 @@ define(['jquery', 'purl'], function($){
           cb(true);
         }
       }
-      else if(e.key == 'eu_dc_rollcall'){
-        if(e.newValue.split('?')[0] == dcId){
+      else if(e.key === 'eu_dc_rollcall'){
+        if(e.newValue.split('#')[0] === dcId){
           var sVal = sessionStorage.getItem(dcId) + '?' + new Date().getTime();
           localStorage.setItem('eu_dc_rollcall_reply', sVal);
         }
@@ -52,7 +59,7 @@ define(['jquery', 'purl'], function($){
       }
     }
     else{
-      localStorage.setItem('eu_dc_rollcall', dcId + '?' + new Date().getTime());
+      localStorage.setItem('eu_dc_rollcall', dcId + '#' + new Date().getTime());
 
       timerId = setTimeout(function(){
         if(cb && !cbFired){
@@ -70,10 +77,7 @@ define(['jquery', 'purl'], function($){
       $(sel).each(function(){
         var $this  = $(this);
         var href   = $this.attr('href');
-        var params = $.url(href).param();
-
-        params['dc'] = pageDC;
-        href = href.split('?')[0] + '?' + $.param(params);
+        href = href.split('#')[0] + '#' + pageDC;
         $this.attr('href', href);
       });
     },
@@ -85,8 +89,7 @@ define(['jquery', 'purl'], function($){
 
       sessionStorage.clear();
       localStorage.clear();
-      pageDC  = $.url(window.location.href).param('dc');
-
+      pageDC = getHash();
       cbFired = false;
     }
   };
