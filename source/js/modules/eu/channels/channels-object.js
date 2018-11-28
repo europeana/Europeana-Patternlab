@@ -1286,7 +1286,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       res.push({
         'url': item['object_url'].split('?')[0] + sParams,
         'media_type': item.media_type,
-        'images': [item.img],
+        'images': item.img ? [item.img.src] : null,
         'title': item.title,
         'description': (item.text ? item.text.medium : '')
       });
