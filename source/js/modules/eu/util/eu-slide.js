@@ -172,7 +172,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
 
     $(swipeables).each(function(i, ob){
       if(ob.hasClass('js-swipe-not-stacked')){
-        if(isStacked(ob)){
+        if(isStacked(ob) || ob.children().length === 1){
           if(ob.hasClass('js-swipe-bound')){
             ob.off('movestart');
             ob.off('move');
