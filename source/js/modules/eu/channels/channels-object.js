@@ -1,5 +1,7 @@
 define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'eu_colour_nav', 'util_foldable'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader, EuColourNav) {
 
+  var nextPrevDisabled = true;
+
   var channelData     = null;
   var suggestions     = null;
   var promotions      = null;
@@ -1781,6 +1783,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         if(history.state && typeof history.state.currentIndex === 'number'){
           s.eu_portal_last_results_current = history.state.currentIndex;
+        }
+
+        if(nextPrevDisabled){
+          makePromoRequest();
+          return;
         }
 
         DataContinuity.prep(function(cameFromSearch){
