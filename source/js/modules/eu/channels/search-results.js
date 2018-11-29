@@ -159,7 +159,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
   var adaptForNewItemPage = function(){
 
-    if((typeof window.newRecordPageDesign === 'boolean' && window.newRecordPageDesign) || location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
+    if(typeof window.newRecordPageDesign === 'boolean' && window.newRecordPageDesign){
 
       var page    = $.url(location.href).param('page');
       var channel = $('.breadcrumbs').data('store-channel-name');
@@ -181,9 +181,9 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       var fnItemStorageUrl = function(url){
         if(url){
           var params = $.url(url).param();
-          delete params['l'];
 
-          params['page']   = page ? page : 1;
+          delete params['l'];
+          delete params['page'];
 
           if(channel){
             params['channel'] = channel;
@@ -210,18 +210,8 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
         var resInfo     = $('.result-info').text();
 
         items.each(function(i, ob){
-
-          var $item = $(ob);
-
-          lastResults.push(fnItemStorage($item));
-
-          $item.find('a').each(function(){
-            $(this).attr('href', $(this).attr('href') + '&page=' + (page ? page : 1));
-          });
-
+          lastResults.push(fnItemStorage($(ob)));
         });
-
-
 
         var continuityId = sessionStorage.getItem('continuityId');
 
@@ -239,6 +229,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
           sessionStorage.eu_portal_last_results_current = current;
         });
 
+        sessionStorage.eu_portal_last_results_page   = page ? page : 1;
         sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
         sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
         sessionStorage.eu_portal_last_results_offset = parseInt(resInfo.match(/\d+/)) - 1;
