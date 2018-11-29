@@ -162,6 +162,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     if(typeof window.newRecordPageDesign === 'boolean' && window.newRecordPageDesign){
 
       var page    = $.url(location.href).param('page');
+      var perPage = $.url(location.href).param('per_page');
       var channel = $('.breadcrumbs').data('store-channel-name');
 
       var fnGetText = function($el){
@@ -229,7 +230,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
           sessionStorage.eu_portal_last_results_current = current;
         });
 
-        sessionStorage.eu_portal_last_results_page   = page ? page : 1;
+        sessionStorage.eu_portal_last_results_page   = perPage ? perPage : 12;
         sessionStorage.eu_portal_last_results_page   = page ? page : 1;
         sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
         sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
