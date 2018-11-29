@@ -86,7 +86,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         var loadingDone = function(){
 
-          $('#page-url-input').val(window.location.href);
+          $('#page-url-input').val(window.location.href.split('#')[0]);
 
           if(stateRestore){
             $.each(stateRestore, function(i, ob){
@@ -1279,6 +1279,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     if(arr.length > 0){
       params  = $.extend($.url(decodeURI(arr[0].url)).param(), params);
       delete params['l'];
+      delete params['page'];
+
       sParams = '?' + $.param(params);
     }
     for(var i=0; i<arr.length; i++){
@@ -1296,18 +1298,19 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   function getNavDataBasic(searchUrl, params, callback){
 
-    var s = sessionStorage;
+    var s    = sessionStorage;
+    var page = s.eu_portal_last_results_page ? parseInt(s.eu_portal_last_results_page) : 1;
 
     var fixOffset = function(){
       var per_page = params['per_page'];
-      var page     = params['page'] ? parseInt(params['page']) : 1;
       var offset   = (per_page * page) - per_page;
       s.eu_portal_last_results_offset = offset;
-
       log('write offset (1) ' + offset);
     };
 
-    $.getJSON(searchUrl + $.param(params)).done(function(data){
+    params['q'] = params['q'] ? params['q'] : '';
+
+    $.getJSON(searchUrl + $.param(params) + '&page=' + page).done(function(data){
 
       if(!data){
         log('no data');
@@ -1337,7 +1340,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     var s           = sessionStorage;
     var per_page    = params['per_page'];
-    var page        = params['page'] ? parseInt(params['page']) : 1;
+    //var page        = params['page'] ? parseInt(params['page']) : 1;
+    var page        = s.eu_portal_last_results_page ? parseInt(s.eu_portal_last_results_page) : 1;
     var from        = ((page - 1) * per_page) + 1;
     var items       = s.eu_portal_last_results_items ? JSON.parse(s.eu_portal_last_results_items) : [];
     var count       = items.length;
@@ -1374,11 +1378,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       return;
     }
 
-    params['page'] = page + (nextNeeded ? 1 : -1);
+    page = page + (nextNeeded ? 1 : -1);
+    //params['page'] = page;
+    sessionStorage.eu_portal_last_results_page = page;
+    params['q'] = params['q'] ? params['q'] : '';
 
     log('will search on ' + (searchUrl + $.param(params)));
 
-    $.getJSON(searchUrl + $.param(params)).done(function(data){
+    $.getJSON(searchUrl + $.param(params) + '&page=' + page).done(function(data){
 
       if(data){
         data = convertDataResultToNav(data['search_results'], params);
