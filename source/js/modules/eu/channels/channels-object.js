@@ -854,6 +854,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     else{
       log('type not implemented: ' + type);
       removeOldMedia();
+      showDefault();
     }
 
     if(downloadUri){
