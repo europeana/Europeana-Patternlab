@@ -159,21 +159,10 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
   var adaptForNewItemPage = function(){
 
-    if((typeof window.newRecordPageDesign === 'boolean' && window.newRecordPageDesign) || location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
+    if(typeof window.newRecordPageDesign === 'boolean' && window.newRecordPageDesign){
 
       var page    = $.url(location.href).param('page');
       var channel = $('.breadcrumbs').data('store-channel-name');
-
-      var updateUrl = function($anchor){
-        var url = $anchor.attr('href');
-        if(url && url.indexOf('design=new') === -1){
-          $anchor.attr('href', url + '&design=new');
-        }
-      };
-
-      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a, .search-list-item a').not('.filter-name-icon, .mlt_remove').each(function(){
-        updateUrl($(this));
-      });
 
       var fnGetText = function($el){
         return $el.contents().filter(function(){
@@ -192,10 +181,9 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       var fnItemStorageUrl = function(url){
         if(url){
           var params = $.url(url).param();
-          delete params['l'];
 
-          params['page']   = page ? page : 1;
-          params['design'] = 'new';
+          delete params['l'];
+          delete params['page'];
 
           if(channel){
             params['channel'] = channel;
@@ -210,11 +198,8 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
         return {
           'url':  fnItemStorageUrl(fnGetAttr($el, '.link', 'href')),
           'media_type': fnGetAttr($el, '.svg-icon', 'class').replace('svg-icon', '').replace('svg-icon-', '').trim(),
-          'img':{
-            'src': fnGetAttr($el, 'img', 'src')
-          },
-          'title': fnGetText($el.find('.item-info a')),
-          'relation': 'What goes here?'
+          'images': [fnGetAttr($el, 'img', 'src')],
+          'title': fnGetText($el.find('.item-info a'))
         };
       };
 
@@ -225,18 +210,8 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
         var resInfo     = $('.result-info').text();
 
         items.each(function(i, ob){
-
-          var $item = $(ob);
-
-          lastResults.push(fnItemStorage($item));
-
-          $item.find('a').each(function(){
-            $(this).attr('href', $(this).attr('href') + '&page=' + (page ? page : 1));
-          });
-
+          lastResults.push(fnItemStorage($(ob)));
         });
-
-
 
         var continuityId = sessionStorage.getItem('continuityId');
 
@@ -254,6 +229,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
           sessionStorage.eu_portal_last_results_current = current;
         });
 
+        sessionStorage.eu_portal_last_results_page   = page ? page : 1;
         sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
         sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
         sessionStorage.eu_portal_last_results_offset = parseInt(resInfo.match(/\d+/)) - 1;
@@ -445,6 +421,11 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     var s = $('#date-range-start');
     var e = $('#date-range-end');
 
+    if(s.attr('type') === 'date'){
+      // we only constrain the inputs if they type number
+      return;
+    }
+
     e.attr('max', new Date().getFullYear());
     s.attr('max', new Date().getFullYear());
 
@@ -478,6 +459,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       }
       // thematicCollection = name;
     }
+
     bindViewButtons(defView);
     bindResultSizeLinks();
     bindGA();

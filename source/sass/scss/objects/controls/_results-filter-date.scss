@@ -1,0 +1,100 @@
+.filter-date .filter-controls{
+
+  display:               flex;
+  flex-wrap:             wrap;
+  grid-gap:              0.4em;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+  label{
+    @include fontSize(11px);
+    padding-bottom: 0;
+    text-transform: capitalize;
+  }
+
+  .date-picker-pair{
+    display:         flex;
+    flex-grow:       5;
+    flex-wrap:       wrap;
+    justify-content: space-between;
+  }
+
+  .control-group.submit{
+    align-self: flex-end;
+    flex-grow:  1;
+    text-align: right;
+  }
+
+  .control-group.date{
+    flex-grow: 1;
+  }
+
+  [type=number],
+  label{
+    width: 5.2em;
+  }
+
+  [type=submit]{
+    background: $white;
+    border:     1px solid $eu-blue;
+    padding:    0.5rem 0.7rem;
+    width:      100%;
+
+    svg.icon{
+      fill:         $eu-blue;
+      height:       1em;
+      margin-right: 0;
+      width:        1em;
+    }
+
+    &:hover{
+      background: $eu-blue;
+      svg.icon{
+        fill: $white;
+      }
+    }
+  }
+
+  .control-group [type=date]{
+    width: 100%;
+  }
+
+  .control-group{
+    padding-left:  0.2em;
+    padding-right: 0.2em;
+  }
+
+  @media all and (min-width: $bp-small-2) {
+
+    .control-group{
+      padding-left:  0;
+      padding-right: 0;
+    }
+
+    .date:nth-of-type(2){
+      flex-grow:    10000;
+      padding-left: 0.4em;
+    }
+
+    .control-group [type=date]{
+      width: unset;
+    }
+  }
+
+  @media all and (min-width: $bp-med) {
+    .control-group{
+      [type=date]{
+        width: 100%;
+      }
+    }
+    .date:nth-of-type(2){
+      padding-left: 0;
+    }
+  }
+
+  @media all and (min-width: 80em) {
+    .control-group{
+      padding-left:  0.2em;
+      padding-right: 0.2em;
+    }
+  }
+}

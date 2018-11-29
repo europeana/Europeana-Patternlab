@@ -1,5 +1,61 @@
 <h2 class="top-element">Top Element</h2>
 
-<h2 class="middle-element" style="margin: 5000px 0; height: 200px; display:block; background:red;">Middle Element</h2>
+<div class="container">
+  <h2 class="el left-element-contained"  >Left Element</h2>
+  <h2 class="el centre-element-contained">Centre Element</h2>
+  <h2 class="el right-element-contained" >Right Element</h2>
+</div>
 
+<div class="offset-container">
+  <h2 class="offset-el left-element"  >Left Offset</h2>
+  <h2 class="offset-el centre-element">Centre Offset</h2>
+  <h2 class="offset-el right-element" >Right Offset</h2>
+</div>
+
+<h2 class="middle-element">Middle Element</h2>
 <h2 class="bottom-element">Bottom Element</h2>
+
+<style>
+  .container,
+  .offset-container{
+    display:        -webkit-box;
+    display:        -webkit-flex;
+    display:        flex;
+    flex-direction: row;
+  }
+
+  .container{
+    overflow: hidden;
+    position: absolute;
+    top:      300px;
+    width:    300px;
+
+  }
+
+  .offset-container{
+    overflow: hidden;
+    position: absolute;
+    width:    300px;
+  }
+
+  .offset-el{
+    position:  relative;
+    min-width: 100px;
+    overflow:  hidden;
+    width:     100px;
+  }
+
+  .el{
+    width:     120px;
+  }
+
+  .middle-element{
+    display:    block;
+    height:     200px;
+    margin:     5000px 0;
+  }
+
+  .top-element{
+    width: 120px;
+  }
+</style>

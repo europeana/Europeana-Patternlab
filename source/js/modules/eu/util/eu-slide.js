@@ -42,9 +42,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
     }
 
     if(typeof cmp.updateSwipe === 'function'){
-
       cmp.updateSwipe();
-
       var w = cmp.parents('.slide-rail').last().parent().width();
       cmp.find('.slide-rail').css('width', w);
     }
@@ -130,6 +128,15 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
         }
       }
     }
+    else{
+      // prevent pulling beyond the slide-rail limits (and ping-back on move end)
+      var projectedLeft = getNewLeft(cmp);
+
+      if(projectedLeft > 0 || projectedLeft < 0 - ssn){
+        e.stopPropagation();
+        return;
+      }
+    }
 
     if(!delegate){
       cmp.css({
@@ -165,7 +172,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
 
     $(swipeables).each(function(i, ob){
       if(ob.hasClass('js-swipe-not-stacked')){
-        if(isStacked(ob)){
+        if(isStacked(ob) || ob.children().length === 1){
           if(ob.hasClass('js-swipe-bound')){
             ob.off('movestart');
             ob.off('move');
@@ -239,7 +246,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
         back = true;
       }
     });
-    return [(ssn + l) > 0, back];
+    return [(parseInt(ssn) + l) > 0, back];
   }
 
   function simulateSwipe(cmp, dir, dist, callback){
@@ -307,7 +314,8 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
   return {
     makeSwipeable: makeSwipeable,
     simulateSwipe: simulateSwipe,
-    getNavOptions: getNavOptions
+    getNavOptions: getNavOptions,
+    isStacked: isStacked
   };
 
 });

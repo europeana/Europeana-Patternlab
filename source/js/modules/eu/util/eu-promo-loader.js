@@ -1,31 +1,5 @@
 define(['jquery'], function($){
 
-  var mappingFunctions = {
-    fnBlogToGeneric : function(dataIn){
-      if(!dataIn.data || !dataIn.data.length){
-        return;
-      }
-      data = dataIn.data[0];
-
-      var data = {
-        'url': data.links.self.replace('/json', ''),
-        'img': {
-          'src': data.attributes.image ? data.attributes.image.thumbnail : false
-        },
-        'title': data.attributes.teaser_attribution_title,
-        'type': data.attributes.posttype.toLowerCase(),
-        'date': data.attributes.datepublish.split('T')[0],
-        'label': 'Blog',
-        'attribution': data.attributes.image_attribution_holder,
-        'excerpt': {
-          'short': data.attributes.body
-        },
-        'tags': false
-      };
-      return data;
-    }
-  };
-
   function load(conf, $templateMarkup, callback){
 
     var expected   = conf ? conf.length : 0;
@@ -43,21 +17,29 @@ define(['jquery'], function($){
 
     var processCallback = function(Mustache, data, confItem){
 
-      var templateId = confItem.templateId;
-      var id         = confItem.id;
+      if(data){
+        if(confItem.relation){
+          data.relation = confItem.relation;
+        }
 
+        if(confItem.id === 'gallery'){
+          data.is_gallery = true;
+        }
+        if(confItem.id === 'entity'){
+          data.is_entity = true;
+        }
+        if(confItem.id === 'exhibition'){
+          data.is_exhibition = true;
+        }
+        if(['news', 'generic', 'next', 'previous'].indexOf(confItem.id) > -1){
+          data.card_bg_image = true;
+        }
 
-      if(confItem.relation){
-        data.relation = confItem.relation;
-      }
-      if(confItem.mapping){
-        data = confItem.mapping(data);
-      }
+        var templateId = confItem.templateId;
+        var id         = confItem.id;
+        var template   = $templateMarkup.find('#' + templateId).html();
 
-      var template = $templateMarkup.find('#' + templateId).html();
-
-      $(data).each(function(i, ob){
-        var html = Mustache.render(template, ob);
+        var html = Mustache.render(template, data);
 
         if(elements[id]){
           elements[id].push(html);
@@ -65,7 +47,8 @@ define(['jquery'], function($){
         else{
           elements[id] = [html];
         }
-      });
+
+      }
     };
 
     var checkDone = function(){
@@ -131,9 +114,6 @@ define(['jquery'], function($){
   }
 
   return {
-    load: load,
-    getMappingFunctions: function(){
-      return mappingFunctions;
-    }
+    load: load
   };
 });

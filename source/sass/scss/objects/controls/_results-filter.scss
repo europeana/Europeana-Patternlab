@@ -1,8 +1,4 @@
-// Filter blocks for search results
-//
-// :hover             - Subtle hover highlight.
-//
-// Styleguide 1.0.0
+@import "results-filter-date";
 
 .filter-closed{
   > ul,
@@ -17,7 +13,7 @@
     border-color: $textcolour_body transparent transparent;
     border-style: solid;
     border-width: 5px;
-    content: '';
+    content: "";
     display: inline-block;
     left: 4px;
     position: relative;
@@ -29,7 +25,7 @@
       border-color: transparent transparent $textcolour_body;
       top: -1px;
     }
-  } 
+  }
 }
 
 .filter{
@@ -93,7 +89,7 @@
       border-color: transparent transparent $textcolour_body;
       border-style: solid;
       border-width: 5px;
-      content: '';
+      content: "";
       display: inline-block;
       position: absolute;
       right: 1em;
@@ -150,10 +146,10 @@
   li{
     display: inline;
     &::after{
-      content: ', ';
+      content: ", ";
     }
     &:last-child::after{
-      content: '';
+      content: "";
     }
   }
 }
@@ -173,7 +169,7 @@
 .filter-label{
   padding: 0.2em 0;
 
-  input[type='checkbox']{
+  input[type="checkbox"]{
     margin-right: $space-half;
   }
 }
@@ -221,96 +217,6 @@
   }
 }
 
-// Date specific filter
-.filter-date .filter-controls{
-
-  > .control-group{
-
-    float: left;
-    margin-bottom: .5rem;
-    margin-top:    .5rem;
-    padding-right: 1em;
-
-    input,
-    label{
-      width: 5.2em;
-    }
-    &:last-of-type{
-      float: right;
-      padding-right: 0;
-      text-align: right;
-    }
-
-    @media all and (max-width: $bp-small-2) {
-      &:last-of-type{
-        margin-top: 1.88em;
-      }
-    }
-
-    @media all and (min-width: $bp-small-2) and (max-width: $bp-med) {
-      text-align: center;
-      width: 33%;
-      label{
-        display: inline;
-      }
-      &.date{
-        input{
-          margin-left: 0.5em;
-        }
-      }
-      &:last-of-type{
-        text-align: center;
-      }
-    }
-
-    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-      &:last-of-type{
-        width:      100%;
-        button{
-          width:      100%;
-        }
-      }
-    }
-
-    @media all and (min-width: $bp-large) and (max-width: $bp-xl) {
-      &:last-of-type{
-        text-align: center;
-        width:      100%;
-      }
-    }
-
-    @media all and (min-width: $bp-med) and (max-width: $bp-xl) {
-      padding-right: 0;
-      &.date.to{
-        float: right;
-        text-align: right;
-        label{
-          text-align: left;
-        }
-      }
-    }
-
-    @media all and (min-width: $bp-xl) and (max-width: $bp-xxl){
-      &:last-of-type{
-        margin-top: 1.62rem;
-      }
-    }
-
-    @media all and (min-width: $bp-xxl){
-      &:last-of-type{
-        margin-top: 1.59rem;
-      }
-    }
-
-  }
-
-  label{
-    @include fontSize(11px);
-    padding-bottom: 0;
-    text-transform: capitalize;
-  }
-}
-
 // Colour filter
 .filter-colour{
   .filter-list li{
@@ -334,7 +240,7 @@
   }
 
   .filter-item.is-checked::before {
-    background: url('../../images/formcontrols.png') no-repeat;
+    background: url("../../images/formcontrols.png") no-repeat;
   }
 }
 
@@ -358,10 +264,10 @@
 }
 
 .filter-item::before{
-  background: url('../../images/formcontrols.png') no-repeat;
+  background: url("../../images/formcontrols.png") no-repeat;
   background-position: 0 0;
   border: 0;
-  content: '';
+  content: "";
   cursor: pointer;
   display: inline-block;
   height: 20px;

@@ -75,7 +75,7 @@
                       <div {{#playable}}class="playable"{{/playable}}{{^playable}}class="unplayable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
                         <div class="zoomable">
                           {{#thumbnail}}
-                            <img src="{{.}}"/>
+                            <img src="{{.}}" alt="{{i18n.site.object.main-img-alt}} {{#display_title}}{{.}}{{/display_title}} {{^display_title}}{{i18n.site.object.title_unavailable}}{{/display_title}}"/>
                           {{/thumbnail}}
                         </div>
                         <div class="media-options">
@@ -185,7 +185,7 @@
 
                 {{#creators}}
                   <div class="non-eu-entities">
-                    <h5>Created by</h5>
+                    <span class="non-eu-entities-label">{{i18n.site.object.created-by}}</span>
                     {{#sections}}
                       <div class="entity-wrapper">
                       {{#items}}
@@ -246,15 +246,17 @@
                   <span class="label">
                     <h4>{{i18n.global.facet.header.reusability}}</h4>
                     <span class="label-large">{{license_brief}}{{^license_brief}}{{#rights}}{{license_brief}}{{/rights}}{{/license_brief}}</span>
-
                     {{^license_restricted}}
                       {{#rights}}
                         {{#license_restricted}}
                           <a class="link-black-blue" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" target="_blank"><h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}<span class="svg-icon-external"></span></h4></a>
                         {{/license_restricted}}
                         {{^license_restricted}}
-                          <h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}</h4>
+                        <h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}</h4>
                         {{/license_restricted}}
+                      {{/rights}}
+                      {{^rights}}
+                        <h4>{{i18n.global.facet.reusability.free-reuse}}</h4>
                       {{/rights}}
                     {{/license_restricted}}
                     {{#license_restricted}}
@@ -313,7 +315,7 @@
 
           <div class="channel-object-extended-information">
 
-            <h2 class="channel-object-title" data-label-expand="[{{i18n.site.object.actions.expand-extended}}]" data-label-collapse="[{{i18n.site.object.actions.collapse-extended}}]">
+            <h2 class="channel-object-title" data-label-expand="{{i18n.site.object.actions.expand-extended}}" data-label-collapse="{{i18n.site.object.actions.collapse-extended}}">
               {{i18n.site.object.meta-label.extended-information}}
             </h2>
 
@@ -372,17 +374,6 @@
               </div>
             </div>
 
-            <div class="data-section closed" data-section-id="hierarchy">
-              <div class="hierarchy cf">
-                <div class="subsection-label">
-                  {{i18n.site.object.hierarchy.title}}
-                </div>
-                <div class="subsection-content">
-                  <div class="hierarchy-objects" style="display:none;"></div>
-                </div>
-              </div>
-            </div>
-
             {{#content.named_entities}}
               <div class="data-section closed" data-section-id="named-entities">
                 <div class="cf">
@@ -395,11 +386,8 @@
                 </div>
               </div>
             {{/content.named_entities}}
-
           </div>
-
         {{/object}}
-
       </div>
 
       {{! end of object info column }}
@@ -419,6 +407,7 @@
       {{#suggestions}}
         <div class="channel-object-similar">
           <h2 class="channel-object-title">{{i18n.site.object.similar-suggestions}}</h2>
+          <a class="scroll-trigger" data-enabled="true" data-fire-on-open="showSuggestions"></a>
           <div class="suggestions-section">
             <div class="display-grid">
               <div class="slide-rail" style="position: relative;">

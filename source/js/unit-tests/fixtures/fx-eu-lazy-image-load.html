@@ -1,0 +1,21 @@
+<h1>Lazy Image Load</h1>
+
+<div data-image="/base/js/unit-tests/fixture-data/media/test-image.jpg"></div>
+
+<style>
+
+  [data-image]{
+    position: absolute;
+    width:  200px;
+    height: 200px;
+  }
+
+  [data-image].off-screen{
+    left:     -10000px;
+  }
+
+  [data-image].partially-off-screen{
+    left:     -50%;
+  }
+
+</style>

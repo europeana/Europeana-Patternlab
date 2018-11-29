@@ -723,6 +723,8 @@
           },
           "news": "News",
           "object": {
+              "created-by": "Created By",
+              "main-img-alt": "Image from object titled",
               "similar-result": "Result",
               "similar-results": "Results",
               "similar-suggestions": "Suggested content",
@@ -735,12 +737,12 @@
               },
               "actions": {
                   "annotate": "Annotate",
-                  "collapse-extended": "collapse extended information",
+                  "collapse-extended": "Close all",
                   "copy": "Copy",
                   "download": "Download",
                   "download-started": "The download has started",
                   "download-retry": "Retry",
-                  "expand-extended": "expand extended information",
+                  "expand-extended": "Open all",
                   "media-metadata": "Media Metadata",
                   "technicalmetadata": "Technical Metadata",
                   "open-media": "Open this media item",
@@ -854,12 +856,14 @@
             "register":"Register",
             "reduce-viewer":"Reduce viewer",
             "remove":"Remove",
+            "search": "Search",
             "share": "Share",
             "sign-in": "Sign in",
             "sign-out": "Sign out",
             "skip-to-main":     "Skip to page contents",
             "skip-to-section":  "Skip to section",
             "sort-by": "Order by",
+            "subscribe": "Subscribe",
             "view": "View",
             "view-at": "View at",
             "withdraw": "withdraw"
@@ -887,8 +891,9 @@
               "restricted-brief": "Yes",
 
               "open-info":        "with attribution",
-              "permission-info": "learn why",
-              "restricted-info": "limitations apply"
+              "permission-info":  "learn why",
+              "restricted-info":  "limitations apply",
+              "free-reuse":       "Free reuse"
             }
           },
           "feedback":{
@@ -932,6 +937,17 @@
           },
           "language-english": "English",
           "language-french": "Français",
+          "media": {
+            "types": {
+              "audio"  : "audio",
+              "image"  : "image",
+              "IIIF"   : "IIIF",
+              "oembed" : "oembed",
+              "pdf"    : "pdf",
+              "text"   : "text",
+              "video"  : "video"
+            }
+          },
           "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
           "mission-title": "Our mission",
           "more": {
