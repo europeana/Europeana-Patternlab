@@ -230,6 +230,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
         });
 
         sessionStorage.eu_portal_last_results_page   = page ? page : 1;
+        sessionStorage.eu_portal_last_results_page   = page ? page : 1;
         sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
         sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
         sessionStorage.eu_portal_last_results_offset = parseInt(resInfo.match(/\d+/)) - 1;

@@ -1282,6 +1282,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       params  = $.extend($.url(decodeURI(arr[0].url)).param(), params);
       delete params['l'];
       delete params['page'];
+      delete params['per_page'];
 
       sParams = '?' + $.param(params);
     }
@@ -1300,19 +1301,19 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   function getNavDataBasic(searchUrl, params, callback){
 
-    var s    = sessionStorage;
-    var page = s.eu_portal_last_results_page ? parseInt(s.eu_portal_last_results_page) : 1;
+    var s       = sessionStorage;
+    var page    = s.eu_portal_last_results_page ? parseInt(s.eu_portal_last_results_page) : 1;
+    var perPage = s.eu_portal_last_results_per_page ? parseInt(s.eu_portal_last_results_per_page) : 12;
 
     var fixOffset = function(){
-      var per_page = params['per_page'];
-      var offset   = (per_page * page) - per_page;
+      var offset   = (perPage * page) - perPage;
       s.eu_portal_last_results_offset = offset;
       log('write offset (1) ' + offset);
     };
 
     params['q'] = params['q'] ? params['q'] : '';
 
-    $.getJSON(searchUrl + $.param(params) + '&page=' + page).done(function(data){
+    $.getJSON(searchUrl + $.param(params) + '&page=' + page + '&per_page=' + perPage).done(function(data){
 
       if(!data){
         log('no data');
@@ -1341,16 +1342,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   function getNextPrevItems(callback, searchUrl, params){
 
     var s           = sessionStorage;
-    var per_page    = params['per_page'];
-    //var page        = params['page'] ? parseInt(params['page']) : 1;
     var page        = s.eu_portal_last_results_page ? parseInt(s.eu_portal_last_results_page) : 1;
-    var from        = ((page - 1) * per_page) + 1;
+    var perPage     = s.eu_portal_last_results_per_page ? parseInt(s.eu_portal_last_results_per_page) : 12;
+    var from        = ((page - 1) * perPage) + 1;
     var items       = s.eu_portal_last_results_items ? JSON.parse(s.eu_portal_last_results_items) : [];
     var count       = items.length;
     var current     = s.eu_portal_last_results_current ? parseInt(s.eu_portal_last_results_current) : null;
     var total       = s.eu_portal_last_results_total ? parseInt(s.eu_portal_last_results_total) : null;
     var offset      = parseInt(s.eu_portal_last_results_offset);
-    var offsetIndex = ((page * per_page) - per_page) - offset;
+    var offsetIndex = ((page * perPage) - perPage) - offset;
 
     var nextNeeded  = ((offsetIndex + current + 1) === count) && (offsetIndex + current + 1) < total;
     var prevNeeded  = (offsetIndex + current) === 0 && from > 1;
@@ -1381,13 +1381,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     }
 
     page = page + (nextNeeded ? 1 : -1);
-    //params['page'] = page;
+
     sessionStorage.eu_portal_last_results_page = page;
     params['q'] = params['q'] ? params['q'] : '';
 
     log('will search on ' + (searchUrl + $.param(params)));
 
-    $.getJSON(searchUrl + $.param(params) + '&page=' + page).done(function(data){
+    $.getJSON(searchUrl + $.param(params) + '&page=' + page + '&per_page=' + perPage).done(function(data){
 
       if(data){
         data = convertDataResultToNav(data['search_results'], params);
@@ -1741,9 +1741,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       require(['eu_data_continuity', 'purl'], function(DataContinuity){
 
-        var params = $.url(location.href).param();
-        params['per_page'] = params['per_page'] ? parseInt(params['per_page']) : null;
-        params['per_page'] = localStorage.getItem('eu_portal_results_count') ? parseInt(localStorage.getItem('eu_portal_results_count')): 12;
+        var params  = $.url(location.href).param();
+        var perPage = sessionStorage.eu_portal_last_results_per_page ? parseInt(sessionStorage.eu_portal_last_results_per_page) : 12;
 
         var channelCheck = function(url){
 
@@ -1766,7 +1765,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         var s               = sessionStorage;
         var searchUrl       = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/' + (channelCheck(location.href) ? 'collections/' + params['collection'] : 'search.html') + '?' + $.param(params);
-        var per_page        = params['per_page'];
         var backLinkPresent = $('.breadcrumbs .back-url').length > 0;
 
         channelCheck(searchUrl);
@@ -1807,11 +1805,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
             if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
 
               if(parseInt(s.eu_portal_last_results_current) < 0){
-                log('correction needed A (set to ' + (per_page - 1) + ')');
-                s.eu_portal_last_results_current = per_page - 1;
+                log('correction needed A (set to ' + (perPage - 1) + ')');
+                s.eu_portal_last_results_current = perPage - 1;
               }
 
-              if(parseInt(s.eu_portal_last_results_current) >= per_page){
+              if(parseInt(s.eu_portal_last_results_current) >= perPage){
                 log('correction needed B (set to 0)');
                 s.eu_portal_last_results_current = 0;
               }
@@ -1822,6 +1820,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
               s.removeItem('eu_portal_last_results_total');
               s.removeItem('eu_portal_last_results_items');
               s.removeItem('eu_portal_last_results_offset');
+              s.removeItem('eu_portal_last_results_per_page');
 
               getNavDataBasic(searchUrlNav, params, function(){
                 getNextPrevItems(makePromoRequest, searchUrlNav, params);
