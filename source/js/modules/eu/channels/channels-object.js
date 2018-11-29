@@ -1308,6 +1308,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       log('write offset (1) ' + offset);
     };
 
+    params['q'] = params['q'] ? params['q'] : '';
+
     $.getJSON(searchUrl + $.param(params) + '&page=' + page).done(function(data){
 
       if(!data){
@@ -1379,6 +1381,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     page = page + (nextNeeded ? 1 : -1);
     //params['page'] = page;
     sessionStorage.eu_portal_last_results_page = page;
+    params['q'] = params['q'] ? params['q'] : '';
 
     log('will search on ' + (searchUrl + $.param(params)));
 
