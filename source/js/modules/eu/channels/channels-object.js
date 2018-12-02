@@ -1,7 +1,5 @@
 define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'eu_colour_nav', 'util_foldable'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader, EuColourNav) {
 
-  var nextPrevDisabled = true;
-
   var channelData     = null;
   var suggestions     = null;
   var promotions      = null;
@@ -1132,33 +1130,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     });
     EuSlide.makeSwipeable(promotions, {'not-on-stacked': true, 'transition-on-simulate': true});
 
-    if(typeof(Storage) !== 'undefined') {
-
-      var s = sessionStorage;
-
-      promotions.find('.channel-object-next-prev.object-next a').on('click', function(){
-        if(!$(this).data('bound-unload')){
-          $(this).data('bound-unload', true);
-          $(window).on('unload', function(){
-            var current = parseInt(s.eu_portal_last_results_current);
-            s.eu_portal_last_results_current = current + 1;
-            log('on unload (NEXT): update current to ' + s.eu_portal_last_results_current);
-          });
-        }
-      });
-
-      promotions.find('.channel-object-next-prev.object-prev a').on('click', function(){
-        if(!$(this).data('bound-unload')){
-          $(this).data('bound-unload', true);
-          $(window).on('unload', function(){
-            var current = parseInt(s.eu_portal_last_results_current);
-            s.eu_portal_last_results_current = current - 1;
-            log('on unload (PREV): update current to ' + s.eu_portal_last_results_current);
-          });
-        }
-      });
-    }
-
     var imageSet = promotions.find('.image-set');
 
     if(imageSet.length > 0){
@@ -1273,124 +1244,72 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     });
   }
 
-  function convertDataResultToNav(arr, params){
+  // Query the search API
+  //   - update the session data results
+  //   - updates the global variables:
+  //      - nextItem
+  //      - prevItem
+  //   - updates history state "currentIndex"
 
-    var res     = [];
-    var sParams = null;
-
-    if(arr.length > 0){
-      params  = $.extend($.url(decodeURI(arr[0].url)).param(), params);
-      delete params['l'];
-      delete params['page'];
-      delete params['per_page'];
-
-      sParams = '?' + $.param(params);
-    }
-    for(var i=0; i<arr.length; i++){
-      var item = arr[i];
-      res.push({
-        'url': item['object_url'].split('?')[0] + sParams,
-        'media_type': item.media_type,
-        'images': item.img ? [item.img.src] : null,
-        'title': item.title,
-        'description': (item.text ? item.text.medium : '')
-      });
-    }
-    return res;
-  }
-
-  function getNavDataBasic(searchUrl, params, callback){
-
-    var s       = sessionStorage;
-    var page    = s.eu_portal_last_results_page ? parseInt(s.eu_portal_last_results_page) : 1;
-    var perPage = s.eu_portal_last_results_per_page ? parseInt(s.eu_portal_last_results_per_page) : 12;
-
-    var fixOffset = function(){
-      var offset   = (perPage * page) - perPage;
-      s.eu_portal_last_results_offset = offset;
-      log('write offset (1) ' + offset);
-    };
-
-    params['q'] = params['q'] ? params['q'] : '';
-
-    $.getJSON(searchUrl + $.param(params) + '&page=' + page + '&per_page=' + perPage).done(function(data){
-
-      if(!data){
-        log('no data');
-      }
-
-      s.eu_portal_last_results_total = data.total.value;
-
-      data = convertDataResultToNav(data['search_results'], params);
-
-      var currUrl  = location.href.split('?')[0].split(location.host)[1];
-      var currItem = null;
-
-      for(var i=0; i<data.length; i++){
-
-        if(!currItem && data[i].url.split('?')[0] === currUrl){
-          currItem = i;
-          s.eu_portal_last_results_current = currItem;
-          fixOffset();
-        }
-      }
-      s.eu_portal_last_results_items = JSON.stringify(data);
-      callback();
-    });
-  }
-
-  function getNextPrevItems(callback, searchUrl, params){
+  function getNextPrevItems(callback, searchUrl, DataContinuity){
 
     var s           = sessionStorage;
-    var page        = s.eu_portal_last_results_page ? parseInt(s.eu_portal_last_results_page) : 1;
-    var perPage     = s.eu_portal_last_results_per_page ? parseInt(s.eu_portal_last_results_per_page) : 12;
+    var allParams   = s.eu_portal_last_results_search_params ? JSON.parse(s.eu_portal_last_results_search_params) : [];
+    var page        = DataContinuity.getParam(allParams, 'page', 1, true);
+    var perPage     = DataContinuity.getParam(allParams, 'per_page', 12, true);
+
     var from        = ((page - 1) * perPage) + 1;
     var items       = s.eu_portal_last_results_items ? JSON.parse(s.eu_portal_last_results_items) : [];
     var count       = items.length;
-    var current     = s.eu_portal_last_results_current ? parseInt(s.eu_portal_last_results_current) : null;
+    var current     = DataContinuity.getCurrentIndex();
+
     var total       = s.eu_portal_last_results_total ? parseInt(s.eu_portal_last_results_total) : null;
-    var offset      = parseInt(s.eu_portal_last_results_offset);
-    var offsetIndex = ((page * perPage) - perPage) - offset;
+    var offset      = (page * perPage) - perPage;
 
-    var nextNeeded  = ((offsetIndex + current + 1) === count) && (offsetIndex + current + 1) < total;
-    var prevNeeded  = (offsetIndex + current) === 0 && from > 1;
+    var nextNeeded  = (current + 1 === count) && (current + 1) < total;
+    var prevNeeded  = current === 0 && from > 1;
 
-    if(!(history.state && typeof history.state.currentIndex === 'number')){
-      log('write state ' + current);
-      history.replaceState({
-        'currentIndex': current
-      }, '', '');
-    }
-
-    log('nextNeeded = ' + nextNeeded + ', prevNeeded = ' + prevNeeded + ', offset = ' + offset + ', offsetIndex = ' + offsetIndex);
+    log('nextNeeded = ' + nextNeeded + ', prevNeeded = ' + prevNeeded + ', offset = ' + offset);
 
     if(nextNeeded){
-      prevItem = items[offsetIndex + current - 1];
+      prevItem = items[current - 1];
     }
+
     if(prevNeeded){
-      nextItem = items[offsetIndex + current + 1];
+      nextItem = items[current + 1];
     }
 
     if(!(nextNeeded || prevNeeded)){
-      var indexPrev = offsetIndex + current - 1;
+      var indexPrev = current - 1;
       prevItem      = items[indexPrev];
-      var indexNext = offsetIndex + current + 1;
+      var indexNext = current + 1;
       nextItem      = items[indexNext];
+
       callback();
       return;
     }
 
-    page = page + (nextNeeded ? 1 : -1);
+    allParams = DataContinuity.setParam(allParams, 'page', page + (nextNeeded ? 1 : -1));
+    allParams = DataContinuity.setParam(allParams, 'q', DataContinuity.getParam(allParams, 'q', ''));
 
-    sessionStorage.eu_portal_last_results_page = page;
-    params['q'] = params['q'] ? params['q'] : '';
+    var queryUrl = searchUrl + DataContinuity.getSearchParamString(allParams);
 
-    log('will search on ' + (searchUrl + $.param(params)));
-
-    $.getJSON(searchUrl + $.param(params) + '&page=' + page + '&per_page=' + perPage).done(function(data){
+    $.getJSON(queryUrl).done(function(data){
 
       if(data){
-        data = convertDataResultToNav(data['search_results'], params);
+        var converted = [];
+
+        for(var i=0; i < data['search_results'].length; i++){
+          var item = data['search_results'][i];
+          converted.push({
+            'url': item['object_url'].split('?')[0],
+            'media_type': item.media_type,
+            'images': item.img ? [item.img.src] : null,
+            'title': item.title,
+            'description': (item.text ? item.text.medium : '')
+          });
+        }
+        data = converted;
       }
       else{
         log('no nav data available');
@@ -1400,18 +1319,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       if(nextNeeded){
         items    = items.concat(data);
-        nextItem = items[offsetIndex + current + 1];
+        nextItem = items[current + 1];
       }
       else{
         items  = data.concat(items);
-        offset = offset - data.length;
-
-        log('write offset (2) ' + offset);
-
-        s.eu_portal_last_results_offset = offset;
         prevItem = items[data.length - 1];
       }
-      s.eu_portal_last_results_items = JSON.stringify(items);
+      DataContinuity.updateAcrossSessions('eu_portal_last_results_items', items);
       callback();
     });
   }
@@ -1741,95 +1655,46 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       require(['eu_data_continuity', 'purl'], function(DataContinuity){
 
-        var params  = $.url(location.href).param();
-        var perPage = sessionStorage.eu_portal_last_results_per_page ? parseInt(sessionStorage.eu_portal_last_results_per_page) : 12;
-
-        var channelCheck = function(url){
-
-          var cIndex = url.indexOf('/collections/');
-
-          if(cIndex > -1){
-            var cName = url.substr(cIndex + 13).split('?')[0];
-            params['collection'] = cName;
-            return true;
-          }
-          else if(url.indexOf('?collection=') > -1 || url.indexOf('&collection=') > -1){
-            if(!params['collection']){
-              log('collection param not present - add it now');
-              params['collection'] = $.url(url).param('collection');
-            }
-            return true;
-          }
-          return false;
-        };
-
-        var s               = sessionStorage;
-        var searchUrl       = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/' + (channelCheck(location.href) ? 'collections/' + params['collection'] : 'search.html') + '?' + $.param(params);
-        var backLinkPresent = $('.breadcrumbs .back-url').length > 0;
-
-        channelCheck(searchUrl);
-
-        if(backLinkPresent){
-
-          var backUrl = $('.breadcrumbs .back-url a').attr('href');
-          searchUrl   = backUrl;
-          channelCheck(searchUrl);
-          params = $.extend({}, params, $.url(backUrl).param());
-        }
-
-        delete params['l'];
-
-        if(history.state && typeof history.state.currentIndex === 'number'){
-          s.eu_portal_last_results_current = history.state.currentIndex;
-        }
-
-        if(nextPrevDisabled){
-          makePromoRequest();
-          return;
-        }
-
         DataContinuity.prep(function(cameFromSearch){
 
-          if(cameFromSearch){
+          var s         = sessionStorage;
+          var allParams = s.eu_portal_last_results_search_params ? JSON.parse(s.eu_portal_last_results_search_params) : [];
 
-            var searchUrlNav = searchUrl.split('?')[0].replace('.html', '') + '.json?';
+          if(allParams.length > 0){
+            /*
+             the inherited session "page" parameter may be inaccurate (i.e. if the next / prev record was
+             crosses a pagination boundary - correct it here.
+            */
+            var p = DataContinuity.getPageNumber();
+            allParams = DataContinuity.setParam(allParams, 'page', p === 1 ? null : p, true);
+          }
 
-            if(!backLinkPresent){
+          var channel   = channelData ? channelData.name ? channelData.name !== 'undefined' ? channelData.name : false : false : false;
+          var searchUrl = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '');
+          searchUrl = searchUrl + '/portal/';
+          searchUrl = searchUrl + (channel ? 'collections/' + channel : 'search.html');
+          searchUrl = searchUrl + DataContinuity.getSearchParamString(allParams);
+
+          if(!cameFromSearch){
+            makePromoRequest();
+          }
+          else{
+            if($('.breadcrumbs .back-url').length === 0){
               $('.breadcrumbs .js-return a').attr('href', searchUrl).parent('.js-return').css('display', 'inline');
             }
 
+            var perPage      = DataContinuity.getParam(allParams, 'per_page', 12, true);
+            var current      = DataContinuity.getCurrentIndex();
+            var firstInBatch = (current % perPage) === 0;
+            var lastInBatch  = (current % perPage) + 1 >= perPage;
+
             $(window).on('promotionsAppended', function(){
-              DataContinuity.parameteriseLinks('.channel-object-next-prev a');
+              var pageNumber = DataContinuity.getPageNumber();
+              DataContinuity.parameteriseLinks('.channel-object-next-prev', pageNumber, lastInBatch, firstInBatch);
             });
 
-            if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
-
-              if(parseInt(s.eu_portal_last_results_current) < 0){
-                log('correction needed A (set to ' + (perPage - 1) + ')');
-                s.eu_portal_last_results_current = perPage - 1;
-              }
-
-              if(parseInt(s.eu_portal_last_results_current) >= perPage){
-                log('correction needed B (set to 0)');
-                s.eu_portal_last_results_current = 0;
-              }
-              getNextPrevItems(makePromoRequest, searchUrlNav, params);
-            }
-            else{
-              s.removeItem('eu_portal_last_results_current');
-              s.removeItem('eu_portal_last_results_total');
-              s.removeItem('eu_portal_last_results_items');
-              s.removeItem('eu_portal_last_results_offset');
-              s.removeItem('eu_portal_last_results_per_page');
-
-              getNavDataBasic(searchUrlNav, params, function(){
-                getNextPrevItems(makePromoRequest, searchUrlNav, params);
-              });
-            }
-          }
-          else{
-            // we did not come from a search
-            makePromoRequest();
+            var searchUrlNav = searchUrl.split('?')[0].replace('.html', '') + '.json';
+            getNextPrevItems(makePromoRequest, searchUrlNav, DataContinuity);
           }
         });
       });
