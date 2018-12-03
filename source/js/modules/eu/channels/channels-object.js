@@ -1,5 +1,7 @@
 define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'eu_colour_nav', 'util_foldable'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader, EuColourNav) {
 
+  var nextPrevDisabled = false;
+
   var channelData     = null;
   var suggestions     = null;
   var promotions      = null;
@@ -1249,8 +1251,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   //   - updates the global variables:
   //      - nextItem
   //      - prevItem
-  //   - updates history state "currentIndex"
-
   function getNextPrevItems(callback, searchUrl, DataContinuity){
 
     var s           = sessionStorage;
@@ -1264,22 +1264,19 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     var current     = DataContinuity.getCurrentIndex();
 
     var total       = s.eu_portal_last_results_total ? parseInt(s.eu_portal_last_results_total) : null;
-    var offset      = (page * perPage) - perPage;
 
-    var nextNeeded  = (current + 1 === count) && (current + 1) < total;
-    var prevNeeded  = current === 0 && from > 1;
+    var nextNeedsLoaded = (current + 1 === count) && (current + 1) < total;
+    var prevNeedsLoaded = current === 0 && from > 1;
 
-    log('nextNeeded = ' + nextNeeded + ', prevNeeded = ' + prevNeeded + ', offset = ' + offset);
-
-    if(nextNeeded){
+    if(nextNeedsLoaded){
       prevItem = items[current - 1];
     }
 
-    if(prevNeeded){
+    if(prevNeedsLoaded){
       nextItem = items[current + 1];
     }
 
-    if(!(nextNeeded || prevNeeded)){
+    if(!(nextNeedsLoaded || prevNeedsLoaded)){
       var indexPrev = current - 1;
       prevItem      = items[indexPrev];
       var indexNext = current + 1;
@@ -1289,7 +1286,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       return;
     }
 
-    allParams = DataContinuity.setParam(allParams, 'page', page + (nextNeeded ? 1 : -1));
+    allParams = DataContinuity.setParam(allParams, 'page', page + (nextNeedsLoaded ? 1 : -1));
     allParams = DataContinuity.setParam(allParams, 'q', DataContinuity.getParam(allParams, 'q', ''));
 
     var queryUrl = searchUrl + DataContinuity.getSearchParamString(allParams);
@@ -1317,7 +1314,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         return;
       }
 
-      if(nextNeeded){
+      if(nextNeedsLoaded){
         items    = items.concat(data);
         nextItem = items[current + 1];
       }
@@ -1651,7 +1648,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     initActionBar();
     initEntity();
 
-    if(typeof(Storage) !== 'undefined' && sessionStorage){
+    if(!nextPrevDisabled && typeof(Storage) !== 'undefined' && sessionStorage){
 
       require(['eu_data_continuity', 'purl'], function(DataContinuity){
 
@@ -1698,6 +1695,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           }
         });
       });
+    }
+    else{
+      makePromoRequest();
     }
 
     $(window).europeanaResize(function(){
