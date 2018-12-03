@@ -33,9 +33,12 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'eu_lazy_image_loader
     });
   }
 
-  function scrollToAnchor(el) {
+  function scrollToAnchor($el) {
+
+    var tgtEl = document.getElementById($el.attr('href').substr(1));
+
     $('html, body').animate({
-      scrollTop: $(el.attr('href')).offset().top
+      scrollTop: $(tgtEl).offset().top
     }, 1000);
   }
 
