@@ -354,6 +354,12 @@ $max-page-width: 1400px;
       .display-grid{
         overflow: hidden;
       }
+
+      .show-more-suggestions{
+        bottom:   0;
+        position: absolute;
+        right:    0;
+      }
     }
   }
 

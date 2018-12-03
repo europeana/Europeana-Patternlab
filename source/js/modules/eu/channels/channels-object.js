@@ -1433,9 +1433,12 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         EUAccordionTabs.init(suggestions, {
           active: 0,
-          fnOpenTab: function(){
+          fnOpenTab: function(index){
             $(window).trigger('ellipsis-update');
             updateActiveSwipeableNav();
+            var showMoreLinks = $('.show-more-suggestions');
+            showMoreLinks.addClass('js-hidden');
+            showMoreLinks.eq(index).removeClass('js-hidden');
           },
           lockTabs: true
         });

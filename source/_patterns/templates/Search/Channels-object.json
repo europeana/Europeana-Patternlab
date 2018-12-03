@@ -617,19 +617,23 @@
       "tab_items": [
         {
           "tab_title": "From Johannes Vermeer",
-          "url":       "portal_suggestions?from=vermeer"
+          "url":       "portal_suggestions?from=vermeer",
+          "more_items_query": "javascript:alert('open search result tab 1')"
         },
         {
           "tab_title": "From Rijksmuseum",
-          "url":       "portal_suggestions?from=rijks"
+          "url":       "portal_suggestions?from=rijks",
+          "more_items_query": "javascript:alert('open search result tab 2')"
         },
         {
           "tab_title": "From the blog",
-          "url":       "portal_suggestions?from=blog"
+          "url":       "portal_suggestions?from=blog",
+          "more_items_query": "javascript:alert('open search result tab 3')"
         },
         {
           "tab_title": "From elsewhere",
-          "url":       "portal_suggestions?from=elsewhere"
+          "url":       "portal_suggestions?from=elsewhere",
+          "more_items_query": "javascript:alert('open search result tab 4')"
         }
       ]
     },
