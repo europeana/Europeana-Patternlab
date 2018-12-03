@@ -343,7 +343,6 @@ $max-page-width: 1400px;
     }
 
     .suggestions-section{
-
       background-color: #fff;
       padding:          $pad $space;
       position:         relative;
@@ -356,9 +355,13 @@ $max-page-width: 1400px;
       }
 
       .show-more-suggestions{
-        bottom:   0;
+        bottom:   $spacing-base;;
         position: absolute;
-        right:    0;
+        right:    $space;
+
+        &::before {
+          z-index: 1;
+        }
       }
     }
   }
