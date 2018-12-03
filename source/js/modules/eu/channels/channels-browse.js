@@ -3,23 +3,25 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'eu_lazy_image_loader
   'use strict';
 
   function initTitleBar(){
-    require(['eu_title_bar'], function(EuTitleBar){
+    var anchorList = $('.anchor-list');
+    if(anchorList.length > 0){
+      require(['eu_title_bar'], function(EuTitleBar){
 
-      var anchorList = $('.anchor-list');
-      var conf = {
-        $container:        $('.header-wrapper'),
-        $detectionElement: anchorList,
-        markup:            '<div class="title-bar">' + anchorList[0].outerHTML + '</div>'
-      };
+        var conf = {
+          $container:        $('.header-wrapper'),
+          $detectionElement: anchorList,
+          markup:            '<div class="title-bar">' + anchorList[0].outerHTML + '</div>'
+        };
 
-      var titleBar = EuTitleBar.init(conf);
+        var titleBar = EuTitleBar.init(conf);
 
-      $(document, '.cc_btn cc_btn_accept_all').on('click', function(){
-        titleBar.test();
+        $(document, '.cc_btn cc_btn_accept_all').on('click', function(){
+          titleBar.test();
+        });
+
+        initScrollToAnchor();
       });
-
-      initScrollToAnchor();
-    });
+    }
   }
 
   function initScrollToAnchor() {
@@ -31,9 +33,12 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'eu_lazy_image_loader
     });
   }
 
-  function scrollToAnchor(el) {
+  function scrollToAnchor($el) {
+
+    var tgtEl = document.getElementById($el.attr('href').substr(1));
+
     $('html, body').animate({
-      scrollTop: $(el.attr('href')).offset().top
+      scrollTop: $(tgtEl).offset().top
     }, 1000);
   }
 
