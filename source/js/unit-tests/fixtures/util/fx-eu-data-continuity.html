@@ -21,12 +21,13 @@
         var href   = location.href;
         var params = {'dc': '123', 'fn': 'listen'};
 
-        if(location.hash){
-          params.dc = location.hash.split('?')[0].replace('#', '');
+        var hashDcId = dc.getHashParam('dcId');
+        if(hashDcId){
+          params.dc = hashDcId;
         }
 
         if(href.indexOf('?') > 0){
-          var p  = href.split('?')[1];
+          var p  = href.split('?')[1].split('#')[0];
           var p2 = p.split('=');
           params[p2[0]] = p2[1];
         };

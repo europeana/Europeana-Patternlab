@@ -12,15 +12,21 @@ define(['jquery'], function($){
     'eu_portal_last_results_search_params'
   ];
 
-  var getHash = function(){
-    var res  = window.location.hash.replace('#', '');
-    if(res.length > 0){
-      return res.split('?')[0];
-    }
-    return null;
+  var getHashParam = function(name){
+    var hashParams = window.location.hash.replace('#', '').split('&');
+    var res        = null;
+    $.each(hashParams, function(){
+
+      var splitParam = this.split('=');
+
+      if(splitParam[0] === name){
+        res = splitParam[1];
+      }
+    });
+    return res;
   };
 
-  pageDC = getHash();
+  pageDC = getHashParam('dcId');
 
   var getReplyData = function(){
     var res = {};
@@ -66,7 +72,6 @@ define(['jquery'], function($){
             processReplyData(JSON.parse(e.newValue.split('#')[1].split(splitReply)[0]));
             cb(true);
           }
-
         }
       }
       else if(e.key === 'eu_dc_rollcall'){
@@ -150,21 +155,10 @@ define(['jquery'], function($){
 
   var getPageNumber = function(){
     var res;
-    var hashParams = window.location.hash.split('?')[1];
-
-    $.each(hashParams.split('&'), function(){
-      var splitParam = this.split('=');
-      var name       = splitParam[0];
-      var val        = splitParam[1];
-
-      if(name === 'p'){
-        res = parseInt(val);
-      }
-      if(name === 'np'){
-        res = parseInt(val);
-      }
-      if(name === 'pp'){
-        res = parseInt(val);
+    $.each(['np', 'pp', 'p'], function(){
+      var param = getHashParam(String(this));
+      if(param  && !res){
+        res = parseInt(param);
       }
     });
     return res;
@@ -195,7 +189,6 @@ define(['jquery'], function($){
     }
     if(save){
       sessionStorage['eu_portal_last_results_search_params'] = JSON.stringify(res);
-      console.log('DC save param ' + name);
     }
     return res;
   };
@@ -213,6 +206,7 @@ define(['jquery'], function($){
   };
 
   return {
+    getHashParam: getHashParam,
     getParam: getParam,
     setParam: setParam,
     getCurrentIndex: getCurrentIndex,
@@ -235,7 +229,7 @@ define(['jquery'], function($){
           var $this    = $(this);
           var href     = $this.attr('href');
 
-          var pageData = '?p=' + currentPage;
+          var pageData = '&p=' + currentPage;
 
           if(flagNextPage){
             if(i === 0){
@@ -248,7 +242,7 @@ define(['jquery'], function($){
             }
           }
 
-          href = href.split('#')[0] + '#' + pageDC + pageData;
+          href = href.split('#')[0] + '#dcId=' + pageDC + pageData;
 
           $this.attr('href', href);
         });
@@ -264,7 +258,7 @@ define(['jquery'], function($){
 
       sessionStorage.clear();
       localStorage.clear();
-      pageDC = getHash();
+      pageDC = getHashParam('dcId');
       cbFired = false;
     }
   };

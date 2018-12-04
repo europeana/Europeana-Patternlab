@@ -1,6 +1,5 @@
 // disabled until we move away from PhantomJS
 /*
-
 define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
   'use strict';
 
@@ -82,7 +81,7 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
 
         testSessionId = 'mismatch';
 
-        var param = '#' + testSessionId;
+        var param = '#dcId=' + testSessionId;
         var win = window.open(fixtureUrl + param);
 
         setTimeout(function(){
@@ -119,7 +118,7 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
 
         testSessionId = new Date().getTime();
 
-        var win = window.open(fixtureUrl + '#' + testSessionId);
+        var win = window.open(fixtureUrl + '#dcId=' + testSessionId);
 
         setTimeout(function(){
 
@@ -177,7 +176,6 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
             done();
           }, waitTime);
         }, waitTime);
-
       });
 
       it('can confirm continuity (non-default)', function(done){
@@ -188,7 +186,7 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
 
         setTimeout(function(){
 
-          var win  = window.open(fixtureUrl + '#' + testSessionId + '?fn=cb');
+          var win  = window.open(fixtureUrl + '?fn=cb' + '#dcId=' + testSessionId);
 
           setTimeout(function(){
             expect(rcwd).toHaveBeenCalledWith(true);
