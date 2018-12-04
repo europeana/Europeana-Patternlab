@@ -415,14 +415,14 @@
                   {{#tab_items}}
                     {{> organisms/components/eu-accordion-tabs-portal-suggestions}}
                   {{/tab_items}}
-                  {{#tab_items}}
-                    <h4 class="more-federated-results js-hidden js-empty"><a href="" class="svg-icon-external-eu-blue-after"></a></h4>
-                  {{/tab_items}}
                 </div>
               </div>
               <a class="svg-icon-previous carousel-arrows blue-black    eu-slide-nav eu-slide-nav-left disabled">&nbsp;</a>
               <a class="svg-icon-next carousel-arrows blue-black    eu-slide-nav eu-slide-nav-right disabled">&nbsp;</a>
             </div>
+            {{#tab_items}}
+              {{#more_items_query}}<a href="{{.}}" class="js-hidden show-more-suggestions link-to-button">{{i18n.global.more.show-more}}</a>{{/more_items_query}}
+            {{/tab_items}}
           </div>
         </div>
       {{/suggestions}}
