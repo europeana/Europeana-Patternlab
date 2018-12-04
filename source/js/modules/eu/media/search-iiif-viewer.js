@@ -38,7 +38,7 @@ define(['jquery', 'util_resize'], function($){
 
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var annotationData    = {}; // Map annotation data label: url
-  var disabledAnnotations = true; // temporarily disable
+  var disabledAnnotations = typeof window.enableFulltext !== 'undefined' ? !window.enableFulltext : true;
 
   var iiifLayers        = {}; // Map layers (loaded): label: layer
   var miniMapCtrls      = {}; // Mini map object storage

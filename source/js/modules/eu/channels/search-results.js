@@ -159,9 +159,10 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
   var adaptForNewItemPage = function(){
 
-    if(typeof window.newRecordPageDesign === 'boolean' && window.newRecordPageDesign){
+    if(typeof(Storage) !== 'undefined' && typeof window.newRecordPageDesign === 'boolean' && window.newRecordPageDesign){
 
-      var page    = $.url(location.href).param('page');
+      var s       = sessionStorage;
+      var page    = $url.param('page');
       var channel = $('.breadcrumbs').data('store-channel-name');
 
       var fnGetText = function($el){
@@ -203,37 +204,28 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
         };
       };
 
-      if(typeof(Storage) !== 'undefined') {
+      var lastResults = [];
+      var items       = $('.result-items .search-list-item');
+      var resInfo     = $('.result-info').text();
 
-        var lastResults = [];
-        var items       = $('.result-items .search-list-item');
-        var resInfo     = $('.result-info').text();
+      items.each(function(i, ob){
+        lastResults.push(fnItemStorage($(ob)));
+      });
 
-        items.each(function(i, ob){
-          lastResults.push(fnItemStorage($(ob)));
-        });
+      var continuityId = s.getItem('continuityId');
 
-        var continuityId = sessionStorage.getItem('continuityId');
-
-        if(!continuityId){
-          continuityId = new Date().getTime();
-          sessionStorage.setItem('continuityId', continuityId);
-          sessionStorage.setItem(continuityId, true);
-        }
-
-        DataContinuity.prep(false, continuityId);
-        DataContinuity.parameteriseLinks('.result-items .search-list-item a');
-
-        items.on('click', function(){
-          var current = $(this).index('.result-items .search-list-item');
-          sessionStorage.eu_portal_last_results_current = current;
-        });
-
-        sessionStorage.eu_portal_last_results_page   = page ? page : 1;
-        sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
-        sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
-        sessionStorage.eu_portal_last_results_offset = parseInt(resInfo.match(/\d+/)) - 1;
+      if(!continuityId){
+        continuityId = new Date().getTime();
+        s.setItem('continuityId', continuityId);
+        s.setItem(continuityId, true);
       }
+
+      DataContinuity.prep(false, continuityId);
+      DataContinuity.parameteriseLinks('.result-items .search-list-item', page ? page : 1);
+
+      s.eu_portal_last_results_items         = JSON.stringify(lastResults);
+      s.eu_portal_last_results_total         = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
+      s.eu_portal_last_results_search_params = JSON.stringify(DataContinuity.getSearchParams());
     }
   };
 
