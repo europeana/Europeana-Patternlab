@@ -124,12 +124,12 @@ define(['jquery'], function($){
   var getSearchParams = function(){
     var urlParams = new URLSearchParams(window.location.search);
     var allParams = [];
-    var pair;
+    var arr = Array.from(urlParams.entries());
 
-    /*eslint-env es6 */
-    for(pair of urlParams.entries()) {
-      allParams.push(pair);
+    for(var i=0; i<arr.length; i++) {
+      allParams.push(arr[i]);
     }
+
     return allParams;
   };
 
