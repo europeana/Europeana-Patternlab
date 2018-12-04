@@ -1,5 +1,4 @@
-// disabled until we move away from PhantomJS
-/*
+
 define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
   'use strict';
 
@@ -220,4 +219,3 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
     });
   });
 });
-*/
