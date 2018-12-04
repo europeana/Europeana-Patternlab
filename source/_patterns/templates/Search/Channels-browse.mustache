@@ -32,6 +32,13 @@
         </div>
       {{/anchor_title}}
 
+      <div class="gridlayout grid-title-description width-main no-row-gap">
+        <div class="gridlayout width-6">
+          {{#title}}<h1 class="browse-page-title">{{.}}</h1>{{/title}}
+          {{#text}}<p class="browse-page-description">{{.}}</p>{{/text}}
+        </div>
+      </div>
+
       {{#browse_lists}}
 
         {{#head}}
