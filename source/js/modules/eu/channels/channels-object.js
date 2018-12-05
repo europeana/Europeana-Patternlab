@@ -1,4 +1,6 @@
-define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'util_foldable', 'blacklight'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader) {
+define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader', 'eu_colour_nav', 'util_foldable'], function($, scrollEvents, EuMediaOptions, EuMustacheLoader, EuColourNav) {
+
+  var nextPrevDisabled = false;
 
   var channelData     = null;
   var suggestions     = null;
@@ -86,7 +88,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         var loadingDone = function(){
 
-          $('#page-url-input').val(window.location.href);
+          $('#page-url-input').val(window.location.href.split('#')[0]);
 
           if(stateRestore){
             $.each(stateRestore, function(i, ob){
@@ -130,13 +132,35 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     }
   }
 
+  function getTitleText(replaceQuotes){
+    var res = $('.channel-object-title:eq(0)').text();
+    if(replaceQuotes){
+      return res.replace(/\"/g, '');
+    }
+    return res;
+  }
+
   function initTitleBar(cb){
 
-    require(['eu_title_bar'], function(EuTitlebar){
+    var classSummary = 'title-summary';
+    var selSummary   = '.' + classSummary;
+    var titleText    = getTitleText();
+
+    require(['eu_title_bar', 'util_eu_ellipsis'], function(EuTitlebar, Ellipsis){
+      var ellipsis;
       EuTitlebar.init({
         $container:        $('.header-wrapper'),
         $detectionElement: $('.object-media-viewer'),
-        markup:            '<div class="title-bar"><span class="content"><span class="text-left"></span></span></div>'
+        markup:            '<div class="title-bar"><span class="content"><img class="img-remind" alt="' + getTitleText(true) + '"><span class="' + classSummary + '" style="display:none;">' + titleText + '</span></span></div>',
+        onShow: function(){
+          if(!ellipsis){
+            ellipsis = Ellipsis.create($(selSummary));
+            $(selSummary).removeAttr('style');
+          }
+          setTimeout(function(){
+            ellipsis.respond();
+          }, 333);
+        }
       });
       cb();
     });
@@ -476,7 +500,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   }
 
   function initMedia(index){
-
     var item        = $('.cho-media-nav .lc-item:eq(' + index + ') a');
     var type        = item.data('type');
     var downloadUri = item.data('download-uri');
@@ -493,21 +516,17 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     item.addClass('is-current');
 
     updateTechData(item);
+    EuColourNav.updateColourData();
 
     $('.media-options').trigger(type, $.extend(type === 'iiif' ? {'transcriptions-unavailable': true} : {}, {'download-link': downloadUri}));
 
     var reminderImg = $('.title-bar .img-remind');
 
-    if(reminderImg.length === 0){
-      reminderImg = $('<img class="img-remind">').appendTo($('.title-bar .content'));
-    }
     reminderImg.attr('src', thumbnail);
 
     reminderImg.off('click').on('click', function(){
       scrollPageToElement('.media-poster', 333, -16);
     });
-
-    $('.title-bar .text-left').text($('.channel-object-title:eq(0)').text());
 
     var removeOldMedia = function(){
 
@@ -549,7 +568,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         removeOldMedia();
 
-        $('<img src="' + thumbnail + '">').appendTo('.zoomable').imagesLoaded(function(){
+        $('<img src="' + thumbnail + '" alt="' + window.I18n.translate('site.object.main-img-alt') + ' \'' + getTitleText(true) + '\'' + '">').appendTo('.zoomable').imagesLoaded(function(){
           if($(this)[0].naturalHeight > minWidthMedia){
             omv.addClass('thumbnail-tall');
           }
@@ -588,10 +607,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         updateCtrls();
 
         $('.zoomable').addClass('busy').css('width', initW);
-        $('<img style="background-image:url(' + thumbnail + '); display:block; margin:auto; width:' + initW + 'px;">').appendTo('.zoomable').attr('src', uri);
+        var zImg = $('<img style="background-image:url(' + thumbnail + '); width:' + initW + 'px;">').appendTo('.zoomable').attr('src', uri);
+
+        if(typeof window.I18n === 'object'){
+          zImg.attr('alt', window.I18n.translate('site.object.main-img-alt') + ' \'' + getTitleText(true) + '\'' );
+        }
 
         setTimeout(function(){
-          $('.zoomable > img').removeAttr('style');
+          zImg.removeAttr('style');
           $('.zoomable').removeClass('busy');
           resetZoomable();
         }, 333);
@@ -831,6 +854,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     else{
       log('type not implemented: ' + type);
       removeOldMedia();
+      showDefault();
     }
 
     if(downloadUri){
@@ -1038,27 +1062,32 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     $.getJSON(initUrl, null).done(buildHierarchy).fail(error);
   }
 
-  function showMap(mapData){
+  function showMap(){
     require(['util_cho_map'], function(MapUtil){
-      MapUtil.loadMap(mapData, $('.markers a'));
+      MapUtil.loadMap($('.markers a'));
     });
   }
 
-  function updateSlideNav(EuSlide, cmp, fwd, back){
+  function updateSlideNavCtrls(EuSlide, cmp, fwd, back){
 
-    var nav = EuSlide.getNavOptions(cmp);
-
-    if(nav[0]){
-      fwd.removeClass('disabled');
-    }
-    else{
+    if(cmp.children().length === 1){
       fwd.addClass('disabled');
-    }
-    if(nav[1]){
-      back.removeClass('disabled');
+      back.addClass('disabled');
     }
     else{
-      back.addClass('disabled');
+      var nav = EuSlide.getNavOptions(cmp);
+      if(nav[0]){
+        fwd.removeClass('disabled');
+      }
+      else{
+        fwd.addClass('disabled');
+      }
+      if(nav[1]){
+        back.removeClass('disabled');
+      }
+      else{
+        back.addClass('disabled');
+      }
     }
   }
 
@@ -1072,56 +1101,37 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     var navClick = function(){
       if(promotions.length > 0){
-        EuSlide.simulateSwipe(promotions, $(this).data('dir'), null, function(){ updateSlideNav(EuSlide, promotions, fwd, back); });
+        EuSlide.simulateSwipe(promotions, $(this).data('dir'), null, function(){ updateSlideNavCtrls(EuSlide, promotions, fwd, back); });
       }
     };
 
     back.on('click', navClick);
     fwd.on('click', navClick);
 
-    promotions.updateSwipe = function(){
-      var totalW = (promotions.children().length - 1) * 32;
-      totalW = totalW + promotions.children('.separator-after, .separator-before').length * 32;
+    promotions.updateSwipe = function() {
 
-      promotions.children('.collections-promo-item').each(function(){
-        totalW = totalW + $(this).outerWidth();
-      });
-      promotions.css('width', totalW + 'px');
-      updateSlideNav(EuSlide, promotions, fwd, back);
+      if (EuSlide.isStacked(promotions) || promotions.children().length === 1){
+        promotions.removeAttr('style');
+        return;
+      }
+
+      if (!EuSlide.isStacked(promotions)) {
+
+        var totalW = (promotions.children('.gridlayout-card').length - 1) * 32;
+        promotions.children('.gridlayout-card').each(function() {
+          totalW = totalW + $(this).outerWidth(true);
+        });
+
+        promotions.width(totalW);
+        updateSlideNavCtrls(EuSlide, promotions, fwd, back);
+      }
     };
 
     promotions.css('width', '5000px');
     promotions.on('eu-swiped', function(){
-      updateSlideNav(EuSlide, promotions, fwd, back);
+      updateSlideNavCtrls(EuSlide, promotions, fwd, back);
     });
     EuSlide.makeSwipeable(promotions, {'not-on-stacked': true, 'transition-on-simulate': true});
-
-    if(typeof(Storage) !== 'undefined') {
-
-      var s = sessionStorage;
-
-      promotions.find('.channel-object-next-prev.object-next a').on('click', function(){
-        if(!$(this).data('bound-unload')){
-          $(this).data('bound-unload', true);
-          $(window).on('unload', function(){
-            var current = parseInt(s.eu_portal_last_results_current);
-            s.eu_portal_last_results_current = current + 1;
-            log('on unload (NEXT): update current to ' + s.eu_portal_last_results_current);
-          });
-        }
-      });
-
-      promotions.find('.channel-object-next-prev.object-prev a').on('click', function(){
-        if(!$(this).data('bound-unload')){
-          $(this).data('bound-unload', true);
-          $(window).on('unload', function(){
-            var current = parseInt(s.eu_portal_last_results_current);
-            s.eu_portal_last_results_current = current - 1;
-            log('on unload (PREV): update current to ' + s.eu_portal_last_results_current);
-          });
-        }
-      });
-    }
 
     var imageSet = promotions.find('.image-set');
 
@@ -1145,134 +1155,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         });
       });
     }
-
-    var applyEllipsis = function(){
-
-      require(['util_eu_ellipsis'], function(Ellipsis){
-
-        promoBoxes.find('.promo-title').each(function(i, ob){
-          Ellipsis.create($(ob), {textSelectors:['a']});
-        });
-
-        promoBoxes.find('.image-set-title').each(function(i, ob){
-          Ellipsis.create($(ob));
-        });
-
-        promoBoxes.find('.promo-tags').each(function(i, ob){
-          Ellipsis.create($(ob), {multiNode:true, textSelectors:['.promo-tag-link']});
-        });
-
-        promoBoxes.find('.text-main').each(function(i, ob){
-          ob = $(ob);
-          ob.html(ob.text());
-          Ellipsis.create(ob);
-        });
-
-        promoBoxes.find('.collections-promo-overlay .title').each(function(i, ob){
-          Ellipsis.create(ob);
-        });
-
-      });
-    };
-
-    var promoBoxes        = promotions.find('.collections-promo-item');
-    var promoBoxesGeneric = promotions.find('.collections-promo-item.generic-promo');
-
-    if(promoBoxesGeneric.length > 0){
-      require(['jqImagesLoaded'], function(){
-        promoBoxesGeneric.each(function(i, ob){
-          ob = $(ob);
-          ob.imagesLoaded(function($images){
-            var textEl        = ob.find('.content-text-inner');
-            var textMain      = ob.find('.text-main');
-
-            var hasPortrait         = $images[0].naturalHeight > $images[0].naturalWidth;
-            var hasDateAuthorOrType = !textEl.hasClass('no-date-and-type');
-            var hasTags             = textEl.hasClass('has-tags');
-            var hasTitle            = textEl.hasClass('has-title');
-            var hasTitleShort       = hasTitle && (ob.find('.promo-title a').text().length < 20);
-            var hasText             = textEl.hasClass('has-text');
-            var hasTextShort        = hasText && (textMain.text().length < 25);
-            var hasRelation         = !textMain.hasClass('no-relation');
-
-            ob.find('.js-remove').remove();
-
-            var score = 0;
-
-            if(hasPortrait){
-              score += 75;
-            }
-            else{
-              //score += 38;
-              score += 75;
-            }
-
-            if(hasTitle){
-              if(hasTitleShort){
-                score += 7;
-              }
-              else{
-                score += 14;
-              }
-            }
-            if(hasText){
-              if(hasTextShort){
-                score += 7;
-              }
-              else{
-                score += 21;
-              }
-            }
-            if(hasRelation){
-              score += 7;
-            }
-            if(hasTags){
-              score += 8;
-            }
-            if(hasDateAuthorOrType){
-              score += 10;
-            }
-
-            /*
-            log('card data summary:\n'
-              + hasPortrait         + '\t hasPortrait\n'
-              + hasDateAuthorOrType + '\t hasDateAuthorOrType\n'
-              + hasTags             + '\t hasTags\n'
-              + hasTitle            + '\t hasTitle\n'
-              + hasTitleShort       + '\t hasTitleShort\n'
-              + hasText             + '\t hasText\n'
-              + hasTextShort        + '\t hasTextShort\n'
-              + hasRelation         + '\t hasRelation\n\n\t'
-              + score               + '%');
-            */
-
-            if(score > 100){
-              ob.addClass('text-centric');
-            }
-
-          }); // end img loaded
-        }); // end each
-        applyEllipsis();
-      });
-    }
-    else{
-      if(promoBoxes.length > 0){
-        applyEllipsis();
-      }
-    }
-
-    var promoOverlays = promotions.find('.collections-promo-item.entity-promo .collections-promo-overlay-inner');
-    if(promoOverlays.length > 0){
-      promoOverlays.each(function(i, ob){
-        ob = $(ob);
-        var nText = ob.contents().filter(function(){
-          return this.nodeType === 3;
-        });
-        var newVal = nText[nText.length-1].nodeValue.replace(/\s+/, '');
-        newVal = newVal.slice(0, 100) + (newVal.length > 100 ? '...' : '');
-        nText[nText.length-1].nodeValue = newVal;
-      });
-    }
   }
 
   function makePromoRequest(){
@@ -1280,25 +1162,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     require(['util_promo_loader'], function(PromoLoader){
 
       var promoTemplates = {
-        'exhibition': 'template-promo-exhibition',
-        'gallery': 'template-promo-gallery',
-        'news': 'template-promo-news',
-        'entity': 'template-promo-entity',
-        'generic': 'template-promo-generic'
+        'card': 'template-promo-card'
       };
 
       var promoConf = [];
 
       if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
         $.each(window.enabledPromos, function(i, promo){
-          var mapping = null;
-          var tempId  = promo.id;
-
-          if(promo.id === 'blog'){
-            tempId  = 'generic';
-            mapping = PromoLoader.getMappingFunctions()['fnBlogToGeneric'];
-          }
-          var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url, mapping: mapping };
+          var tempId  = 'card';
+          var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url };
           promoConf.push(conf);
 
           if(promo.relation){
@@ -1312,7 +1184,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         promoConf.unshift({
           'id': 'next',
           'preloaded': nextItem,
-          'templateId': 'template-promo-next-prev'
+          'templateId': 'template-promo-card'
         });
       }
 
@@ -1321,7 +1193,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         promoConf.push({
           'id': 'previous',
           'preloaded': prevItem,
-          'templateId': 'template-promo-next-prev'
+          'templateId': 'template-promo-card'
         });
       }
 
@@ -1341,18 +1213,19 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           if(markup && markup.length > 0){
 
             markup.addClass('collections-promos js-swipe-not-stacked');
-
             $('.channel-object-actions .slide-rail').empty().append(markup);
 
             promotions = $('.collections-promos');
-            $(window).trigger('promotionsAppended');
 
+            $(window).trigger('promotionsAppended');
             require(['util_slide'], function(EuSlide){
               initPromos(EuSlide);
+              // is this needed now that adding promos no longer changes column count?
               $(window).trigger('carouselResize');
             });
 
             var foyerCards = $('.ve-foyer-card');
+
             if(foyerCards.length > 0){
               require(['ve_state_card'], function(Card){
                 foyerCards.each(function(){
@@ -1360,13 +1233,12 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
                 });
               });
             }
+
+            // is this needed now that adding promos no longer changes column count?
             resetZoomable();
           }
           else{
             console.log('no promo markup returned');
-            // $('.channel-object-actions .slide-rail').empty();
-            // $('.object-details').removeClass('has-right-column').addClass('no-right-column');
-            // $(window).resize();
           }
         });
 
@@ -1375,118 +1247,67 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     });
   }
 
-  function convertDataResultToNav(arr, params){
-
-    var res     = [];
-    var sParams = null;
-
-    if(arr.length > 0){
-      params  = $.extend($.url(decodeURI(arr[0].url)).param(), params);
-      delete params['l'];
-      sParams = '?' + $.param(params);
-    }
-    for(var i=0; i<arr.length; i++){
-      var item = arr[i];
-      res.push({
-        'url': item['object_url'].split('?')[0] + sParams,
-        'icon': (item.is_image ? 'image' : item.is_iiif ? 'iiif' : item.is_video ? 'video' : item.is_audio ? 'music' : item.is_text ? 'text' : 'unknown'),
-        'img': item.img,
-        'title': item.title,
-        'excerpt': (item.text ? item.text.medium : ''),
-        'relation': 'What goes here? (relation)'
-      });
-    }
-    return res;
-  }
-
-  function getNavDataBasic(searchUrl, params, callback){
-
-    var s = sessionStorage;
-
-    var fixOffset = function(){
-      var per_page = params['per_page'] ? parseInt(params['per_page']) : 12;
-      var page     = params['page'] ? parseInt(params['page']) : 1;
-      var offset   = (per_page * page) - per_page;
-      s.eu_portal_last_results_offset = offset;
-
-      log('write offset (1) ' + offset);
-    };
-
-    $.getJSON(searchUrl + $.param(params)).done(function(data){
-
-      if(!data){
-        log('no data');
-      }
-
-      s.eu_portal_last_results_total = data.total.value;
-
-      data = convertDataResultToNav(data['search_results'], params);
-
-      var currUrl  = location.href.split('?')[0].split(location.host)[1];
-      var currItem = null;
-
-      for(var i=0; i<data.length; i++){
-
-        if(!currItem && data[i].url.split('?')[0] === currUrl){
-          currItem = i;
-          s.eu_portal_last_results_current = currItem;
-          fixOffset();
-        }
-      }
-      s.eu_portal_last_results_items = JSON.stringify(data);
-      callback();
-    });
-  }
-
-  function getNextPrevItems(callback, searchUrl, params){
+  // Query the search API
+  //   - update the session data results
+  //   - updates the global variables:
+  //      - nextItem
+  //      - prevItem
+  function getNextPrevItems(callback, searchUrl, DataContinuity){
 
     var s           = sessionStorage;
-    var per_page    = params['per_page'] ? parseInt(params['per_page']) : 12;
-    var page        = params['page'] ? parseInt(params['page']) : 1;
-    var from        = ((page - 1) * per_page) + 1;
+    var allParams   = s.eu_portal_last_results_search_params ? JSON.parse(s.eu_portal_last_results_search_params) : [];
+    var page        = DataContinuity.getParam(allParams, 'page', 1, true);
+    var perPage     = DataContinuity.getParam(allParams, 'per_page', 12, true);
+
+    var from        = ((page - 1) * perPage) + 1;
     var items       = s.eu_portal_last_results_items ? JSON.parse(s.eu_portal_last_results_items) : [];
     var count       = items.length;
-    var current     = s.eu_portal_last_results_current ? parseInt(s.eu_portal_last_results_current) : null;
+    var current     = DataContinuity.getCurrentIndex();
+
     var total       = s.eu_portal_last_results_total ? parseInt(s.eu_portal_last_results_total) : null;
-    var offset      = parseInt(s.eu_portal_last_results_offset);
-    var offsetIndex = ((page * per_page) - per_page) - offset;
 
-    var nextNeeded  = ((offsetIndex + current + 1) === count) && (offsetIndex + current + 1) < total;
-    var prevNeeded  = (offsetIndex + current) === 0 && from > 1;
+    var nextNeedsLoaded = (current + 1 === count) && (current + 1) < total;
+    var prevNeedsLoaded = current === 0 && from > 1;
 
-    if(!(history.state && typeof history.state.currentIndex === 'number')){
-      log('write state ' + current);
-      history.replaceState({
-        'currentIndex': current
-      }, '', '');
+    if(nextNeedsLoaded){
+      prevItem = items[current - 1];
     }
 
-    log('nextNeeded = ' + nextNeeded + ', prevNeeded = ' + prevNeeded + ', offset = ' + offset + ', offsetIndex = ' + offsetIndex);
-
-    if(nextNeeded){
-      prevItem = items[offsetIndex + current - 1];
-    }
-    if(prevNeeded){
-      nextItem = items[offsetIndex + current + 1];
+    if(prevNeedsLoaded){
+      nextItem = items[current + 1];
     }
 
-    if(!(nextNeeded || prevNeeded)){
-      var indexPrev = offsetIndex + current - 1;
+    if(!(nextNeedsLoaded || prevNeedsLoaded)){
+      var indexPrev = current - 1;
       prevItem      = items[indexPrev];
-      var indexNext = offsetIndex + current + 1;
+      var indexNext = current + 1;
       nextItem      = items[indexNext];
+
       callback();
       return;
     }
 
-    params['page'] = page + (nextNeeded ? 1 : -1);
+    allParams = DataContinuity.setParam(allParams, 'page', page + (nextNeedsLoaded ? 1 : -1));
+    allParams = DataContinuity.setParam(allParams, 'q', DataContinuity.getParam(allParams, 'q', ''));
 
-    log('will search on ' + (searchUrl + $.param(params)));
+    var queryUrl = searchUrl + DataContinuity.getSearchParamString(allParams);
 
-    $.getJSON(searchUrl + $.param(params)).done(function(data){
+    $.getJSON(queryUrl).done(function(data){
 
       if(data){
-        data = convertDataResultToNav(data['search_results'], params);
+        var converted = [];
+
+        for(var i=0; i < data['search_results'].length; i++){
+          var item = data['search_results'][i];
+          converted.push({
+            'url': item['object_url'].split('?')[0],
+            'media_type': item.media_type,
+            'images': item.img ? [item.img.src] : null,
+            'title': item.title,
+            'description': (item.text ? item.text.medium : '')
+          });
+        }
+        data = converted;
       }
       else{
         log('no nav data available');
@@ -1494,20 +1315,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         return;
       }
 
-      if(nextNeeded){
+      if(nextNeedsLoaded){
         items    = items.concat(data);
-        nextItem = items[offsetIndex + current + 1];
+        nextItem = items[current + 1];
       }
       else{
         items  = data.concat(items);
-        offset = offset - data.length;
-
-        log('write offset (2) ' + offset);
-
-        s.eu_portal_last_results_offset = offset;
         prevItem = items[data.length - 1];
       }
-      s.eu_portal_last_results_items = JSON.stringify(items);
+      DataContinuity.updateAcrossSessions('eu_portal_last_results_items', items);
       callback();
     });
   }
@@ -1516,105 +1332,123 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     suggestions.css('width', '5000px');
 
-    EuMustacheLoader.loadMustache('cho-suggestions-item/cho-suggestions-item', function(template, Mustache){
+    require(['eu_accordion_tabs', 'util_eu_ellipsis', 'eu_lazy_image_loader'], function(EUAccordionTabs, Ellipsis, LazyimageLoader){
 
-      require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(EUAccordionTabs, Ellipsis){
+      LazyimageLoader.initStyle();
+
+      EuMustacheLoader.loadMustache('cho-suggestions-item/cho-suggestions-item', function(template, Mustache){
 
         var back = $('.suggestions-section .eu-slide-nav-left');
         var fwd  = $('.suggestions-section .eu-slide-nav-right');
 
-        var updateActiveSwipeableNav = function(){
-          var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
-          if(activeSwipeable.length > 0){
-            updateSlideNav(EuSlide, activeSwipeable, fwd, back);
-          }
-        };
-
         back.data('dir', -1);
         fwd.data('dir', 1);
 
+        var updateActiveSwipeableNav = function(){
+          var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
+          if(activeSwipeable.length > 0){
+            LazyimageLoader.loadLazyimages(activeSwipeable.find('[data-image]'), {checkViewport: activeSwipeable.closest('.slide-rail')[0] });
+            updateSlideNavCtrls(EuSlide, activeSwipeable, fwd, back);
+          }
+        };
+
+        var tabsLoadPreProcess = function(data, tab){
+
+          tab = $(tab);
+
+          tab.find('.tab-subtitle .results-count').html('');
+          tab.find('.tab-subtitle .results-label').addClass('js-hidden');
+
+          if(data.total){
+            tab.find('.tab-subtitle .results-count').html(Number(data.total).toLocaleString());
+            if(parseInt(data.total) === 1){
+              tab.find('.tab-subtitle .results-label.single').removeClass('js-hidden');
+            }
+            else{
+              tab.find('.tab-subtitle .results-label.plural').removeClass('js-hidden');
+            }
+          }
+
+          var slideContent = tab.next('.tab-content').find('.slide-content');
+
+          $.each(data.documents, function(i, itemData){
+            slideContent.append(Mustache.render(template, itemData));
+          });
+
+          slideContent.updateSwipe = function(){
+            var totalW = 0;
+            slideContent.children().each(function(i, ob){
+              totalW += $(ob).outerWidth();
+            });
+            slideContent.css('width', totalW + 'px');
+            return totalW;
+          };
+
+          EuSlide.makeSwipeable(slideContent, {'transition-on-simulate': true});
+          slideContent.on('eu-swiped', updateActiveSwipeableNav);
+
+          return data;
+        };
+
+        var makeSuggestionsSwipeable = function(){
+          suggestions.closest('.slide-rail').css('left', '0px');
+
+          suggestions.updateSwipe = function(){
+
+            EUAccordionTabs.setOptimalSize(suggestions);
+
+            setTimeout(function(){
+              updateActiveSwipeableNav();
+            }, 1);
+          };
+
+          var navClick = function(){
+            var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
+            if(activeSwipeable.length > 0){
+              EuSlide.simulateSwipe(activeSwipeable, $(this).data('dir'), null, updateActiveSwipeableNav);
+            }
+          };
+
+          back.on('click', navClick);
+          fwd.on('click', navClick);
+          EuSlide.makeSwipeable(suggestions);
+        };
+
+        var afterTabsLoaded = function(data, tab, index, completed){
+
+          var ellipsisConf = {textSelectors:['a .link-text']};
+          var tabContent   = $(tab).next('.tab-content');
+          var texts        = tabContent.find('.suggestion-item .item-info h2');
+
+          LazyimageLoader.loadLazyimages(tabContent.find('[data-image]'), {checkViewport: $(tab).closest('.slide-rail')[0] });
+
+          texts.each(function(i, ob){
+            Ellipsis.create($(ob), ellipsisConf);
+          });
+
+          if(completed){
+            makeSuggestionsSwipeable();
+          }
+        };
+
         EUAccordionTabs.init(suggestions, {
           active: 0,
-          fnOpenTab: function(){
+          fnOpenTab: function(index){
             $(window).trigger('ellipsis-update');
             updateActiveSwipeableNav();
+            var showMoreLinks = $('.show-more-suggestions');
+            showMoreLinks.addClass('js-hidden');
+            showMoreLinks.eq(index).removeClass('js-hidden');
           },
           lockTabs: true
         });
 
         EUAccordionTabs.loadTabs(
           suggestions,
-          function(data, tab){
-
-            tab = $(tab);
-
-            tab.find('.tab-subtitle .results-count').html('');
-            tab.find('.tab-subtitle .results-label').addClass('js-hidden');
-
-            if(data.total){
-              tab.find('.tab-subtitle .results-count').html(Number(data.total).toLocaleString());
-              if(parseInt(data.total) === 1){
-                tab.find('.tab-subtitle .results-label.single').removeClass('js-hidden');
-              }
-              else{
-                tab.find('.tab-subtitle .results-label.plural').removeClass('js-hidden');
-              }
-            }
-
-            var slideContent = tab.next('.tab-content').find('.slide-content');
-
-            $.each(data.documents, function(i, itemData){
-              slideContent.append(Mustache.render(template, itemData));
-            });
-
-            slideContent.updateSwipe = function(){
-              var totalW = 0;
-              slideContent.children().each(function(i, ob){
-                totalW += $(ob).outerWidth();
-              });
-              slideContent.css('width', totalW + 'px');
-              return totalW;
-            };
-            EuSlide.makeSwipeable(slideContent, {'transition-on-simulate': true});
-            slideContent.on('eu-swiped', updateActiveSwipeableNav);
-            return data;
-          },
-          function(data, tab, index, completed){
-
-            var ellipsisConf = {textSelectors:['a .link-text']};
-            var tabContent   = $(tab).next('.tab-content');
-            var texts        = tabContent.find('.suggestion-item .item-info h2');
-
-            texts.each(function(i, ob){
-              Ellipsis.create($(ob), ellipsisConf);
-            });
-
-            if(completed){
-
-              suggestions.closest('.slide-rail').css('left', '0px');
-
-              suggestions.updateSwipe = function(){
-
-                EUAccordionTabs.setOptimalSize(suggestions);
-
-                setTimeout(function(){
-                  updateActiveSwipeableNav();
-                }, 1);
-              };
-
-              var navClick = function(){
-                var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
-                if(activeSwipeable.length > 0){
-                  EuSlide.simulateSwipe(activeSwipeable, $(this).data('dir'), null, updateActiveSwipeableNav);
-                }
-              };
-
-              back.on('click', navClick);
-              fwd.on('click', navClick);
-              EuSlide.makeSwipeable(suggestions);
-            }
-          }
+          tabsLoadPreProcess,
+          afterTabsLoaded
         );
+
         suggestions.addClass('loaded');
       });
     });
@@ -1622,22 +1456,57 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   var showMediaThumbs = function(data){
 
-    var noItems = $('.channel-object-media-nav .lc-item').length;
-
-    if(noItems > 1){
+    if(parseInt(data.total_available) > 1){
 
       require(['eu_light_carousel'], function(EuLC){
 
         var $el = $('.light-carousel.media-thumbs');
 
         EuMustacheLoader.loadMustache('media-carousel-item/media-carousel-item', function(html){
-
           new EuLC.EuLightCarousel({
             '$el': $el,
             'loadUrl': data.loadUrl,
-            'load_per_page': 8, // has to be in sync with number preloaded
+            'load_per_page': 8,
             'itemsAvailable': data.total_available,
-            'templateText': html
+            'templateText': html,
+            'onDataLoaded': function(data, loadOffset){
+              if(typeof window.I18n === 'object'){
+
+                $.each(data, function(i){
+
+                  var ariaLabel = window.I18n.translate('site.object.actions.open-media');
+                  var targetEl  = $el.find('.lc-item-container').children().eq(loadOffset + i).find('a');
+                  var typeKey   = null;
+
+                  if(this.is_audio){
+                    typeKey = 'audio';
+                  }
+                  else if(this.is_iiif){
+                    typeKey = 'IIIF';
+                  }
+                  else if(this.is_image){
+                    typeKey = 'image';
+                  }
+                  else if(this.is_oembed){
+                    typeKey = 'oembed';
+                  }
+                  else if(this.is_pdf){
+                    typeKey = 'pdf';
+                  }
+                  else if(this.is_text){
+                    typeKey = 'text';
+                  }
+                  else if(this.is_video){
+                    typeKey = 'video';
+                  }
+                  if(typeKey){
+                    ariaLabel = ariaLabel + ' ' + window.I18n.translate('global.media.types.' + typeKey);
+                  }
+                  targetEl.attr('aria-label', ariaLabel);
+                });
+              }
+              EuColourNav.addColourDataFromAjax(data);
+            }
           }).init();
 
           if(typeof ResizeObserver === 'undefined'){
@@ -1735,14 +1604,23 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
     }
 
-    // event binding
+    // trigger event binding
 
     $(window).bind('showMediaThumbs', function(e, data){
       showMediaThumbs(data);
     });
 
-    $(window).bind('showMap', function(e, data){
-      showMap(data);
+    $(window).bind('showMap', function(){
+      showMap();
+    });
+
+    $(window).bind('showSuggestions', function(){
+      if($('.eu-accordion-tabs').length > 0){
+        suggestions = $('.eu-accordion-tabs');
+        require(['util_slide'], function(EuSlide){
+          initSuggestions(EuSlide);
+        });
+      }
     });
 
     $(window).bind('loadHierarchy', function(e, data){
@@ -1752,6 +1630,17 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     });
 
     loadAnnotations();
+
+    $(window).on('colour-data-available', function(e, data){
+      if(data.tf){
+        $('.colour-navigation-section').show();
+      }
+      else{
+        $('.colour-navigation-section').hide();
+      }
+    });
+
+    EuColourNav.initColourData();
 
     if(!$('.channel-media-wrap').hasClass('empty')){
       bindMediaUI();
@@ -1763,111 +1652,56 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     initActionBar();
     initEntity();
 
-    if(typeof(Storage) !== 'undefined' && sessionStorage){
+    if(!nextPrevDisabled && typeof(Storage) !== 'undefined' && sessionStorage){
 
       require(['eu_data_continuity', 'purl'], function(DataContinuity){
 
-        var params = $.url(location.href).param();
-
-        delete params['dc'];
-
-        if(typeof params['q'] !== 'string'){
-          log('no q param: ' + typeof params['q']);
-          makePromoRequest();
-          return;
-        }
-
-        var channelCheck = function(url){
-
-          var cIndex = url.indexOf('/collections/');
-
-          if(cIndex > -1){
-            var cName = url.substr(cIndex + 13).split('?')[0];
-            params['collection'] = cName;
-            return true;
-          }
-          else if(url.indexOf('?collection=') > -1 || url.indexOf('&collection=') > -1){
-            if(!params['collection']){
-              log('collection param not present - add it now');
-              params['collection'] = $.url(url).param('collection');
-            }
-            return true;
-          }
-          return false;
-        };
-
-        var s               = sessionStorage;
-        var searchUrl       = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/' + (channelCheck(location.href) ? 'collections/' + params['collection'] : 'search.html') + '?' + $.param(params);
-        var per_page        = params['per_page'] ? parseInt(params['per_page']) : 12;
-        var backLinkPresent = $('.breadcrumbs .back-url').length > 0;
-
-        channelCheck(searchUrl);
-
-        if(backLinkPresent){
-
-          var backUrl = $('.breadcrumbs .back-url a').attr('href');
-          searchUrl   = backUrl;
-          channelCheck(searchUrl);
-          params = $.extend({}, params, $.url(backUrl).param());
-        }
-
-        delete params['l'];
-
-        if(history.state && typeof history.state.currentIndex === 'number'){
-          s.eu_portal_last_results_current = history.state.currentIndex;
-        }
-
         DataContinuity.prep(function(cameFromSearch){
-          if(cameFromSearch){
 
-            var searchUrlNav = searchUrl.split('?')[0].replace('.html', '') + '.json?';
+          var s         = sessionStorage;
+          var allParams = s.eu_portal_last_results_search_params ? JSON.parse(s.eu_portal_last_results_search_params) : [];
 
-            if(!backLinkPresent){
+          if(allParams.length > 0){
+            /*
+             the inherited session "page" parameter may be inaccurate (i.e. if the next / prev record was
+             crosses a pagination boundary - correct it here.
+            */
+            var p = DataContinuity.getPageNumber();
+            allParams = DataContinuity.setParam(allParams, 'page', p === 1 ? null : p, true);
+          }
+
+          var channel   = channelData ? channelData.name ? channelData.name !== 'undefined' ? channelData.name : false : false : false;
+          var searchUrl = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '');
+          searchUrl = searchUrl + '/portal/';
+          searchUrl = searchUrl + (channel ? 'collections/' + channel : 'search.html');
+          searchUrl = searchUrl + DataContinuity.getSearchParamString(allParams);
+
+          if(!cameFromSearch){
+            makePromoRequest();
+          }
+          else{
+            if($('.breadcrumbs .back-url').length === 0){
               $('.breadcrumbs .js-return a').attr('href', searchUrl).parent('.js-return').css('display', 'inline');
             }
 
+            var perPage      = DataContinuity.getParam(allParams, 'per_page', 12, true);
+            var current      = DataContinuity.getCurrentIndex();
+            var firstInBatch = (current % perPage) === 0;
+            var lastInBatch  = (current % perPage) + 1 >= perPage;
+
             $(window).on('promotionsAppended', function(){
-              DataContinuity.parameteriseLinks('.channel-object-next-prev a');
+              var pageNumber = DataContinuity.getPageNumber();
+              DataContinuity.parameteriseLinks('.channel-object-next-prev', pageNumber, lastInBatch, firstInBatch);
             });
 
-            if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
-
-              if(parseInt(s.eu_portal_last_results_current) < 0){
-                log('correction needed A (set to ' + (per_page - 1) + ')');
-                s.eu_portal_last_results_current = per_page - 1;
-              }
-
-              if(parseInt(s.eu_portal_last_results_current) >= per_page){
-                log('correction needed B (set to 0)');
-                s.eu_portal_last_results_current = 0;
-              }
-              getNextPrevItems(makePromoRequest, searchUrlNav, params);
-            }
-            else{
-              s.removeItem('eu_portal_last_results_current');
-              s.removeItem('eu_portal_last_results_total');
-              s.removeItem('eu_portal_last_results_items');
-              s.removeItem('eu_portal_last_results_offset');
-
-              getNavDataBasic(searchUrlNav, params, function(){
-                getNextPrevItems(makePromoRequest, searchUrlNav, params);
-              });
-            }
-          }
-          else{
-            // we did not come from a search
-            makePromoRequest();
+            var searchUrlNav = searchUrl.split('?')[0].replace('.html', '') + '.json';
+            getNextPrevItems(makePromoRequest, searchUrlNav, DataContinuity);
           }
         });
-
       });
     }
-
-    if($('.eu-accordion-tabs').length > 0){
-      suggestions = $('.eu-accordion-tabs');
-      require(['util_slide'], function(EuSlide){
-        initSuggestions(EuSlide);
-      });
+    else{
+      makePromoRequest();
     }
 
     $(window).europeanaResize(function(){

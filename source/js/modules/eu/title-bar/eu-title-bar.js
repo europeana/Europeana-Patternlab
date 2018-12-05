@@ -20,17 +20,20 @@ define(['jquery', 'util_scroll'], function($){
     self.detectionEl = conf.$detectionElement.get(0);
 
     $(window).europeanaScroll(function(){
-      self.test();
+      self.test(conf.onShow);
     });
-    self.test();
+    self.test(conf.onShow);
   }
 
-  EuTitleBar.prototype.test = function(){
+  EuTitleBar.prototype.test = function(onShow){
     if(elementIsInViewport(this.detectionEl, this.conf.$container.height())){
       $('.title-bar').removeClass('show');
     }
     else{
       $('.title-bar').addClass('show');
+      if(typeof onShow === 'function'){
+        onShow();
+      }
     }
   };
 

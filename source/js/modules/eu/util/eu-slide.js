@@ -41,17 +41,14 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
       cmp.css('left', 0);
     }
 
-    if(typeof cmp.updateSwipe == 'function'){
-
+    if(typeof cmp.updateSwipe === 'function'){
       cmp.updateSwipe();
-
       var w = cmp.parents('.slide-rail').last().parent().width();
       cmp.find('.slide-rail').css('width', w);
     }
   }
 
   function updateSwipeables(cmp){
-
     if(cmp){
       updateSwipeable(cmp);
     }
@@ -74,7 +71,6 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
       if(h > tallest){
         tallest = h;
       }
-
     });
 
     return cmp.height() > tallest;
@@ -85,6 +81,13 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
   }
 
   function cmpMove(cmp, e){
+
+    var ssn     = swipeSpaceNeeded(cmp);
+
+    if(ssn < 0){
+      e.stopPropagation();
+      return;
+    }
 
     if(cmp.data('movingVertically')){
       if(mvVertical(e)){
@@ -98,8 +101,8 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
     var distX        = e.distX;
     var hasAncestors = cmp.parents('.slide-rail').length > 1;
 
-    if(e.euOffset){
-      distX += e.euOffset;
+    if(e.originalEvent.euOffset){
+      distX += e.originalEvent.euOffset;
     }
 
     if(hasAncestors){
@@ -108,19 +111,30 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
 
       if(distX + closestRailLeft > 0){
         delegate   = true;
-        e.euOffset = e.euOffset ? e.euOffset + closestRailLeft : closestRailLeft;
+        e.originalEvent.euOffset = e.originalEvent.euOffset ? e.originalEvent.euOffset + closestRailLeft : closestRailLeft;
         cmp.closest('.slide-rail').addClass('reset-needed');
       }
       else{
-        var ssn     = swipeSpaceNeeded(cmp);
         var newLeft = getNewLeft(cmp);
 
         if(newLeft < 0 - ssn){
           delegate = true;
 
           var newOffset = 0 - (newLeft - closestRailLeft);
-          e.euOffset = e.euOffset ? newOffset + e.euOffset : newOffset;
+
+          var applyOffset = e.originalEvent.euOffset ? newOffset + e.originalEvent.euOffset : newOffset;
+
+          e.originalEvent.euOffset = applyOffset;
         }
+      }
+    }
+    else{
+      // prevent pulling beyond the slide-rail limits (and ping-back on move end)
+      var projectedLeft = getNewLeft(cmp);
+
+      if(projectedLeft > 0 || projectedLeft < 0 - ssn){
+        e.stopPropagation();
+        return;
       }
     }
 
@@ -158,7 +172,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
 
     $(swipeables).each(function(i, ob){
       if(ob.hasClass('js-swipe-not-stacked')){
-        if(isStacked(ob)){
+        if(isStacked(ob) || ob.children().length === 1){
           if(ob.hasClass('js-swipe-bound')){
             ob.off('movestart');
             ob.off('move');
@@ -182,10 +196,9 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
         }
 
       });
-      ob.on('move', function(e){
+      ob.off('moveend').off('move').on('move', function(e){
         cmpMove(ob, e);
-      })
-      .on('moveend', function(){
+      }).on('moveend', function(){
         cmpMoveEnd(ob);
       });
     });
@@ -198,7 +211,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
     cmp.addClass('js-swipeable');
 
     for(var i=0; i<swipeables.length; i++){
-      if(swipeables[i] == cmp){
+      if(swipeables[i] === cmp){
         log('duplicate swipeable');
       }
     }
@@ -233,7 +246,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
         back = true;
       }
     });
-    return [(ssn + l) > 0, back];
+    return [(parseInt(ssn) + l) > 0, back];
   }
 
   function simulateSwipe(cmp, dir, dist, callback){
@@ -242,7 +255,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
     var ssn       = swipeSpaceNeeded(cmp);
     var left      = parseInt(sCmp.css('left'));
     dist          = dist ? dist : sCmp.width();
-    var available = dir == 1 ? Math.min((ssn + left), dist) : Math.min((-1 * left), dist);
+    var available = dir === 1 ? Math.min((ssn + left), dist) : Math.min((-1 * left), dist);
 
     var recurseOrCallback = function(){
       setTimeout(function(){
@@ -273,9 +286,9 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
       sCmp.on(transitionEvent, transitionEnd);
     }
 
-    var newVal = dir == 1 ? left - available : left + available;
+    var newVal = dir === 1 ? left - available : left + available;
 
-    if(parseInt(sCmp.css('left')) == newVal){
+    if(parseInt(sCmp.css('left')) === newVal){
       transitionEnd();
     }
     else{
@@ -301,7 +314,8 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
   return {
     makeSwipeable: makeSwipeable,
     simulateSwipe: simulateSwipe,
-    getNavOptions: getNavOptions
+    getNavOptions: getNavOptions,
+    isStacked: isStacked
   };
 
 });

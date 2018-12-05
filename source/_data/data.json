@@ -721,6 +721,8 @@
           },
           "news": "News",
           "object": {
+              "created-by": "Created By",
+              "main-img-alt": "Image from object titled",
               "similar-result": "Result",
               "similar-results": "Results",
               "similar-suggestions": "Suggested content",
@@ -733,12 +735,12 @@
               },
               "actions": {
                   "annotate": "Annotate",
-                  "collapse-extended": "collapse extended information",
+                  "collapse-extended": "Close all",
                   "copy": "Copy",
                   "download": "Download",
                   "download-started": "The download has started",
                   "download-retry": "Retry",
-                  "expand-extended": "expand extended information",
+                  "expand-extended": "Open all",
                   "media-metadata": "Media Metadata",
                   "technicalmetadata": "Technical Metadata",
                   "open-media": "Open this media item",
@@ -852,12 +854,14 @@
             "register":"Register",
             "reduce-viewer":"Reduce viewer",
             "remove":"Remove",
+            "search": "Search",
             "share": "Share",
             "sign-in": "Sign in",
             "sign-out": "Sign out",
             "skip-to-main":     "Skip to page contents",
             "skip-to-section":  "Skip to section",
             "sort-by": "Order by",
+            "subscribe": "Subscribe",
             "view": "View",
             "view-at": "View at",
             "withdraw": "withdraw"
@@ -885,8 +889,9 @@
               "restricted-brief": "Yes",
 
               "open-info":        "with attribution",
-              "permission-info": "learn why",
-              "restricted-info": "limitations apply"
+              "permission-info":  "learn why",
+              "restricted-info":  "limitations apply",
+              "free-reuse":       "Free reuse"
             }
           },
           "feedback":{
@@ -896,7 +901,8 @@
             "data-use-1": "We may share your data anonymously with our partners in order to improve Europeana.",
             "data-use-2": "If you provide an email address we may contact you for other information.",
             "data-agreement": "I agree to Europeana's privacy policy",
-            "error": "An error occurred - please try again later",
+            "error": "An error occurred - please try again",
+            "error-accept": "Please agree to Europeana's privacy policy",
             "error-short": "Your feedback has to consist of %{minwords} words at minimum.",
             "title": "feedback",
             "placeholder": "We want to hear from you! Enter your feedback here.",
@@ -933,6 +939,17 @@
           },
           "language-english": "English",
           "language-french": "Français",
+          "media": {
+            "types": {
+              "audio"  : "audio",
+              "image"  : "image",
+              "IIIF"   : "IIIF",
+              "oembed" : "oembed",
+              "pdf"    : "pdf",
+              "text"   : "text",
+              "video"  : "video"
+            }
+          },
           "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
           "mission-title": "Our mission",
           "more": {
@@ -980,6 +997,6 @@
   "feedback":{
     "form_action": "feedback_submit",
     "maxlength": 20,
-    "url_privacy_policy": "javascript:alert('open priacy policy')"
+    "privacy_policy_url": "javascript:alert('open priacy policy')"
   }
 }

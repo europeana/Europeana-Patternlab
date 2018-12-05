@@ -1,3 +1,4 @@
+
 define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
   'use strict';
 
@@ -9,12 +10,14 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
 
   describe('Eu Data Continuity', function(){
 
-    var defaultTestId = 'defaultTestId';
+    var defaultTestId = '123';
     var waitTime      = 1000;
 
     beforeEach(function(done){
 
       jasmine.getFixtures().fixturesPath = basePath;
+
+      console.error('DataContinuity ' + DataContinuity + '\n ' + (typeof DataContinuity.reset));
 
       DataContinuity.reset();
       localStorage.clear();
@@ -77,7 +80,7 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
 
         testSessionId = 'mismatch';
 
-        var param = '?dc=' + testSessionId;
+        var param = '#dcId=' + testSessionId;
         var win = window.open(fixtureUrl + param);
 
         setTimeout(function(){
@@ -112,9 +115,9 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
 
       it('can confirm continuity (non-default)', function(done){
 
-        testSessionId = 'some-random-id-' + new Date().getTime();
+        testSessionId = new Date().getTime();
 
-        var win = window.open(fixtureUrl + '?dc=' + testSessionId);
+        var win = window.open(fixtureUrl + '#dcId=' + testSessionId);
 
         setTimeout(function(){
 
@@ -140,7 +143,7 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
 
       it('can deny continuity', function(done){
 
-        testSessionId = 'some-random-id-' + new Date().getTime();
+        testSessionId = new Date().getTime();
 
         DataContinuity.prep(null, testSessionId);
 
@@ -172,18 +175,17 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
             done();
           }, waitTime);
         }, waitTime);
-
       });
 
       it('can confirm continuity (non-default)', function(done){
 
-        testSessionId = 'some-random-id-' + new Date().getTime();
+        testSessionId = new Date().getTime();
 
         DataContinuity.prep(null, testSessionId);
 
         setTimeout(function(){
 
-          var win  = window.open(fixtureUrl + '?fn=cb&dc=' + testSessionId);
+          var win  = window.open(fixtureUrl + '?fn=cb' + '#dcId=' + testSessionId);
 
           setTimeout(function(){
             expect(rcwd).toHaveBeenCalledWith(true);
@@ -196,18 +198,17 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
 
     describe('URL Rewrite Utility', function(){
 
-
       it('can update a set of links to contain the continuity parameter', function(){
 
         window.loadFixtures(fixtureUrlLink);
 
-        var selLink  = '.dc-link';
-        var link     = $(selLink);
+        var selLinks = '.dc-links';
+        var link     = $('.dc-link');
         var hrefOrig = link.attr('href');
 
         DataContinuity.reset();
-        //DataContinuity.prep(null, testSessionId);
-        DataContinuity.parameteriseLinks(selLink);
+        DataContinuity.prep(null, testSessionId);
+        DataContinuity.parameteriseLinks(selLinks);
 
         var hrefNew = link.attr('href');
 
@@ -216,21 +217,5 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
 
       });
     });
-
   });
 });
-
-/*
-  DESC
-
-  STATE:  URL PARAMS / sessionStorage / localStorage
-
-  combines localStorage (global) with sessionStorage (private, deleted on exit)
-  to allow session storage to extend across multiple windows.
-
-  @continuityId
-    - used to link windows
-    - // but also access the database ????
-    - saved to sessionStorage
-
-*/

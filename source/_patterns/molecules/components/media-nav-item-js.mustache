@@ -1,7 +1,7 @@
 <div
   [[^ single_item]]
-    class="mlt-img-div height-to-width"
-    style="background-image: url('[[thumbnail]]')"
+    class="mlt-img-div height-to-width loading"
+    data-image="[[thumbnail]]"
   [[/single_item]]>
   <div class="inner"><a [[#external_media]]href="[[.]]" target="_blank"[[/external_media]]
       [[#is_audio]]
@@ -31,10 +31,6 @@
       [[#is_video]]
           data-type="video"
       [[/is_video]]
-
-      [[#is_midi]]
-          data-type="midi"
-      [[/is_midi]]
 
       [[#play_html]]
          data-html="[[.]]"
@@ -109,6 +105,11 @@
         [[#attribution_html]]
           data-attribution-html="[[.]]"
         [[/attribution_html]]
+
+        [[#colours.present]]
+          data-has-colour-info=true
+        [[/colours.present]]
+
       [[/technical_metadata]]
 
       class="link [[#is_current]]is-current[[/is_current]][[#playable]] playable[[/playable]][[#external_media]] external-media[[/external_media]]"

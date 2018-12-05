@@ -48,7 +48,8 @@
 
   "content":{
     "anchor_title": true,
-    "helpbar_tip": "This is the helpbar for the A-Z page",
+    "title": "Photographs from italian photographers on political subjects",
+    "text": "Example of browse page for the High quality open images Journey, a long text",
     "browse_lists": [
       {
         "head":{

@@ -27,6 +27,11 @@
       {{{.}}}
     </p>
   {{/content.description}}
+  {{#content.video_embed}}
+    <div class="ugc-video">
+      <iframe src="{{.}}" width="560" height="315" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
+    </div>
+  {{/content.video_embed}}
 </div>
 
 <section class="section">

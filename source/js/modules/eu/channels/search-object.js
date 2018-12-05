@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, EuMustacheLoader) {
+define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 'media_controller'], function($, scrollEvents, EuMustacheLoader) {
 
   var channelData = null;
 
@@ -79,9 +79,9 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 
     $.getJSON(initUrl, null).done(buildHierarchy).fail(error);
   }
 
-  function showMap(mapData){
+  function showMap(){
     require(['util_cho_map'], function(MapUtil){
-      MapUtil.loadMap(mapData, $('.markers a'));
+      MapUtil.loadMap($('.markers a'));
     });
   }
 
@@ -458,59 +458,6 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 
     }
   };
 
-  /*
-  var setBreadcrumbs = function(){
-
-    var url = window.location.href.split('.html')[0] + '/navigation.json';
-    if(url.indexOf('/patterns/')>-1){
-      return;
-    }
-
-    $.ajax({
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('X-CSRF-Token', $('meta[name='csrf-token']').attr('content'));
-      },
-      url:   url,
-      type:  'GET',
-      contentType: 'application/json; charset=utf-8',
-      success: function(data) {
-        if(data.back_url){
-          var crumb = $('.breadcrumbs li.js-return');
-          var link  = crumb.find('a');
-          link.attr('href', data.back_url);
-          crumb.removeClass('js-return');
-          channelCheck();
-        }
-        if(data.next_prev){
-          if(data.next_prev.next_url){
-            var crumb = $('.object-nav-lists li.js-next');
-            var link  = crumb.find('a');
-            link.attr('href', data.next_prev.next_url);
-            crumb.removeClass('js-next');
-            $(data.next_prev.next_link_attrs).each(function(i, ob){
-              link.attr(ob.name, ob.value);
-            });
-          }
-          if(data.next_prev.prev_url){
-            var crumb = $('.object-nav-lists li.js-previous');
-            var link  = crumb.find('a');
-            link.attr('href', data.next_prev.prev_url);
-            crumb.removeClass('js-previous');
-
-            $(data.next_prev.prev_link_attrs).each(function(i, ob){
-              link.attr(ob.name, ob.value);
-            });
-          }
-        }
-        Blacklight.activate();
-      },
-      error: function(msg){
-        log('failed to load breadcrumbs (' + JSON.stringify(msg) + ') from url: ' + url);
-      }
-    });
-  }
-  */
-
   var getAnalyticsData = function(){
 
     var gaData           = channelData ? channelData : channelCheck();
@@ -712,8 +659,8 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 
       showMediaThumbs(data);
     });
 
-    $(window).bind('showMap', function(e, data){
-      showMap(data);
+    $(window).bind('showMap', function(){
+      showMap();
     });
 
     $(window).bind('loadHierarchy', function(e, data){

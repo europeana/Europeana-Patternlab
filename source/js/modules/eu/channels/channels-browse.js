@@ -1,38 +1,27 @@
-define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], function($, Ellipsis, ViewportContains){
+define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'eu_lazy_image_loader', 'util_scroll'], function($, Ellipsis, ViewportContains, LazyimageLoader){
 
   'use strict';
 
   function initTitleBar(){
-    require(['eu_title_bar'], function(EuTitleBar){
+    var anchorList = $('.anchor-list');
+    if(anchorList.length > 0){
+      require(['eu_title_bar'], function(EuTitleBar){
 
-      var anchorList = $('.anchor-list');
-      var conf = {
-        $container:        $('.header-wrapper'),
-        $detectionElement: anchorList,
-        markup:            '<div class="title-bar">' + anchorList[0].outerHTML + '</div>'
-      };
+        var conf = {
+          $container:        $('.header-wrapper'),
+          $detectionElement: anchorList,
+          markup:            '<div class="title-bar">' + anchorList[0].outerHTML + '</div>'
+        };
 
-      var titleBar = EuTitleBar.init(conf);
+        var titleBar = EuTitleBar.init(conf);
 
-      $(document, '.cc_btn cc_btn_accept_all').on('click', function(){
-        titleBar.test();
+        $(document, '.cc_btn cc_btn_accept_all').on('click', function(){
+          titleBar.test();
+        });
+
+        initScrollToAnchor();
       });
-
-      initScrollToAnchor();
-    });
-  }
-
-  function initEllipsis(){
-    require(['util_eu_ellipsis'], function(Ellipsis){
-      $('.gridlayout-card .inner-text h3').each(function(){
-        Ellipsis.create($(this), {textSelectors:['a']});
-      });
-
-      $('.gridlayout-card .inner-text p').each(function(){
-        Ellipsis.create($(this), {textSelectors:['span']});
-      });
-
-    });
+    }
   }
 
   function initScrollToAnchor() {
@@ -44,94 +33,68 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], fu
     });
   }
 
-  function scrollToAnchor(el) {
+  function scrollToAnchor($el) {
+
+    var tgtEl = document.getElementById($el.attr('href').substr(1));
+
     $('html, body').animate({
-      scrollTop: $(el.attr('href')).offset().top
+      scrollTop: $(tgtEl).offset().top
     }, 1000);
   }
 
   function initLazyLoad(){
 
-    var loadBatch = function($batch, cb){
+    var addEllipsis = function(batch){
 
-      var returned = 0;
-
-      $batch.each(function(i, card){
-
-        var cardImg  = $(card);
-        var imgSrc   = cardImg.data('image');
-
-        if(!cardImg.hasClass('preloading')){
-          cardImg.addClass('loading');
-        }
-
-        var preloader = $('<img style="width:0px; height:0px;">').appendTo(cardImg);
-
-        $(preloader).imagesLoaded(function(){
-          cardImg.css('background-image', 'url("' + imgSrc + '")');
-          cardImg.removeClass('loading preloading');
-          cardImg.addClass('loaded');
-          preloader.remove();
-
-          returned ++;
-
-          if(returned === $batch.length && cb){
-            cb();
-          }
-        });
-        preloader.attr('src', imgSrc);
-
-        cardImg.next('.inner').find('.ellipsis').each(function(){
-          var txt = $(this);
+      batch.each(function(){
+        $(this).next('.inner').find('.ellipsis').each(function(i, txt){
+          txt = $(txt);
           txt.removeClass('ellipsis');
           Ellipsis.create(txt, {textSelectors:['a']});
         });
-
       });
     };
 
     var loadImagesInView = function(){
 
-      var selCard = '.card-img:not(.loaded, .loading)';
-      var batch   = $(selCard).map(function(){
-        if(ViewportContains.isElementInViewport(this, true)){
+      var peekAheadPixels = 300;
+      var selCard         = '.card-img:not(.loaded, .loading)';
+      var selSublist      = '.browseabe-list';
+
+      var batch           = $(selCard).map(function(){
+        if(ViewportContains.isElementInViewport(this, {acceptPartial: true, margin: peekAheadPixels})){
           return this;
         }
       });
 
-      var batchList = batch.first().closest('.browseabe-list');
-      var nextBatch = batchList.nextAll('.browseabe-list').first().find(selCard);
-      var loadNext;
+      LazyimageLoader.loadLazyimages(batch, {
 
-      if(nextBatch.length > 0){
-        loadNext = nextBatch;
-      }
-      else{
-        loadNext = batchList.prevAll('.browseabe-list').first().find(selCard);
-      }
+        'cbLoadedAll': function(){
 
-      if(loadNext.length > 0){
-        loadNext.addClass('preloading');
-      }
+          addEllipsis(batch);
 
-      loadBatch(batch, function(){
-        if(loadNext.length > 0){
-          loadBatch(loadNext);
+          var batchList        = batch.first().closest(selSublist);
+          var notLoadedCurrent = batchList.find(selCard).length;
+          var nextBatch        = notLoadedCurrent > 0 ? batch : batchList.nextAll(selSublist).first().find(selCard);
+          var loadNext         = nextBatch.length > 0 ? nextBatch : batchList.prevAll(selSublist).last().find(selCard);
+
+          if(loadNext.length > 0){
+            LazyimageLoader.loadLazyimages(loadNext);
+            addEllipsis(loadNext);
+          }
         }
       });
 
     };
 
-    require(['util_scroll'], function(){
-      $(window).europeanaScroll(function(){
-        loadImagesInView();
-      });
+    $(window).europeanaScroll(function(){
+      loadImagesInView();
     });
+
     loadImagesInView();
   }
 
   function initPage(){
-    initEllipsis();
     initTitleBar();
     initLazyLoad();
   }

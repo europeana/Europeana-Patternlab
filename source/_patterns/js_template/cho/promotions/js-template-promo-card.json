@@ -15,15 +15,15 @@
   "js_vars": [
     {
       "name":  "mock_ajax",
-      "value": "{ 'mappings': [{'pattern': 'news.json', 'resolveTo': 'portal_object-promos-news'}]}"
+      "value": "{ 'mappings': [{'pattern': 'promoted.json', 'resolveTo': 'portal_object-promos-card'}]}"
     },
     {
       "name":  "ajax_call",
-      "value": "news.json"
+      "value": "promoted.json"
     },
     {
       "name":  "template_id",
-      "value": "template-promo-news"
+      "value": "template-promo-card"
     }
   ]
 }

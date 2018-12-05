@@ -159,21 +159,11 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
   var adaptForNewItemPage = function(){
 
-    if(location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
+    if(typeof(Storage) !== 'undefined' && typeof window.newRecordPageDesign === 'boolean' && window.newRecordPageDesign){
 
-      var page    = $.url(location.href).param('page');
+      var s       = sessionStorage;
+      var page    = $url.param('page');
       var channel = $('.breadcrumbs').data('store-channel-name');
-
-      var updateUrl = function($anchor){
-        var url = $anchor.attr('href');
-        if(url && url.indexOf('design=new') === -1){
-          $anchor.attr('href', url + '&design=new');
-        }
-      };
-
-      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a, .search-list-item a').not('.filter-name-icon, .mlt_remove').each(function(){
-        updateUrl($(this));
-      });
 
       var fnGetText = function($el){
         return $el.contents().filter(function(){
@@ -192,10 +182,9 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       var fnItemStorageUrl = function(url){
         if(url){
           var params = $.url(url).param();
-          delete params['l'];
 
-          params['page']   = page ? page : 1;
-          params['design'] = 'new';
+          delete params['l'];
+          delete params['page'];
 
           if(channel){
             params['channel'] = channel;
@@ -209,54 +198,34 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
         return {
           'url':  fnItemStorageUrl(fnGetAttr($el, '.link', 'href')),
-          'icon': fnGetAttr($el, '.svg-icon', 'class').replace('svg-icon', '').replace('svg-icon-', '').trim(),
-          'img':{
-            'src': fnGetAttr($el, 'img', 'src')
-          },
-          'title': fnGetText($el.find('.item-info a')),
-          'relation': 'What goes here?'
+          'media_type': fnGetAttr($el, '.svg-icon', 'class').replace('svg-icon', '').replace('svg-icon-', '').trim(),
+          'images': [fnGetAttr($el, 'img', 'src')],
+          'title': fnGetText($el.find('.item-info a'))
         };
       };
 
-      if(typeof(Storage) !== 'undefined') {
+      var lastResults = [];
+      var items       = $('.result-items .search-list-item');
+      var resInfo     = $('.result-info').text();
 
-        var lastResults = [];
-        var items       = $('.result-items .search-list-item');
-        var resInfo     = $('.result-info').text();
+      items.each(function(i, ob){
+        lastResults.push(fnItemStorage($(ob)));
+      });
 
-        items.each(function(i, ob){
+      var continuityId = s.getItem('continuityId');
 
-          var $item = $(ob);
-          lastResults.push(fnItemStorage($item));
-
-          $item.find('a').each(function(){
-            $(this).attr('href', $(this).attr('href') + '&page=' + (page ? page : 1));
-          });
-
-        });
-
-
-
-        var continuityId = sessionStorage.getItem('continuityId');
-
-        if(!continuityId){
-          continuityId = new Date().getTime();
-          sessionStorage.setItem('continuityId', continuityId);
-          sessionStorage.setItem(continuityId, true);
-        }
-
-        DataContinuity.prep(false, continuityId);
-        DataContinuity.parameteriseLinks('.result-items .search-list-item a');
-
-        items.on('click', function(){
-          var current = $(this).index('.result-items .search-list-item');
-          sessionStorage.eu_portal_last_results_current = current;
-        });
-
-        sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
-        sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
-        sessionStorage.eu_portal_last_results_offset = parseInt(resInfo.match(/\d+/)) - 1;
+      if(!continuityId){
+        continuityId = new Date().getTime();
+        s.setItem('continuityId', continuityId);
+        s.setItem(continuityId, true);
       }
+
+      DataContinuity.prep(false, continuityId);
+      DataContinuity.parameteriseLinks('.result-items .search-list-item', page ? page : 1);
+
+      s.eu_portal_last_results_items         = JSON.stringify(lastResults);
+      s.eu_portal_last_results_total         = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
+      s.eu_portal_last_results_search_params = JSON.stringify(DataContinuity.getSearchParams());
     }
   };
 
@@ -444,6 +413,11 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     var s = $('#date-range-start');
     var e = $('#date-range-end');
 
+    if(s.attr('type') === 'date'){
+      // we only constrain the inputs if they type number
+      return;
+    }
+
     e.attr('max', new Date().getFullYear());
     s.attr('max', new Date().getFullYear());
 
@@ -477,6 +451,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       }
       // thematicCollection = name;
     }
+
     bindViewButtons(defView);
     bindResultSizeLinks();
     bindGA();

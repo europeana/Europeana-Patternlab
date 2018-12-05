@@ -234,205 +234,6 @@
                 ]
               }
             }
-          },
-          {
-            "is_iiif": true,
-            "downloadable": true,
-            "download":{
-              "url":  "/media/iiif.jpg",
-              "text": "Original file"
-            },
-            "playable": true,
-            "attribution_html": "some html",
-            "attribution_plain": "Vincent van Gogh",
-            "play_url": "http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json",
-            "thumbnail": "/media/iiif.jpg",
-            "technical_metadata": {
-              "mime_type": "image/iiif",
-              "dc_creator": "Media Item (2) Creator",
-              "dc_description": "Description of the 2nd media item",
-              "dc_rights": "DC rights of the 2nd media item",
-              "dc_source": "Source of the 2nd media item",
-              "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_info\":\"with attribution\",\"license_human\":\"Free open re-use\",\"license_name\":\"CC BY-NC\", \"license_CC_BY_NC\": true }}"
-            },
-            "rights":
-            {
-              "license_public": false,
-              "license_human": "No reuse",
-              "license_brief": "Yes",
-              "license_name": "CC0"
-            }
-          },
-          {
-            "is_iiif": true,
-            "downloadable": false,
-            "playable": true,
-            "play_url": "http://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118435009/manifest.json",
-            "thumbnail": "/images/sample/iiif_t.jpg",
-            "technical_metadata": {
-              "mime_type": "image/iiif",
-              "dc_creator": "Hugo",
-              "dc_description": "API v2 data",
-              "dc_rights": "CCX (dc)",
-              "dc_source": "Hugo MyGuinness",
-              "edm_rights": "CCX (edm)"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this iiif image any way you like",
-              "license_brief": "Yes"
-            }
-          },
-          {
-            "thumbnail": "/media/falcon-thumb.png",
-            "playable": true,
-            "is_image": false,
-            "is_pdf": true,
-            "play_url": "/media/falcon.pdf",
-            "downloadable": false,
-            "download":{
-              "url":  "/media/falcon.pdf",
-              "text": "Original file"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this pdf in any way you like",
-              "license_brief": "Res.",
-              "license_restricted": true
-            },
-            "technical_metadata":
-            {
-              "dc_creator": "Media Item (3) Creator",
-              "dc_description": "Description of the 3rd media item",
-              "dc_rights": "DC rights of the 3rd media item",
-              "dc_source": "Source of the 3rd media item",
-              "edm_rights": "{\"model\":{\"license_human\":\"Limited Re-use\",\"license_info\":\"limitations apply\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}",
-              "language":"English",
-              "format": "image/png",
-              "file_size": "7.3",
-              "file_unit": "MB"
-            }
-          },
-          {
-            "thumbnail": "/images/sample/object_thumbnail4.jpg",
-            "playable": true,
-            "is_image": false,
-            "is_pdf": true,
-            "play_url": "/media/PDF2.pdf",
-            "downloadable": true,
-            "download":{
-              "url":  "/media/PDF2.pdf",
-              "text": "2nd PDF file"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this pdf in any way you like",
-              "license_brief": "Yes"
-            },
-            "technical_metadata":
-            {
-              "language":"English",
-              "format": "image/png",
-              "file_size": "23.2",
-              "file_unit": "MB"
-            }
-          },
-          {
-            "is_image": true,
-            "playable": true,
-            "thumbnail": "/images/sample/object_2_thumbnail.jpg",
-            "play_url": "/images/sample/object_2_full.jpg",
-            "downloadable": true,
-            "attribution_html": "some html",
-            "attribution_plain": "Old Man Sitting (c)",
-            "download":{
-              "url": "/images/sample/object_2_full.jpg",
-              "text": "Original file"
-            },
-            "technical_metadata":
-            {
-              "NOTE:": "width and height used for image viewer",
-
-              "width": "532",
-              "height": "768",
-              "format": "image/jpg",
-              "file_size": "84.25",
-              "file_unit": "KB",
-              "mime_type": "image/jpg",
-              "colours": {
-                "present": true,
-                "items": [
-                  {
-                    "hex": "#2F4F4F",
-                    "url": "javascript: alert('search on colour');"
-                  },
-                  {
-                    "hex": "#556B2F",
-                    "url": "javascript: alert('search on colour');"
-                  },
-                  {
-                    "hex": "#8B4513",
-                    "url": "javascript: alert('search on colour');"
-                  },
-                  {
-                    "hex": "#696969",
-                    "url": "javascript: alert('search on colour');"
-                  },
-                  {
-                    "hex": "#800000",
-                    "url": "javascript: alert('search on colour');"
-                  },
-                  {
-                    "hex": "#2F4F4F",
-                    "url": "javascript: alert('search on colour');"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "is_audio": true,
-            "playable": true,
-            "thumbnail": "/media/thumb-default-sound.jpg",
-            "play_url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
-            "downloadable": true,
-            "download": {
-              "url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
-              "text": "Original MP3 file"
-            },
-            "technical_metadata": {
-              "mime_type": "audio/mp3"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this audio clip in any way you like",
-              "license_brief": "Yes"
-            }
-          },
-          {
-            "is_image": false,
-            "is_video": true,
-            "playable": true,
-            "thumbnail": "/images/sample/object_thumbnail5.jpg",
-            "play_url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
-            "downloadable": true,
-            "download": {
-              "url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
-              "text": "Original MP4 file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/mp4"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like",
-              "license_brief": "Yes"
-            }
           }
         ]
       },
@@ -628,71 +429,180 @@
 
       "location":
       {
-        "present": true,
-        "places": {
-          "title": "Location",
-          "sections": [
-            {
-              "items": [
-                {
-                  "text": "Sverige",
-                  "extra_info": {
-                    "latitude": 60.37888,
-                    "longitude": 10.75128
-                  }
-                },
-                {
-                  "text": "Kingdom of Sweden",
-                  "extra_info": {
-                    "latitude": 62,
-                    "longitude": 15
-                  }
-                },
-                {
-                  "text": "Sweden",
-                  "extra_info": {
-                    "latitude": 62.4,
-                    "longitude": 15
-                  }
-                },
-                {
-                  "text": "Kingdom of Norway",
-                  "extra_info": {
-                    "latitude": 62,
-                    "longitude": 10.3
-                  }
-                },
-                {
-                  "text": "Norway",
-                  "url": false
-                },
-                {
-                  "text": "Scandinavia",
-                  "url": false
-                }
-              ],
-              "is_desc": false
-            }
-          ],
-          "id": "location"
-        },
-        "geo":
-        {
-          "long_and_lat": true,
-          "labels":
+        "title": "Location",
+        "sections": [
           {
-            "map": "Map",
-            "longitude": "Longitude",
-            "latitude": "Latitude",
-            "points":
-            {
-              "n": "North",
-              "e": "East",
-              "s": "South",
-              "w": "West"
-            }
+            "title": "Location",
+            "geo": true,
+            "items": [
+              {
+                "text": "Helsingborg [tryckort]",
+                "url": null,
+                "ga_data": null,
+                "extra_info": null,
+                "raw": false,
+                "json_url": null,
+                "entity": false,
+                "europeana_entity": false
+              },
+              {
+                "text": "Malmöhus",
+                "url": null,
+                "ga_data": null,
+                "extra_info": null,
+                "raw": false,
+                "json_url": null,
+                "entity": false,
+                "europeana_entity": false
+              },
+              {
+                "text": "Sverige 60.37888 ° North, 10.75128 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "60.37888",
+                  "longitude": "10.75128"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/176046.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Kingdom of Sweden 62.0 ° North, 15.0 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "62.0",
+                  "longitude": "15.0"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/113-kingdom-of-sweden.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Sweden 62.0 ° North, 15.0 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "62.0",
+                  "longitude": "15.0"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/113-kingdom-of-sweden.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Kingdom of Norway 62.0 ° North, 10.0 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "62.0",
+                  "longitude": "10.0"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/107-kingdom-of-norway.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Norway 62.0 ° North, 10.0 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "62.0",
+                  "longitude": "10.0"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/107-kingdom-of-norway.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Scania 55.98333 ° North, 13.5 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "55.98333",
+                  "longitude": "13.5"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/31194-scania.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Skåne 55.98333 ° North, 13.5 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "55.98333",
+                  "longitude": "13.5"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/31194-scania.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Skåne County 55.98333 ° North, 13.5 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "55.98333",
+                  "longitude": "13.5"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/31194-scania.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Helsingborg 56.04673 ° North, 12.69437 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "56.04673",
+                  "longitude": "12.69437"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/27560-helsingborg.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Helsingborg 56.03149 ° North, 12.70845 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "56.03149",
+                  "longitude": "12.70845"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/31276-helsingborg.json",
+                "entity": true,
+                "europeana_entity": true
+              },
+              {
+                "text": "Helsingborg Municipality 56.05648 ° North, 12.78718 ° East",
+                "url": null,
+                "ga_data": null,
+                "extra_info": {
+                  "latitude": "56.05648",
+                  "longitude": "12.78718"
+                },
+                "raw": false,
+                "json_url": "/portal/en/explore/places/27559-helsingborg-municipality.json",
+                "entity": true,
+                "europeana_entity": true
+              }
+            ],
+            "is_desc": false
           }
-        }
+        ],
+        "id": "location"
       },
       "social_share":{
         "url": "this page url for share links",
@@ -707,19 +617,23 @@
       "tab_items": [
         {
           "tab_title": "From Johannes Vermeer",
-          "url":       "portal_suggestions?from=vermeer"
+          "url":       "portal_suggestions?from=vermeer",
+          "more_items_query": "javascript:alert('open search result tab 1')"
         },
         {
           "tab_title": "From Rijksmuseum",
-          "url":       "portal_suggestions?from=rijks"
+          "url":       "portal_suggestions?from=rijks",
+          "more_items_query": "javascript:alert('open search result tab 2')"
         },
         {
           "tab_title": "From the blog",
-          "url":       "portal_suggestions?from=blog"
+          "url":       "portal_suggestions?from=blog",
+          "more_items_query": "javascript:alert('open search result tab 3')"
         },
         {
           "tab_title": "From elsewhere",
-          "url":       "portal_suggestions?from=elsewhere"
+          "url":       "portal_suggestions?from=elsewhere",
+          "more_items_query": "javascript:alert('open search result tab 4')"
         }
       ]
     },

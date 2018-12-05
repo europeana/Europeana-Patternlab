@@ -7,7 +7,7 @@
   ],
   "feedback": {
     "form_action": "feedback_submit",
-    "url_privacy_policy": "javascript:alert('open privacy policy')",
+    "privacy_policy_url": "javascript:alert('open privacy policy')",
     "maxlength": 200,
     "minwords": 3
   }

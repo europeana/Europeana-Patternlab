@@ -9,39 +9,42 @@
     requirejs.config({
       paths: {
         jq:      'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min',
-        purl:    '/base/js/modules/lib/purl/purl',
         dc:      '/base/js/modules/eu/util/eu-data-continuity'
       }
     });
 
     require(['jq'], function($){
-      require(['purl'], function(){
-        require(['dc'], function(dc){
+      require(['dc'], function(dc){
 
-          var href   = location.href;
-          var params = {'dc': 'defaultTestId', 'fn': 'listen'};
+        console.error('FX DataContinuity ' + dc + '\n ' + (typeof dc));
 
-          if(href.indexOf('?') > 0){
-            href.split('?')[1].split('&').forEach(function(p){
-              var p2 = p.split('=');
-               params[p2[0]] = p2[1];
-            });
-          };
+        var href   = location.href;
+        var params = {'dc': '123', 'fn': 'listen'};
 
-          if(params['fn'] === 'listen'){
-            dc.prep(false, params['dc']);
-            console.log('prepped ' + window.id);
-          }
-          else if(params['fn'] === 'cb'){
-            dc.prep(function(continuous){
-              window.opener.receiveChildWindowData(continuous);
-            }, params['dc']);
-          }
+        var hashDcId = dc.getHashParam('dcId');
+        if(hashDcId){
+          params.dc = hashDcId;
+        }
 
-        })
+        if(href.indexOf('?') > 0){
+          var p  = href.split('?')[1].split('#')[0];
+          var p2 = p.split('=');
+          params[p2[0]] = p2[1];
+        };
+
+        if(params['fn'] === 'listen'){
+          dc.prep(false, params['dc']);
+        }
+        else if(params['fn'] === 'cb'){
+          dc.prep(function(continuous){
+            window.opener.receiveChildWindowData(continuous);
+          }, params['dc']);
+        }
       })
     });
     </script>
   </body>
-  <a class="dc-link" href="http://www.europeana.eu">Test Link Rewrite</a>
+  <div class="dc-links">
+    <a class="dc-link" href="http://www.europeana.eu">Test Link Rewrite</a>
+  </div>
 </html>

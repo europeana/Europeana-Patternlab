@@ -6,6 +6,10 @@ $page-bg-colour:   #ececec;
 
   background: $page-bg-colour;
 
+  .after-header-with-search > .gridlayout-wrapper-full {
+    padding-top: $spacing-2x;
+  }
+
   .anchor-list {
     background: $eu-very-light-gray;
     border-radius: $base-border-radius;
@@ -14,7 +18,7 @@ $page-bg-colour:   #ececec;
     font-size: 1.875rem;
     font-weight: 300;
     line-height: 2.5625rem;
-    margin: $spacing-2x 0;
+    margin: 0 0 $spacing-2x 0;
 
     .anchor-list-wrapper {
       > ul {
@@ -111,6 +115,23 @@ $page-bg-colour:   #ececec;
         }
       }
     }
+  }
+
+  .browse-page-title {
+    font-size: 2.25rem;
+    font-weight: 600;
+    letter-spacing: 2.45px;
+    line-height: 1.36;
+    margin-bottom: $spacing-2x;
+  }
+
+  .browse-page-description {
+    color: #9b9b9b;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 1.75px;
+    line-height: 1.333;
+    margin-bottom: $spacing-2x;
   }
 
   .browse-list-title {

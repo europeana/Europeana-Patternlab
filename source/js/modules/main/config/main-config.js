@@ -1,7 +1,6 @@
 require.config({
   paths: {
     aurora:                        '../../lib/audiocogs/aurora',
-    blacklight:                    '../../lib/blacklight/blacklight_all',
     channels:                      '../../eu/channels/channels',
     channels_browse:               '../../eu/channels/channels-browse',
     channels_object:               '../../eu/channels/channels-object',
@@ -15,12 +14,14 @@ require.config({
     eu_autocomplete_processor_def: '../../eu/autocomplete/eu-autocomplete-processor-default',
     eu_carousel:                   '../../eu/channels/eu-carousel',
     eu_carousel_appender:          '../../eu/channels/eu-carousel-appender',
+    eu_colour_nav:                 '../../eu/colour-nav/eu-colour-navigation',
     eu_data_continuity:            '../../eu/util/eu-data-continuity',
 
     eu_form_restore:               '../../eu/util/eu-form-restore',
     eu_form_save:                  '../../eu/util/eu-form-save',
     eu_hierarchy:                  '../../eu/channels/eu-hierarchy',
     eu_hotspot:                    '../../eu/hotspot/eu-hotspot',
+    eu_lazy_image_loader:          '../../eu/lazy-image-loader/eu-lazy-image-loader',
     eu_light_carousel:             '../../eu/light-carousel/eu-light-carousel',
     eu_media_options:              '../../eu/media/media-options/media-options',
     eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',
@@ -163,7 +164,6 @@ require.config({
     wavesurfer:                    '../../lib/videojs-wavesurfer/wavesurfer'
   },
   shim: {
-    blacklight:     ['jquery'],
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
     placeholder:    ['jquery'],

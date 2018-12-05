@@ -10,11 +10,11 @@ Styleguide development is done on files within the /source/ directory of this pr
 ## Setup
 ### With Docker
 1. Clone this repo into a working directory and `cd` into it
-1. Bring Docker Compose up with:
+1. Build and run the Docker image with:
 
     ```
-    cd docker
-    docker-compose up
+    docker build . -t europeana-styleguide
+    docker run -it -p 8080:80 europeana-styleguide
     ```
 
 1. You will now have Pattern Lab running at http://localhost:8080/
