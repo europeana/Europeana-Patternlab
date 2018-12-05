@@ -839,7 +839,11 @@
       },
       "global": {
           "actions": {
+            "click-here-try-again-1": "You can click",
+            "click-here-try-again-2": "here",
+            "click-here-try-again-3": "to try again",
             "collapse": "Collapse",
+            "copy-attribution": "Show your appreciation. Copy to attribute.",
             "delete":"delete",
             "download":"Download",
             "downloading":"Downloading",
@@ -970,6 +974,7 @@
             "email-address-required": "Please enter your email address.",
             "language-required": "Please choose a language for your newsletter."
           },
+          "other-formats": "Other formats",
           "our-sites": "Our sites",
           "professional": "Professional",
           "professional-text": "For Culture Professionals",
