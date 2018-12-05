@@ -1263,8 +1263,12 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
 	"global": {
 		"about-us": "About us",
 		"actions": {
+      "click-here-try-again-1": "You can click",
+      "click-here-try-again-2": "here",
+      "click-here-try-again-3": "to try again",
 			"collapse": "Collapse",
 			"copy": "Copy",
+      "copy-attribution": "Show your appreciation. Copy to attribute.",
 			"delete": "Delete",
 			"download": "Download",
 			"downloading": "Downloading",
@@ -1511,7 +1515,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
 					"info": "limitations apply",
 					"label": "Limited Re-use"
 				},
-				"simple": "Simple", 
+				"simple": "Simple",
 				"free-reuse": "Free reuse"
 			},
 			"rights": {
@@ -1806,6 +1810,7 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
 			"signup": "Sign up for our newsletter",
 			"submit-alt": "Subscribe"
 		},
+    "other-formats": "other formats",
 		"our-sites": "our sites",
 		"page": "page",
 		"password": "Password",
