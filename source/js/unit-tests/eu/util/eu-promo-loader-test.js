@@ -130,8 +130,6 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
 
     it('can execute a callback when an individual promo has been loaded and appended', function(done){
 
-
-      var eventCallbackParam;
       var confItemCallback  = { 'cb': function(){} };
 
       spyOn(confItemCallback, 'cb');
