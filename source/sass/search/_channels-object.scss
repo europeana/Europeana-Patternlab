@@ -181,6 +181,15 @@ $max-page-width: 1400px;
         color: $white;
       }
     }
+
+    .copyright {
+      background-image: url("../../images/eu_flag_white.svg");
+    }
+
+    .disclaimer {
+      color: $white;
+    }
+
   }
 
   .title-bar {

@@ -7,7 +7,7 @@
   overflow: hidden;
   padding: $space-triple $space;
 
-  .title{
+  .title {
     color: $footer_headings;
     font-size: $font-size-norm;
     font-weight: bold;
@@ -16,7 +16,7 @@
     text-transform: uppercase;
   }
 
-  .margin-bottom{
+  .margin-bottom {
     margin-bottom: $space;
   }
 
@@ -31,49 +31,58 @@
     }
   }
 
-  div[class^='l-'],
-  .signup{
+  div[class^="l-"],
+  .signup {
     margin-bottom: $space;
   }
 
-  .l-mission p{
+  .l-mission p {
     font-size: $font-size-med;
     font-style: italic;
   }
 
   .copyright {
-    background-image: url('../../images/eu_flag_cef.svg');
+    background-image: url("../../images/eu_flag_black.svg");
     background-position: 0 50%;
     background-repeat: no-repeat;
     background-size: contain;
     color: transparent;
     font-size: $font-size-sm;
-    height: 3.34em;
-    padding-top: 3em;
+    height: 1.75rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
   }
 
-  .logo-footer-2018{
-    background-image: url('../../images/portal_footer_logo_2018.png');
-    height:           172px;
-    margin:           auto;
-    position:         relative;
-    right:            -16px;
-    top:              -12px;
-    width:            218px;
+  .logo-footer-2018 {
+    background-image: url("../../images/portal_footer_logo_2018.png");
+    height: 172px;
+    margin: auto;
+    position: relative;
+    right: -16px;
+    top: -12px;
+    width: 218px;
 
     @media all and (min-width: $bp-med) {
       float: right;
     }
   }
 
-  .newsletter-form .inline-container{
+  .newsletter-form .inline-container {
     margin-bottom: $space-quarter;
   }
 
+  .disclaimer {
+    color: $black;
+    font-size: 0.625rem;
+    line-height: 1.8;
+
+    @media all and (min-width: $bp-med) {
+      width: 60%;
+    }
+  }
 }
 
-.footer_logo{
-
+.footer_logo {
   @media all and (min-width: $bp-xl){
     margin-right: $pad-double * 2;
   }
@@ -83,16 +92,14 @@
   }
 }
 
-
-.social-links{
-
+.social-links {
   text-align: center;
 
   @media all and (min-width: $bp-med) {
     text-align: left;
   }
 
-  a{
+  a {
     color: $blue-dark;
     display: inline-block;
     font-size: 3em;
@@ -101,29 +108,27 @@
       color: $textcolour_link;
     }
 
-    svg{
+    svg {
       display: block;
       margin: 0;
     }
   }
-
 }
 
-.sub-footer{
+.sub-footer {
   border-top: 1px solid #a0a0a0;
   padding: $space 0;
 
-  .nav{
+  .nav {
+    margin-bottom: $space;
 
-    margin-bottom: $space-half;
-
-    a{
+    a {
       border-bottom: 1px dotted $blue-dark;
       color: $footer_text;
       display: block;
       margin-right: $space-half;
 
-      &:hover{
+      &:hover {
         color: $textcolour_link;
       }
     }

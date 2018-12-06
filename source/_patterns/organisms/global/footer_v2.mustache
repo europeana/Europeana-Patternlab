@@ -101,9 +101,8 @@
             {{/ navigation.footer.othersites }}
           </div>
         </div>
-      </div><!--
-    --><div class="l-nextsteps">
-
+      </div>
+      <div class="l-nextsteps">
          {{# page_config.newsletter }}
            <div class="signup">
              {{> molecules/forms/newsletter }}
@@ -113,7 +112,6 @@
          {{# navigation.footer.social }}
            {{> molecules/navigation/social-links }}
          {{/ navigation.footer.social }}
-
        </div>
      </div>
    </div>
@@ -125,7 +123,8 @@
        {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
      </ul>
      {{/ navigation.footer.subfooter }}
-     <p class="copyright">Co-funded by the European Union.</p>
+     <p class="copyright" title="{{i18n.global.footer.funding}}"></p>
+     <p class="disclaimer">{{i18n.global.footer.disclaimer}}</p>
    </div>
 </footer>
 <!-- End Footer -->
