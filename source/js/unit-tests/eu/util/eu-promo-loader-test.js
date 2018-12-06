@@ -7,73 +7,85 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
   var basePath     = 'base/js/unit-tests/fixtures/util';
   var basePathJSON = '/base/js/unit-tests/fixture-data/util/';
   var conf;
-  var templateMarkup;
 
   describe('Eu Promo Loader', function(){
 
     beforeEach(function(){
       jasmine.getFixtures().fixturesPath = basePath;
-      window.loadFixtures('fx-eu-promo-loader.html');
       conf = [
         {
-          'id': 'next',
-          'preloaded': { 'title': 'next' },
-          'templateId': 'template-promo-next-prev'
+          id: 'next',
+          preloaded: { 'title': 'next' },
+          templateMarkup: '<div id="template-promo-next-prev"><h2 class="promo-next-prev" >{{title}}</h2></div>'
         },
         {
-          'id': 'entity',
-          'url': basePathJSON + 'promo-entity.json',
-          'templateId': 'template-promo-entity'
+          id: 'entity',
+          url: basePathJSON + 'promo-entity.json',
+          templateMarkup: '<div id="template-promo-entity"><h2 class="promo-entity">{{title}}</h2></div>'
         },
         {
-          'id': 'exhibition',
-          'url': basePathJSON + 'promo-exhibition.json',
-          'templateId': 'template-promo-exhibition'
+          id: 'exhibition',
+          url: basePathJSON + 'promo-exhibition.json',
+          templateMarkup: '<div id="template-promo-exhibition"><h2 class="promo-exhibition">{{title}}</h2></div>'
         },
         {
-          'id': 'gallery',
-          'url': basePathJSON + 'promo-gallery.json',
-          'templateId': 'template-promo-gallery'
+          id: 'gallery',
+          url: basePathJSON + 'promo-gallery.json',
+          templateMarkup: '<div id="template-promo-gallery"><h2 class="promo-gallery">{{title}}</h2></div>'
         },
         {
-          'id': 'news',
-          'url': basePathJSON + 'promo-news.json',
-          'templateId': 'template-promo-news'
+          id: 'news',
+          url: basePathJSON + 'promo-news.json',
+          templateMarkup: '<div id="template-promo-news"><h2 class="promo-news">{{title}}</h2></div>'
         },
         {
-          'id': 'generic',
-          'url': basePathJSON + 'promos-generic.json',
-          'templateId': 'template-promo-generic'
+          id: 'generic',
+          url: basePathJSON + 'promos-generic.json',
+          templateMarkup: '<div id="template-promo-generic"><h2 class="promo-generic">{{title}}</h2></div>'
         },
         {
-          'id': 'previous',
+          id: 'previous',
           'preloaded': { 'title': 'previous' },
-          'templateId': 'template-promo-next-prev',
+          templateMarkup: '<div id="template-promo-next-prev"><h2 class="promo-next-prev">{{title}}</h2></div>',
           'firstIfMissing': 'next'
         }
       ];
-      templateMarkup = $($('#template-markup')[0].outerHTML);
     });
 
     it('builds html from ajax-loaded card data', function(done){
-      PromoLoader.load(conf, templateMarkup, function(markup){
+
+      var markup;
+      var cbSetMarkup = function(markupIn){
+        markup = markupIn;
+      };
+
+      PromoLoader.load(conf, function(){
         expect(markup.find('h2').length).not.toBeLessThan(conf.length);
         done();
-      });
+      }, cbSetMarkup);
     });
 
     it('can interpolate pre-loaded data into the loaded data', function(done){
 
+      var markup;
+      var cbSetMarkup = function(markupIn){
+        markup = markupIn;
+      };
       var testText      = 'ENTITIY-PRELOADED';
       conf[0].preloaded = { 'title': testText };
 
-      PromoLoader.load(conf, templateMarkup, function(markup){
+      PromoLoader.load(conf, function(){
         expect(markup.find('h2:first').text()).toEqual(testText);
         done();
-      });
+      }, cbSetMarkup);
     });
 
     it('adheres to the order defined in the config', function(done){
+
+      var markup;
+      var cbSetMarkup = function(markupIn){
+        markup = markupIn;
+      };
 
       // remove the next. previous, and the multi items
       conf.pop();
@@ -86,7 +98,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
         });
       };
 
-      PromoLoader.load(conf, templateMarkup, function(markup){
+      PromoLoader.load(conf, function(){
 
         var origTextFirstItem = $('h2:first').text();
         var origTextLastItem  = $('h2:last').text();
@@ -96,7 +108,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
         // backwards
         conf.reverse();
 
-        PromoLoader.load(conf, templateMarkup, function(markup){
+        PromoLoader.load(conf, function(){
 
           var textFirstItem = $('h2:first').text();
           var textLastItem  = $('h2:last').text();
@@ -108,48 +120,70 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
           // with items missing
           conf = conf.splice(2, 2);
 
-          PromoLoader.load(conf, templateMarkup, function(markup){
+          PromoLoader.load(conf, function(){
             confirmInSync(markup, conf);
             done();
-          });
-        });
-      });
+          }, cbSetMarkup);
+        }, cbSetMarkup);
+      }, cbSetMarkup);
     });
 
-    it('can order items conditionally on the availability of other items', function(done){
+    it('can execute a callback when an individual promo has been loaded and appended', function(done){
 
-      conf.shift();
 
-      PromoLoader.load(conf, templateMarkup, function(markup){
-        expect(markup.find('h2:first').text()).toEqual('previous');
+      var eventCallbackParam;
+      var confItemCallback  = { 'cb': function(){} };
+
+      spyOn(confItemCallback, 'cb');
+
+      conf = [{
+        id: 'gallery',
+        url: basePathJSON + 'promo-gallery.json',
+        templateMarkup: '<div id="template-promo-gallery"><h2 class="promo-gallery">{{title}}</h2></div>',
+        callback: confItemCallback.cb
+      }];
+
+      PromoLoader.load(conf);
+
+      setTimeout(function(){
+        expect(confItemCallback.cb).toHaveBeenCalled();
         done();
-      });
+      }, 100);
+
     });
 
     describe('Error Handling', function(){
 
       it('ignores invalid config items', function(done){
 
-        conf              = conf.slice(1, 2);
-        conf[0].url       = false;
-        conf[0].preloaded = false;
+        var markup;
+        var cbSetMarkup = function(markupIn){
+          markup = markupIn;
+        };
 
-        PromoLoader.load(conf, templateMarkup, function(markup){
-          expect(markup.find('h2').length).toEqual(0);
+        conf = [{
+          id: 'next',
+          url: false,
+          templateMarkup: '<div id="template-promo-next-prev"><h2 class="promo-next-prev" >{{title}}</h2></div>'
+        }];
+
+        PromoLoader.load(conf, function(){
+          expect(markup).toBeUndefined();
           done();
-        });
+        }, cbSetMarkup);
       });
 
-      it('can handle dead urls', function(done){
+      it('can handle dead urls', function(){
+
+        var cbSetMarkup = function(markupIn){
+          expect(markupIn).toBeUndefined();
+        };
 
         var errorUrl = '/error/404';
         conf         = [conf[1]];
         conf[0].url  = errorUrl;
 
-        PromoLoader.load(conf, templateMarkup, function(markup){
-          expect(markup.is(':empty')).toBe(true);
-          done();
-        });
+        PromoLoader.load(conf, function(){}, cbSetMarkup);
       });
 
     });
