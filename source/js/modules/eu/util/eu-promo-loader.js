@@ -38,19 +38,12 @@ define(['jquery', 'mustache'], function($, Mustache){
     var adjustCardModel = function(item){
       if(item.relation){
         if(item.data){
-          item.data.relation = 'hello ' + item.relation;
+          item.data.relation = item.relation;
         }
       }
 
-      if(item.id === 'gallery'){
-        item.data.is_gallery = true;
-      }
-      if(item.id === 'entity'){
-        item.data.is_entity = true;
-      }
-      if(item.id === 'exhibition'){
-        item.data.is_exhibition = true;
-      }
+      item.data['is_' + item.id] = true;
+
       if(['news', 'generic', 'next', 'previous'].indexOf(item.id) > -1){
         item.data.card_bg_image = true;
       }

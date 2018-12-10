@@ -1190,7 +1190,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         }
 
         if(nextItem){
-          nextItem.is_next = true;
           promoConf.unshift({
             id: 'next',
             preloaded: nextItem,
@@ -1199,7 +1198,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         }
 
         if(prevItem){
-          prevItem.is_prev = true;
           var toInclude = {
             id: 'previous',
             preloaded: prevItem,
