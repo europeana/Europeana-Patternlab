@@ -84,6 +84,11 @@ define(['jquery'], function($){
         addFeatureData(geoJSON, ob.split('#')[1].split('=')[1].split(','), id);
       });
 
+      if(fData['resource']['@id'].indexOf('#') === -1){
+        fData.range = -1;
+        return;
+      }
+
       // write data
       var hash  = fData['resource']['@id'].split('#')[1];
       var chars = hash.split('=')[1].split(',');
