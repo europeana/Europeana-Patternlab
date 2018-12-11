@@ -143,9 +143,29 @@ $max-page-width: 1400px;
         margin-bottom:  $spacing-base;
         text-transform: uppercase;
       }
+
+      .previous-item-title:not(:first-child){
+        border-top:  2px solid $gray87;
+        margin-top:  $spacing-2x;
+        padding-top: $spacing-base;
+      }
+
+      .object-next + .gridlayout-card{
+
+        margin-top: $spacing-4x;
+        position:   relative;
+
+        &:before{
+          border-top: 2px solid $gray87;
+          content:    " ";
+          display:    block;
+          position:   absolute;
+          top:        -3em;
+          width:      100%;
+        }
+      }
     }
   }
-
 
   @media all and (min-width: $bp-xl) {
 

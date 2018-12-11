@@ -393,11 +393,6 @@ $bg_colour_overlaid_text: rgba(0, 0, 0, 0.7);
   }
 }
 
-.gridlayout-card + hr {
-  background: $gray87;
-  margin: $spacing-2x 0;
-}
-
 .gridlayout-card-entity {
   margin-left: $spacing-base;
 
@@ -568,10 +563,6 @@ $bg_colour_overlaid_text: rgba(0, 0, 0, 0.7);
     margin-bottom: $spacing-base;
     -webkit-transform: none;
     transform: none;
-  }
-
-  .previous-item-title {
-    margin-top: -0.5rem;
   }
 }
 
