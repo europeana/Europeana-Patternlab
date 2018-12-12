@@ -1218,11 +1218,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         }
 
         var callbackComplete = function(hasLoadedPromotions){
+
           if(hasLoadedPromotions){
             $(window).trigger('dcParameterisableElementsAdded');
             require(['util_slide'], function(EuSlide){
               initPromos(EuSlide);
             });
+          }
+          else{
+            $('.collections-promo-item-preload').remove();
           }
         };
 
