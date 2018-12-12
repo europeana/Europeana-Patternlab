@@ -476,7 +476,6 @@
               }
             ]
           },
-
           "linklist2":
           {
             "title": "Help",
@@ -498,7 +497,6 @@
               }
             ]
           },
-
           "social":
           {
             "linkedin": false,
@@ -839,7 +837,11 @@
       },
       "global": {
           "actions": {
+            "click-here-try-again-1": "You can click",
+            "click-here-try-again-2": "here",
+            "click-here-try-again-3": "to try again",
             "collapse": "Collapse",
+            "copy-attribution": "Show your appreciation. Copy to attribute.",
             "delete":"delete",
             "download":"Download",
             "downloading":"Downloading",
@@ -920,6 +922,11 @@
             }
           },
           "find-us-elsewhere": "Find us elsewhere",
+          "footer": {
+            "funding": "Co-funded by the European Union",
+            "disclaimer_1": "Europeana is an initiative of the European Union, financed by the European Union’s Connecting Europe Facility and European Union Member States. The Europeana services, including this website, are operated by a consortium led by the Europeana Foundation under a service contract with the European Commission.",
+            "disclaimer_2": "The European Commission does not guarantee the accuracy of the information and accepts no responsibility or liability whatsoever with regard to the information on this website. Neither the European Commission, nor any person acting on the European Commission’s behalf, is responsible or liable for the accuracy or use of the information on this website."
+          },
           "galleries": "Galleries",
           "header": {
             "discover": "Discover",
@@ -970,6 +977,7 @@
             "email-address-required": "Please enter your email address.",
             "language-required": "Please choose a language for your newsletter."
           },
+          "other-formats": "Other formats",
           "our-sites": "Our sites",
           "professional": "Professional",
           "professional-text": "For Culture Professionals",

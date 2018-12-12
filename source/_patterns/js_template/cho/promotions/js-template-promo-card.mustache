@@ -1,100 +1,94 @@
-  <div id="template-promo-card">
-    [[#is_next]]
-      <span class="next-item-title">
-        {{ i18n.site.object.next-item }}
-      </span>
-    [[/is_next]]
-    [[#is_prev]]
-      <hr/>
-      <span class="previous-item-title">
-        {{ i18n.site.object.previous-item }}
-      </span>
-    [[/is_prev]]
+[[#is_next]]
+  <span class="next-item-title">
+    {{ i18n.site.object.next-item }}
+  </span>
+[[/is_next]]
+[[#is_previous]]
+  <span class="previous-item-title">
+    {{ i18n.site.object.previous-item }}
+  </span>
+[[/is_previous]]
 
-      <div class="gridlayout-card [[#is_next]]channel-object-next-prev object-next[[/is_next]] [[#is_prev]]channel-object-next-prev object-prev[[/is_prev]] [[#is_entity]]gridlayout-card-entity[[/is_entity]]" style="[[#is_entity]][[#images]]background-image: url('[[.]]');[[/images]][[/is_entity]]">
-        [[#is_entity]]
-          [[#images]]
-            <div class="card-image">
-              [[#url]]<a href="[[.]]" aria-label="[[#title]][[.]][[/title]]"></a>[[/url]]
-            </div>
-          [[/images]]
+<div class="gridlayout-card [[#is_next]]channel-object-next-prev object-next[[/is_next]] [[#is_previous]]channel-object-next-prev object-prev[[/is_previous]] [[#is_entity]]gridlayout-card-entity[[/is_entity]]" style="[[#is_entity]][[#images]]background-image: url('[[.]]');[[/images]][[/is_entity]]">
+  [[#is_entity]]
+    [[#images]]
+      <div class="card-image">
+        [[#url]]<a href="[[.]]" aria-label="[[#title]][[.]][[/title]]"></a>[[/url]]
+      </div>
+    [[/images]]
+  [[/is_entity]]
+
+  [[#is_exhibition]]
+    [[#images]]
+      [[#description]]
+        [[#logo]]
+        <div class="card-image">
+          {{> organisms/virtual-exhibitions/foyer-card-js}}
+        </div>
+        [[/logo]]
+      [[/description]]
+    [[/images]]
+  [[/is_exhibition]]
+
+  [[#is_gallery]]
+    <div class="card-image card-image-set image-set">
+      [[#images]]
+        <a href="[[url]]">
+          <img src="[[.]]" alt="[[#title]][[.]][[/title]]"/>
+        </a>
+      [[/images]]
+    </div>
+  [[/is_gallery]]
+
+  [[#card_bg_image]]
+    [[#images]]
+      <div class="card-image" style="background-image: url('[[.]]');">
+        [[#url]]<a href="[[.]]" aria-label="[[#title]][[.]][[/title]]"></a>[[/url]]
+      </div>
+    [[/images]]
+  [[/card_bg_image]]
+
+  <div class="card-content">
+    [[#type]]<h4>[[.]]</h4>[[/type]]
+    [[#title]]
+      <h3>
+        <a href="[[url]]">[[.]]</a>
+          [[^description]][[#media_type]]
+            <span class="icon media-type-[[.]]"></span>
+          [[/media_type]][[/description]]
+      </h3>
+    [[/title]]
+    [[#description]]
+      <div class="description">
+
+        [[^is_entity]]
+          [[^is_gallery]]
+            [[^is_exhibition]]
+              <div class="excerpt">[[[.]]]</div>
+            [[/is_exhibition]]
+          [[/is_gallery]]
         [[/is_entity]]
 
-        [[#is_exhibition]]
-          [[#images]]
-            [[#description]]
-              [[#logo]]
-              <div class="card-image">
-                {{> organisms/virtual-exhibitions/foyer-card-js}}
-              </div>
-              [[/logo]]
-            [[/description]]
-          [[/images]]
-        [[/is_exhibition]]
+        [[#is_entity]]
+          <p>[[[description]]]</p>
+        [[/is_entity]]
 
         [[#is_gallery]]
-          <div class="card-image card-image-set image-set">
-            [[#images]]
-              <a href="[[url]]">
-                <img src="[[.]]" alt="[[#title]][[.]][[/title]]"/>
-              </a>
-            [[/images]]
-          </div>
+          [[#count_label]]
+            <p>[[.]]</p>
+          [[/count_label]]
+          <span class="icon icon-info"></span>
+          <div class="info image-set-overlay">[[[description]]]</div>
         [[/is_gallery]]
 
-        [[#card_bg_image]]
-          [[#images]]
-            <div class="card-image" style="background-image: url('[[.]]');">
-              [[#url]]<a href="[[.]]" aria-label="[[#title]][[.]][[/title]]"></a>[[/url]]
-            </div>
-          [[/images]]
-        [[/card_bg_image]]
-      <div class="card-content">
-        [[#type]]<h4>[[.]]</h4>[[/type]]
-        [[#title]]
-          <h3>
-            <a href="[[url]]">[[.]]</a>
-              [[^description]][[#media_type]]
-                <span class="icon media-type-[[.]]"></span>
-              [[/media_type]][[/description]]
-          </h3>
-        [[/title]]
-        [[#description]]
-          <div class="description">
-
-            [[^is_entity]]
-              [[^is_gallery]]
-                [[^is_exhibition]]
-                  <div class="excerpt">[[[.]]]</div>
-                [[/is_exhibition]]
-              [[/is_gallery]]
-            [[/is_entity]]
-             
-            [[#is_entity]]
-              <p>[[[description]]]</p>
-            [[/is_entity]]
-
-            [[#is_gallery]]
-              [[#count_label]]
-                <p>[[.]]</p>
-              [[/count_label]]
-              <span class="icon icon-info"></span>
-              <div class="info image-set-overlay">[[[description]]]</div>
-            [[/is_gallery]]
-
-            [[#media_type]]
-              <span class="icon media-type-[[.]]"></span>
-            [[/media_type]]
-          </div>
-        [[/description]]
-
-        <p class="extras">[[#is_entity]]<a href="[[url]]">[[more_link_text]]</a>[[/is_entity]]</p>
-        <p class="extras">[[#date]]<span>[[.]]</span>[[/date]][[#attribution]]<span>[[.]]</span>[[/attribution]]</p>
+        [[#media_type]]
+          <span class="icon media-type-[[.]]"></span>
+        [[/media_type]]
       </div>
-      [[#relation]]<div class="card-footer">[[.]]</div>[[/relation]]
-    </div>
-  </div>
+    [[/description]]
 
-[[#is_next]]
-<hr/>
-[[/is_next]]
+    <p class="extras">[[#is_entity]]<a href="[[url]]">[[more_link_text]]</a>[[/is_entity]]</p>
+    <p class="extras">[[#date]]<span>[[.]]</span>[[/date]][[#attribution]]<span>[[.]]</span>[[/attribution]]</p>
+  </div>
+  [[#relation]]<div class="card-footer">[[.]]</div>[[/relation]]
+</div>

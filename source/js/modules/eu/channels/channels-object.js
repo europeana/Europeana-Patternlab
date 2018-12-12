@@ -1116,7 +1116,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       }
 
       if (!EuSlide.isStacked(promotions)) {
-
         var totalW = (promotions.children('.gridlayout-card').length - 1) * 32;
         promotions.children('.gridlayout-card').each(function() {
           totalW = totalW + $(this).outerWidth(true);
@@ -1132,116 +1131,113 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       updateSlideNavCtrls(EuSlide, promotions, fwd, back);
     });
     EuSlide.makeSwipeable(promotions, {'not-on-stacked': true, 'transition-on-simulate': true});
-
-    var imageSet = promotions.find('.image-set');
-
-    if(imageSet.length > 0){
-
-      require(['jqImagesLoaded'], function(){
-
-        imageSet.imagesLoaded(function(){
-
-          var portraits = [];
-
-          promotions.find('img').each(function(i, img){
-            if(i>0){
-              portraits.push(img.naturalHeight > img.naturalWidth);
-            }
-          });
-
-          if(portraits[0] && !portraits[1]){
-            imageSet.addClass('layout-portrait');
-          }
-        });
-      });
-    }
   }
 
   function makePromoRequest(){
 
     require(['util_promo_loader'], function(PromoLoader){
 
-      var promoTemplates = {
-        'card': 'template-promo-card'
-      };
+      EuMustacheLoader.loadMustache('cho-promotions-js-template-promo-card/cho-promotions-js-template-promo-card', function(templateMarkup){
 
-      var promoConf = [];
+        var promoConf = [];
 
-      if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
-        $.each(window.enabledPromos, function(i, promo){
-          var tempId  = 'card';
-          var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url };
-          promoConf.push(conf);
+        if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
+          $.each(window.enabledPromos, function(i, promo){
 
-          if(promo.relation){
-            conf.relation = promo.relation;
+            var conf = { id: promo.id, url: promo.url, templateMarkup: templateMarkup };
+
+            if(promo.relation){
+              conf.relation = promo.relation;
+            }
+            if(promo.id === 'exhibition'){
+              conf.callback = function(){
+                // individual promo callback: initialise image controls when exhibition card is appended
+                var foyerCards = $('.ve-foyer-card');
+                if(foyerCards.length > 0){
+                  require(['ve_state_card'], function(Card){
+                    foyerCards.each(function(){
+                      new Card($(this), {slideshow: false});
+                    });
+                  });
+                }
+              };
+            }
+            if(promo.id === 'gallery'){
+              conf.callback = function(){
+                // individual promo callback: correct for portrait images when gallery card is appended
+                // TODO: this css applied here has no effect since refactor!
+                var imageSet = promotions.find('.image-set');
+
+                if(imageSet.length > 0){
+                  require(['jqImagesLoaded'], function(){
+                    imageSet.imagesLoaded(function(){
+                      var portraits = [];
+                      promotions.find('img').each(function(i, img){
+                        if(i>0){
+                          portraits.push(img.naturalHeight > img.naturalWidth);
+                        }
+                      });
+                      if(portraits[0] && !portraits[1]){
+                        imageSet.addClass('layout-portrait');
+                      }
+                    });
+                  });
+                }
+              };
+            }
+            promoConf.push(conf);
+          });
+        }
+
+        if(nextItem){
+          promoConf.unshift({
+            id: 'next',
+            preloaded: nextItem,
+            templateMarkup: templateMarkup
+          });
+        }
+
+        if(prevItem){
+          var toInclude = {
+            id: 'previous',
+            preloaded: prevItem,
+            templateMarkup: templateMarkup
+          };
+          if(nextItem){
+            promoConf.push(toInclude);
           }
-        });
-      }
+          else{
+            promoConf.unshift(toInclude);
+          }
+        }
 
-      if(nextItem){
-        nextItem.is_next = true;
-        promoConf.unshift({
-          'id': 'next',
-          'preloaded': nextItem,
-          'templateId': 'template-promo-card'
-        });
-      }
+        if(promoConf.length === 0){
+          $('.collections-promo-item-preload').remove();
+          console.log('no promos to load');
+          return;
+        }
 
-      if(prevItem){
-        prevItem.is_prev = true;
-        promoConf.push({
-          'id': 'previous',
-          'preloaded': prevItem,
-          'templateId': 'template-promo-card'
-        });
-      }
-
-      if(promoConf.length === 0){
-        $('.collections-promo-item-preload').remove();
-        console.log('no promos to load');
-        return;
-      }
-
-      EuMustacheLoader.loadMustache('cho-promotions/cho-promotions', function(templateMarkup){
-
-        templateMarkup = $('<template>' + templateMarkup + '</template>' );
-        templateMarkup = $(templateMarkup.prop('content'));
-
-        PromoLoader.load(promoConf, templateMarkup, function(markup){
-
-          if(markup && markup.length > 0){
-
-            markup.addClass('collections-promos js-swipe-not-stacked');
-            $('.channel-object-actions .slide-rail').empty().append(markup);
-
-            promotions = $('.collections-promos');
-
-            $(window).trigger('promotionsAppended');
+        var callbackComplete = function(hasLoadedPromotions){
+          if(hasLoadedPromotions){
+            $(window).trigger('dcParameterisableElementsAdded');
             require(['util_slide'], function(EuSlide){
               initPromos(EuSlide);
-              // is this needed now that adding promos no longer changes column count?
-              $(window).trigger('carouselResize');
             });
+          }
+        };
 
-            var foyerCards = $('.ve-foyer-card');
-
-            if(foyerCards.length > 0){
-              require(['ve_state_card'], function(Card){
-                foyerCards.each(function(){
-                  new Card($(this), {slideshow: false});
-                });
-              });
-            }
-
-            // is this needed now that adding promos no longer changes column count?
-            resetZoomable();
+        var callbackAppendMarkup = function($markup){
+          if($markup && $markup.length > 0){
+            $markup.addClass('collections-promos js-swipe-not-stacked');
+            $('.channel-object-actions .slide-rail').empty().append($markup);
+            promotions = $('.collections-promos');
           }
           else{
             console.log('no promo markup returned');
           }
-        });
+        };
 
+        PromoLoader.load(promoConf, callbackComplete, callbackAppendMarkup);
       });
 
     });
@@ -1689,7 +1685,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
             var firstInBatch = (current % perPage) === 0;
             var lastInBatch  = (current % perPage) + 1 >= perPage;
 
-            $(window).on('promotionsAppended', function(){
+            $(window).on('dcParameterisableElementsAdded', function(){
               var pageNumber = DataContinuity.getPageNumber();
               DataContinuity.parameteriseLinks('.channel-object-next-prev', pageNumber, lastInBatch, firstInBatch);
             });
