@@ -580,7 +580,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         log('not playable');
 
         resetZoomable();
-        $('.media-options').trigger('hide');
       });
     };
 

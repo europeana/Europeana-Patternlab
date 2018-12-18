@@ -36,6 +36,9 @@ define(['jquery'], function(){
     if(['iiif', 'image', 'video'].indexOf(type) > -1){
       $el.find('.zoom-ctrls').removeClass('off');
     }
+    if(['text'].indexOf(type) > -1){
+      $el.find('.zoom-ctrls').addClass('off');
+    }
 
     $.each(['download-link', 'external-link', 'share-link'], function(i, opName){
       var ctrl = $el.find('.' + opName + '-ctrl');
@@ -92,7 +95,7 @@ define(['jquery'], function(){
       zoomOutLimit = false;
     });
 
-    $el.on('iiif image video', function(e, ops){
+    $el.on('iiif image video text', function(e, ops){
       if(e.type === 'iiif'){
         ops = ops ? ops : {'transcriptions-unavailable': true};
       }
