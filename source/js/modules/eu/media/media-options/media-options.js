@@ -33,11 +33,21 @@ define(['jquery'], function(){
 
     $el.find('.media-option-group').addClass('off');
 
+    var zoomCtrls = $el.find('.zoom-ctrls');
+
     if(['iiif', 'image', 'video'].indexOf(type) > -1){
-      $el.find('.zoom-ctrls').removeClass('off');
+
+      zoomCtrls.removeClass('off');
+
+      if(type === 'image'){
+        zoomCtrls.addClass('as-magnify');
+      }
+      else{
+        zoomCtrls.removeClass('as-magnify');
+      }
     }
-    if(['text'].indexOf(type) > -1){
-      $el.find('.zoom-ctrls').addClass('off');
+    else if(['text'].indexOf(type) > -1){
+      zoomCtrls.addClass('off');
     }
 
     $.each(['download-link', 'external-link', 'share-link'], function(i, opName){
