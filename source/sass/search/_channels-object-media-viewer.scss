@@ -91,17 +91,18 @@
         text-align: left;
       }
 
+      .playable:hover,
+      .unplayable:hover{
+        .media-options{
+          opacity:    1;
+          visibility: visible;
+        }
+      }
+
       .playable {
 
         position:  relative;
         transform: translateZ(0);
-
-        &:hover{
-          .media-options{
-            opacity:    1;
-            visibility: visible;
-          }
-        }
 
         .zoomable{
           &:not(.busy){
