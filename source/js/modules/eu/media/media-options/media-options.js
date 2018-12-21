@@ -105,6 +105,10 @@ define(['jquery'], function(){
       zoomOutLimit = false;
     });
 
+    $el.on('disable-zoom', function(){
+      $el.find('.zoom-ctrls').addClass('off');
+    });
+
     $el.on('iiif image video text', function(e, ops){
       if(e.type === 'iiif'){
         ops = ops ? ops : {'transcriptions-unavailable': true};

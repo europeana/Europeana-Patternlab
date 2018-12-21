@@ -589,6 +589,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       }
     }
     else{
+      $('.media-options').trigger('disable-zoom');
       showDefault();
       return;
     }
@@ -1658,7 +1659,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         DataContinuity.prep(function(cameFromSearch){
 
           var s         = sessionStorage;
-          var allParams = s.eu_portal_last_results_search_params ? JSON.parse(s.eu_portal_last_results_search_params) : [];
+          var lastRes   = s.eu_portal_last_results_search_params;
+
+          if(lastRes === 'undefined' || lastRes === '' || !lastRes){
+            lastRes = '[]';
+            s.eu_portal_last_results_search_params = lastRes;
+          }
+          var allParams = JSON.parse(lastRes);
 
           if(allParams.length > 0){
             /*
