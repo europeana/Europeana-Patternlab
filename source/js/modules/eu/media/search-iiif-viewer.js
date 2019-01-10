@@ -191,6 +191,7 @@ define(['jquery', 'util_resize'], function($){
     setVisibleTranscripts();
 
     var layer = iiifLayers[layerName + ''];
+    updateDownloadButtons(allCanvases[layerName].images[0].resource['@id']);
 
     if(!layer){
       $('#iiif').addClass('loading');
@@ -200,6 +201,11 @@ define(['jquery', 'util_resize'], function($){
     currentImg = layerName;
     switchLayer(layer);
     updateCtrls();
+
+    if ($('.media-modal-close').closest('.modal-download:not(.js-hidden)').length > 0) {
+      $('.media-modal-close').trigger('click');
+    }
+
   };
 
   var initUI = function(){
@@ -334,6 +340,7 @@ define(['jquery', 'util_resize'], function($){
         }
       }
     });
+
   };
 
   var setTotalImages = function(total){
@@ -390,6 +397,8 @@ define(['jquery', 'util_resize'], function($){
           allCanvases.push(val);
         });
 
+        updateDownloadButtons(allCanvases[0].images[0].resource['@id']);
+
         setTotalImages(allCanvases.length);
         load();
 
@@ -409,7 +418,6 @@ define(['jquery', 'util_resize'], function($){
         }, waitTime);
       });
     }
-
   }
 
   function highlightTranscript($t, scroll){
@@ -656,6 +664,16 @@ define(['jquery', 'util_resize'], function($){
         }
 
       });
+    });
+  }
+
+  function updateDownloadButtons(download) {
+    if (!download) { return false; }
+    $('.media-download').attr('href', download).removeClass('disabled');
+    $('.media-download').parent('.download-link-ctrl').show();
+    $('.modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').removeClass('disabled').attr({
+      'target': '_blank', 
+      'href': download
     });
   }
 

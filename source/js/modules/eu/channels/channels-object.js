@@ -1518,6 +1518,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           $('.cho-media-nav').on('click', 'a', function(e){
             e.preventDefault();
             var el = $(this);
+            if ($('.media-modal-close').closest('.modal-download:not(.js-hidden)').length > 0) {
+              $('.media-modal-close').trigger('click');
+            }
             initMedia(el.closest('.lc-item').index());
           });
 
