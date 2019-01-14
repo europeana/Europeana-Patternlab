@@ -356,6 +356,7 @@ define(['jquery', 'util_resize'], function($){
     || (manifestUrl.indexOf('iiifv2.json') === manifestUrl.length - ('iiifv2.json').length);
 
     if(isSingle){
+
       setTotalImages(1);
       load(1, manifestUrl);
       $('#iiif').removeClass('loading');
@@ -368,8 +369,6 @@ define(['jquery', 'util_resize'], function($){
 
       var waitTime       = 5000;
       var timeoutFailure = null;
-
-      //manifestUrl = 'http://iiif-api-test.eanadev.org/presentation/9200396/BibliographicResource_3000118435063/manifest.json?wskey=api2demo'
 
       // Grab a IIIF manifest
       $.getJSON(manifestUrl).done(function(data){
@@ -396,8 +395,6 @@ define(['jquery', 'util_resize'], function($){
 
           allCanvases.push(val);
         });
-
-        updateDownloadButtons(allCanvases[0].images[0].resource['@id']);
 
         setTotalImages(allCanvases.length);
         load();
