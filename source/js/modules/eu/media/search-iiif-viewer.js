@@ -664,9 +664,9 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function updateDownloadButtons(download) {
-    if (!download) { 
+    if (!download) {
       $('.media-download, .modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').addClass('disabled');
-      return false; 
+      return false;
     }
     $('.media-download').attr('href', download).removeClass('disabled');
     $('.media-download').parent('.download-link-ctrl').show();
