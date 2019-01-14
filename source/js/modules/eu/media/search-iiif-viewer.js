@@ -669,7 +669,7 @@ define(['jquery', 'util_resize'], function($){
     $('.media-download').attr('href', download).removeClass('disabled');
     $('.media-download').parent('.download-link-ctrl').show();
     $('.modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').removeClass('disabled').attr({
-      'target': '_blank', 
+      'target': '_blank',
       'href': download
     });
   }
