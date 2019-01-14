@@ -356,7 +356,6 @@ define(['jquery', 'util_resize'], function($){
     || (manifestUrl.indexOf('iiifv2.json') === manifestUrl.length - ('iiifv2.json').length);
 
     if(isSingle){
-
       setTotalImages(1);
       load(1, manifestUrl);
       $('#iiif').removeClass('loading');
@@ -665,7 +664,10 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function updateDownloadButtons(download) {
-    if (!download) { return false; }
+    if (!download) { 
+      $('.media-download, .modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').addClass('disabled');
+      return false; 
+    }
     $('.media-download').attr('href', download).removeClass('disabled');
     $('.media-download').parent('.download-link-ctrl').show();
     $('.modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').removeClass('disabled').attr({
