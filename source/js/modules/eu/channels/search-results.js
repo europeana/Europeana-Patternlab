@@ -427,9 +427,9 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
           }
         });
 
-        if (s.val() !== '' && s.val() === e.val()) { 
+        if (s.val() !== '' && s.val() === e.val()) {
           sd.prop('checked', true);
-          sd.trigger('change'); 
+          sd.trigger('change');
         }
 
         s.on('change', function() {
