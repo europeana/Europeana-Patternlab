@@ -884,6 +884,7 @@
               "reusability": "Can I use it?"
             },
             "year":{
+              "specific-date": "Specific date",
               "from": "From",
               "to": "To"
             },

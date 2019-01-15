@@ -408,25 +408,48 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     });
   };
 
-  var bindDateFacetInputs = function(){
-
+  var bindDateFacetInputs = function() {
+    var sd = $('.specific-date > input');
     var s = $('#date-range-start');
     var e = $('#date-range-end');
 
-    if(s.attr('type') === 'date'){
-      // we only constrain the inputs if they type number
-      return;
-    }
+    if (s.attr('type') === 'date') {
+      if (sd.length > 0) {
+        sd.on('change', function() {
+          if (sd.prop('checked')) {
+            sd.closest('.filter-controls').addClass('filter-controls-inline');
+            $('.control-group.date.to, .control-group.date.from label').addClass('js-hidden');
+            e.val(s.val());
+          } else {
+            sd.closest('.filter-controls').removeClass('filter-controls-inline');
+            $('.control-group.date.to, .control-group.date.from label').removeClass('js-hidden');
+            e.val('');
+          }
+        });
 
-    e.attr('max', new Date().getFullYear());
-    s.attr('max', new Date().getFullYear());
+        if (s.val() !== '' && s.val() === e.val()) {
+          sd.prop('checked', true);
+          sd.trigger('change');
+        }
 
-    e.on('change', function(){
-      s.attr('max', parseInt(e.val()));
-      if( parseInt(s.val()) > parseInt(e.val())){
-        s.val(e.val());
+        s.on('change', function() {
+          if (sd.prop('checked')) {
+            e.val($(this).val());
+          }
+        });
       }
-    });
+
+    } else {
+      e.attr('max', new Date().getFullYear());
+      s.attr('max', new Date().getFullYear());
+
+      e.on('change', function(){
+        s.attr('max', parseInt(e.val()));
+        if( parseInt(s.val()) > parseInt(e.val())){
+          s.val(e.val());
+        }
+      });
+    }
   };
 
   var initPage = function(){
