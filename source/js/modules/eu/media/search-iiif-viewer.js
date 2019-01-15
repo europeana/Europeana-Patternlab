@@ -189,7 +189,6 @@ define(['jquery', 'util_resize'], function($){
     }
 
     setVisibleTranscripts();
-
     var layer = iiifLayers[layerName + ''];
 
     if(!layer){
@@ -334,6 +333,7 @@ define(['jquery', 'util_resize'], function($){
         }
       }
     });
+
   };
 
   var setTotalImages = function(total){
@@ -361,8 +361,6 @@ define(['jquery', 'util_resize'], function($){
 
       var waitTime       = 5000;
       var timeoutFailure = null;
-
-      //manifestUrl = 'http://iiif-api-test.eanadev.org/presentation/9200396/BibliographicResource_3000118435063/manifest.json?wskey=api2demo'
 
       // Grab a IIIF manifest
       $.getJSON(manifestUrl).done(function(data){
@@ -409,7 +407,6 @@ define(['jquery', 'util_resize'], function($){
         }, waitTime);
       });
     }
-
   }
 
   function highlightTranscript($t, scroll){
@@ -659,6 +656,7 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
+
   function loadFeatures(probe, cb){
 
     var featureClick = function(e){
@@ -759,6 +757,14 @@ define(['jquery', 'util_resize'], function($){
       if(iiif){
         iiif.off();
         iiif.remove();
+      }
+    },
+    getCurrentPage: function(){
+      if (currentImg) {
+        return allCanvases[currentImg].images[0].resource['@id'];
+      }
+      else {
+        return false;
       }
     }
   };

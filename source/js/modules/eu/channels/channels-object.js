@@ -175,7 +175,32 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
         $(modal).removeClass('js-hidden');
         $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
+
+        if (modal === '.modal-download') {
+          if (viewerIIIF) {
+            updateDownloadButtons(viewerIIIF.getCurrentPage());
+          }
+        }
       }
+    }
+  }
+
+  function updateDownloadButtons(download) {
+    if (!download) {
+      $('.media-download, .modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').addClass('disabled');
+      return false;
+    }
+    $('.media-download').attr('href', download).removeClass('disabled');
+    $('.media-download').parent('.download-link-ctrl').show();
+    $('.modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').removeClass('disabled').attr({
+      'target': '_blank',
+      'href': download
+    });
+  }
+
+  function closeMediaModal() {
+    if ($('.media-modal-close').closest('.modal-download:not(.js-hidden)').length > 0) {
+      $('.media-modal-close').trigger('click');
     }
   }
 
@@ -725,6 +750,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
+        $(document).on('click', '.iiif-ctrl-group a', function() {
+          closeMediaModal();
+        });
       });
     }
     else if(type === 'audio'){
@@ -1518,6 +1546,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           $('.cho-media-nav').on('click', 'a', function(e){
             e.preventDefault();
             var el = $(this);
+            closeMediaModal();
             initMedia(el.closest('.lc-item').index());
           });
 
