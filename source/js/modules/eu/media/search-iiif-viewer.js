@@ -191,8 +191,7 @@ define(['jquery', 'util_resize'], function($){
     setVisibleTranscripts();
 
     var layer = iiifLayers[layerName + ''];
-    updateDownloadButtons(allCanvases[layerName].images[0].resource['@id']);
-
+    
     if(!layer){
       $('#iiif').addClass('loading');
       load(layerName);
@@ -201,11 +200,6 @@ define(['jquery', 'util_resize'], function($){
     currentImg = layerName;
     switchLayer(layer);
     updateCtrls();
-
-    if ($('.media-modal-close').closest('.modal-download:not(.js-hidden)').length > 0) {
-      $('.media-modal-close').trigger('click');
-    }
-
   };
 
   var initUI = function(){
@@ -663,18 +657,6 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
-  function updateDownloadButtons(download) {
-    if (!download) {
-      $('.media-download, .modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').addClass('disabled');
-      return false;
-    }
-    $('.media-download').attr('href', download).removeClass('disabled');
-    $('.media-download').parent('.download-link-ctrl').show();
-    $('.modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').removeClass('disabled').attr({
-      'target': '_blank',
-      'href': download
-    });
-  }
 
   function loadFeatures(probe, cb){
 
@@ -776,6 +758,13 @@ define(['jquery', 'util_resize'], function($){
       if(iiif){
         iiif.off();
         iiif.remove();
+      }
+    },
+    getCurrentPage: function(){
+      if (currentImg) { 
+        return allCanvases[currentImg].images[0].resource['@id'];
+      } else {
+        return false;
       }
     }
   };
