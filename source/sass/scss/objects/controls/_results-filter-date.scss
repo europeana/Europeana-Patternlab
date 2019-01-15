@@ -11,6 +11,11 @@
     text-transform: capitalize;
   }
 
+  .specific-date {
+    margin-bottom: $space-half;
+    width: 100%;
+  }
+
   .date-picker-pair{
     display:         flex;
     flex-grow:       5;

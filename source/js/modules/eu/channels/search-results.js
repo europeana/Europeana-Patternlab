@@ -408,25 +408,50 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     });
   };
 
-  var bindDateFacetInputs = function(){
-
+  var bindDateFacetInputs = function() {
+    var sd = $('.specific-date > input');
     var s = $('#date-range-start');
     var e = $('#date-range-end');
 
-    if(s.attr('type') === 'date'){
-      // we only constrain the inputs if they type number
-      return;
-    }
+    if (s.attr('type') === 'date') {
 
-    e.attr('max', new Date().getFullYear());
-    s.attr('max', new Date().getFullYear());
+      if (sd.length > 0) {
+        sd.on('change', function() {
+          $('.control-group.date.to').toggle();
+          if (sd.prop('checked')) {
+            sd.closest('.filter-controls').css('display', 'inline');
+            e.val(s.val());
+          } else {
+            sd.closest('.filter-controls').css('display', 'flex');
+            e.val('');
+          }
+        });
 
-    e.on('change', function(){
-      s.attr('max', parseInt(e.val()));
-      if( parseInt(s.val()) > parseInt(e.val())){
-        s.val(e.val());
+        s.on('change', function() {
+          if (sd.val() === 'on') {
+            e.val($(this).val());
+          }
+        });
+
+        $('#date-facet-form').submit(function(e) {
+          // Get all the forms elements and their values in one step
+          e.preventDefault();
+          var values = $(this).serialize();
+          console.log('submit', values);
+        });
       }
-    });
+
+    } else {
+      e.attr('max', new Date().getFullYear());
+      s.attr('max', new Date().getFullYear());
+
+      e.on('change', function(){
+        s.attr('max', parseInt(e.val()));
+        if( parseInt(s.val()) > parseInt(e.val())){
+          s.val(e.val());
+        }
+      });
+    }
   };
 
   var initPage = function(){
