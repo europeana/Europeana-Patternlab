@@ -420,9 +420,11 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
           $('.control-group.date.to').toggle();
           if (sd.prop('checked')) {
             sd.closest('.filter-controls').css('display', 'inline');
+            $('.control-group.date.from label').hide();
             e.val(s.val());
           } else {
             sd.closest('.filter-controls').css('display', 'flex');
+            $('.control-group.date.from label').show();
             e.val('');
           }
         });

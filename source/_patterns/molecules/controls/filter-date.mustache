@@ -6,7 +6,7 @@
     {{> molecules/navigation/sparkline }}
     <div class="filter-controls">
 
-      <label class="specific-date"><input type="checkbox" name="specific-date" />Specific date</label>
+      {{#input_type}}<label class="specific-date"><input type="checkbox" name="specific-date" />{{i18n.global.facet.year.specific-date}}</label>{{/input_type}}
 
       <div class="date-picker-pair">
         <div class="control-group date from">
