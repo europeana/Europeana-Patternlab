@@ -419,18 +419,18 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
         sd.on('change', function() {
           $('.control-group.date.to').toggle();
           if (sd.prop('checked')) {
-            sd.closest('.filter-controls').css('display', 'inline');
-            $('.control-group.date.from label').hide();
+            sd.closest('.filter-controls').addClass('filter-controls-inline');
+            $('.control-group.date.from label').addClass('js-hidden');
             e.val(s.val());
           } else {
-            sd.closest('.filter-controls').css('display', 'flex');
-            $('.control-group.date.from label').show();
+            sd.closest('.filter-controls').removeClass('filter-controls-inline');
+            $('.control-group.date.from label').removeClass('js-hidden');
             e.val('');
           }
         });
 
         s.on('change', function() {
-          if (sd.val() === 'on') {
+          if (sd.prop('checked')) {
             e.val($(this).val());
           }
         });
