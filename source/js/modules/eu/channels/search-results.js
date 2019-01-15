@@ -414,20 +414,23 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     var e = $('#date-range-end');
 
     if (s.attr('type') === 'date') {
-
       if (sd.length > 0) {
         sd.on('change', function() {
-          $('.control-group.date.to').toggle();
           if (sd.prop('checked')) {
             sd.closest('.filter-controls').addClass('filter-controls-inline');
-            $('.control-group.date.from label').addClass('js-hidden');
+            $('.control-group.date.to, .control-group.date.from label').addClass('js-hidden');
             e.val(s.val());
           } else {
             sd.closest('.filter-controls').removeClass('filter-controls-inline');
-            $('.control-group.date.from label').removeClass('js-hidden');
+            $('.control-group.date.to, .control-group.date.from label').removeClass('js-hidden');
             e.val('');
           }
         });
+
+        if (s.val() !== '' && s.val() === e.val()) { 
+          sd.prop('checked', true);
+          sd.trigger('change'); 
+        }
 
         s.on('change', function() {
           if (sd.prop('checked')) {
