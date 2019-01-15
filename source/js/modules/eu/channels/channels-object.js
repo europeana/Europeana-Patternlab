@@ -750,7 +750,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
-        $(document).on('click', '.iiif-ctrl-group a', function(e) { 
+        $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
         });
       });

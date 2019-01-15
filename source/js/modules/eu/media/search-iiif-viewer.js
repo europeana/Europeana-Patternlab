@@ -189,9 +189,8 @@ define(['jquery', 'util_resize'], function($){
     }
 
     setVisibleTranscripts();
-
     var layer = iiifLayers[layerName + ''];
-    
+
     if(!layer){
       $('#iiif').addClass('loading');
       load(layerName);
@@ -761,7 +760,7 @@ define(['jquery', 'util_resize'], function($){
       }
     },
     getCurrentPage: function(){
-      if (currentImg) { 
+      if (currentImg) {
         return allCanvases[currentImg].images[0].resource['@id'];
       } else {
         return false;
