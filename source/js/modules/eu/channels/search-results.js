@@ -432,13 +432,6 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
             e.val($(this).val());
           }
         });
-
-        $('#date-facet-form').submit(function(e) {
-          // Get all the forms elements and their values in one step
-          e.preventDefault();
-          var values = $(this).serialize();
-          console.log('submit', values);
-        });
       }
 
     } else {
