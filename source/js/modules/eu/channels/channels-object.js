@@ -196,6 +196,10 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     if ($('.media-modal-close').closest('.modal-download:not(.js-hidden)').length > 0) {
       $('.media-modal-close').trigger('click');
     }
+
+    if (viewerIIIF) {
+      updateDownloadButtons(viewerIIIF.getCurrentPage());
+    }
   }
 
   function scrollPageToElement(elSelector, duration, extraOffset){
@@ -744,11 +748,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
+
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
-          if (viewerIIIF) {
-            updateDownloadButtons(viewerIIIF.getCurrentPage());
-          }
+        });
+
+        $(document).on('change', '.iiif-ctrl-group .jump-to-img', function() {
+          closeMediaModal();
         });
       });
     }
