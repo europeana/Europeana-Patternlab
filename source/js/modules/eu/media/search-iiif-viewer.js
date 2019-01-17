@@ -760,7 +760,7 @@ define(['jquery', 'util_resize'], function($){
       }
     },
     getCurrentPage: function(){
-      if (currentImg) {
+      if (currentImg >= 0) {
         return allCanvases[currentImg].images[0].resource['@id'];
       }
       else {

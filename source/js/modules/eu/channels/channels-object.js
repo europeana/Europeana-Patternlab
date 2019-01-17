@@ -175,12 +175,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
         $(modal).removeClass('js-hidden');
         $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
-
-        if (modal === '.modal-download') {
-          if (viewerIIIF) {
-            updateDownloadButtons(viewerIIIF.getCurrentPage());
-          }
-        }
       }
     }
   }
@@ -752,6 +746,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         $('.object-media-iiif').removeClass('is-hidden');
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
+          if (viewerIIIF) {
+            updateDownloadButtons(viewerIIIF.getCurrentPage());
+          }
         });
       });
     }
