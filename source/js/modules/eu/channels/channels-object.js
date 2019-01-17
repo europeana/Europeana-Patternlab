@@ -182,7 +182,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   function updateDownloadButtons(download) {
     if (!download) {
       $('.media-download, .modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').addClass('disabled');
-      downloadUri = '';
       return false;
     }
     $('.media-download').attr('href', download).removeClass('disabled');
@@ -191,7 +190,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       'target': '_blank',
       'href': download
     });
-     downloadUri = download;
   }
 
   function closeMediaModal() {
@@ -750,7 +748,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           closeMediaModal();
           if (viewerIIIF) {
             updateDownloadButtons(viewerIIIF.getCurrentPage());
-          } 
+          }
         });
       });
     }
