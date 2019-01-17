@@ -175,12 +175,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
         $(modal).removeClass('js-hidden');
         $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
-
-        if (modal === '.modal-download') {
-          if (viewerIIIF) {
-            updateDownloadButtons(viewerIIIF.getCurrentPage());
-          }
-        }
       }
     }
   }
@@ -188,6 +182,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   function updateDownloadButtons(download) {
     if (!download) {
       $('.media-download, .modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').addClass('disabled');
+      downloadUri = '';
       return false;
     }
     $('.media-download').attr('href', download).removeClass('disabled');
@@ -196,6 +191,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       'target': '_blank',
       'href': download
     });
+     downloadUri = download;
   }
 
   function closeMediaModal() {
@@ -752,6 +748,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         $('.object-media-iiif').removeClass('is-hidden');
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
+          if (viewerIIIF) {
+            updateDownloadButtons(viewerIIIF.getCurrentPage());
+          } 
         });
       });
     }
