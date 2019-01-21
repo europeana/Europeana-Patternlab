@@ -6,13 +6,14 @@
     {{/institution_logo}}
     {{#institution_name}}
       <span class="object-origin-detail">
-        {{#url}}<span class="view-more-at">{{i18n.site.object.actions.view-more-at}}</span>{{/url}}
-        {{#url}}<a class="link-black-blue header-only" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
-        {{#url}}<a class="link-black-blue overview-only" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
+        {{#url}}
+          <span class="view-more-at">{{i18n.site.object.actions.view-more-at}}</span>
+          <a class="link-black-blue header-only" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" href="{{.}}" target="_blank">{{institution_name}}<span class="svg-icon-external"></span></a>
+          <a class="link-black-blue overview-only" href="{{.}}" target="_blank">{{institution_name}}<span class="svg-icon-external"></span></a>
+        {{/url}}
         {{^url}}{{institution_name}}{{/url}}
         <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
       </span>
     {{/institution_name}}
-
   </div>
 {{/origin}}
