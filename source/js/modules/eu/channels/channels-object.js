@@ -541,7 +541,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     updateTechData(item);
     EuColourNav.updateColourData();
 
-    $('.media-options').trigger(type, $.extend(type === 'iiif' ? {'transcriptions-unavailable': true} : {}, {'download-link': downloadUri}));
+    $('.media-options').trigger(type, $.extend(type === 'iiif' ? {'transcriptions-unavailable': true, 'download-link': downloadUri} : {}, {'download-link': downloadUri}));
 
     var reminderImg = $('.title-bar .img-remind');
 
@@ -742,13 +742,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           fullScreenAvailable: fsAvailable(),
           zoom: 4,
           zoomLevelOffset: -1,
-          zoomSlider: useZoomSlider
+          zoomSlider: useZoomSlider,
+          downloadUri: downloadUri
         };
 
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
-
+       
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
         });
