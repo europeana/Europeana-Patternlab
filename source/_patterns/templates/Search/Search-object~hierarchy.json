@@ -377,8 +377,7 @@
         "github": false,
         "twitter": true,
         "facebook": true,
-        "pinterest": true,
-        "googleplus": true
+        "pinterest": true
       },
       "subfooter": {
         "items": [
@@ -755,7 +754,6 @@
         "twitter": true,
         "facebook": true,
         "pinterest": true,
-        "googleplus": true,
         "tumblr": true
       }
     },

@@ -38,13 +38,6 @@
         cursor: pointer;
       }
     }
-    .icon-googleplus{
-      color: $brand-google;
-      &:hover{
-        color: darken($brand-google, 15%);
-        cursor: pointer;
-      }
-    }
     .icon-soundcloud{
       color: $brand-soundcloud;
       &:hover{
@@ -85,11 +78,6 @@
     .icon-pinterest{
       &:hover{
         color: $brand-pinterest;
-      }
-    }
-    .icon-googleplus{
-      &:hover{
-        color: $brand-google;
       }
     }
     .icon-soundcloud{

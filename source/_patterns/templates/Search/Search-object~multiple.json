@@ -898,8 +898,7 @@
         "url": "this page url for share links",
         "twitter": true,
         "facebook": true,
-        "pinterest": true,
-        "googleplus": true
+        "pinterest": true
       }
     },
 
