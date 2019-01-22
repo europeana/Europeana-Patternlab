@@ -53,20 +53,6 @@
     margin-top: 2rem;
   }
 
-  .logo-footer-2018 {
-    background-image: url("../../images/portal_footer_logo_2018.png");
-    height: 172px;
-    margin: auto;
-    position: relative;
-    right: -16px;
-    top: -12px;
-    width: 218px;
-
-    @media all and (min-width: $bp-med) {
-      float: right;
-    }
-  }
-
   .newsletter-form .inline-container {
     margin-bottom: $space-quarter;
   }

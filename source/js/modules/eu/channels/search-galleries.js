@@ -50,10 +50,6 @@ define(['jquery', 'purl'], function($) {
           shareImage('twitter');
         });
 
-        $(document).on('click', '#lg-share-googleplus', function(){
-          shareImage('googleplus');
-        });
-
         $(document).on('click', '#lg-share-pinterest', function(){
           shareImage('pinterest');
         });

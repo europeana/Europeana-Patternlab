@@ -93,7 +93,7 @@
                             </span>
                           </span>
                           <span class="media-option-group download-link-ctrl">
-                            <a class="media-option media-download" data-modal-selector=".modal-download" download="Europeana-Media" title="{{i18n.global.actions.download}}">
+                            <a class="media-option media-download" data-modal-selector=".modal-download" download="Europeana-Media" target="_blank" title="{{i18n.global.actions.download}}">
                               <span class="download svg-icon-download white"></span>
                             </a>
                           </span>
@@ -228,6 +228,7 @@
                    {{#media}}{{#items}}{{#is_current}}{{#download}} href="{{url}}" {{/download}}{{/is_current}}{{/items}}{{/media}}
                    title="{{i18n.site.object.actions.download}}"
                    data-modal-selector=".modal-download"
+                   target="_blank"
                    download="Europeana-Media"><span class="action-icon svg-icon-download"></span><span class="action-label">{{i18n.site.object.actions.download}}</span></a>
               </div>
 

@@ -179,6 +179,29 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     }
   }
 
+  function updateDownloadButtons(download) {
+    if (!download) {
+      $('.media-download, .modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').addClass('disabled');
+      return false;
+    }
+    $('.media-download').attr('href', download).removeClass('disabled');
+    $('.media-download').parent('.download-link-ctrl').show();
+    $('.modal-download .label-small a, .modal-header a[data-modal-selector=".modal-download"]').removeClass('disabled').attr({
+      'target': '_blank',
+      'href': download
+    });
+  }
+
+  function closeMediaModal() {
+    if ($('.media-modal-close').closest('.modal-download:not(.js-hidden)').length > 0) {
+      $('.media-modal-close').trigger('click');
+    }
+
+    if (viewerIIIF) {
+      updateDownloadButtons(viewerIIIF.getCurrentPage());
+    }
+  }
+
   function scrollPageToElement(elSelector, duration, extraOffset){
 
     var hwh          = $('.header-wrapper').height();
@@ -518,7 +541,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     updateTechData(item);
     EuColourNav.updateColourData();
 
-    $('.media-options').trigger(type, $.extend(type === 'iiif' ? {'transcriptions-unavailable': true} : {}, {'download-link': downloadUri}));
+    $('.media-options').trigger(type, $.extend(type === 'iiif' ? {'transcriptions-unavailable': true, 'download-link': downloadUri} : {}, {'download-link': downloadUri}));
 
     var reminderImg = $('.title-bar .img-remind');
 
@@ -719,12 +742,21 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           fullScreenAvailable: fsAvailable(),
           zoom: 4,
           zoomLevelOffset: -1,
-          zoomSlider: useZoomSlider
+          zoomSlider: useZoomSlider,
+          downloadUri: downloadUri
         };
 
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
+
+        $(document).on('click', '.iiif-ctrl-group a', function() {
+          closeMediaModal();
+        });
+
+        $(document).on('change', '.iiif-ctrl-group .jump-to-img', function() {
+          closeMediaModal();
+        });
       });
     }
     else if(type === 'audio'){
@@ -1518,6 +1550,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           $('.cho-media-nav').on('click', 'a', function(e){
             e.preventDefault();
             var el = $(this);
+            closeMediaModal();
             initMedia(el.closest('.lc-item').index());
           });
 

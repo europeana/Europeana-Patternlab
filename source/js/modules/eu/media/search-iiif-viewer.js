@@ -189,7 +189,6 @@ define(['jquery', 'util_resize'], function($){
     }
 
     setVisibleTranscripts();
-
     var layer = iiifLayers[layerName + ''];
 
     if(!layer){
@@ -242,7 +241,7 @@ define(['jquery', 'util_resize'], function($){
         }
       }
       else{
-        $('.media-options').trigger('iiif', {'transcriptions-unavailable': true});
+        $('.media-options').trigger('iiif', {'transcriptions-unavailable': true, 'download-link': config['downloadUri']});
       }
     });
 
@@ -334,6 +333,7 @@ define(['jquery', 'util_resize'], function($){
         }
       }
     });
+
   };
 
   var setTotalImages = function(total){
@@ -361,8 +361,6 @@ define(['jquery', 'util_resize'], function($){
 
       var waitTime       = 5000;
       var timeoutFailure = null;
-
-      //manifestUrl = 'http://iiif-api-test.eanadev.org/presentation/9200396/BibliographicResource_3000118435063/manifest.json?wskey=api2demo'
 
       // Grab a IIIF manifest
       $.getJSON(manifestUrl).done(function(data){
@@ -409,7 +407,6 @@ define(['jquery', 'util_resize'], function($){
         }, waitTime);
       });
     }
-
   }
 
   function highlightTranscript($t, scroll){
@@ -562,7 +559,7 @@ define(['jquery', 'util_resize'], function($){
 
     $(document).on('click', '.remove-transcriptions', function(){
       $('#iiif').trigger('hide-transcriptions');
-      $('.media-options').trigger('iiif', {'transcriptions-available': true});
+      $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
     });
 
     pnlTranscriptions.addClass('js-bound');
@@ -616,7 +613,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function getAnnotationData(probe, pageRef, cb){
-
     var annotationsUrl;
     var annotationKey = Object.keys(annotationData)[currentImg + ''];
 
@@ -642,7 +638,7 @@ define(['jquery', 'util_resize'], function($){
         var available = page.length === 1;
 
         if(probe){
-          $('.media-options').trigger('iiif', available ? {'transcriptions-available': true} : {'transcriptions-unavailable': true});
+          $('.media-options').trigger('iiif', available ? {'transcriptions-available': true, 'download-link': config['downloadUri']} : {'transcriptions-unavailable': true, 'download-link': config['downloadUri']});
           return;
         }
 
@@ -658,6 +654,7 @@ define(['jquery', 'util_resize'], function($){
       });
     });
   }
+
 
   function loadFeatures(probe, cb){
 
@@ -687,7 +684,6 @@ define(['jquery', 'util_resize'], function($){
 
   return {
     init: function(manifestUrl, conf) {
-
       $.each(
         [
           require.toUrl('leaflet') + '.css',
@@ -759,6 +755,15 @@ define(['jquery', 'util_resize'], function($){
       if(iiif){
         iiif.off();
         iiif.remove();
+      }
+    },
+    getCurrentPage: function(){
+      if (currentImg >= 0) {
+        config.downloadUri = allCanvases[currentImg].images[0].resource['@id'];
+        return allCanvases[currentImg].images[0].resource['@id'];
+      }
+      else {
+        return false;
       }
     }
   };

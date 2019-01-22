@@ -5,10 +5,19 @@
   grid-gap:              0.4em;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 
+  &.filter-controls-inline {
+    display: inline;
+  }
+
   label{
     @include fontSize(11px);
     padding-bottom: 0;
     text-transform: capitalize;
+  }
+
+  .specific-date {
+    margin-bottom: $space-half;
+    width: 100%;
   }
 
   .date-picker-pair{
