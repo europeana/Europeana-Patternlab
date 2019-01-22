@@ -31,19 +31,11 @@ define(['jquery'], function($){
     var maxLength = 0;
     var minWords  = el.data('min-words');
 
-
     open.on('click', function(){
       el.addClass('open');
     });
 
-    close.on('click', function(){
-      el.removeClass('open');
-      fbShow(el.find('.step1'), 200);
-      fbHide(el.find('.step2'), 200);
-      el.find('.feedback-error').hide().delay(200);
-    });
-
-    cancel.on('click', function(){
+    close.add(cancel).on('click', function(){
       el.removeClass('open');
       fbShow(el.find('.step1'), 200);
       fbHide(el.find('.step2'), 200);
@@ -83,7 +75,6 @@ define(['jquery'], function($){
     };
 
     var fbShow = function(el, delay){
-      $('.feedback').removeAttr('style');
       delayed(el, {'visibility': 'visible'}, delay);
     };
 
