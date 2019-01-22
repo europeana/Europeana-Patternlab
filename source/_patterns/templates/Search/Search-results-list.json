@@ -1241,31 +1241,26 @@
       }
     },
     {
-      "agent": "Rembrandt, in association with Belshazzar",
-      "creator": "Rembrandt",
-      "title": "Belshazzars Feast",
+      "title": "Windausche Zeitung - 1908-11-22",
       "is_text": true,
       "item_type": {
-        "name": "Book",
-        "url": "http://europeana.eu/search/books"
+        "name": "Text",
+        "url": "http://europeana.eu/search/text"
       },
       "img": {
         "src": "/source/images/sample/400-300.jpg",
         "alt": "Rectangle"
       },
-      "origin": {
-        "url": "http://urlhere.com",
-        "text": "Providerhere"
+      "hit": {
+        "prefix": "Wie ans ",
+        "exact": "Paris",
+        "suffix": " der „Retfeh\" gedrahtet wird, wird im >uini des kommenden Jahres in Plymouth nnd Cherbonrg der Gegenbesuch Sr."
       },
       "concepts": {
         "items": [
           {
             "url": "http://europeana.eu",
-            "text": "prints (visual works)"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "paper (fiber product)"
+            "text": "Newspaper"
           }
         ]
       },
@@ -1273,19 +1268,9 @@
         "items": [
           {
             "url": "http://europeana.eu",
-            "text": "Art History"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Military History"
+            "text": "Newspapers"
           }
         ]
-      },
-      "text": {
-        "medium": "Belshazzar's Feast is a painting by Rembrandt. Its source comes from the story of Belshazzar and the writing on the wall in the Old Testament Book of Daniel. It is held in the The National Gallery, London."
-      },
-      "year": {
-        "long": "1635"
       }
     },
     {
