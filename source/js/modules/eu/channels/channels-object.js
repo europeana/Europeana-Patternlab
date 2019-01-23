@@ -1823,17 +1823,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       triggerAnalyticsEvent(ga, 'event', 'Redirect', $(this).attr('href'), 'CTR Findoutmore');
     });
 
-    /* // Redirect
-    $('.media-viewer .external-media').not('.playable').on('click', function(){
-      var href =  $(this).attr('href');
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Redirect',
-        eventAction: href,
-        eventLabel: 'CTR Thumbnail'
-      });
-      log('GA: Redirect, Action = ' + href);
-    });*/
+    $('.object-media-viewer .external-media').not('.playable').on('click', function(){
+      triggerAnalyticsEvent(ga, 'event', 'Redirect', $(this).attr('href'), 'CTR Thumbnail');
+    });
 
     $('.media-download').on('click', function(){
       if(!$(this).hasClass('ga-sent')){
