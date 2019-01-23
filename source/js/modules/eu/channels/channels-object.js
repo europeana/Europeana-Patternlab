@@ -202,6 +202,34 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     }
   }
 
+  function pushStateIIIFPage () {
+    var search = window.location.search;
+    var newUrl = '';
+    var newQs = [];
+
+    var params = search.replace('?', '').split('&');
+    if (search.indexOf('iiifpage') >= 0) {
+      $(params).each(function(j, el){
+        if (el.indexOf('iiifpage') === 0) {
+          newQs.push('iiifpage=' + viewerIIIF.getCurrentPageNumber());
+        } else {
+          newQs.push(el);
+        }
+      });  
+    } else {
+      newQs.push('iiifpage=' + viewerIIIF.getCurrentPageNumber());
+      $(params).each(function(j, el){
+        newQs.push(el);
+      }); 
+    }
+
+    console.log(search.indexOf('?'));
+    newUrl = (search.indexOf('?') < 0 ? '?' : '') + newQs.join('&').slice(0,-1);
+
+    console.log('pushStateIIIFPage', newUrl, location.hash);
+    history.pushState({ iiifpage: 'page-' + viewerIIIF.getCurrentPageNumber() }, 'page-' + viewerIIIF.getCurrentPageNumber(), newUrl + location.hash);
+  } 
+
   function scrollPageToElement(elSelector, duration, extraOffset){
 
     var hwh          = $('.header-wrapper').height();
@@ -752,10 +780,12 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
+          pushStateIIIFPage();
         });
 
         $(document).on('change', '.iiif-ctrl-group .jump-to-img', function() {
           closeMediaModal();
+          pushStateIIIFPage();
         });
       });
     }

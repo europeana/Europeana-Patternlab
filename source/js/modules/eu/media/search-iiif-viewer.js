@@ -765,6 +765,9 @@ define(['jquery', 'util_resize'], function($){
       else {
         return false;
       }
+    }, 
+    getCurrentPageNumber: function() {
+      return currentImg + 1;
     }
   };
 });
