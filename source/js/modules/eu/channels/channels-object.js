@@ -1771,14 +1771,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       if(!allDimensionData[dimensionName]){
         gaDimensions.each(function(j, ob){
           if( $(ob).data('ga-metric') === dimensionName ){
-            var value = $(ob).text();
+            var value = $(ob).text().trim();
             if(dimensionName === 'dimension5'){
               if(value.indexOf('http') === 0 ){
-                dimensionData.push( value );
+                dimensionData.push(value);
               }
             }
             else{
-              dimensionData.push( value );
+              dimensionData.push(value);
             }
           }
         });
