@@ -1751,9 +1751,51 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     scrollEvents.fireAllVisible();
   }
 
+  var getAnalyticsData = function(){
+
+    var gaData           = channelData ? channelData : channelCheck();
+    var gaDimensions     = $('.ga-data');
+    var dimensions       = [];
+    var allDimensionData = {};
+
+    gaDimensions.each(function(i, ob){
+      var dimensionName       = $(ob).data('ga-metric');
+      var dimensionData       = [];
+
+      if(!allDimensionData[dimensionName]){
+        gaDimensions.each(function(j, ob){
+          if( $(ob).data('ga-metric') === dimensionName ){
+            var value = $(ob).text().trim();
+            if(dimensionName === 'dimension5'){
+              if(value.indexOf('http') === 0 ){
+                dimensionData.push(value);
+              }
+            }
+            else{
+              dimensionData.push(value);
+            }
+          }
+        });
+        dimensionData.sort();
+        allDimensionData[dimensionName] = dimensionData.join(',');
+      }
+    });
+
+    var keys = Object.keys(allDimensionData);
+
+    for(var j=0; j<keys.length; j++){
+      dimensions.push({'dimension': keys[j], 'name': allDimensionData[keys[j]] });
+    }
+
+    return dimensions.concat(gaData);
+  };
+
   return {
     initPage: function(searchForm){
       initPage(searchForm);
+    },
+    getAnalyticsData: function(){
+      return getAnalyticsData();
     },
     getPinterestData: function(){
       var desc  = [$('.object-overview .object-title').text(), $('.object-overview object-title').text()].join(' ');
