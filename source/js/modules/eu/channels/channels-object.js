@@ -202,33 +202,45 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     }
   }
 
-  function pushStateIIIFPage () {
+  function pushStateIIIFPageUpdateShareBox () {
     var search = window.location.search;
     var newUrl = '';
     var newQs = [];
 
     var params = search.replace('?', '').split('&');
-    if (search.indexOf('iiifpage') >= 0) {
-      $(params).each(function(j, el){
-        if (el.indexOf('iiifpage') === 0) {
-          newQs.push('iiifpage=' + viewerIIIF.getCurrentPageNumber());
-        } else {
-          newQs.push(el);
-        }
-      });  
-    } else {
+    $(params).each(function(i, el){
+      if (el.indexOf('iiifpage') >= 0) {
+        newQs[i] = 'iiifpage=' + viewerIIIF.getCurrentPageNumber();
+      } else {
+        newQs[i] = el;
+      }
+    });  
+
+    if (search.indexOf('iiifpage') < 0) {
       newQs.push('iiifpage=' + viewerIIIF.getCurrentPageNumber());
-      $(params).each(function(j, el){
-        newQs.push(el);
-      }); 
     }
 
-    console.log(search.indexOf('?'));
-    newUrl = (search.indexOf('?') < 0 ? '?' : '') + newQs.join('&').slice(0,-1);
+    newUrl = '?' + newQs.filter(Boolean).join('&') + location.hash;
+    history.pushState({ iiifpage: 'page-' + viewerIIIF.getCurrentPageNumber() }, 'page-' + viewerIIIF.getCurrentPageNumber(), newUrl);
 
-    console.log('pushStateIIIFPage', newUrl, location.hash);
-    history.pushState({ iiifpage: 'page-' + viewerIIIF.getCurrentPageNumber() }, 'page-' + viewerIIIF.getCurrentPageNumber(), newUrl + location.hash);
+    $('#page-url-input').val(window.location.href.split('#')[0]);    
   } 
+
+  function jumpToIIIFPage() {
+    var search = window.location.search;
+    if (search.indexOf('iiifpage') < 0) { return false; }
+
+    var iiifPage;
+    var params = search.replace('?', '').split('&');
+    $(params).each(function(i, el){
+      if (el.indexOf('iiifpage') >= 0) {
+        iiifPage = el.split('=')[1];
+        return false;
+      }
+    });  
+
+    return iiifPage;
+  }
 
   function scrollPageToElement(elSelector, duration, extraOffset){
 
@@ -771,21 +783,22 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           zoom: 4,
           zoomLevelOffset: -1,
           zoomSlider: useZoomSlider,
-          downloadUri: downloadUri
+          downloadUri: downloadUri, 
+          goToPage: jumpToIIIFPage()
         };
 
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
-
+        
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
-          pushStateIIIFPage();
+          pushStateIIIFPageUpdateShareBox();
         });
 
         $(document).on('change', '.iiif-ctrl-group .jump-to-img', function() {
           closeMediaModal();
-          pushStateIIIFPage();
+          pushStateIIIFPageUpdateShareBox();
         });
       });
     }

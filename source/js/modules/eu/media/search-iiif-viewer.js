@@ -159,7 +159,9 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var switchLayer = function(destLayer) {
+
     for(var base in iiifLayers) {
+      console.log(base, iiif.hasLayer(iiifLayers[base]), iiifLayers[base] !== destLayer);
       if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
         iiif.removeLayer(iiifLayers[base]);
       }
@@ -167,7 +169,8 @@ define(['jquery', 'util_resize'], function($){
         iiif.removeControl(miniMapCtrls[base]);
       }
     }
-    iiif.addLayer(destLayer);
+
+    //iiif.addLayer(destLayer);
   };
 
   var updateCtrls = function(){
@@ -183,7 +186,6 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var nav = function($el, layerName){
-
     if($el.attr('disabled')){
       return;
     }
@@ -196,7 +198,8 @@ define(['jquery', 'util_resize'], function($){
       load(layerName);
       layer = iiifLayers[layerName + ''];
     }
-    currentImg = layerName;
+
+    currentImg = layerName;    
     switchLayer(layer);
     updateCtrls();
   };
@@ -320,6 +323,8 @@ define(['jquery', 'util_resize'], function($){
 
     $('#iiif-ctrl .jump-to-img').off('keydown').on('keydown', function(e) {
       var key = window.event ? e.keyCode : e.which;
+      console.log(key);
+      
       if(key === 13){
         var val = parseInt($(this).val());
         if(!isNaN(val) && val > 0 && val < totalImages + 1){
@@ -399,6 +404,8 @@ define(['jquery', 'util_resize'], function($){
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
+        //goToPage(config['goToPage']);
+
       }).fail(function(jqxhr, e) {
         timeoutFailure = setTimeout(function(){
           console.log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr) + '  ' + JSON.stringify(e));
@@ -682,6 +689,15 @@ define(['jquery', 'util_resize'], function($){
     getAnnotationData(probe, currentImg, geoJsonCb);
   }
 
+  function goToPage(page) {
+    console.log('goToPage', page);
+    $('#iiif-ctrl .jump-to-img').val(page);
+
+    var e = $.Event('keydown');
+    e.keyCode = 13; 
+    $('#iiif-ctrl .jump-to-img').trigger(e);
+  }
+
   return {
     init: function(manifestUrl, conf) {
       $.each(
@@ -756,7 +772,7 @@ define(['jquery', 'util_resize'], function($){
         iiif.off();
         iiif.remove();
       }
-    },
+    },    
     getCurrentPage: function(){
       if (currentImg >= 0) {
         config.downloadUri = allCanvases[currentImg].images[0].resource['@id'];
