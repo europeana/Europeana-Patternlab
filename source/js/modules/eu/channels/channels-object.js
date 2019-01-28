@@ -88,7 +88,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         var loadingDone = function(){
 
-          $('#page-url-input').val(window.location.href.split('#')[0]);
+          var newUrl = window.location.href.split('#')[0];
+          var iiifPage = jumpToIIIFPage();
+          if (iiifPage) {
+            newUrl += '#iiifpage=' + (iiifPage + 1);
+          }
+
+          $('#page-url-input').val(newUrl);
 
           if(stateRestore){
             $.each(stateRestore, function(i, ob){
@@ -248,7 +254,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     if (!page) { return false; }
 
     var urlToShare = window.location.href.split('#')[0] + '#iiifpage=' + (page + 1);
-
     $('meta[property="og:url"]').attr('content', encodeURIComponent(urlToShare));
     $('#page-url-input').val(urlToShare);
     $('.social-share').find('li a').each(function(i, el) {
@@ -806,7 +811,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
-
         updateShareBox();
 
         $(document).on('click', '.iiif-ctrl-group a', function() {
