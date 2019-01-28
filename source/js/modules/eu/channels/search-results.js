@@ -443,6 +443,8 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       e.attr('max', new Date().getFullYear());
       s.attr('max', new Date().getFullYear());
 
+      $('.specific-date').remove();
+
       e.on('change', function(){
         s.attr('max', parseInt(e.val()));
         if( parseInt(s.val()) > parseInt(e.val())){
