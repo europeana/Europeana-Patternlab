@@ -203,43 +203,59 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   }
 
   function pushStateIIIFPageUpdateShareBox () {
-    var search = window.location.search;
+    var hash = location.hash;
     var newUrl = '';
-    var newQs = [];
+    var newHash = [];
+    var page = viewerIIIF.getCurrentPageNumber();
 
-    var params = search.replace('?', '').split('&');
+    var params = hash.replace('#', '').split('&');
     $(params).each(function(i, el){
       if (el.indexOf('iiifpage') >= 0) {
-        newQs[i] = 'iiifpage=' + viewerIIIF.getCurrentPageNumber();
+        newHash.push('iiifpage=' + page);
       } else {
-        newQs[i] = el;
+        newHash.push(el);
       }
     });  
 
-    if (search.indexOf('iiifpage') < 0) {
-      newQs.push('iiifpage=' + viewerIIIF.getCurrentPageNumber());
+    if (hash.indexOf('iiifpage') < 0) {
+      newHash.push('iiifpage=' + page);
     }
 
-    newUrl = '?' + newQs.filter(Boolean).join('&') + location.hash;
-    history.pushState({ iiifpage: 'page-' + viewerIIIF.getCurrentPageNumber() }, 'page-' + viewerIIIF.getCurrentPageNumber(), newUrl);
+    newUrl = '#' + newHash.filter(Boolean).join('&');
+    history.pushState({ iiifpage: 'page-' + page }, 'page-' + page, newUrl);
 
-    $('#page-url-input').val(window.location.href.split('#')[0]);    
+    updateShareBox();
   } 
 
   function jumpToIIIFPage() {
-    var search = window.location.search;
-    if (search.indexOf('iiifpage') < 0) { return false; }
+    var hash = location.hash;
+    if (hash.indexOf('iiifpage') < 0) { return null; }
 
     var iiifPage;
-    var params = search.replace('?', '').split('&');
-    $(params).each(function(i, el){
+    var params = hash.replace('#', '').split('&');
+    $(params).each(function(i, el) {
       if (el.indexOf('iiifpage') >= 0) {
         iiifPage = el.split('=')[1];
         return false;
       }
     });  
 
-    return iiifPage;
+    return parseInt(iiifPage-1);
+  }
+
+  function updateShareBox() {
+    var page = jumpToIIIFPage();
+    if (!page) { return false; }
+    
+    var urlToShare = window.location.href.split('#')[0] + '#iiifpage=' + (page + 1);
+    
+    $('meta[property="og:url"]').attr('content', encodeURIComponent(urlToShare));
+    $('#page-url-input').val(urlToShare);   
+    $('.social-share').find('li a').each(function(i, el) {
+      if ($(el).data('shareUrlprefix')) {
+        $(el).attr('href', $(el).data('shareUrlprefix') + encodeURIComponent(urlToShare));
+      }
+    });
   }
 
   function scrollPageToElement(elSelector, duration, extraOffset){
@@ -790,7 +806,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
-        
+
+        updateShareBox();
+
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
           pushStateIIIFPageUpdateShareBox();

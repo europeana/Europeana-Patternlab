@@ -133,6 +133,7 @@ define(['jquery', 'util_resize'], function($){
 
         if(noLoaded === noToLoad){
           done = true;
+          goToPage();
         }
         else if(index >= allCanvases.length){
           done = true;
@@ -158,23 +159,19 @@ define(['jquery', 'util_resize'], function($){
 
   };
 
-  var switchLayer = function(destLayer) {
-
+  var switchLayer = function(destLayer) {    
     for(var base in iiifLayers) {
-      console.log(base, iiif.hasLayer(iiifLayers[base]), iiifLayers[base] !== destLayer);
       if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
         iiif.removeLayer(iiifLayers[base]);
       }
       if(miniMapCtrls[base]){
         iiif.removeControl(miniMapCtrls[base]);
       }
-    }
-
-    //iiif.addLayer(destLayer);
+    }    
+    iiif.addLayer(destLayer);
   };
 
   var updateCtrls = function(){
-
     $('#iiif-ctrl .title').html(Object.keys(labelledData)[currentImg + '']);
     $('#iiif-ctrl .jump-to-img').val(currentImg + 1);
     $('#iiif-ctrl .first').attr('disabled', currentImg === 0);
@@ -182,7 +179,6 @@ define(['jquery', 'util_resize'], function($){
     $('#iiif-ctrl .next').attr('disabled', currentImg === totalImages-1);
     $('#iiif-ctrl .last').attr('disabled', currentImg === totalImages-1);
     $('#iiif-ctrl .jump-to-img').attr('disabled', totalImages === 1);
-
   };
 
   var nav = function($el, layerName){
@@ -323,8 +319,6 @@ define(['jquery', 'util_resize'], function($){
 
     $('#iiif-ctrl .jump-to-img').off('keydown').on('keydown', function(e) {
       var key = window.event ? e.keyCode : e.which;
-      console.log(key);
-      
       if(key === 13){
         var val = parseInt($(this).val());
         if(!isNaN(val) && val > 0 && val < totalImages + 1){
@@ -404,8 +398,7 @@ define(['jquery', 'util_resize'], function($){
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
-        //goToPage(config['goToPage']);
-
+            
       }).fail(function(jqxhr, e) {
         timeoutFailure = setTimeout(function(){
           console.log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr) + '  ' + JSON.stringify(e));
@@ -499,6 +492,7 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function addMiniMap(layerName) {
+
     if(config.miniMap && miniMapCtrls[layerName]){
 
       if(config.miniMap.fillViewport){
@@ -689,13 +683,10 @@ define(['jquery', 'util_resize'], function($){
     getAnnotationData(probe, currentImg, geoJsonCb);
   }
 
-  function goToPage(page) {
-    console.log('goToPage', page);
-    $('#iiif-ctrl .jump-to-img').val(page);
-
-    var e = $.Event('keydown');
-    e.keyCode = 13; 
-    $('#iiif-ctrl .jump-to-img').trigger(e);
+  function goToPage() {
+    if (!config['goToPage']) { return false; }
+    nav($('#iiif-ctrl .jump-to-img'), parseInt(config['goToPage']));
+    config['goToPage'] = null;
   }
 
   return {
