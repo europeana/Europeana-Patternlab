@@ -159,7 +159,7 @@ define(['jquery', 'util_resize'], function($){
 
   };
 
-  var switchLayer = function(destLayer) {    
+  var switchLayer = function(destLayer) {
     for(var base in iiifLayers) {
       if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
         iiif.removeLayer(iiifLayers[base]);
@@ -167,7 +167,7 @@ define(['jquery', 'util_resize'], function($){
       if(miniMapCtrls[base]){
         iiif.removeControl(miniMapCtrls[base]);
       }
-    }    
+    }
     iiif.addLayer(destLayer);
   };
 
@@ -195,7 +195,7 @@ define(['jquery', 'util_resize'], function($){
       layer = iiifLayers[layerName + ''];
     }
 
-    currentImg = layerName;    
+    currentImg = layerName;
     switchLayer(layer);
     updateCtrls();
   };
@@ -398,7 +398,7 @@ define(['jquery', 'util_resize'], function($){
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
-            
+
       }).fail(function(jqxhr, e) {
         timeoutFailure = setTimeout(function(){
           console.log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr) + '  ' + JSON.stringify(e));
@@ -763,7 +763,7 @@ define(['jquery', 'util_resize'], function($){
         iiif.off();
         iiif.remove();
       }
-    },    
+    },
     getCurrentPage: function(){
       if (currentImg >= 0) {
         config.downloadUri = allCanvases[currentImg].images[0].resource['@id'];
@@ -772,7 +772,7 @@ define(['jquery', 'util_resize'], function($){
       else {
         return false;
       }
-    }, 
+    },
     getCurrentPageNumber: function() {
       return currentImg + 1;
     }

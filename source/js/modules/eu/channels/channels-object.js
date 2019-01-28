@@ -215,7 +215,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       } else {
         newHash.push(el);
       }
-    });  
+    });
 
     if (hash.indexOf('iiifpage') < 0) {
       newHash.push('iiifpage=' + page);
@@ -225,7 +225,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     history.pushState({ iiifpage: 'page-' + page }, 'page-' + page, newUrl);
 
     updateShareBox();
-  } 
+  }
 
   function jumpToIIIFPage() {
     var hash = location.hash;
@@ -238,7 +238,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         iiifPage = el.split('=')[1];
         return false;
       }
-    });  
+    });
 
     return parseInt(iiifPage-1);
   }
@@ -246,11 +246,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
   function updateShareBox() {
     var page = jumpToIIIFPage();
     if (!page) { return false; }
-    
+
     var urlToShare = window.location.href.split('#')[0] + '#iiifpage=' + (page + 1);
-    
+
     $('meta[property="og:url"]').attr('content', encodeURIComponent(urlToShare));
-    $('#page-url-input').val(urlToShare);   
+    $('#page-url-input').val(urlToShare);
     $('.social-share').find('li a').each(function(i, el) {
       if ($(el).data('shareUrlprefix')) {
         $(el).attr('href', $(el).data('shareUrlprefix') + encodeURIComponent(urlToShare));
@@ -799,7 +799,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           zoom: 4,
           zoomLevelOffset: -1,
           zoomSlider: useZoomSlider,
-          downloadUri: downloadUri, 
+          downloadUri: downloadUri,
           goToPage: jumpToIIIFPage()
         };
 
