@@ -91,7 +91,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           var newUrl = window.location.href.split('#')[0];
           var iiifPage = jumpToIIIFPage();
           if (iiifPage) {
-            newUrl += '#iiifpage=' + (iiifPage + 1);
+            newUrl += '#ifp=' + (iiifPage + 1);
           }
 
           $('#page-url-input').val(newUrl);
@@ -208,7 +208,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     }
   }
 
-  function pushStateIIIFPageUpdateShareBox () {
+  function pushStateIIIFPage () {
     var hash = location.hash;
     var newUrl = '';
     var newHash = [];
@@ -216,31 +216,31 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     var params = hash.replace('#', '').split('&');
     $(params).each(function(i, el){
-      if (el.indexOf('iiifpage') >= 0) {
-        newHash.push('iiifpage=' + page);
+      if (el.indexOf('ifp') >= 0) {
+        newHash.push('ifp=' + page);
       } else {
         newHash.push(el);
       }
     });
 
-    if (hash.indexOf('iiifpage') < 0) {
-      newHash.push('iiifpage=' + page);
+    if (hash.indexOf('ifp') < 0) {
+      newHash.push('ifp=' + page);
     }
 
     newUrl = '#' + newHash.filter(Boolean).join('&');
-    history.pushState({ iiifpage: 'page-' + page }, 'page-' + page, newUrl);
+    history.pushState({ ifp: 'page-' + page }, 'page-' + page, newUrl);
 
     updateShareBox();
   }
 
   function jumpToIIIFPage() {
     var hash = location.hash;
-    if (hash.indexOf('iiifpage') < 0) { return null; }
+    if (hash.indexOf('ifp') < 0) { return null; }
 
     var iiifPage;
     var params = hash.replace('#', '').split('&');
     $(params).each(function(i, el) {
-      if (el.indexOf('iiifpage') >= 0) {
+      if (el.indexOf('ifp') >= 0) {
         iiifPage = el.split('=')[1];
         return false;
       }
@@ -253,7 +253,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     var page = jumpToIIIFPage();
     if (!page) { return false; }
 
-    var urlToShare = window.location.href.split('#')[0] + '#iiifpage=' + (page + 1);
+    var urlToShare = window.location.href.split('#')[0] + '#ifp=' + (page + 1);
     $('meta[property="og:url"]').attr('content', encodeURIComponent(urlToShare));
     $('#page-url-input').val(urlToShare);
     $('.social-share').find('li a').each(function(i, el) {
@@ -815,12 +815,12 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
-          pushStateIIIFPageUpdateShareBox();
+          pushStateIIIFPage();
         });
 
         $(document).on('change', '.iiif-ctrl-group .jump-to-img', function() {
           closeMediaModal();
-          pushStateIIIFPageUpdateShareBox();
+          pushStateIIIFPage();
         });
       });
     }
