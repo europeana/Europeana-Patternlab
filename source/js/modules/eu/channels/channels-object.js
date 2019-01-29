@@ -1460,6 +1460,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
           if(completed){
             makeSuggestionsSwipeable();
+            bindAnalyticsEventsMLT();
           }
         };
 
@@ -1626,6 +1627,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   function initPage(searchForm){
 
+    require(['ga'], function(ga){
+      bindAnalyticsEvents(ga);
+      bindAnalyticsEventsSocial(ga);
+    });
+
     searchForm.bindShowInlineSearch();
 
     if(channelData === null){
@@ -1751,9 +1757,108 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     scrollEvents.fireAllVisible();
   }
 
+  var getAnalyticsData = function(){
+
+    var gaData           = channelData ? channelData : channelCheck();
+    var gaDimensions     = $('.ga-data');
+    var dimensions       = [];
+    var allDimensionData = {};
+
+    gaDimensions.each(function(i, ob){
+      var dimensionName       = $(ob).data('ga-metric');
+      var dimensionData       = [];
+
+      if(!allDimensionData[dimensionName]){
+        gaDimensions.each(function(j, ob){
+          if( $(ob).data('ga-metric') === dimensionName ){
+            var value = $(ob).text().trim();
+            if(dimensionName === 'dimension5'){
+              if(value.indexOf('http') === 0 ){
+                dimensionData.push(value);
+              }
+            }
+            else{
+              dimensionData.push(value);
+            }
+          }
+        });
+        dimensionData.sort();
+        allDimensionData[dimensionName] = dimensionData.join(',');
+      }
+    });
+
+    var keys = Object.keys(allDimensionData);
+
+    for(var j=0; j<keys.length; j++){
+      dimensions.push({'dimension': keys[j], 'name': allDimensionData[keys[j]] });
+    }
+
+    return dimensions.concat(gaData);
+  };
+
+  var bindAnalyticsEventsSocial = function(ga){
+    $('body').on('click', '.social-share a', function () {
+      var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
+      ga('send', {
+        hitType: 'social',
+        socialNetwork: socialNetwork,
+        socialAction: 'share',
+        socialTarget: window.location.href
+      });
+      log('GA: ' + socialNetwork + ', Action = share, Target = ' + window.location.href);
+    });
+  };
+
+  var bindAnalyticsEventsMLT = function(){
+    require(['ga'], function(ga){
+      $('body').on('click', '.suggestions-section .eu-slide-nav', function () {
+        triggerAnalyticsEvent(ga, 'event', 'Browse', 'Similar items scroll', 'Similar items scroll');
+      });
+    });
+  };
+
+  var bindAnalyticsEvents = function(ga){
+
+    $('.object-origin a').on('click', function(){
+      triggerAnalyticsEvent(ga, 'event', 'Redirect', $(this).attr('href'), 'CTR Findoutmore');
+    });
+
+    $('.object-media-viewer .external-media').not('.playable').on('click', function(){
+      triggerAnalyticsEvent(ga, 'event', 'Redirect', $(this).attr('href'), 'CTR Thumbnail');
+    });
+
+    $('.media-download').on('click', function(){
+      if(!$(this).hasClass('ga-sent')){
+        triggerAnalyticsEvent(ga, 'event', 'Download', $(this).attr('href'), 'Media Download');
+        $(this).addClass('ga-sent');
+      }
+    });
+
+    $('.media-thumbs, .single-item-thumb').on('click', 'a.playable', function(){
+      triggerAnalyticsEvent(ga, 'event', 'Media View', $(this).data('uri'), 'Media ' + $(this).data('type'));
+    });
+
+    $('body').on('click', '.colour-grid .colour-grid-item a', function () {
+      triggerAnalyticsEvent(ga, 'event', 'Colour Search', $(this).attr('href'), 'Colour ' + $(this).find('.colour-hex').text());
+    });
+  };
+
+  var triggerAnalyticsEvent = function (ga, hitType, category, action, label) {
+    ga('send', {
+      hitType: hitType,
+      eventCategory: category,
+      eventAction: action,
+      eventLabel: label
+    });
+    log('GA: ' + category + ', Action = ' + action + ', Label = ' + label);
+  };
+
   return {
     initPage: function(searchForm){
       initPage(searchForm);
+    },
+    getAnalyticsData: function(){
+      return getAnalyticsData();
     },
     getPinterestData: function(){
       var desc  = [$('.object-overview .object-title').text(), $('.object-overview object-title').text()].join(' ');

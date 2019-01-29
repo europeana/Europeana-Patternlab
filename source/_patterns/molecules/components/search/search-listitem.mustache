@@ -38,11 +38,18 @@
       <h3 class="show-with-grid"><a href="{{object_url}}" {{#target}}target="{{.}}"{{/target}}>{{ . }}</a></h3>
     {{/agent}}
 
-    {{#text}}
-    <p class="excerpt">
-      {{text.medium}}
-    </p>
-    {{/text}}
+    {{#hit}}
+      <p class="excerpt">
+        {{prefix}} <strong>{{exact}}</strong> {{suffix}}
+      </p>
+    {{/hit}}
+    {{^hit}}
+      {{#text}}
+      <p class="excerpt">
+        {{text.medium}}
+      </p>
+      {{/text}}
+    {{/hit}}
 
     {{#concepts}}
     <ul class="item-concepts comma-list">
