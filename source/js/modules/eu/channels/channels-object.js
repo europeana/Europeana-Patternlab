@@ -788,6 +788,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       require(['media_viewer_iiif', 'purl'], function(viewer) {
 
+        var iiifPage = jumpToIIIFPage();
+
         var conf = {
           transcriptions:  useTranscriptions,
           miniMap: useMiniMap ? {
@@ -805,14 +807,23 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           zoomLevelOffset: -1,
           zoomSlider: useZoomSlider,
           downloadUri: downloadUri,
-          goToPage: jumpToIIIFPage()
+          goToPage: iiifPage
         };
 
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
         updateShareBox();
-        updateDownloadButtons(viewerIIIF.getCurrentPage());
+
+        if (iiifPage) {
+          var findCurrentPage = setInterval(function(){
+            var cp = viewerIIIF.getCurrentPage();
+            if (cp) {
+              clearInterval(findCurrentPage);
+              updateDownloadButtons(cp);
+            }
+          }, 1000);
+        }
 
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
