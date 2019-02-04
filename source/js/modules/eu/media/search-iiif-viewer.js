@@ -175,10 +175,13 @@ define(['jquery', 'util_resize'], function($){
     var p = page ? page : currentImg;
     $('#iiif-ctrl .title').html(Object.keys(labelledData)[p + '']);
     $('#iiif-ctrl .jump-to-img').val(p + 1);
-    $('#iiif-ctrl .first').attr('disabled', p === 0);
-    $('#iiif-ctrl .prev').attr('disabled', p === 0);
-    $('#iiif-ctrl .next').attr('disabled', p === totalImages-1);
-    $('#iiif-ctrl .last').attr('disabled', p === totalImages-1);
+
+    $('#iiif-ctrl .first').attr('disabled', p === 0).attr('href', '#rp='+1);
+    $('#iiif-ctrl .last').attr('disabled', p === totalImages-1, '#rp='+totalImages).attr('href', '#rp='+totalImages);
+
+    $('#iiif-ctrl .prev').attr('disabled', p === 0).attr('href', '#rp='+ (p > 0 ? p : 1));
+    $('#iiif-ctrl .next').attr('disabled', p === totalImages-1).attr('href', '#rp='+ (p+2 > totalImages ? totalImages : p+2));
+
     $('#iiif-ctrl .jump-to-img').attr('disabled', totalImages === 1);
   };
 
