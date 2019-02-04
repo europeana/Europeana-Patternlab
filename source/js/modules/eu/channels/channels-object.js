@@ -91,7 +91,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           var newUrl = window.location.href.split('#')[0];
           var iiifPage = jumpToIIIFPage();
           if (iiifPage) {
-            newUrl += '#ifp=' + (iiifPage + 1);
+            newUrl += '#rp=' + (iiifPage + 1);
           }
 
           $('#page-url-input').val(newUrl);
@@ -216,15 +216,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
     var params = hash.replace('#', '').split('&');
     $(params).each(function(i, el){
-      if (el.indexOf('ifp') >= 0) {
-        newHash.push('ifp=' + page);
+      if (el.indexOf('rp') >= 0) {
+        newHash.push('rp=' + page);
       } else {
         newHash.push(el);
       }
     });
 
-    if (hash.indexOf('ifp') < 0) {
-      newHash.push('ifp=' + page);
+    if (hash.indexOf('rp') < 0) {
+      newHash.push('rp=' + page);
     }
 
     newUrl = '#' + newHash.filter(Boolean).join('&');
@@ -235,12 +235,12 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   function jumpToIIIFPage() {
     var hash = location.hash;
-    if (hash.indexOf('ifp') < 0) { return null; }
+    if (hash.indexOf('rp') < 0) { return null; }
 
     var iiifPage;
     var params = hash.replace('#', '').split('&');
     $(params).each(function(i, el) {
-      if (el.indexOf('ifp') >= 0) {
+      if (el.indexOf('rp') >= 0) {
         iiifPage = el.split('=')[1];
         return false;
       }
@@ -253,7 +253,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     var page = jumpToIIIFPage();
     if (!page) { return false; }
 
-    var urlToShare = window.location.href.split('#')[0] + '#ifp=' + (page + 1);
+    var urlToShare = window.location.href.split('#')[0] + '#rp=' + (page + 1);
     $('meta[property="og:url"]').attr('content', encodeURIComponent(urlToShare));
     $('#page-url-input').val(urlToShare);
     $('.social-share').find('li a').each(function(i, el) {
@@ -812,6 +812,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
         updateShareBox();
+        updateDownloadButtons(viewerIIIF.getCurrentPage());
 
         $(document).on('click', '.iiif-ctrl-group a', function() {
           closeMediaModal();
