@@ -83,6 +83,7 @@ require([require.toUrl('../config/main-config.js')], function() {
           channels.getPromisedPageJS().done(function(page){
             if(page && typeof page.getPinterestData !== 'undefined'){
               var data = page.getPinterestData();
+
               if(data){
                 var pinOneButton = $('.pinit');
                 pinOneButton.on('click', function() {

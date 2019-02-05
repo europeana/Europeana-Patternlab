@@ -80,7 +80,7 @@ define([], function(){
       "is_iiif": true,
       "downloadable": false,
       "playable": true,
-      "play_url": "http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json",
+      "play_url": "https://iiif.europeana.eu/presentation/9200301/BibliographicResource_3000126341275/manifest.json",
       "thumbnail": "/media/iiif.jpg",
       "technical_metadata": {
         "mime_type": "video/wmv",

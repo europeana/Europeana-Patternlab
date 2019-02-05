@@ -430,10 +430,15 @@
     "ugc_content":false,
     "object":{
       "media":{
-        "required_players":[
-          {
-            "iiif":true
-          }
+        "required_players": [
+          {"audio": true},
+          {"image": true},
+          {"iiif":  true},
+          {"oembed": true},
+          {"pdf":   true},
+          {"text":  true},
+          {"video": true},
+          {"midi": true}
         ],
         "single_item":true,
         "more_thumbs_total":30,

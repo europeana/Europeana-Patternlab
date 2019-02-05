@@ -108,8 +108,7 @@ require.config({
     photoswipe:                    '../../lib/photoswipe/photoswipe',
     photoswipe_ui:                 '../../lib/photoswipe/photoswipe-ui-default',
 
-    //pinterest:                     'http://assets.pinterest.com/js/pinit_main',
-    pinterest:                     '../../lib/pinterest/pinit_main',
+    pinterest:                     'https://assets.pinterest.com/js/pinit_main',
 
     util_cho_map:                  '../../eu/util/cho-map',
     util_ellipsis:                 '../../eu/util/ellipsis',
