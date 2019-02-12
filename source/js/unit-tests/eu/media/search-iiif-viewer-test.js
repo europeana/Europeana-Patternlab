@@ -79,7 +79,7 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
           currentImage -= 1;
           expect(currentImage).toBe(1);
-          
+
           ctrlLast.click();
 
           currentImage = 2;
