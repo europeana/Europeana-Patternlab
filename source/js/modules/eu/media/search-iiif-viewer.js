@@ -36,6 +36,7 @@ define(['jquery', 'util_resize'], function($){
   var maxZoom           = 5;
   var totalImages;
   var goToSpecificPage;
+  var switchLayerTimeOut;
 
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var annotationData    = {}; // Map annotation data label: url
@@ -131,7 +132,6 @@ define(['jquery', 'util_resize'], function($){
       var done        = false;
 
       while(!done){
-
         if(noLoaded === noToLoad){
           done = true;
         }
@@ -156,19 +156,26 @@ define(['jquery', 'util_resize'], function($){
         }
       }
     }
-
   };
 
   var switchLayer = function(destLayer) {
+    clearTimeout(switchLayerTimeOut);
     for(var base in iiifLayers) {
       if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
-        iiif.removeLayer(iiifLayers[base]);
+        if (iiifLayers[base].isLoading() === false) {
+          iiif.removeLayer(iiifLayers[base]);
+        } else {
+          // layer you are trying to remove is not loaded yet = error => try again
+          switchLayerTimeOut = setTimeout(function(){ switchLayer(destLayer); }, 1000);
+          return false;
+        }
       }
       if(miniMapCtrls[base]){
         iiif.removeControl(miniMapCtrls[base]);
       }
     }
     iiif.addLayer(destLayer);
+    updateCtrls();
   };
 
   var updateCtrls = function(page){
@@ -185,11 +192,16 @@ define(['jquery', 'util_resize'], function($){
     $('#iiif-ctrl .jump-to-img').attr('disabled', totalImages === 1);
   };
 
+  var disableCtrls = function () {
+    $('#iiif-ctrl').find('.first, .last, .prev, .next, .jump-to-img').attr('disabled', true);
+  };
+
   var nav = function($el, layerName){
     if(!$el || $el.attr('disabled')){
       return;
     }
 
+    disableCtrls();
     setVisibleTranscripts();
     var layer = iiifLayers[layerName + ''];
 
@@ -203,7 +215,6 @@ define(['jquery', 'util_resize'], function($){
     goToSpecificPage = null;
 
     switchLayer(layer);
-    updateCtrls();
   };
 
   var initUI = function(){
@@ -375,14 +386,11 @@ define(['jquery', 'util_resize'], function($){
 
       // Grab a IIIF manifest
       $.getJSON(manifestUrl).done(function(data){
-
-
         if(timeoutFailure){
           window.clearTimeout(timeoutFailure);
         }
 
         // filter here on presence of service
-
         var imageContainingCanvases = $.grep(data.sequences[0].canvases, function(canvas){
           return canvas.images && canvas.images[0] && canvas.images[0].resource && canvas.images[0].resource.service;
         });
