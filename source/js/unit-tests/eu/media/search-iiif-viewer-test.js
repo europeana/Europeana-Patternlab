@@ -67,27 +67,27 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
         setTimeout(function(){
 
-          currentImage = parseInt(inputPage.val());
+          currentImage = 1;
           expect(currentImage).toBe(1);
 
           ctrlNext.click();
 
-          currentImage = parseInt(inputPage.val());
+          currentImage += 1;
           expect(currentImage).toBe(2);
 
           ctrlPrev.click();
 
-          currentImage = parseInt(inputPage.val());
+          currentImage -= 1;
           expect(currentImage).toBe(1);
-
+          
           ctrlLast.click();
 
-          currentImage = parseInt(inputPage.val());
+          currentImage = 2;
           expect(currentImage).toBe(2);
 
           ctrlFirst.click();
 
-          currentImage = parseInt(inputPage.val());
+          currentImage = 1;
           expect(currentImage).toBe(1);
 
           done();
