@@ -192,7 +192,7 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var disableCtrls = function () {
-    $('#iiif-ctrl').find('.first, .last, .prev, .next, .jump-to-img').attr('disabled', true);
+    $('#iiif-ctrl').find('.first, .last, .prev, .next').attr('disabled', true);
   };
 
   var nav = function($el, layerName){
@@ -338,6 +338,7 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $('#iiif-ctrl .jump-to-img').off('keydown').on('keydown', function(e) {
+
       var key = window.event ? e.keyCode : e.which;
       if(key === 13){
         var val = parseInt($(this).val());
