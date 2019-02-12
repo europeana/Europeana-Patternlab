@@ -194,7 +194,7 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var disableCtrls = function () {
-    $('#iiif-ctrl').find('.first, .last, .prev, .next, .jump-to-img').attr('disabled', true);
+    $('#iiif-ctrl').find('.first, .last, .prev, .next').attr('disabled', true);
   };
 
   var nav = function($el, layerName){
