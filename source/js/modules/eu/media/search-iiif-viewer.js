@@ -36,6 +36,7 @@ define(['jquery', 'util_resize'], function($){
   var maxZoom           = 5;
   var totalImages;
   var goToSpecificPage;
+  var switchLayerTimeOut;
 
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var annotationData    = {}; // Map annotation data label: url
@@ -158,13 +159,14 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var switchLayer = function(destLayer) {
+    clearTimeout(switchLayerTimeOut);
     for(var base in iiifLayers) {
       if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
         if (iiifLayers[base].isLoading() === false) {
           iiif.removeLayer(iiifLayers[base]);
         } else {
           // layer you are trying to remove is not loaded yet = error => try again
-          setTimeout(function(){ switchLayer(destLayer); }, 1000);
+          switchLayerTimeOut = setTimeout(function(){ switchLayer(destLayer); }, 1000);
           return false;
         }
       }
@@ -191,11 +193,7 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var disableCtrls = function () {
-    $('#iiif-ctrl .first').attr('disabled', true);
-    $('#iiif-ctrl .last').attr('disabled', true);
-    $('#iiif-ctrl .prev').attr('disabled', true);
-    $('#iiif-ctrl .next').attr('disabled', true);
-    $('#iiif-ctrl .jump-to-img').attr('disabled', true);
+    $('#iiif-ctrl').find('.first, .last, .prev, .next, .jump-to-img').attr('disabled', true);
   };
 
   var nav = function($el, layerName){
