@@ -28,13 +28,14 @@ define(['jquery', 'util_resize'], function($){
     > http://styleguide.europeana.eu/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://iiif.europeana.eu/AZ_1927_01_04_0001/info.json
   */
 
-
   var iiif;
   var config;
   var currentImg        = 0;
   var Leaflet           = null;
   var maxZoom           = 5;
   var totalImages;
+  var goToSpecificPage;
+  var switchLayerTimeOut;
 
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var annotationData    = {}; // Map annotation data label: url
@@ -130,7 +131,6 @@ define(['jquery', 'util_resize'], function($){
       var done        = false;
 
       while(!done){
-
         if(noLoaded === noToLoad){
           done = true;
         }
@@ -155,39 +155,52 @@ define(['jquery', 'util_resize'], function($){
         }
       }
     }
-
   };
 
   var switchLayer = function(destLayer) {
+    clearTimeout(switchLayerTimeOut);
     for(var base in iiifLayers) {
       if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
-        iiif.removeLayer(iiifLayers[base]);
+        if (iiifLayers[base].isLoading() === false) {
+          iiif.removeLayer(iiifLayers[base]);
+        } else {
+          // layer you are trying to remove is not loaded yet = error => try again
+          switchLayerTimeOut = setTimeout(function(){ switchLayer(destLayer); }, 1000);
+          return false;
+        }
       }
       if(miniMapCtrls[base]){
         iiif.removeControl(miniMapCtrls[base]);
       }
     }
     iiif.addLayer(destLayer);
+    updateCtrls();
   };
 
-  var updateCtrls = function(){
+  var updateCtrls = function(page){
+    var p = page ? page : currentImg;
+    $('#iiif-ctrl .title').html(Object.keys(labelledData)[p + '']);
+    $('#iiif-ctrl .jump-to-img').val(p + 1);
 
-    $('#iiif-ctrl .title').html(Object.keys(labelledData)[currentImg + '']);
-    $('#iiif-ctrl .jump-to-img').val(currentImg + 1);
-    $('#iiif-ctrl .first').attr('disabled', currentImg === 0);
-    $('#iiif-ctrl .prev').attr('disabled', currentImg === 0);
-    $('#iiif-ctrl .next').attr('disabled', currentImg === totalImages-1);
-    $('#iiif-ctrl .last').attr('disabled', currentImg === totalImages-1);
+    $('#iiif-ctrl .first').attr('disabled', p === 0).attr('href', '#rp='+1);
+    $('#iiif-ctrl .last').attr('disabled', p === totalImages-1, '#rp='+totalImages).attr('href', '#rp='+totalImages);
+
+    $('#iiif-ctrl .prev').attr('disabled', p === 0).attr('href', '#rp='+ (p > 0 ? p : 1));
+    $('#iiif-ctrl .next').attr('disabled', p === totalImages-1).attr('href', '#rp='+ (p+2 > totalImages ? totalImages : p+2));
+
     $('#iiif-ctrl .jump-to-img').attr('disabled', totalImages === 1);
+  };
 
+  var disableCtrls = function () {
+    $('#iiif-ctrl').find('.first, .last, .prev, .next').attr('disabled', true);
   };
 
   var nav = function($el, layerName){
-
-    if($el.attr('disabled')){
+    if(!$el || $el.attr('disabled')){
       return;
     }
 
+    disableCtrls();
     setVisibleTranscripts();
     var layer = iiifLayers[layerName + ''];
 
@@ -196,13 +209,14 @@ define(['jquery', 'util_resize'], function($){
       load(layerName);
       layer = iiifLayers[layerName + ''];
     }
+
     currentImg = layerName;
+    goToSpecificPage = null;
+
     switchLayer(layer);
-    updateCtrls();
   };
 
   var initUI = function(){
-
     pnlTranscriptions = $('#eu-iiif-container .transcriptions');
 
     $('#iiif').addClass('loading');
@@ -224,7 +238,11 @@ define(['jquery', 'util_resize'], function($){
       // add the mini map
       if(config.miniMap){
         if(miniMapCtrls[current]){
-          addMiniMap(current);
+          if (goToSpecificPage) {
+            addMiniMap(goToSpecificPage);
+          } else {
+            addMiniMap(current);
+          }
         }
         else if(miniMapCtrls['single']){
           addMiniMap('single');
@@ -243,6 +261,7 @@ define(['jquery', 'util_resize'], function($){
       else{
         $('.media-options').trigger('iiif', {'transcriptions-unavailable': true, 'download-link': config['downloadUri']});
       }
+
     });
 
     $(window).on('refresh-leaflet-map', function(){
@@ -261,7 +280,7 @@ define(['jquery', 'util_resize'], function($){
         zoomsliderControl: config.zoomSlider,
         fullscreenControl: true,
         fullscreenControlOptions: {
-          position: 'topright',
+          position: 'bottomright',
           forceSeparateButton: true
         }
       });
@@ -282,12 +301,12 @@ define(['jquery', 'util_resize'], function($){
 
     $('#iiif-ctrl .prev').off('click').on('click', function(e){
       e.preventDefault();
-      nav($(this), currentImg-1);
+      nav($(this), goToSpecificPage ? goToSpecificPage-1 : currentImg-1);
     });
 
     $('#iiif-ctrl .next').off('click').on('click', function(e){
       e.preventDefault();
-      nav($(this), currentImg+1);
+      nav($(this), goToSpecificPage ? goToSpecificPage+1 : currentImg+1);
     });
 
     $('#iiif-ctrl .last').off('click').on('click', function(e){
@@ -319,17 +338,20 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $('#iiif-ctrl .jump-to-img').off('keydown').on('keydown', function(e) {
+
       var key = window.event ? e.keyCode : e.which;
       if(key === 13){
         var val = parseInt($(this).val());
+        var currentPage = goToSpecificPage ? goToSpecificPage : currentImg;
+
         if(!isNaN(val) && val > 0 && val < totalImages + 1){
           var newPageNum = val - 1;
-          if(currentImg !== newPageNum){
+          if(currentPage !== newPageNum){
             nav($(this), newPageNum);
           }
         }
         else{
-          $(this).val(currentImg + 1);
+          $(this).val(currentPage + 1);
         }
       }
     });
@@ -364,14 +386,11 @@ define(['jquery', 'util_resize'], function($){
 
       // Grab a IIIF manifest
       $.getJSON(manifestUrl).done(function(data){
-
-
         if(timeoutFailure){
           window.clearTimeout(timeoutFailure);
         }
 
         // filter here on presence of service
-
         var imageContainingCanvases = $.grep(data.sequences[0].canvases, function(canvas){
           return canvas.images && canvas.images[0] && canvas.images[0].resource && canvas.images[0].resource.service;
         });
@@ -394,11 +413,30 @@ define(['jquery', 'util_resize'], function($){
         $('#iiif').removeClass('loading');
         $('#iiif').data('manifest-url', manifestUrl);
 
-        iiifLayers['0'].addTo(iiif);
+        if (goToSpecificPage) {
+
+          if (goToSpecificPage >= totalImages || goToSpecificPage < 0) {
+            goToSpecificPage = 0;
+          }
+
+          var layerName = goToSpecificPage;
+          setVisibleTranscripts();
+          var layer = iiifLayers[layerName + ''];
+
+          if(!layer){
+            $('#iiif').addClass('loading');
+            load(layerName);
+            layer = iiifLayers[layerName + ''];
+          }
+          iiifLayers[layerName].addTo(iiif);
+          updateCtrls(layerName);
+        } else {
+          iiifLayers[0].addTo(iiif);
+          updateCtrls();
+        }
 
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
-        updateCtrls();
       }).fail(function(jqxhr, e) {
         timeoutFailure = setTimeout(function(){
           console.log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr) + '  ' + JSON.stringify(e));
@@ -703,6 +741,8 @@ define(['jquery', 'util_resize'], function($){
         fullScreenAvailable: false
       }, conf ? conf : {});
 
+      goToSpecificPage = config.goToPage;
+
       require(['leaflet'], function(LeafletIn) {
 
         Leaflet = LeafletIn;
@@ -758,13 +798,21 @@ define(['jquery', 'util_resize'], function($){
       }
     },
     getCurrentPage: function(){
-      if (currentImg >= 0) {
-        config.downloadUri = allCanvases[currentImg].images[0].resource['@id'];
-        return allCanvases[currentImg].images[0].resource['@id'];
+      var p = goToSpecificPage ? goToSpecificPage : currentImg;
+      if (p >= 0) {
+        if (allCanvases.length > 0) {
+          config.downloadUri = allCanvases[p].images[0].resource['@id'];
+          return allCanvases[p].images[0].resource['@id'];
+        } else {
+          return false;
+        }
       }
       else {
         return false;
       }
+    },
+    getCurrentPageNumber: function() {
+      return currentImg + 1;
     }
   };
 });
