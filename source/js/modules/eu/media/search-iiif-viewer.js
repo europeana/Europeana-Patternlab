@@ -162,12 +162,14 @@ define(['jquery', 'util_resize'], function($){
     clearTimeout(switchLayerTimeOut);
     for(var base in iiifLayers) {
       if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
-        if (iiifLayers[base].isLoading() === false) {
-          iiif.removeLayer(iiifLayers[base]);
-        } else {
-          // layer you are trying to remove is not loaded yet = error => try again
-          switchLayerTimeOut = setTimeout(function(){ switchLayer(destLayer); }, 1000);
-          return false;
+        if (typeof iiifLayers[base].isLoading === 'function') {
+          if (iiifLayers[base].isLoading() === false) {
+            iiif.removeLayer(iiifLayers[base]);
+          } else {
+            // layer you are trying to remove is not loaded yet = error => try again
+            switchLayerTimeOut = setTimeout(function(){ switchLayer(destLayer); }, 1000);
+            return false;
+          }
         }
       }
       if(miniMapCtrls[base]){
