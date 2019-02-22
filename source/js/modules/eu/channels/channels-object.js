@@ -401,6 +401,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     if(zoomable.hasClass('busy')){
       return;
     }
+
     if(zoomable.hasClass('image-mode')){
       if(getColsAvailable() === 2){
         if(zoomable.closest('.zoom-one, .zoom-two').length === 0){
@@ -1075,14 +1076,21 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     zoomable.off(transitionEvent);
     zoomable.css('width', zoomable.width() + 'px');
 
+    var widthTransitionFound = false;
+
     setTimeout(function(){
       zoomable.on(transitionEvent, function(e){
         if(e.originalEvent.propertyName === 'width'){
+          widthTransitionFound = true;
           if($(e.target).hasClass('zoomable')){
             updateCtrls();
             fixZoomableWidth();
             $(window).trigger('refresh-leaflet-map');
           }
+        }
+
+        if (widthTransitionFound === false) {
+          resetZoomable();
         }
       });
     }, 1);
