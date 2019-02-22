@@ -28,7 +28,6 @@ define(['jquery', 'util_resize'], function($){
     > http://styleguide.europeana.eu/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://iiif.europeana.eu/AZ_1927_01_04_0001/info.json
   */
 
-
   var iiif;
   var config;
   var currentImg        = 0;
@@ -341,6 +340,7 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $('#iiif-ctrl .jump-to-img').off('keydown').on('keydown', function(e) {
+
       var key = window.event ? e.keyCode : e.which;
       if(key === 13){
         var val = parseInt($(this).val());
