@@ -342,13 +342,15 @@ define(['jquery', 'util_resize'], function($){
     $('#iiif-ctrl .jump-to-img').off('keydown').on('keydown', function(e) {
 
       var key = window.event ? e.keyCode : e.which;
+
       if(key === 13){
         var val = parseInt($(this).val());
         var currentPage = goToSpecificPage ? goToSpecificPage : currentImg;
-
         if(!isNaN(val) && val > 0 && val < totalImages + 1){
           var newPageNum = val - 1;
+
           if(currentPage !== newPageNum){
+            currentImg = newPageNum;
             nav($(this), newPageNum);
           }
         }
@@ -416,7 +418,6 @@ define(['jquery', 'util_resize'], function($){
         $('#iiif').data('manifest-url', manifestUrl);
 
         if (goToSpecificPage) {
-
           if (goToSpecificPage >= totalImages || goToSpecificPage < 0) {
             goToSpecificPage = 0;
           }
@@ -432,6 +433,7 @@ define(['jquery', 'util_resize'], function($){
           }
           iiifLayers[layerName].addTo(iiif);
           updateCtrls(layerName);
+          currentImg = goToSpecificPage;
         } else {
           iiifLayers[0].addTo(iiif);
           updateCtrls();
@@ -541,7 +543,7 @@ define(['jquery', 'util_resize'], function($){
       var ctrl = miniMapCtrls[layerName];
       ctrl.addTo(iiif);
 
-      if(config.miniMap.fillViewport && currentImg === 0){
+      if(config.miniMap.fillViewport){
         ctrl._miniMap.whenReady(function(){
           if($('.leaflet-control-minimap').is(':visible')){
             setTimeout(function(){
@@ -627,7 +629,6 @@ define(['jquery', 'util_resize'], function($){
         $('#eu-iiif-container').removeClass(classHideFullText);
         iiif.invalidateSize();
       }
-
       if(config.miniMap){
         if(miniMap){
           setTimeout(function(){
