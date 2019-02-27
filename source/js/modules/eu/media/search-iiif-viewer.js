@@ -59,7 +59,6 @@ define(['jquery', 'util_resize'], function($){
   var load = function(centreIndexIn, singleImageInfo){
 
     if(config.miniMap){
-
       var fnZoomEnd = function() {
 
         var zoom    = iiif.getZoom();
@@ -534,8 +533,8 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function addMiniMap(layerName) {
-    if(config.miniMap && miniMapCtrls[layerName]){
 
+    if(config.miniMap && miniMapCtrls[layerName]){
       if(config.miniMap.fillViewport){
         window.blockIiifFitBounds = true;
       }
@@ -547,7 +546,7 @@ define(['jquery', 'util_resize'], function($){
         ctrl._miniMap.whenReady(function(){
           if($('.leaflet-control-minimap').is(':visible')){
             setTimeout(function(){
-              ctrl.fillViewport();
+              ctrl.centerMap();
               window.blockIiifFitBounds = false;
             }, 250);
           }
