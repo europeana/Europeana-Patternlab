@@ -203,6 +203,8 @@ define(['jquery', 'util_resize'], function($){
 
     disableCtrls();
     setVisibleTranscripts();
+
+    var previous = currentImg;
     var layer = iiifLayers[layerName + ''];
 
     if(!layer){
@@ -214,6 +216,7 @@ define(['jquery', 'util_resize'], function($){
     currentImg = layerName;
     goToSpecificPage = null;
 
+    removeTranscriptions(previous);
     switchLayer(layer);
   };
 
@@ -451,7 +454,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function highlightTranscript($t, scroll){
-
     if($t.length > 0){
       $('.transcription:not(.hidden) .highlight').removeClass('highlight');
       $t.addClass('highlight');
@@ -582,11 +584,19 @@ define(['jquery', 'util_resize'], function($){
       highlightFeature(features[currentImg + ''][$t.attr('id')]);
     });
 
-    $('#iiif').on('hide-transcriptions', function(){
+    $('#iiif').on('hide-transcriptions', function(e, data){
       transcriptionIsOn = false;
       $('#eu-iiif-container').addClass(classHideFullText);
 
-      var currentFeatures = iiifLayers[currentImg + '-f'];
+      var layer;
+
+      if (data && data.layer) {
+        layer = data.layer;
+      } else {
+        layer = currentImg;
+      }
+
+      var currentFeatures = iiifLayers[layer + '-f'];
       if(currentFeatures){
         iiif.removeLayer(currentFeatures);
       }
@@ -599,8 +609,7 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $(document).on('click', '.remove-transcriptions', function(){
-      $('#iiif').trigger('hide-transcriptions');
-      $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
+      removeTranscriptions();
     });
 
     pnlTranscriptions.addClass('js-bound');
@@ -650,6 +659,12 @@ define(['jquery', 'util_resize'], function($){
         afterAdd(pageRef);
       });
     }
+  }
+
+  function removeTranscriptions(layer) {
+    var currentLayer = layer || currentImg;
+    $('#iiif').trigger('hide-transcriptions', [{ layer : currentLayer }]);
+    $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
   }
 
   function getAnnotationData(probe, pageRef, cb){
