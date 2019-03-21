@@ -216,7 +216,7 @@ define(['jquery', 'util_resize'], function($){
     currentImg = layerName;
     goToSpecificPage = null;
 
-    removeTranscriptions(previous);
+    replaceTranscriptions(false, previous);
     switchLayer(layer);
   };
 
@@ -442,6 +442,11 @@ define(['jquery', 'util_resize'], function($){
         }
 
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
+        if (config.transcriptions) {
+          setTimeout(function() {
+            $('.media-options .transcriptions-show').trigger('click');
+          }, 2000);
+        }
 
       }).fail(function(jqxhr, e) {
         timeoutFailure = setTimeout(function(){
@@ -585,8 +590,10 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $('#iiif').on('hide-transcriptions', function(e, data){
-      transcriptionIsOn = false;
-      $('#eu-iiif-container').addClass(classHideFullText);
+      if (data.hide) {
+        transcriptionIsOn = false;
+        $('#eu-iiif-container').addClass(classHideFullText);
+      }
 
       var layer;
 
@@ -604,12 +611,11 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $('#iiif').on('show-transcriptions', function(){
-      transcriptionIsOn = true;
-      addTranscriptions();
+      showTranscriptions();
     });
 
     $(document).on('click', '.remove-transcriptions', function(){
-      removeTranscriptions();
+      replaceTranscriptions(true);
     });
 
     pnlTranscriptions.addClass('js-bound');
@@ -661,9 +667,16 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
-  function removeTranscriptions(layer) {
+  function showTranscriptions() {
+    transcriptionIsOn = true;
+    addTranscriptions();
+    //$('.media-option.transcriptions-show').hide();
+    //$('.media-option.transcriptions-hide').show();
+  }
+
+  function replaceTranscriptions(hidePanel, layer) {
     var currentLayer = layer || currentImg;
-    $('#iiif').trigger('hide-transcriptions', [{ layer : currentLayer }]);
+    $('#iiif').trigger('hide-transcriptions', [{ hide: hidePanel, layer : currentLayer }]);
     $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
   }
 

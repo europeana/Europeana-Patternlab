@@ -89,7 +89,7 @@ define(['jquery'], function(){
     });
 
     $el.find('.transcriptions-hide').on('click', function(){
-      $('#iiif').trigger('hide-transcriptions');
+      $('#iiif').trigger('hide-transcriptions', [{ hide: true }]);
       $el.trigger('iiif', {'transcriptions-available': true});
     });
 
