@@ -594,6 +594,7 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $('#iiif').on('hide-transcriptions', function(e, data){
+
       if (data.hide) {
         transcriptionIsOn = false;
         $('#eu-iiif-container').addClass(classHideFullText);
@@ -607,7 +608,12 @@ define(['jquery', 'util_resize'], function($){
         layer = currentImg;
       }
 
+      var previousFeatures = iiifLayers[layer-1 + '-f'];
       var currentFeatures = iiifLayers[layer + '-f'];
+
+      if(previousFeatures){
+        iiif.removeLayer(previousFeatures);
+      }
       if(currentFeatures){
         iiif.removeLayer(currentFeatures);
       }
@@ -674,8 +680,6 @@ define(['jquery', 'util_resize'], function($){
   function showTranscriptions() {
     transcriptionIsOn = true;
     addTranscriptions();
-    //$('.media-option.transcriptions-show').hide();
-    //$('.media-option.transcriptions-hide').show();
   }
 
   function replaceTranscriptions(hidePanel, layer) {
