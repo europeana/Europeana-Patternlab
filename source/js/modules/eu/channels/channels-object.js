@@ -804,7 +804,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           searchTerm: $.url(decodeURI(window.location.href)).param()['q'],
           thumbnail: thumbnail,
           fullScreenAvailable: fsAvailable(),
-          zoom: 4,
+          zoom: 1,
           zoomLevelOffset: -1,
           zoomSlider: useZoomSlider,
           downloadUri: downloadUri,
