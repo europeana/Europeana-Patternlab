@@ -157,6 +157,7 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var switchLayer = function(destLayer) {
+
     clearTimeout(switchLayerTimeOut);
     for(var base in iiifLayers) {
       if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
@@ -197,6 +198,7 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var nav = function($el, layerName){
+
     if(!$el || $el.attr('disabled')){
       return;
     }
@@ -248,6 +250,8 @@ define(['jquery', 'util_resize'], function($){
         else if(miniMapCtrls['single']){
           addMiniMap('single');
         }
+      } else {
+        window.blockIiifFitBounds = true;
       }
 
       // update the $transcriptions
@@ -262,7 +266,6 @@ define(['jquery', 'util_resize'], function($){
       else{
         $('.media-options').trigger('iiif', {'transcriptions-unavailable': true, 'download-link': config['downloadUri']});
       }
-
     });
 
     $(window).on('refresh-leaflet-map', function(){
@@ -358,7 +361,6 @@ define(['jquery', 'util_resize'], function($){
         }
       }
     });
-
   };
 
   var setTotalImages = function(total){
@@ -430,8 +432,10 @@ define(['jquery', 'util_resize'], function($){
             load(layerName);
             layer = iiifLayers[layerName + ''];
           }
+
           iiifLayers[layerName].addTo(iiif);
           updateCtrls(layerName);
+          iiif.setZoom(config.zoom);
           currentImg = goToSpecificPage;
         } else {
           iiifLayers[0].addTo(iiif);
@@ -533,7 +537,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function addMiniMap(layerName) {
-
     if(config.miniMap && miniMapCtrls[layerName]){
       if(config.miniMap.fillViewport){
         window.blockIiifFitBounds = true;
@@ -564,6 +567,7 @@ define(['jquery', 'util_resize'], function($){
         window.blockIiifFitBounds = false;
       }
     }
+
   }
 
   function bindTranscriptionActions(){
