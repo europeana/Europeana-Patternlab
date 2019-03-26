@@ -446,11 +446,6 @@ define(['jquery', 'util_resize'], function($){
         }
 
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
-        if (config.transcriptions) {
-          setTimeout(function() {
-            $('.media-options .transcriptions-show').trigger('click');
-          }, 2000);
-        }
 
       }).fail(function(jqxhr, e) {
         timeoutFailure = setTimeout(function(){
@@ -632,7 +627,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function addTranscriptions(probe) {
-
     if(!pnlTranscriptions.hasClass('js-bound')){
       bindTranscriptionActions();
     }
@@ -715,6 +709,11 @@ define(['jquery', 'util_resize'], function($){
 
         if(probe){
           $('.media-options').trigger('iiif', available ? {'transcriptions-available': true, 'download-link': config['downloadUri']} : {'transcriptions-unavailable': true, 'download-link': config['downloadUri']});
+          if (config.transcriptions && available) {
+            setTimeout(function() {
+              $('.media-options .transcriptions-show').trigger('click');
+            }, 2500);
+          }
           return;
         }
 
