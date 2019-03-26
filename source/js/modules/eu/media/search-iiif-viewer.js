@@ -205,6 +205,8 @@ define(['jquery', 'util_resize'], function($){
 
     disableCtrls();
     setVisibleTranscripts();
+
+    var previous = currentImg;
     var layer = iiifLayers[layerName + ''];
 
     if(!layer){
@@ -216,6 +218,7 @@ define(['jquery', 'util_resize'], function($){
     currentImg = layerName;
     goToSpecificPage = null;
 
+    replaceTranscriptions(false, previous);
     switchLayer(layer);
   };
 
@@ -443,6 +446,11 @@ define(['jquery', 'util_resize'], function($){
         }
 
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
+        if (config.transcriptions) {
+          setTimeout(function() {
+            $('.media-options .transcriptions-show').trigger('click');
+          }, 2000);
+        }
 
       }).fail(function(jqxhr, e) {
         timeoutFailure = setTimeout(function(){
@@ -455,7 +463,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function highlightTranscript($t, scroll){
-
     if($t.length > 0){
       $('.transcription:not(.hidden) .highlight').removeClass('highlight');
       $t.addClass('highlight');
@@ -586,11 +593,27 @@ define(['jquery', 'util_resize'], function($){
       highlightFeature(features[currentImg + ''][$t.attr('id')]);
     });
 
-    $('#iiif').on('hide-transcriptions', function(){
-      transcriptionIsOn = false;
-      $('#eu-iiif-container').addClass(classHideFullText);
+    $('#iiif').on('hide-transcriptions', function(e, data){
 
-      var currentFeatures = iiifLayers[currentImg + '-f'];
+      if (data.hide) {
+        transcriptionIsOn = false;
+        $('#eu-iiif-container').addClass(classHideFullText);
+      }
+
+      var layer;
+
+      if (data && data.layer) {
+        layer = data.layer;
+      } else {
+        layer = currentImg;
+      }
+
+      var previousFeatures = iiifLayers[layer-1 + '-f'];
+      var currentFeatures = iiifLayers[layer + '-f'];
+
+      if(previousFeatures){
+        iiif.removeLayer(previousFeatures);
+      }
       if(currentFeatures){
         iiif.removeLayer(currentFeatures);
       }
@@ -598,13 +621,11 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $('#iiif').on('show-transcriptions', function(){
-      transcriptionIsOn = true;
-      addTranscriptions();
+      showTranscriptions();
     });
 
     $(document).on('click', '.remove-transcriptions', function(){
-      $('#iiif').trigger('hide-transcriptions');
-      $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
+      replaceTranscriptions(true);
     });
 
     pnlTranscriptions.addClass('js-bound');
@@ -654,6 +675,17 @@ define(['jquery', 'util_resize'], function($){
         afterAdd(pageRef);
       });
     }
+  }
+
+  function showTranscriptions() {
+    transcriptionIsOn = true;
+    addTranscriptions();
+  }
+
+  function replaceTranscriptions(hidePanel, layer) {
+    var currentLayer = layer || currentImg;
+    $('#iiif').trigger('hide-transcriptions', [{ hide: hidePanel, layer : currentLayer }]);
+    $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
   }
 
   function getAnnotationData(probe, pageRef, cb){
