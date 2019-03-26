@@ -446,7 +446,7 @@ define(['jquery', 'util_resize'], function($){
         }
 
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
-        
+
       }).fail(function(jqxhr, e) {
         timeoutFailure = setTimeout(function(){
           console.log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr) + '  ' + JSON.stringify(e));
