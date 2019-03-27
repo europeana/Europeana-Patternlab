@@ -690,7 +690,9 @@ define(['jquery', 'util_resize'], function($){
     var currentLayer = layer >= 0 ? layer: currentImg;
     $('#iiif').trigger('hide-transcriptions', [{ hide: hidePanel, layer : currentLayer }]);
     $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
-    $('.media-options').trigger('iiif', {'transcriptions-active': true, 'download-link': config['downloadUri']});
+    if (!hidePanel) {
+      $('.media-options').trigger('iiif', {'transcriptions-active': true, 'download-link': config['downloadUri']});
+    }
   }
 
   function getAnnotationData(probe, pageRef, cb){
