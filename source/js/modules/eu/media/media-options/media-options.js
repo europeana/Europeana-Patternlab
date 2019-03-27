@@ -81,7 +81,7 @@ define(['jquery'], function(){
   function init($el, ops){
 
     defOps = ops ? ops : {};
-    
+
     $el.find('.transcriptions-show').on('click', function(){
       $('#iiif').trigger('show-transcriptions');
       $el.trigger('iiif', {'transcriptions-active': true, 'download-link': $('.media-option.media-download').attr('href')});
