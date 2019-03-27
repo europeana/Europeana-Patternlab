@@ -219,7 +219,10 @@ define(['jquery', 'util_resize'], function($){
     currentImg = layerName;
     goToSpecificPage = null;
 
-    replaceTranscriptions(false, previous);
+    //only if fulltext is available
+    if (!$('.iiif-ctrls').hasClass('off')) {
+      replaceTranscriptions(false, previous);
+    }
     switchLayer(layer);
   };
 
@@ -687,6 +690,7 @@ define(['jquery', 'util_resize'], function($){
     var currentLayer = layer >= 0 ? layer: currentImg;
     $('#iiif').trigger('hide-transcriptions', [{ hide: hidePanel, layer : currentLayer }]);
     $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
+    $('.media-options').trigger('iiif', {'transcriptions-active': true, 'download-link': config['downloadUri']});
   }
 
   function getAnnotationData(probe, pageRef, cb){
@@ -716,12 +720,12 @@ define(['jquery', 'util_resize'], function($){
 
         if(probe){
           $('.media-options').trigger('iiif', available ? {'transcriptions-available': true, 'download-link': config['downloadUri']} : {'transcriptions-unavailable': true, 'download-link': config['downloadUri']});
-          if (config.transcriptions && available) {
+          if (config.transcriptions) {
             setTimeout(function() {
               $('.media-options .transcriptions-show').trigger('click');
+              return;
             }, 2500);
           }
-          return;
         }
 
         if(available){
