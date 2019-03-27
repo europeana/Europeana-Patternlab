@@ -61,13 +61,11 @@ define(['jquery'], function(){
     });
 
     if(type === 'iiif'){
-
       if(ops['transcriptions-unavailable']){
         $el.find('.iiif-ctrls').addClass('off');
       }
       else{
         $el.find('.iiif-ctrls').removeClass('off');
-
         if(ops['transcriptions-available']){
           $el.find('.iiif-ctrls .transcriptions-hide').hide();
           $el.find('.iiif-ctrls .transcriptions-show').show();
@@ -86,7 +84,7 @@ define(['jquery'], function(){
 
     $el.find('.transcriptions-show').on('click', function(){
       $('#iiif').trigger('show-transcriptions');
-      $el.trigger('iiif', {'transcriptions-active': true});
+      $el.trigger('iiif', {'transcriptions-active': true, 'download-link': $('.media-option.media-download').attr('href')});
     });
 
     $el.find('.transcriptions-hide').on('click', function(){
