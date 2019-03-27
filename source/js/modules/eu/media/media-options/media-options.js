@@ -61,6 +61,7 @@ define(['jquery'], function(){
     });
 
     if(type === 'iiif'){
+
       if(ops['transcriptions-unavailable']){
         $el.find('.iiif-ctrls').addClass('off');
       }

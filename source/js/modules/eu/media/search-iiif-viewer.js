@@ -35,6 +35,7 @@ define(['jquery', 'util_resize'], function($){
   var maxZoom           = 5;
   var totalImages;
   var goToSpecificPage;
+  var previousPageNumber;
   var switchLayerTimeOut;
 
   var labelledData      = {}; // JSON (entire manifest): data.label: data
@@ -349,6 +350,7 @@ define(['jquery', 'util_resize'], function($){
       var key = window.event ? e.keyCode : e.which;
 
       if(key === 13){
+        previousPageNumber = currentImg;
         var val = parseInt($(this).val());
         var currentPage = goToSpecificPage ? goToSpecificPage : currentImg;
         if(!isNaN(val) && val > 0 && val < totalImages + 1){
@@ -597,10 +599,14 @@ define(['jquery', 'util_resize'], function($){
 
       var layer;
 
-      if (data && data.layer) {
-        layer = data.layer;
+      if (previousPageNumber >= 0) {
+        layer = previousPageNumber;
       } else {
-        layer = currentImg;
+        if (data && data.layer >= 0) {
+          layer = data.layer;
+        } else {
+          layer = currentImg;
+        }
       }
 
       var previousFeatures = iiifLayers[layer-1 + '-f'];
@@ -613,6 +619,7 @@ define(['jquery', 'util_resize'], function($){
         iiif.removeLayer(currentFeatures);
       }
       iiif.invalidateSize();
+      previousPageNumber = undefined;
     });
 
     $('#iiif').on('show-transcriptions', function(){
@@ -677,7 +684,7 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function replaceTranscriptions(hidePanel, layer) {
-    var currentLayer = layer || currentImg;
+    var currentLayer = layer >= 0 ? layer: currentImg;
     $('#iiif').trigger('hide-transcriptions', [{ hide: hidePanel, layer : currentLayer }]);
     $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
   }
