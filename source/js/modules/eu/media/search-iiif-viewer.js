@@ -545,6 +545,7 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function addMiniMap(layerName) {
+
     if(config.miniMap && miniMapCtrls[layerName]){
       if(config.miniMap.fillViewport){
         window.blockIiifFitBounds = true;
@@ -565,7 +566,8 @@ define(['jquery', 'util_resize'], function($){
             window.blockIiifFitBounds = false;
             if(iiifLayers[currentImg]){
               setTimeout(function(){
-                iiifLayers[currentImg]._fitBounds(true);
+                //iiifLayers[currentImg]._fitBounds(true);
+                iiif.setZoom(config.zoom);
               }, 250);
             }
           }
