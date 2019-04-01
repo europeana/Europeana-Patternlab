@@ -729,10 +729,7 @@ define(['jquery', 'util_resize'], function($){
         if(probe){
           $('.media-options').trigger('iiif', available ? {'transcriptions-available': true, 'download-link': config['downloadUri']} : {'transcriptions-unavailable': true, 'download-link': config['downloadUri']});
           if (config.transcriptions && available && !fullTextPanelClosed) {
-            setTimeout(function() {
-              $('.media-options .transcriptions-show').trigger('click');
-              return;
-            }, 2500);
+            $('.media-options .transcriptions-show').trigger('click');
           }
         }
 
