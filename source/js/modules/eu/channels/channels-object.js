@@ -544,6 +544,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       if(ops['transcriptions-active']){
         setZoom('zoom-one zoom-two', true);
         resetZoomable();
+        updateCtrls();
       }
     });
 
