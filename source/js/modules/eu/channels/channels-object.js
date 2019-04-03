@@ -410,6 +410,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       }
     }
     zoomable.css('width', limit ? minWidthMedia + 'px' : '100%');
+    updateCtrls();
     //}, 1);
   }
 
@@ -544,7 +545,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       if(ops['transcriptions-active']){
         setZoom('zoom-one zoom-two', true);
         resetZoomable();
-        updateCtrls();
       }
     });
 
