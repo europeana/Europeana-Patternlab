@@ -89,7 +89,7 @@ define(['jquery'], function(){
 
     $el.find('.transcriptions-hide').on('click', function(){
       $('#iiif').trigger('hide-transcriptions', [{ hide: true }]);
-      $el.trigger('iiif', {'transcriptions-available': true, 'transcriptions-active': false});
+      $el.trigger('iiif', {'transcriptions-available': true, 'transcriptions-active': false, 'download-link': $('.media-option.media-download').attr('href')});
     });
 
     $el.on('hide audio pdf oembed', function(){
