@@ -108,8 +108,8 @@
 
         .zoomable{
           &:not(.busy){
-            -webkit-transition: width 0s ease-out;
-            transition:         width 0s ease-out;
+            -webkit-transition: width 0.1s ease-out;
+            transition:         width 0.1s ease-out;
             width:              100%;
           }
         }
