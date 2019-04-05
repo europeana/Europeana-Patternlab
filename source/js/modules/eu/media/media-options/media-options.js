@@ -66,7 +66,6 @@ define(['jquery'], function(){
       }
       else{
         $el.find('.iiif-ctrls').removeClass('off');
-
         if(ops['transcriptions-available']){
           $el.find('.iiif-ctrls .transcriptions-hide').hide();
           $el.find('.iiif-ctrls .transcriptions-show').show();
@@ -85,12 +84,12 @@ define(['jquery'], function(){
 
     $el.find('.transcriptions-show').on('click', function(){
       $('#iiif').trigger('show-transcriptions');
-      $el.trigger('iiif', {'transcriptions-active': true});
+      $el.trigger('iiif', {'transcriptions-active': true, 'download-link': $('.media-option.media-download').attr('href')});
     });
 
     $el.find('.transcriptions-hide').on('click', function(){
-      $('#iiif').trigger('hide-transcriptions');
-      $el.trigger('iiif', {'transcriptions-available': true});
+      $('#iiif').trigger('hide-transcriptions', [{ hide: true }]);
+      $el.trigger('iiif', {'transcriptions-available': true, 'transcriptions-active': false, 'download-link': $('.media-option.media-download').attr('href')});
     });
 
     $el.on('hide audio pdf oembed', function(){

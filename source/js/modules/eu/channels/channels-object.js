@@ -544,6 +544,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
       if(ops['transcriptions-active']){
         setZoom('zoom-one zoom-two', true);
         resetZoomable();
+        //updateCtrls();
       }
     });
 
@@ -770,8 +771,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       var useTranscriptions = uri.indexOf('://iiif.europeana.eu/presentation/') > -1;
       var borderH           = 6.2;
-      var useMiniMap        = useTranscriptions;
-      var useZoomSlider     = !useTranscriptions;
+      var useMiniMap        = false;
+      var useZoomSlider     = true;
       var sizesMiniMap      = { l: { w: 316,   h: 465 }, s: {w: 206, h: 304} };
       var sizesMiniMapTools = { l: borderH + 42.06, s: borderH + 30.72 };
 
@@ -804,7 +805,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           searchTerm: $.url(decodeURI(window.location.href)).param()['q'],
           thumbnail: thumbnail,
           fullScreenAvailable: fsAvailable(),
-          zoom: 4,
+          zoom: 1,
           zoomLevelOffset: -1,
           zoomSlider: useZoomSlider,
           downloadUri: downloadUri,

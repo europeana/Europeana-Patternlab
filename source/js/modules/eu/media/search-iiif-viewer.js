@@ -35,7 +35,9 @@ define(['jquery', 'util_resize'], function($){
   var maxZoom           = 5;
   var totalImages;
   var goToSpecificPage;
+  var previousPageNumber;
   var switchLayerTimeOut;
+  var fullTextPanelClosed;
 
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var annotationData    = {}; // Map annotation data label: url
@@ -157,6 +159,7 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var switchLayer = function(destLayer) {
+
     clearTimeout(switchLayerTimeOut);
     for(var base in iiifLayers) {
       if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
@@ -197,12 +200,15 @@ define(['jquery', 'util_resize'], function($){
   };
 
   var nav = function($el, layerName){
+
     if(!$el || $el.attr('disabled')){
       return;
     }
 
     disableCtrls();
     setVisibleTranscripts();
+
+    var previous = currentImg;
     var layer = iiifLayers[layerName + ''];
 
     if(!layer){
@@ -214,6 +220,10 @@ define(['jquery', 'util_resize'], function($){
     currentImg = layerName;
     goToSpecificPage = null;
 
+    //only if fulltext is available
+    if (!$('.iiif-ctrls').hasClass('off')) {
+      replaceTranscriptions($('#eu-iiif-container').hasClass('transcriptions-hidden'), previous);
+    }
     switchLayer(layer);
   };
 
@@ -248,6 +258,8 @@ define(['jquery', 'util_resize'], function($){
         else if(miniMapCtrls['single']){
           addMiniMap('single');
         }
+      } else {
+        window.blockIiifFitBounds = true;
       }
 
       // update the $transcriptions
@@ -262,7 +274,6 @@ define(['jquery', 'util_resize'], function($){
       else{
         $('.media-options').trigger('iiif', {'transcriptions-unavailable': true, 'download-link': config['downloadUri']});
       }
-
     });
 
     $(window).on('refresh-leaflet-map', function(){
@@ -343,6 +354,7 @@ define(['jquery', 'util_resize'], function($){
       var key = window.event ? e.keyCode : e.which;
 
       if(key === 13){
+        previousPageNumber = currentImg;
         var val = parseInt($(this).val());
         var currentPage = goToSpecificPage ? goToSpecificPage : currentImg;
         if(!isNaN(val) && val > 0 && val < totalImages + 1){
@@ -358,7 +370,6 @@ define(['jquery', 'util_resize'], function($){
         }
       }
     });
-
   };
 
   var setTotalImages = function(total){
@@ -430,8 +441,10 @@ define(['jquery', 'util_resize'], function($){
             load(layerName);
             layer = iiifLayers[layerName + ''];
           }
+
           iiifLayers[layerName].addTo(iiif);
           updateCtrls(layerName);
+          iiif.setZoom(config.zoom);
           currentImg = goToSpecificPage;
         } else {
           iiifLayers[0].addTo(iiif);
@@ -451,7 +464,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function highlightTranscript($t, scroll){
-
     if($t.length > 0){
       $('.transcription:not(.hidden) .highlight').removeClass('highlight');
       $t.addClass('highlight');
@@ -554,7 +566,8 @@ define(['jquery', 'util_resize'], function($){
             window.blockIiifFitBounds = false;
             if(iiifLayers[currentImg]){
               setTimeout(function(){
-                iiifLayers[currentImg]._fitBounds(true);
+                //iiifLayers[currentImg]._fitBounds(true);
+                iiif.setZoom(config.zoom);
               }, 250);
             }
           }
@@ -564,6 +577,7 @@ define(['jquery', 'util_resize'], function($){
         window.blockIiifFitBounds = false;
       }
     }
+
   }
 
   function bindTranscriptionActions(){
@@ -582,32 +596,53 @@ define(['jquery', 'util_resize'], function($){
       highlightFeature(features[currentImg + ''][$t.attr('id')]);
     });
 
-    $('#iiif').on('hide-transcriptions', function(){
-      transcriptionIsOn = false;
-      $('#eu-iiif-container').addClass(classHideFullText);
+    $('#iiif').on('hide-transcriptions', function(e, data){
 
-      var currentFeatures = iiifLayers[currentImg + '-f'];
+      if (data.hide) {
+        transcriptionIsOn = false;
+        $('#eu-iiif-container').addClass(classHideFullText);
+      }
+
+      var layer;
+
+      if (previousPageNumber >= 0) {
+        layer = previousPageNumber;
+      } else {
+        if (data && data.layer >= 0) {
+          layer = data.layer;
+        } else {
+          layer = currentImg;
+        }
+      }
+
+      var previousFeatures = iiifLayers[layer-1 + '-f'];
+      var currentFeatures = iiifLayers[layer + '-f'];
+
+      if(previousFeatures){
+        iiif.removeLayer(previousFeatures);
+      }
       if(currentFeatures){
         iiif.removeLayer(currentFeatures);
       }
       iiif.invalidateSize();
+      previousPageNumber = undefined;
+
+      fullTextPanelClosed = true;
+
     });
 
     $('#iiif').on('show-transcriptions', function(){
-      transcriptionIsOn = true;
-      addTranscriptions();
+      showTranscriptions();
     });
 
     $(document).on('click', '.remove-transcriptions', function(){
-      $('#iiif').trigger('hide-transcriptions');
-      $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
+      replaceTranscriptions(true);
     });
 
     pnlTranscriptions.addClass('js-bound');
   }
 
   function addTranscriptions(probe) {
-
     if(!pnlTranscriptions.hasClass('js-bound')){
       bindTranscriptionActions();
     }
@@ -652,6 +687,20 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
+  function showTranscriptions() {
+    transcriptionIsOn = true;
+    addTranscriptions();
+  }
+
+  function replaceTranscriptions(hidePanel, layer) {
+    var currentLayer = layer >= 0 ? layer: currentImg;
+    $('#iiif').trigger('hide-transcriptions', [{ hide: hidePanel, layer : currentLayer }]);
+    $('.media-options').trigger('iiif', {'transcriptions-available': true, 'download-link': config['downloadUri']});
+    if (!hidePanel) {
+      $('.media-options').trigger('iiif', {'transcriptions-active': true, 'download-link': config['downloadUri']});
+    }
+  }
+
   function getAnnotationData(probe, pageRef, cb){
     var annotationsUrl;
     var annotationKey = Object.keys(annotationData)[currentImg + ''];
@@ -679,7 +728,9 @@ define(['jquery', 'util_resize'], function($){
 
         if(probe){
           $('.media-options').trigger('iiif', available ? {'transcriptions-available': true, 'download-link': config['downloadUri']} : {'transcriptions-unavailable': true, 'download-link': config['downloadUri']});
-          return;
+          if (config.transcriptions && available && !fullTextPanelClosed) {
+            $('.media-options .transcriptions-show').trigger('click');
+          }
         }
 
         if(available){
