@@ -693,7 +693,7 @@ define(['jquery', 'util_resize'], function($){
     transcriptionIsOn = true;
     if (firstLoad) {
       firstLoad = false; // reset
-    } else { 
+    } else {
       addTranscriptions(); // show transcriptions for layer
     }
   }
