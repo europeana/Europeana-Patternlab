@@ -52,6 +52,7 @@ define(['jquery', 'util_resize'], function($){
   var transcriptionIsOn = false;
   var classHideFullText = 'transcriptions-hidden';
   var pnlTranscriptions = $('#eu-iiif-container .transcriptions');
+  var firstLoad = true;
 
   /**
    * @centreIndex
@@ -643,6 +644,7 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function addTranscriptions(probe) {
+
     if(!pnlTranscriptions.hasClass('js-bound')){
       bindTranscriptionActions();
     }
@@ -689,7 +691,11 @@ define(['jquery', 'util_resize'], function($){
 
   function showTranscriptions() {
     transcriptionIsOn = true;
-    addTranscriptions();
+    if (firstLoad) {
+      firstLoad = false; // reset
+    } else {
+      addTranscriptions(); // show transcriptions for layer
+    }
   }
 
   function replaceTranscriptions(hidePanel, layer) {
@@ -748,7 +754,6 @@ define(['jquery', 'util_resize'], function($){
 
 
   function loadFeatures(probe, cb){
-
     var featureClick = function(e){
       highlightFeature(e.target);
       highlightTranscript($('.transcription #' + e.target.feature.properties.id), true);
