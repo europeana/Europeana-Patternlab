@@ -43,16 +43,6 @@
     }
   },
 
-  "js_slsb_ld":{
-    "context": "http://schema.org",
-    "type": "WebSite",
-    "url": "http://www.europeana.eu/portal",
-    "potentialAction": {
-      "type": "SearchAction",
-      "target": "http://www.europeana.eu/portal/search?q={q}",
-      "query_input": "required name=q"
-    }
-  },
   "page_config": {
     "newsletter": true
   },
@@ -66,6 +56,10 @@
     {
       "path": "../../js/modules/require.js",
       "data_main": "../../js/modules/main/templates/main-collections"
+    },
+    {
+      "path": "https://www.europeana.eu/api/entities/agent/base/123456789.schema.jsonld?wskey=APIKEY",
+      "type": "application/ld+json"
     }
   ],
   "js_vars": [

@@ -16,7 +16,7 @@
 </script>
 
 {{# js_files }}
-  <script {{# data_main }}data-main="{{.}}"{{/ data_main }} src="{{ path }}{{# cacheBuster }}?{{ cacheBuster }}{{/ cacheBuster }}"></script>
+  <script {{# data_main }}data-main="{{.}}"{{/ data_main }} src="{{ path }}{{# cacheBuster }}?{{ cacheBuster }}{{/ cacheBuster }}" {{# type }}type="{{ type }}"{{/ type }}></script>
 {{/ js_files}}
 
 {{# js_slsb_ld }}
