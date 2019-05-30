@@ -1,0 +1,42 @@
+# Use this Dockerfile to build smaller images to push
+
+FROM nginx:stable-alpine
+
+MAINTAINER Europeana Foundation <development@europeana.eu>
+
+WORKDIR /build
+
+ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+
+# Install build dependencies
+RUN apk add ca-certificates && \
+    echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories && \
+    apk add --no-cache --virtual .ruby-build-deps \
+      ruby-dev \
+      build-base && \
+    apk add --no-cache --virtual .patternlab-build-deps \
+      nodejs \
+      npm \
+      php \
+      php-ctype	\
+      php-json \
+      ruby && \
+    echo "gem: --no-document" >> /etc/gemrc && \
+    gem install compass && \
+    apk del .ruby-build-deps
+
+# Build PatternLab
+COPY . .
+RUN npm install && \
+    compass compile source && \
+    php7 core/console --generate && \
+    $(npm bin)/grunt copy:js_templates && \
+    # Supply PatternLab files to NGINX
+    rm -r /usr/share/nginx/html && \
+    mv public /usr/share/nginx/html && \
+    # Clean up build dependencies
+    cd /usr/share/nginx && \
+    rm -r /build /tmp/* && \
+    apk del .patternlab-build-deps
+
+WORKDIR /usr/share/nginx
