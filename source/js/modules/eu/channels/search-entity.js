@@ -385,7 +385,7 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqIma
   function addEntitySchemaOrg() {
     if (window.entitySchemaOrgUrl) {
       $.getJSON(window.entitySchemaOrgUrl, function(data) {
-       $('<script/>', {
+        $('<script/>', {
           'type': 'application/ld+json',
           'html': JSON.stringify(data)
         }).appendTo('head');
