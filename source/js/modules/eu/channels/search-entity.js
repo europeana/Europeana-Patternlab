@@ -383,13 +383,13 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqIma
   }
 
   function addEntitySchemaOrg() {
-    if (entitySchemaOrgUrl) {
-      $.getJSON(entitySchemaOrgUrl, function(data) {
+    if (window.entitySchemaOrgUrl) {
+      $.getJSON(window.entitySchemaOrgUrl, function(data) {
        $('<script/>', {
-         'type': 'application/ld+json',
-         'html': JSON.stringify(data)
-       }).appendTo('head');
-     });
+          'type': 'application/ld+json',
+          'html': JSON.stringify(data)
+        }).appendTo('head');
+      });
     }
   }
 
@@ -402,7 +402,7 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqIma
       });
       form.bindShowInlineSearch();
       initGrid();
-      getImgRedirectSrc(checkThumbnail);      
+      getImgRedirectSrc(checkThumbnail);
       scrollEvents.fireAllVisible();
     });
   }
