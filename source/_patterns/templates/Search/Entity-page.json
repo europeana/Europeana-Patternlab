@@ -56,10 +56,6 @@
     {
       "path": "../../js/modules/require.js",
       "data_main": "../../js/modules/main/templates/main-collections"
-    },
-    {
-      "path": "https://www.europeana.eu/api/entities/agent/base/123456789.schema.jsonld?wskey=APIKEY",
-      "type": "application/ld+json"
     }
   ],
   "js_vars": [
@@ -70,6 +66,10 @@
     {
       "name": "mock_ajax",
       "value": "{ 'delays' : {'portal_entity': '2000', 'portal_entity-similar':'5000'}}"
+    },
+    {
+      "name": "entitySchemaOrgUrl",
+      "value": "https://www.europeana.eu/api/entities/agent/base/146741.schema.jsonld?wskey=APIKEY"
     }
   ],
   "input_search": {
