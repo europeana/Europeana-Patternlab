@@ -263,52 +263,27 @@ define(['jquery', 'smartmenus'], function($){
         promisedPageJS.resolve();
         doForAllPages();
       });
-
       break;
 
+    case 'europe_at_work/index':
     case 'migration/index':
-      require(['ugc_index'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-
-      break;
-
-    case 'migration/create':
-      require(['ugc'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-      break;
-
-    case 'migration/new':
-      require(['ugc'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-      break;
-
-    case 'migration/edit':
-      require(['ugc'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-      break;
-
-    case 'migration/update':
-      require(['ugc'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-      break;
-
     case 'contributions/index':
       require(['ugc_index'], function(page){
+        page.initPage();
+        promisedPageJS.resolve();
+        doForAllPages();
+      });
+      break;
+
+    case 'europe_at_work/create':
+    case 'migration/create':
+    case 'europe_at_work/new':
+    case 'migration/new':
+    case 'europe_at_work/edit':
+    case 'migration/edit':
+    case 'europe_at_work/update':
+    case 'migration/update':
+      require(['ugc'], function(page){
         page.initPage();
         promisedPageJS.resolve();
         doForAllPages();
