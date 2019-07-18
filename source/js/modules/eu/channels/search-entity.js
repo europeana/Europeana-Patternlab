@@ -382,6 +382,17 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqIma
     });
   }
 
+  function addEntitySchemaOrg() {
+    if (window.entitySchemaOrgUrl) {
+      $.getJSON(window.entitySchemaOrgUrl, function(data) {
+        $('<script/>', {
+          'type': 'application/ld+json',
+          'html': JSON.stringify(data)
+        }).appendTo('head');
+      });
+    }
+  }
+
   function initPage(form){
     var url = 'search-search-listitem-js/search-search-listitem-js';
     EuMustacheLoader.loadMustache(url, function(templateIn){
@@ -399,6 +410,7 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'masonry', 'jqIma
   return {
     initPage: function(euSearchForm){
       initPage(euSearchForm);
+      addEntitySchemaOrg();
     }
   };
 
