@@ -88,10 +88,9 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
   }
 
   function bindDynamicFieldset(){
-
     var reindex = function(){
       $('.nested_fields:visible .sequenced_object').each(function(i){
-        $(this).attr('index', i + 2);
+        $(this).attr('index', i + 1);
       });
     };
 
@@ -104,6 +103,8 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       EuFormUtils.initCopyFields();
       EuFormUtils.evalAllRequires();
       initSwipeableLicense();
+      initSetAsDefaultThumbnailButtons();
+      initRemoveThumbnail();
     });
 
     $(document).on('array_fields_added', function(){
@@ -269,18 +270,45 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
   });
 
   function initSwipeableLicense(){
-
     require(['util_slide', 'util_resize'], function(EuSlide){
-
       var $el = $('.license-section > .licenses');
-
-      if($el.length > 0){
-
-        // bind radio tick / add license classes
-
+      if($el.length > 0){ // bind radio tick / add license classes
         $el.wrap('<div class="slide-rail">');
         EuSlide.makeSwipeable($el);
       }
+    });
+  }
+
+  function initSetAsDefaultThumbnailButtons () {
+    if($('.media-items').length > 0) { 
+      $('.media-items').find('div.input.file').each(function(index, el) {
+        if ($(el).next('.set-default-thumb').length === 0) {
+          var defaultThumbnailButton = $('<button class="btn btn-small set-default-thumb">Set as thumbnail</button>').insertAfter(el);
+          defaultThumbnailButton.click(function(e) {
+            e.preventDefault();
+            setAsDefaultThumbnail(index);
+          });
+        }
+      });
+    }
+  }
+
+  function setAsDefaultThumbnail(defaultThumb) {
+    $('.media-items').find('.set-default-thumb').text('Set as thumbnail').removeClass('is-current-thumb');
+    $('.media-items').find('.set-default-thumb').eq(defaultThumb).text('Current thumbnail').addClass('is-current-thumb');
+    
+    if ($('.media-items .nested_fields').length > 1 && defaultThumb !== 0) {
+      $('.media-items .nested_fields').eq(defaultThumb).insertBefore($('.media-items .nested_fields').eq(0));
+    }
+  }
+
+  function initRemoveThumbnail() {
+    $('.media-items').find('div.input.file').each(function(index, el) {
+      $(el).prev('.remove_nested_fields_link').click(function(e) {
+        if ($(el).next('.set-default-thumb').hasClass('is-current-thumb')) {
+          setAsDefaultThumbnail(0);
+        }
+      });
     });
   }
 
@@ -493,6 +521,8 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       EuFormUtils.initMakesRequired(onBlur);
       EuFormUtils.initMakesOptional(onBlur);
       initSwipeableLicense();
+      initSetAsDefaultThumbnailButtons();
+      setAsDefaultThumbnail(0);
 
       $('[data-array-field-template]').data('on-add', 'array_fields_added');
       $('.contribution_ore_aggregation_edm_aggregatedCHO_dc_subject [data-array-field-template]').attr(
