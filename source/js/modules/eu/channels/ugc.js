@@ -190,7 +190,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
     require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
 
-      if(['migration/edit', 'migration/update'].indexOf(window.pageName) > -1){
+      if(/\/edit$|\/update$/.test(window.pageName)){
 
         var $hidden  = $('#' + $el.data('for'));
         var derefUrl = $el.data('deref-url');
@@ -234,7 +234,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
   function initFormSave(){
     require(['eu_form_save'], function(FormSave){
       var $form = $('form[data-local-storage-id]');
-      formSave  = FormSave.create($form, window.pageName === 'migration/create');
+      formSave  = FormSave.create($form, /\/create$/.test(window.pageName));
     });
   }
 
@@ -498,15 +498,15 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       $('.contribution_ore_aggregation_edm_aggregatedCHO_dc_subject [data-array-field-template]').attr(
         {
           'data-minimum-items':   1,
-          'data-remove-link-text': window.I18n.translate('contribute.campaigns.migration.form.buttons.topic.remove'),
-          'data-add-link-text': window.I18n.translate('contribute.campaigns.migration.form.buttons.topic.add')
+          'data-remove-link-text': window.I18n.translate('contribute.campaigns.generic.form.buttons.topic.remove'),
+          'data-add-link-text': window.I18n.translate('contribute.campaigns.generic.form.buttons.topic.add')
         }
       );
       $('.contribution_ore_aggregation_edm_aggregatedCHO_dcterms_spatial [data-array-field-template]').attr(
         {
           'data-minimum-items': 2,
-          'data-remove-link-text': window.I18n.translate('contribute.campaigns.migration.form.buttons.location.remove'),
-          'data-add-link-text': window.I18n.translate('contribute.campaigns.migration.form.buttons.location.add')
+          'data-remove-link-text': window.I18n.translate('contribute.campaigns.generic.form.buttons.location.remove'),
+          'data-add-link-text': window.I18n.translate('contribute.campaigns.generic.form.buttons.location.add')
         }
       );
       EuFormUtils.initArrayFields('array-field-template');
