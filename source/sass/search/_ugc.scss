@@ -724,11 +724,6 @@ noscript div{
     padding-top: $space;
   }
 
-  .sequenced_object::after{
-    content:      attr(index);
-    padding-left: 0.4em;
-  }
-
   .contribution-select{
     margin: 0 0 1.6em 0;
   }
