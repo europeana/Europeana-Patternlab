@@ -284,7 +284,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       $('.media-items').find('div.input.file').each(function(index, el) {
         if ($(el).next('.set-default-thumb').length === 0) {
           var defaultThumbnailButton = $('<button class="btn btn-small set-default-thumb">' + window.I18n.translate('contribute.campaigns.generic.form.buttons.thumbnail.set') + '</button>').insertAfter(el);
-          defaultThumbnailButton.click(function() {
+          defaultThumbnailButton.click(function(e) {
             e.preventDefault();
             setAsDefaultThumbnail(index);
           });
@@ -318,7 +318,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
   function initRemoveThumbnail() {
     $('.media-items').find('div.input.file').each(function(index, el) {
-      $(el).prev('.remove_nested_fields_link').click(function(e) {
+      $(el).prev('.remove_nested_fields_link').click(function() {
         if ($(el).next('.set-default-thumb').hasClass('is-current-thumb')) {
           setAsDefaultThumbnail(0);
         }
