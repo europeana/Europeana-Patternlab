@@ -499,6 +499,10 @@ noscript div{
     width:            calc(#{$ugc-padding} + 100% + #{$ugc-padding});
   }
 
+  .media-items .nested_fields {
+    margin-bottom: 1rem;
+  }
+
   .label-and-input.positioned-right{
 
     display:        flex;
@@ -718,11 +722,6 @@ noscript div{
   .remove_nested_fields_link{
     display:     inline-block;
     padding-top: $space;
-  }
-
-  .sequenced_object::after{
-    content:      attr(index);
-    padding-left: 0.4em;
   }
 
   .contribution-select{
@@ -1055,6 +1054,18 @@ noscript div{
       margin: $ugc-padding 0;
     }
   }
+
+  .is-current-thumb {
+    border-color: $gray-lighter;
+    color: inherit;
+    cursor: default;
+
+    &:hover {
+      background-color: transparent;
+      color: inherit;
+    }
+  }
+
 }
 
 .ugc-hero{
