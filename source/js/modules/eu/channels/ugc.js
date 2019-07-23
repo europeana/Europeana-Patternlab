@@ -104,7 +104,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       EuFormUtils.evalAllRequires();
       initSwipeableLicense();
       initSetAsDefaultThumbnailButtons();
-      initRemoveThumbnail();
+      initRemoveObject();
     });
 
     $(document).on('array_fields_added', function(){
@@ -286,7 +286,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
           var defaultThumbnailButton = $('<button class="btn btn-small set-default-thumb">' + window.I18n.translate('contribute.campaigns.generic.form.buttons.thumbnail.set') + '</button>').insertAfter(el);
           defaultThumbnailButton.click(function(e) {
             e.preventDefault();
-            setAsDefaultThumbnail(index);
+            setAsDefaultThumbnail($(this));
           });
         }
       });
@@ -294,16 +294,16 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
   }
 
   function setAsDefaultThumbnail(defaultThumb) {
-    var setDefaultThumbnail = $('.media-items').find('.set-default-thumb');
+    var thumbnailButtons = $('.media-items').find('.set-default-thumb');
     var mediaObjects = $('.media-items .nested_fields');
 
-    setDefaultThumbnail.text(window.I18n.translate('contribute.campaigns.generic.form.buttons.thumbnail.set')).removeClass('is-current-thumb');
-    setDefaultThumbnail.eq(defaultThumb).text(window.I18n.translate('contribute.campaigns.generic.form.buttons.thumbnail.current')).addClass('is-current-thumb');
+    thumbnailButtons.text(window.I18n.translate('contribute.campaigns.generic.form.buttons.thumbnail.set')).removeClass('is-current-thumb');
+    $(defaultThumb).text(window.I18n.translate('contribute.campaigns.generic.form.buttons.thumbnail.current')).addClass('is-current-thumb');
 
     if (mediaObjects.length > 1 && defaultThumb !== 0) {
-      $(setDefaultThumbnail).closest('.media-items').prev()[0].scrollIntoView();
-      $(mediaObjects).eq(defaultThumb).insertBefore($(mediaObjects).eq(0));
-      resetRemoveButtons($(setDefaultThumbnail).closest('.media-items'));
+      $(defaultThumb).closest('.nested_fields').insertBefore($(mediaObjects).eq(0));
+      $(defaultThumb).closest('.media-items').prev()[0].scrollIntoView();
+      resetRemoveButtons($(defaultThumb).closest('.media-items'));
       reindex();
     }
   }
@@ -316,11 +316,11 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
     });
   }
 
-  function initRemoveThumbnail() {
+  function initRemoveObject() {
     $('.media-items').find('div.input.file').each(function(index, el) {
       $(el).prev('.remove_nested_fields_link').click(function() {
         if ($(el).next('.set-default-thumb').hasClass('is-current-thumb')) {
-          setAsDefaultThumbnail(0);
+          setAsDefaultThumbnail($('.media-items .set-default-thumb').eq(0));
         }
       });
     });
@@ -536,7 +536,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       EuFormUtils.initMakesOptional(onBlur);
       initSwipeableLicense();
       initSetAsDefaultThumbnailButtons();
-      setAsDefaultThumbnail(0);
+      setAsDefaultThumbnail($('.media-items .set-default-thumb').eq(0));
 
       $('[data-array-field-template]').data('on-add', 'array_fields_added');
       $('.contribution_ore_aggregation_edm_aggregatedCHO_dc_subject [data-array-field-template]').attr(
