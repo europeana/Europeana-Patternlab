@@ -87,13 +87,13 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
   }
 
-  function bindDynamicFieldset(){
-    var reindex = function(){
-      $('.nested_fields:visible .sequenced_object').each(function(i){
-        $(this).attr('index', i + 1);
-      });
-    };
+  function reindex () {
+    $('.nested_fields:visible .sequenced_object').each(function(i){
+      $(this).attr('index', i + 1);
+    });
+  };
 
+  function bindDynamicFieldset(){
     $(document).on('fields_added.nested_form_fields', function(){
       reindex();
       if(formSave){
@@ -283,7 +283,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
     if($('.media-items').length > 0) { 
       $('.media-items').find('div.input.file').each(function(index, el) {
         if ($(el).next('.set-default-thumb').length === 0) {
-          var defaultThumbnailButton = $('<button class="btn btn-small set-default-thumb">Set as thumbnail</button>').insertAfter(el);
+          var defaultThumbnailButton = $('<button class="btn btn-small set-default-thumb">' + window.I18n.translate('contribute.campaigns.generic.set_as_thumbnail') + '</button>').insertAfter(el);
           defaultThumbnailButton.click(function(e) {
             e.preventDefault();
             setAsDefaultThumbnail(index);
@@ -294,12 +294,27 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
   }
 
   function setAsDefaultThumbnail(defaultThumb) {
-    $('.media-items').find('.set-default-thumb').text('Set as thumbnail').removeClass('is-current-thumb');
-    $('.media-items').find('.set-default-thumb').eq(defaultThumb).text('Current thumbnail').addClass('is-current-thumb');
+
+    var setDefaultThumbnail = $('.media-items').find('.set-default-thumb');
+    var mediaObjects = $('.media-items .nested_fields');
+
+    setDefaultThumbnail.text(window.I18n.translate('contribute.campaigns.generic.set_as_thumbnail')).removeClass('is-current-thumb');
+    setDefaultThumbnail.eq(defaultThumb).text(window.I18n.translate('contribute.campaigns.generic.current_thumbnail')).addClass('is-current-thumb');
     
-    if ($('.media-items .nested_fields').length > 1 && defaultThumb !== 0) {
-      $('.media-items .nested_fields').eq(defaultThumb).insertBefore($('.media-items .nested_fields').eq(0));
+    if (mediaObjects.length > 1 && defaultThumb !== 0) {
+      $(setDefaultThumbnail).closest('.media-items').prev()[0].scrollIntoView();
+      $(mediaObjects).eq(defaultThumb).insertBefore($(mediaObjects).eq(0));
+      reindex();
+      resetRemoveButtons($(setDefaultThumbnail).closest('.media-items'));
     }
+  }
+
+  function resetRemoveButtons(setOfObjects) {
+    $(setOfObjects).find('.nested_fields').each(function(index, el) {
+      if ($(el).find('.remove_nested_fields_link').length === 0) {
+        $(setOfObjects).find('.nested_fields').eq(0).find('.remove_nested_fields_link').insertBefore($(setOfObjects).find('.nested_fields').eq(index).find('div.input.file'));
+      }
+    });
   }
 
   function initRemoveThumbnail() {

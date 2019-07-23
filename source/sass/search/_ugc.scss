@@ -499,6 +499,10 @@ noscript div{
     width:            calc(#{$ugc-padding} + 100% + #{$ugc-padding});
   }
 
+  .media-items .nested_fields {
+    margin-bottom: 1rem;
+  }
+
   .label-and-input.positioned-right{
 
     display:        flex;
