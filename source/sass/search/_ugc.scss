@@ -1059,6 +1059,18 @@ noscript div{
       margin: $ugc-padding 0;
     }
   }
+
+  .is-current-thumb {
+    border-color: $gray-lighter;
+    color: inherit;
+    cursor: default;
+
+    &:hover {
+      background-color: transparent;
+      color: inherit;
+    }
+  }
+
 }
 
 .ugc-hero{
