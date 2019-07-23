@@ -91,7 +91,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
     $('.nested_fields:visible .sequenced_object').each(function(i){
       $(this).attr('index', i + 1);
     });
-  };
+  }
 
   function bindDynamicFieldset(){
     $(document).on('fields_added.nested_form_fields', function(){
@@ -280,11 +280,11 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
   }
 
   function initSetAsDefaultThumbnailButtons () {
-    if($('.media-items').length > 0) { 
+    if($('.media-items').length > 0) {
       $('.media-items').find('div.input.file').each(function(index, el) {
         if ($(el).next('.set-default-thumb').length === 0) {
           var defaultThumbnailButton = $('<button class="btn btn-small set-default-thumb">' + window.I18n.translate('contribute.campaigns.generic.form.buttons.thumbnail.set') + '</button>').insertAfter(el);
-          defaultThumbnailButton.click(function(e) {
+          defaultThumbnailButton.click(function() {
             e.preventDefault();
             setAsDefaultThumbnail(index);
           });
@@ -299,7 +299,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
     setDefaultThumbnail.text(window.I18n.translate('contribute.campaigns.generic.form.buttons.thumbnail.set')).removeClass('is-current-thumb');
     setDefaultThumbnail.eq(defaultThumb).text(window.I18n.translate('contribute.campaigns.generic.form.buttons.thumbnail.current')).addClass('is-current-thumb');
-    
+
     if (mediaObjects.length > 1 && defaultThumb !== 0) {
       $(setDefaultThumbnail).closest('.media-items').prev()[0].scrollIntoView();
       $(mediaObjects).eq(defaultThumb).insertBefore($(mediaObjects).eq(0));
