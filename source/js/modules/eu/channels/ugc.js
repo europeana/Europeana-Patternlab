@@ -89,7 +89,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
   function reindex () {
     $('.nested_fields:visible .sequenced_object').each(function(i){
-      $(this).text($(this).text().split(' ')[0] + ' ' + (i + 1));
+      $(this).text($(this).text().replace(/[0-9]+/, i + 1));
     });
   }
 
