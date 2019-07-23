@@ -265,8 +265,8 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
 
-    case 'europe_at_work/index':
-    case 'migration/index':
+    case 'campaigns/europe_at_work/index':
+    case 'campaigns/migration/index':
     case 'contributions/index':
       require(['ugc_index'], function(page){
         page.initPage();
@@ -275,14 +275,14 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
 
-    case 'europe_at_work/create':
-    case 'migration/create':
-    case 'europe_at_work/new':
-    case 'migration/new':
-    case 'europe_at_work/edit':
-    case 'migration/edit':
-    case 'europe_at_work/update':
-    case 'migration/update':
+    case 'campaigns/europe_at_work/create':
+    case 'campaigns/migration/create':
+    case 'campaigns/europe_at_work/new':
+    case 'campaigns/migration/new':
+    case 'campaigns/europe_at_work/edit':
+    case 'campaigns/migration/edit':
+    case 'campaigns/europe_at_work/update':
+    case 'campaigns/migration/update':
       require(['ugc'], function(page){
         page.initPage();
         promisedPageJS.resolve();
