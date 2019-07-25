@@ -1,0 +1,51 @@
+{
+  "bodyclass": false,
+  "page_title": "Europeana Migration Static Page",
+  "page_locale": "en",
+  "version":{
+    "is_alpha": true
+  },
+  "globalnav_options": {
+    "search": false,
+    "myeuropeana": false
+  },
+  "navigation": {
+    "back_label": false,
+    "last_label" : false,
+    "next_prev": false,
+    "global": {
+      "options": {}
+    }
+  },
+  "log_out_link": {
+    "url": "javascript:alert('log out');",
+    "label": "Sign out"
+  },
+  "include_nav_searchbar": false,
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "campaigns/migration/index"
+    }
+  ],
+  "url": false,
+  "content":{
+    "headline": "Europe at work",
+    "main_content_of_page": "We invite you to share your story - through objects like pictures, letters, postcards or recipes - to contribute to the story of Europe’s changing work history."
+  }
+}

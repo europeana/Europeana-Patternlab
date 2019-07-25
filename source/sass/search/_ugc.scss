@@ -240,11 +240,9 @@ noscript div{
 .ugc-landing-hero ~ .lc,
 .ugc-landing-hero ~ .section,
 .ugc-landing-hero ~ .footer{
-
   font-family: "Open Sans", sans-serif;
 
   .hero-text{
-
     h1{
       font-weight: 600;
     }
@@ -749,6 +747,7 @@ noscript div{
   }
 
   &.new-contribution form .media-preview{
+    margin-top: 1rem;
     text-align: center;
     img{
       background-color: $gray-lighter;
@@ -1069,7 +1068,6 @@ noscript div{
 }
 
 .ugc-hero{
-
   margin-top: 0;
 
   .hero-text{
