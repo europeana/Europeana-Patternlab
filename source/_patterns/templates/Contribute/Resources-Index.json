@@ -85,6 +85,22 @@
           "url": "?collectionDay=3"
         }
       ],
+      "has_campaigns": true,
+      "campaigns":[
+        {
+          "label": "Please select",
+          "url": false
+        },
+        {
+          "label": "Migration",
+          "is_selected": true,
+          "url": "?campaign=migration"
+        },
+        {
+          "label": "Europe at work",
+          "url": "?campaign=europeatwork"
+        }
+      ],
       "table":{
         "has_row_selectors": true,
         "row_link": true,
