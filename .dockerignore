@@ -15,6 +15,7 @@
 *.codekit
 
 /extras/
+!/extras/docker
 /public
 /reports
 /node_modules
