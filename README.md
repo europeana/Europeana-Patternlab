@@ -110,8 +110,34 @@ For more details on Europeana's front-end development practice please see the [d
 
 The PHP version of Pattern Lab is, at its core, a static site generator. It combines platform-agnostic assets, like the [Mustache](http://mustache.github.io/)-based patterns and the JavaScript-based viewer, with a PHP-based "builder" that transforms and dynamically builds the Pattern Lab site. By making it a static site generator, Pattern Lab strongly separates patterns, data, and presentation from build logi.cg
 
-## License
+## Docker for production
 
-Licensed under the EUPL v1.2.
+An additional Dockerfile is included, optimised for small image size, for
+publication to a Docker repository and use in production environments.
 
-For full details, see [LICENSE.md](LICENSE.md).
+### Configure version
+
+```shell
+export VERSION=1.3.9
+```
+
+### Build
+
+```shell
+docker build \
+       -f Dockerfile.alpine \
+       -t europeana/styleguide:${VERSION} .
+```
+
+### Run
+
+```shell
+docker run \
+       -p 8080:80 \
+       europeana/styleguide:${VERSION}
+```
+
+### Publish
+```shell
+docker push europeana/styleguide:${VERSION}
+```
