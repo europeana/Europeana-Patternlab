@@ -486,7 +486,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       EuFormUtils.initMakesRequired(onBlur);
       EuFormUtils.initMakesOptional(onBlur);
       initSwipeableLicense();
-      
+
       $('[data-array-field-template]').data('on-add', 'array_fields_added');
       $('.contribution_ore_aggregation_edm_aggregatedCHO_dc_subject [data-array-field-template]').attr(
         {
