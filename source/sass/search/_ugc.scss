@@ -1065,6 +1065,34 @@ noscript div{
     }
   }
 
+  .select-thumbnail {
+    .label-and-input {
+      display: block;
+    }
+
+    input[type="radio"] {
+      border-radius: 0;
+      box-shadow: none;
+      margin-bottom: 0.5rem;
+      opacity: 1;
+    }
+
+    input[type="radio"]:checked+label img {
+      border: 3px solid $eu-blue;
+    }
+
+    .input_collection {
+      li {
+        display: inline-block;
+        margin-bottom: 1rem;
+        width: 33%;
+
+        img {
+          border: 3px solid #fff;
+        }
+      }
+    }
+  }
 }
 
 .ugc-hero{
