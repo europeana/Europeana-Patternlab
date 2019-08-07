@@ -1068,12 +1068,12 @@ noscript div{
   .select-thumbnail {
     .label-and-input {
       display: block;
-    
+
       .input_collection_item:not(.positioned-right):not(.full-width):not(.license-section) label {
         max-width: 100%;
       }
     }
-    
+
     input[type="radio"]:checked+label img {
       border: 3px solid $eu-blue;
     }
