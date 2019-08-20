@@ -263,52 +263,27 @@ define(['jquery', 'smartmenus'], function($){
         promisedPageJS.resolve();
         doForAllPages();
       });
-
       break;
 
-    case 'migration/index':
-      require(['ugc_index'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-
-      break;
-
-    case 'migration/create':
-      require(['ugc'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-      break;
-
-    case 'migration/new':
-      require(['ugc'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-      break;
-
-    case 'migration/edit':
-      require(['ugc'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-      break;
-
-    case 'migration/update':
-      require(['ugc'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-      break;
-
+    case 'campaigns/europe_at_work/index':
+    case 'campaigns/migration/index':
     case 'contributions/index':
       require(['ugc_index'], function(page){
+        page.initPage();
+        promisedPageJS.resolve();
+        doForAllPages();
+      });
+      break;
+
+    case 'campaigns/europe_at_work/create':
+    case 'campaigns/migration/create':
+    case 'campaigns/europe_at_work/new':
+    case 'campaigns/migration/new':
+    case 'campaigns/europe_at_work/edit':
+    case 'campaigns/migration/edit':
+    case 'campaigns/europe_at_work/update':
+    case 'campaigns/migration/update':
+      require(['ugc'], function(page){
         page.initPage();
         promisedPageJS.resolve();
         doForAllPages();

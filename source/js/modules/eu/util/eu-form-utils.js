@@ -83,7 +83,7 @@ define(['jquery'], function($){
 
     var ref = $el.data('makes-optional');
     if(ref){
-      makeFieldOptional($('#' + ref), getFieldValTruthy($el), fnValidate);
+      makeFieldOptional($(ref), getFieldValTruthy($el), fnValidate);
     }
   }
 
@@ -92,7 +92,7 @@ define(['jquery'], function($){
     var ref = $el.data('makes-required');
 
     if(ref){
-      var refEls = $('.' + ref).find(':input');
+      var refEls = $(ref).find(':input');
       var apply  = getFieldValTruthy($el);
 
       refEls.each(function(){

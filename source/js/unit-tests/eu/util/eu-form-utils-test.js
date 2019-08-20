@@ -68,7 +68,7 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
         elMakesOptionalCB    = $('#make-it-optional-cb');
         elMakesOptionalRadio = $('#make-it-optional-radio');
         referencedId         = elMakesOptional.data('makes-optional');
-        referencedEl         = $('#' + referencedId);
+        referencedEl         = $(referencedId);
       });
 
       it('references an existing and required element', function(){
@@ -140,7 +140,7 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
       beforeEach(function() {
         elMakesRequired  = $('#make-it-required');
         referencedClass  = elMakesRequired.data('makes-required');
-        referencedEl     = $('.' + referencedClass);
+        referencedEl     = $(referencedClass);
       });
 
       it('references an existing element with optional children', function(){

@@ -21,6 +21,14 @@ noscript div{
   text-align:  center;
 }
 
+.static-content {
+  padding-left: 0;
+  padding-right: 0;
+  .site-hero {
+    margin-top: 0;
+  }
+}
+
 .ugc-landing-hero{
 
   background-blend-mode: multiply;
@@ -240,11 +248,9 @@ noscript div{
 .ugc-landing-hero ~ .lc,
 .ugc-landing-hero ~ .section,
 .ugc-landing-hero ~ .footer{
-
   font-family: "Open Sans", sans-serif;
 
   .hero-text{
-
     h1{
       font-weight: 600;
     }
@@ -499,6 +505,10 @@ noscript div{
     width:            calc(#{$ugc-padding} + 100% + #{$ugc-padding});
   }
 
+  .media-items .nested_fields {
+    margin-bottom: 1rem;
+  }
+
   .label-and-input.positioned-right{
 
     display:        flex;
@@ -720,11 +730,6 @@ noscript div{
     padding-top: $space;
   }
 
-  .sequenced_object::after{
-    content:      attr(index);
-    padding-left: 0.4em;
-  }
-
   .contribution-select{
     margin: 0 0 1.6em 0;
   }
@@ -750,6 +755,7 @@ noscript div{
   }
 
   &.new-contribution form .media-preview{
+    margin-top: 1rem;
     text-align: center;
     img{
       background-color: $gray-lighter;
@@ -1055,10 +1061,47 @@ noscript div{
       margin: $ugc-padding 0;
     }
   }
+
+  .is-current-thumb {
+    border-color: $gray-lighter;
+    color: inherit;
+    cursor: default;
+
+    &:hover {
+      background-color: transparent;
+      color: inherit;
+    }
+  }
+
+  .select-thumbnail {
+    .label-and-input {
+      display: block;
+
+      .input_collection_item:not(.positioned-right):not(.full-width):not(.license-section) label {
+        max-width: 100%;
+      }
+    }
+
+    input[type="radio"]:checked+label img {
+      border: 3px solid $eu-blue;
+    }
+
+    .input_collection {
+      li {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        width: 33%;
+
+        img {
+          border: 3px solid #fff;
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
-.ugc-migrations{
-
+.ugc-hero{
   margin-top: 0;
 
   .hero-text{

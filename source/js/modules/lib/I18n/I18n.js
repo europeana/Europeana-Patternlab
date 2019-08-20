@@ -706,6 +706,10 @@ I18n.translations["en"] = I18n.extend((I18n.translations["en"] || {}), {
 			"sign_out": "Log-out"
 		},
 		"campaigns": {
+      "generic": {
+        "current_thumbnail": "Current thumbnail",
+        "set_as_thumbnail": "Set as thumbnail"
+      },
 			"migration": {
 				"form": {
 					"buttons": {

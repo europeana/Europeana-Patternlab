@@ -8,6 +8,8 @@ WORKDIR /build
 
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
+COPY ./extras/docker/nginx-default.conf /etc/nginx/conf.d/default.conf
+
 # Install build dependencies
 RUN apk add ca-certificates && \
     echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositories && \
