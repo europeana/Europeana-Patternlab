@@ -730,10 +730,6 @@ noscript div{
     padding-top: $space;
   }
 
-  .contribution-select{
-    margin: 0 0 1.6em 0;
-  }
-
   .create-new-link{
     margin: $space 0;
   }
@@ -741,6 +737,11 @@ noscript div{
   .contribution-select,
   .create-new-link{
     display: table;
+  }
+
+  .contribution-select{
+    display: inline-block;
+    margin: 0 0 1.6em 0;
   }
 
   a{
