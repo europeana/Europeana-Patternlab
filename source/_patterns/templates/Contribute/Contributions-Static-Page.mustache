@@ -1,0 +1,19 @@
+{{> atoms/iconography/svgicons-search }}
+{{> organisms/global/header_v2}}
+
+<div role="main" id="maincontent">
+  <section class="static-content section">
+    <div class="lc">
+      {{> molecules/ugc/log-out-link }}
+    </div>
+    <div>
+      {{#content.main_content_of_page}}      
+        {{{.}}}
+      {{/content.main_content_of_page}}
+    </div>
+  </section>
+</div>
+
+{{> organisms/sections/banner }}
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}
