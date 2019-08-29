@@ -45,6 +45,13 @@
     {{/navigation.secondary}}
 
     {{#content.resources}}
+      {{#has_campaigns}}
+        <select class="contribution-select" autocomplete="off" onchange="if(this.value){location.href=this.value}else{location.href=location.href.substr(0, location.href.indexOf('?'))}">
+          {{#campaigns}}
+            <option value="{{url}}"{{#is_selected}} selected{{/is_selected}}>{{label}}</option>
+          {{/campaigns}}
+        </select>
+      {{/has_campaigns}}
       {{#has_events}}
         <select class="contribution-select" autocomplete="off" onchange="if(this.value){location.href=this.value}else{location.href=location.href.substr(0, location.href.indexOf('?'))}">
           {{#events}}
