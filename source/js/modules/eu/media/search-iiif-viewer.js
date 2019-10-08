@@ -413,9 +413,9 @@ define(['jquery', 'util_resize'], function($){
         $.each(imageContainingCanvases, function(_, val) {
           labelledData[val.label] = val;
 
-          if(!disabledAnnotations){
-            if(val.otherContent && val.otherContent instanceof Array && val.otherContent.length > 0){
-              annotationData[val.label] = val.otherContent[0]['@id'];
+          if (!disabledAnnotations) {
+            if (val.otherContent && val.otherContent instanceof Array && val.otherContent.length > 0) {
+              annotationData[val.label] = val.otherContent[0]['@id'] ? val.otherContent[0]['@id'] : val.otherContent[0];
             }
           }
 
