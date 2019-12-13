@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "extend": "^3.0.2",
-    "npm": "^6.0.1",
+    "npm": "^6.13.4",
     "phantomjs-prebuilt": "^2.1.16"
   }
 }
