@@ -267,6 +267,7 @@ define(['jquery', 'smartmenus'], function($){
 
     case 'campaigns/europe_at_work/index':
     case 'campaigns/migration/index':
+    case 'campaigns/sport/index':
     case 'contributions/index':
       require(['ugc_index'], function(page){
         page.initPage();
@@ -277,12 +278,16 @@ define(['jquery', 'smartmenus'], function($){
 
     case 'campaigns/europe_at_work/create':
     case 'campaigns/migration/create':
+    case 'campaigns/sport/create':
     case 'campaigns/europe_at_work/new':
     case 'campaigns/migration/new':
+    case 'campaigns/sport/new':
     case 'campaigns/europe_at_work/edit':
     case 'campaigns/migration/edit':
+    case 'campaigns/sport/edit':
     case 'campaigns/europe_at_work/update':
     case 'campaigns/migration/update':
+    case 'campaigns/sport/update':
       require(['ugc'], function(page){
         page.initPage();
         promisedPageJS.resolve();
