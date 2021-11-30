@@ -116,12 +116,13 @@
   padding: 0 32px;
 
   span {
-    display: inline-block;
-    height: 20px;
-    width: 14px;
-    margin-right: 10px;
     background-image: url('../../images/icons/bulb.svg');
     background-repeat: no-repeat;
+    display: inline-block;
+    height: 20px;
+    margin-right: 10px;    
+    width: 14px;
+    
   }
 
   a {
