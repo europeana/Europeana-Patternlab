@@ -116,18 +116,21 @@
   padding: 0 32px;
 
   span {
+    background-image: url("../../images/icons/bulb.svg");
+    background-repeat: no-repeat;
     display: inline-block;
-    height: 2em;
-    transform: scale(0.75);
-    width: 2.2em;
+    height: 20px;
+    margin-right: 10px;
+    width: 14px;
   }
 
   a {
     color: #fff;
+    text-decoration: underline;
 
     &:hover {
       color: #fff;
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 }
